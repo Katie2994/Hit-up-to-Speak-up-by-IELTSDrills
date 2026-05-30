@@ -178,7 +178,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
 
   const handleWordSelect = (word: string) => {
     setTransSelectedWords(prev => [...prev, word]);
-    playTTS(word);
+    playTTS(word, 'en-US', true);
   };
 
   const handleWordRemove = (indexToRem: number) => {
@@ -196,7 +196,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
     
     setTransFeedback({ isCorrect, show: true });
     if (isCorrect) {
-      playTTS(current.audioText);
+      playTTS(current.audioText, 'en-US', true);
     }
   };
 
@@ -279,7 +279,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
     const correct = intonationDrills[intonationIndex].pitch;
     if (ans === correct) {
       setIntonationFeedback("Chính xác! Quy tắc ngữ điệu: " + intonationDrills[intonationIndex].explanation);
-      playTTS(intonationDrills[intonationIndex].sentence);
+      playTTS(intonationDrills[intonationIndex].sentence, 'en-US', true);
     } else {
       setIntonationFeedback("Chưa chính xác rồi. Hãy quan sát kỹ mục đích của câu hỏi/kể và thử suy nghĩ lại nhé!");
     }
@@ -310,7 +310,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
     if (!stressDrills[stressIndex]) return;
     if (idx === stressDrills[stressIndex].correctIndex) {
       setStressFeedback("Đúng thế! Trọng âm chính được nhấn mạnh vào tiết tấu này (đọc to hơn, cao giọng hơn và ngân dài hơn một chút).");
-      playTTS(stressDrills[stressIndex].word);
+      playTTS(stressDrills[stressIndex].word, 'en-US', true);
     } else {
       setStressFeedback("Chưa đúng chỗ. Hãy bấm nghe và cảm nhận âm tiết được nhấn mạnh nhất nhé!");
     }
@@ -407,67 +407,69 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
       </div>
 
       {/* Sub Category Controller (Switcher) */}
-      <div className="bg-[#111]/70 border-b border-[#222] px-4 py-2 sticky top-0 z-20 backdrop-blur-md">
-        <div className="max-w-4xl mx-auto w-full flex justify-center gap-2">
-          {isHowToSpeak ? (
-            <>
-              <button
-                onClick={() => setActiveCommTab('dialogue')}
-                className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center ${
-                  activeCommTab === 'dialogue'
-                    ? 'bg-[#ffe36d] text-black shadow-md font-extrabold'
-                    : 'text-gray-400 hover:text-white hover:bg-[#1A1A1A]'
-                }`}
-              >
-                📖 Bài Học & Lí Thuyết
-              </button>
-              <button
-                onClick={() => setActiveCommTab('skillsLab')}
-                className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center flex items-center justify-center gap-1.5 ${
-                  activeCommTab === 'skillsLab'
-                    ? 'bg-[#dc2323] text-white shadow-md font-extrabold shadow-[#dc2323]/20'
-                    : 'text-[#dc2323]/90 bg-[#dc2323]/5 border border-[#dc2323]/20 hover:bg-[#dc2323]/10'
-                }`}
-              >
-                ⚡ Lab Luyện Âm & Dịch <Sparkles size={13} className="animate-pulse" />
-              </button>
-            </>
-          ) : (
-            <>
-              <button
-                onClick={() => setActiveCommTab('dialogue')}
-                className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center ${
-                  activeCommTab === 'dialogue'
-                    ? 'bg-[#ffe36d] text-black shadow-md font-extrabold'
-                    : 'text-gray-400 hover:text-white hover:bg-[#1A1A1A]'
-                }`}
-              >
-                💬 Đối Thoại (3 Style)
-              </button>
-              <button
-                onClick={() => setActiveCommTab('structures')}
-                className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center ${
-                  activeCommTab === 'structures'
-                    ? 'bg-[#ffe36d] text-black shadow-md font-extrabold'
-                    : 'text-gray-400 hover:text-white hover:bg-[#1A1A1A]'
-                }`}
-              >
-                👔 5 Cấu Trúc Đa Dạng
-              </button>
-              <button
-                onClick={() => setActiveCommTab('skillsLab')}
-                className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center flex items-center justify-center gap-1.5 ${
-                  activeCommTab === 'skillsLab'
-                    ? 'bg-[#dc2323] text-white shadow-md font-extrabold shadow-[#dc2323]/20'
-                    : 'text-[#dc2323]/90 bg-[#dc2323]/5 border border-[#dc2323]/20 hover:bg-[#dc2323]/10'
-                }`}
-              >
-                ⚡ Lab Phát Âm & Dịch <Sparkles size={13} className="animate-pulse" />
-              </button>
-            </>
-          )}
+      {!topic.id.startsWith('review_') && (
+        <div className="bg-[#111]/70 border-b border-[#222] px-4 py-2 sticky top-0 z-20 backdrop-blur-md">
+          <div className="max-w-4xl mx-auto w-full flex justify-center gap-2">
+            {isHowToSpeak ? (
+              <>
+                <button
+                  onClick={() => setActiveCommTab('dialogue')}
+                  className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center ${
+                    activeCommTab === 'dialogue'
+                      ? 'bg-[#ffe36d] text-black shadow-md font-extrabold'
+                      : 'text-gray-400 hover:text-white hover:bg-[#1A1A1A]'
+                  }`}
+                >
+                  📖 Bài Học & Lí Thuyết
+                </button>
+                <button
+                  onClick={() => setActiveCommTab('skillsLab')}
+                  className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center flex items-center justify-center gap-1.5 ${
+                    activeCommTab === 'skillsLab'
+                      ? 'bg-[#dc2323] text-white shadow-md font-extrabold shadow-[#dc2323]/20'
+                      : 'text-[#dc2323]/90 bg-[#dc2323]/5 border border-[#dc2323]/20 hover:bg-[#dc2323]/10'
+                  }`}
+                >
+                  ⚡ Lab Luyện Âm & Dịch <Sparkles size={13} className="animate-pulse" />
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={() => setActiveCommTab('dialogue')}
+                  className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center ${
+                    activeCommTab === 'dialogue'
+                      ? 'bg-[#ffe36d] text-black shadow-md font-extrabold'
+                      : 'text-gray-400 hover:text-white hover:bg-[#1A1A1A]'
+                  }`}
+                >
+                  💬 Đối Thoại (3 Style)
+                </button>
+                <button
+                  onClick={() => setActiveCommTab('structures')}
+                  className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center ${
+                    activeCommTab === 'structures'
+                      ? 'bg-[#ffe36d] text-black shadow-md font-extrabold'
+                      : 'text-gray-400 hover:text-white hover:bg-[#1A1A1A]'
+                  }`}
+                >
+                  👔 5 Cấu Trúc Đa Dạng
+                </button>
+                <button
+                  onClick={() => setActiveCommTab('skillsLab')}
+                  className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center flex items-center justify-center gap-1.5 ${
+                    activeCommTab === 'skillsLab'
+                      ? 'bg-[#dc2323] text-white shadow-md font-extrabold shadow-[#dc2323]/20'
+                      : 'text-[#dc2323]/90 bg-[#dc2323]/5 border border-[#dc2323]/20 hover:bg-[#dc2323]/10'
+                  }`}
+                >
+                  ⚡ Lab Phát Âm & Dịch <Sparkles size={13} className="animate-pulse" />
+                </button>
+              </>
+            )}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Main Content Body */}
       <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-6 pb-24 z-0">
@@ -476,7 +478,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
           <AnimatePresence mode="wait">
             
             {/* TAB 1: DIALOGUE IN 3 SCHOOLS */}
-            {activeCommTab === 'dialogue' && !isHowToSpeak && (
+            {activeCommTab === 'dialogue' && !isHowToSpeak && !topic.id.startsWith('review_') && (
               <motion.div
                 key="dialogue-tab"
                 initial={{ opacity: 0, y: 15 }}
@@ -651,7 +653,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
             )}
 
             {/* TAB 1 FOR HOW TO SPEAK (PRONUNCIATION LESSON) */}
-            {activeCommTab === 'dialogue' && isHowToSpeak && howToSpeakData && (
+            {activeCommTab === 'dialogue' && isHowToSpeak && howToSpeakData && !topic.id.startsWith('review_') && (
                <motion.div
                  key="how-to-speak-lesson-tab"
                  initial={{ opacity: 0, y: 15 }}
@@ -817,7 +819,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
             )}
 
             {/* TAB 2: SENTENCE STRUCTURES IN 3 SCHOOLS */}
-            {activeCommTab === 'structures' && !isHowToSpeak && (
+            {activeCommTab === 'structures' && !isHowToSpeak && !topic.id.startsWith('review_') && (
               <motion.div
                 key="structures-tab"
                 initial={{ opacity: 0, y: 15 }}
@@ -900,7 +902,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
             )}
 
             {/* TAB 3: INTEGRATED SKILLS LAB */}
-            {activeCommTab === 'skillsLab' && (
+            {activeCommTab === 'skillsLab' && !topic.id.startsWith('review_') && (
               <motion.div
                 key="skills-lab-tab"
                 initial={{ opacity: 0, scale: 0.98 }}
@@ -995,15 +997,32 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                       {transSelectedWords.length === 0 ? (
                         <p className="text-xs font-bold uppercase tracking-wider text-gray-600 italic">Chọn các từ bên dưới theo thứ tự chính xác</p>
                       ) : (
-                        transSelectedWords.map((word, wIdx) => (
-                          <button
-                            key={wIdx}
-                            onClick={() => handleWordRemove(wIdx)}
-                            className="bg-white text-black font-black text-sm px-3.5 py-1.5 rounded-xl flex items-center gap-1 hover:bg-red-50 hover:text-red-600 border border-transparent hover:border-red-200 transition-all shadow-md"
-                          >
-                            {word} <span className="text-[10px] font-bold opacity-60">×</span>
-                          </button>
-                        ))
+                        transSelectedWords.map((word, wIdx) => {
+                          const correctWord = transDrills[transIndex]?.correctSequence[wIdx];
+                          const isCorrectPos = correctWord && word.toLowerCase().replace(/[.,!?]/g, "").trim() === correctWord.toLowerCase().replace(/[.,!?]/g, "").trim();
+                          
+                          return (
+                            <motion.button
+                              key={`${wIdx}-${word}`}
+                              initial={{ scale: 0.8, opacity: 0, y: 8 }}
+                              animate={{ 
+                                scale: isCorrectPos ? [0.9, 1.15, 1] : 1, 
+                                opacity: 1, 
+                                y: 0 
+                              }}
+                              transition={{ duration: 0.25 }}
+                              onClick={() => handleWordRemove(wIdx)}
+                              className={`font-black text-sm px-3.5 py-1.5 rounded-xl flex items-center gap-1.5 transition-all shadow-md border ${
+                                isCorrectPos 
+                                  ? 'bg-[#1b4332] border-[#2d6a4f] text-[#d8f3dc] shadow-[0_0_12px_rgba(16,185,129,0.15)]' 
+                                  : 'bg-white text-black border-transparent hover:bg-rose-50 hover:text-rose-600'
+                              }`}
+                            >
+                              {isCorrectPos && <span className="text-xs text-[#6af29f]">✓</span>}
+                              {word} <span className="text-[10px] font-bold opacity-60">×</span>
+                            </motion.button>
+                          );
+                        })
                       )}
                     </div>
 
@@ -1032,8 +1051,8 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                     {transFeedback && (
                       <div className={`p-4 rounded-2xl text-center font-bold text-sm ${
                         transFeedback.isCorrect 
-                          ? 'bg-emerald-500/10 border border-emerald-500/20 text-[#4ECDC4]'
-                          : 'bg-rose-500/10 border border-rose-500/20 text-rose-400'
+                           ? 'bg-emerald-500/10 border border-emerald-500/20 text-[#4ECDC4]'
+                           : 'bg-rose-500/10 border border-rose-500/20 text-rose-400'
                       }`}>
                         {transFeedback.isCorrect ? (
                           <p className="flex items-center justify-center gap-2 text-base font-black uppercase tracking-wider">
@@ -1050,7 +1069,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                         onClick={resetTranslationDrill}
                         className="flex items-center gap-2 px-5 py-3.5 bg-[#222] hover:bg-[#333] text-gray-300 font-bold uppercase tracking-widest text-xs rounded-xl border border-[#444] transition-all active:scale-95"
                       >
-                        <RefreshCw size={14} /> Làm Lạic
+                        <RefreshCw size={14} /> Làm Lại
                       </button>
 
                       {!transFeedback?.isCorrect ? (
@@ -1095,7 +1114,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                       {chunkingDrills[chunkingIndex].chunks?.map((chk: any, cIdx: number) => (
                         <div key={cIdx} className="flex items-center">
                           <button
-                            onClick={() => playTTS(chk.text)}
+                            onClick={() => playTTS(chk.text, 'en-US', true)}
                             className={`font-black text-base px-5 py-3 border-2 transition-all active:translate-y-1 ${
                               chunkingRevealed 
                                 ? 'bg-[#ffe36d] text-black border-black shadow-[3px_3px_0_0_rgba(255,227,109,0.3)]' 
@@ -1122,7 +1141,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                         onClick={() => {
                           setChunkingRevealed(!chunkingRevealed);
                           if (!chunkingRevealed) {
-                            playTTS(chunkingDrills[chunkingIndex].chunks?.map((c: any) => c.text).join(' ') || '');
+                            playTTS(chunkingDrills[chunkingIndex].chunks?.map((c: any) => c.text).join(' ') || '', 'en-US', true);
                           }
                         }}
                         className="px-6 py-3.5 bg-white text-black font-black uppercase tracking-widest text-xs rounded-xl active:scale-95 transition-all flex items-center gap-2 leading-none"
@@ -1312,7 +1331,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                         onClick={() => {
                           setLinkingActivated(!linkingActivated);
                           if (!linkingActivated) {
-                            playTTS(linkingDrills[linkingIndex].phrase);
+                            playTTS(linkingDrills[linkingIndex].phrase, 'en-US', true);
                           }
                         }}
                         className="px-6 py-3.5 bg-white text-black font-black uppercase tracking-widest text-xs rounded-xl active:scale-95 transition-all flex items-center gap-2 leading-none"
@@ -1337,12 +1356,12 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
 
           </AnimatePresence>
 
-          {/* Core Words list (Always show general flashcard list underneath on dialogue/structures tabs) */}
-          {activeCommTab !== 'skillsLab' && (
+          {/* Core Words list (Always show general flashcard list underneath on dialogue/structures tabs, or always show for review topics) */}
+          {(activeCommTab !== 'skillsLab' || topic.id.startsWith('review_')) && (
             <div className="mt-12">
-              <h3 className="text-base font-black uppercase tracking-widest text-gray-400 mb-5 px-1 flex items-center gap-2">
+              <h3 className="text-base font-black uppercase tracking-widest text-[#ffe36d] mb-5 px-1 flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#ffe36d]"></span>
-                Danh sách Từ Vựng cốt lõi ({topic.words.length})
+                {topic.id.startsWith('review_') ? "Từ Vựng Ôn Tập Tổng Hợp" : "Danh sách Từ Vựng cốt lõi"} ({topic.words.length})
               </h3>
               <div className="grid grid-cols-1 gap-3">
                 {topic.words.map((w, index) => (

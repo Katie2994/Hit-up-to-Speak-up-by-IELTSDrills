@@ -228,7 +228,7 @@ const HANDCRAFTED_STRUCTURES: Record<string, Structure[]> = {
       vietnamese: 'Bạn làm công việc gì?',
       business: { phrase: 'What line of work are you in?', example: 'What line of work are you in if I may ask?', translation: 'Nếu tôi có thể hỏi, ông/bà đang làm trong lĩnh vực nào ạ?' },
       casualStyle: { phrase: 'What do you do for a living?', example: 'What do you do for a living? Are you currently working?', translation: 'Bạn làm nghề gì để kiếm sống vậy? Có đang đi làm không?' },
-      superCasual: { phrase: 'What do you do for bread?', example: 'So what do you do for bread?', translation: 'Thế cày cuốc gì để kiếm cơm vậy?' }
+      superCasual: { phrase: "What's your hustle?", example: "So what's your hustle?", translation: 'Thế cày cuốc gì để kiếm cơm vậy?' }
     },
     {
       phrase: 'Nice to meet you.',
@@ -236,7 +236,7 @@ const HANDCRAFTED_STRUCTURES: Record<string, Structure[]> = {
       vietnamese: 'Rất vui được gặp bạn.',
       business: { phrase: 'It is a pleasure meeting you today.', example: 'It is a pleasure meeting you today, looking forward to our collaboration.', translation: 'Hôm nay được gặp anh/chị thật là vinh hạnh, mong chờ sự hợp tác của chúng ta.' },
       casualStyle: { phrase: 'Great meeting you.', example: 'Great meeting you, Jamie. Hope to see you around.', translation: 'Rất vui được gặp bạn, Jamie. Hy vọng sớm gặp lại nhé.' },
-      superCasual: { phrase: 'Class meeting you.', example: 'Class meeting you. Catch you later!', translation: 'Gặp bồ vui ghê. Gặp lại sau nha!' }
+      superCasual: { phrase: 'Good meeting you.', example: 'Good meeting you. Catch you later!', translation: 'Gặp bồ vui ghê. Gặp lại sau nha!' }
     },
     {
       phrase: 'I did not catch your name.',
@@ -339,7 +339,7 @@ const HANDCRAFTED_DIALOGUES: Record<string, any[]> = {
         { participant: 'Chase', text: "Yo, nice one Ryan. I'm Chase. Just practicing some flatground tricks.", translation: "Yo, cảm ơn ông nhé Ryan. Mình là Chase. Đang dợt mấy bài trượt căn bản thôi ấy mà." },
         { participant: 'Ryan', text: 'Your name again? My memory is shot today. Where you reppin anyway?', translation: 'Tên ông là gì ấy nhỉ? Nay đầu tôi cá vàng quá. Mà quê gốc ở đâu ông?' },
         { participant: 'Chase', text: 'Haha no worries, Chase. Reppin Cali. What about you?', translation: 'Haha không sao đâu, Chase nhé. Gốc Cali á. Còn ông thì sao?' },
-        { participant: 'Ryan', text: 'Brooklyn born. What do you do for bread, man?', translation: 'Sinh ở Brooklyn nhé. Thế bình thường cày bừa gì để kiếm cơm vậy?' },
+        { participant: 'Ryan', text: "Brooklyn born. What's your hustle, man?", translation: 'Sinh ở Brooklyn nhé. Thế bình thường cày bừa gì để kiếm cơm vậy?' },
         { participant: 'Chase', text: 'Just coding side gigs, keeps my pockets full enough to skate. Good vibes!', translation: 'Làm mấy việc viết code linh tinh thôi, đủ lúa trang trải để đi trượt ván. Vui vẻ là chính!' }
       ]
     }

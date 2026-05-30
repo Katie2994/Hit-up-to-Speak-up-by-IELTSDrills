@@ -11,7 +11,7 @@ const STUDENT_TEMPLATES = {
     transition: ["Pardon the inquiry, but regarding...", "I would highly appreciate your academic guidance."]
   },
   superCasual: {
-    greetings: ["Yo! Meet...", "Hey ya! Just checking in."],
+    greetings: ["Hey y'all! Meet...", "Hey ya! Just checking in."],
     closing: ["Stoked to nail this term together, no cap!", "Hit me up when you're free, bro."],
     transition: ["Ngl, this is pretty wild...", "Down for some sprint reviews later?"]
   }
@@ -24,7 +24,7 @@ const PROFESSIONAL_TEMPLATES = {
     transition: ["Regarding our current agenda...", "Please keep me apprised of any development."]
   },
   superCasual: {
-    greetings: ["Hey folks!", "Yo team! Up and running."],
+    greetings: ["Hey folks!", "Hi team! Up and running."],
     closing: ["Let's crush this sprint, peeps!", "Catch ya later! Cheers."],
     transition: ["Just a quick ping here...", "Ngl, we gotta speed this up fr."]
   }
@@ -38,7 +38,7 @@ const BEAUTY_TEMPLATES = {
   },
   superCasual: {
     greetings: ["Hey girl!", "Oh, hi honey! Look who's here."],
-    closing: ["Slay! You look absolutely gorgeous! ✨", "Check that shine! So lit."],
+    closing: ["Gorgeous! You look absolutely stunning! ✨", "Check that shine! So lit."],
     transition: ["Let's get this party started!", "Gotta cure this under the lamp real quick."]
   }
 };
@@ -50,7 +50,7 @@ const FRIENDS_TEMPLATES = {
     transition: ["If I may enquire...", "Fascinating perspective regarding..."]
   },
   superCasual: {
-    greetings: ["Yo! High five!", "Hey! What's crackin', buddy?"],
+    greetings: ["Hi buddy!", "Hey! What's crackin', buddy?"],
     closing: ["Catch you on Discord, fr!", "We gotta hang out again sometime soon, no cap."],
     transition: ["So wild, ngl...", "Wait, seriously? That's so suss!"]
   }
@@ -70,7 +70,7 @@ const PARENT_CHILD_TEMPLATES = {
 };
 
 // Generates cohesive and high-quality 3-level registers for structures
-function enrichStructure(struct: Structure, category: string): Structure {
+function enrichStructure(struct: Structure, category: string, index: number = 0): Structure {
   const result: Structure = { ...struct };
   
   const basePhrase = struct.phrase;
@@ -148,25 +148,33 @@ function enrichStructure(struct: Structure, category: string): Structure {
     let slangTranslation = baseVietnamese;
 
     if (category.toLowerCase().includes('student')) {
-      slangPhrase = `Yo, ${basePhrase.toLowerCase().replace("could you", "wanna").replace("may i", "can I check")}`;
-      slangExample = `Yo, ngl, ${slangPhrase.toLowerCase().replace("...", "this semester is wild!")}`;
-      slangTranslation = `[Đồng nghiệp / Bạn học thân thiết] Ê bồ tèo ơi, thực sự là ${baseVietnamese.toLowerCase()}`;
+      const prefixes = ["Hey,", "Sup,", "Ngl,", "Bro, is", "Check this:"];
+      const prefix = prefixes[index % prefixes.length];
+      slangPhrase = `${prefix} ${basePhrase.toLowerCase().replace("could you", "wanna").replace("may i", "can I check")}`;
+      slangExample = `${prefix} ngl, ${slangPhrase.toLowerCase().replace("...", "this semester is wild!")}`;
+      slangTranslation = `[Đồng nghiệp / Bạn học thân thiết] Ê bồ tèo ơi, thực sực là ${baseVietnamese.toLowerCase()}`;
     } else if (category.toLowerCase().includes('beauty') || category.toLowerCase().includes('nail')) {
-      slangPhrase = `Slay! ${basePhrase.toLowerCase()}`;
-      slangExample = `Girl, slay! This design looks absolutely gorgeous and lit, fr!`;
-      slangTranslation = `[Giao lưu nồng nhiệt khách tiệm] Trời ơi bộ này xuất sắc slay đỉnh chóp luôn chị iu, xịn đét mờ ê mê! ✨`;
+      const prefixes = ["Stunning!", "Gorgeous!", "Super chic!", "On point!", "Absolutely killer!"];
+      const prefix = prefixes[index % prefixes.length];
+      slangPhrase = `${prefix} ${basePhrase.toLowerCase()}`;
+      slangExample = `Girl, ${prefix.toLowerCase().replace("!", "")} this design looks absolutely gorgeous, fr!`;
+      slangTranslation = `[Giao lưu nồng nhiệt khách tiệm] Trời ơi bộ này xuất sắc ${prefix.toLowerCase().replace("!", "")} đỉnh chóp luôn chị iu, xịn đét mờ ê mê! ✨`;
     } else if (category.toLowerCase().includes('parent')) {
       slangPhrase = `Hey sweetie-pie, ${basePhrase.toLowerCase()}`;
       slangExample = `Oh wow, sweetie! ${slangPhrase} You did amazing, high five!`;
       slangTranslation = `[Nói chuyện cực kỳ cưng nựng, vui tươi] Ôi bé cưng ơi, ${baseVietnamese.toLowerCase()} ôm hôn con một cái nhen! ❤️`;
     } else if (category.toLowerCase().includes('friend')) {
-      slangPhrase = `Yo! Ngl, ${basePhrase.toLowerCase().replace("would you like to", "wanna")}`;
-      slangExample = `Yo! Ngl, ${slangPhrase.toLowerCase().replace("...", "this awesome setup is so lit, hit me up!")}`;
+      const prefixes = ["Yo!", "Hey buddy!", "What's crackin'!", "Wassup!", "Ngl,"];
+      const prefix = prefixes[index % prefixes.length];
+      slangPhrase = `${prefix} ${basePhrase.toLowerCase().replace("would you like to", "wanna")}`;
+      slangExample = `${prefix} ${slangPhrase.toLowerCase().replace("...", "this awesome setup is so lit, hit me up!")}`;
       slangTranslation = `[Bạn thân quốc tế / Game thủ / Chat Discord] Thề luôn, đỉnh quá ông ơi, ${baseVietnamese.toLowerCase()} luôn sòng phẳng nhe!`;
     } else {
       // Professionals
-      slangPhrase = `Yo! Just pinging to check ${basePhrase.toLowerCase().replace("am responsible for", "deal with")}`;
-      slangExample = `Yo team! Just pinging to check: ${slangPhrase.toLowerCase()} to secure our sprint delivery.`;
+      const prefixes = ["Hey team!", "Quick ping!", "Hey folks!", "Hi team!", "Just pinging!"];
+      const prefix = prefixes[index % prefixes.length];
+      slangPhrase = `${prefix} ${basePhrase.toLowerCase().replace("am responsible for", "deal with")}`;
+      slangExample = `Team, ${prefix.toLowerCase()} checking in: ${slangPhrase.toLowerCase()} to secure our sprint delivery.`;
       slangTranslation = `[Nhắn Slack/Zalo siêu thân mật với cạ cứng phòng ban] Ê sếp iu / đồng nghiệp ruột ơi, tớ nhắn lẹ xíu để ${baseVietnamese.toLowerCase()}`;
     }
 
@@ -188,7 +196,7 @@ function enrichDialogue(original: Dialogue, category: string, school: 'business'
     title: `${original.title} (${school === 'business' ? '👔 Business/Semi-formal' : school === 'superCasual' ? '⚡ Super Casual' : '💬 Casual Standard'})`
   };
 
-  result.lines = original.lines.map((line) => {
+  result.lines = original.lines.map((line, lineIdx) => {
     const newLine: DialogueLine = { ...line };
     const originalText = line.text;
     const originalTrans = line.translation || "";
@@ -253,7 +261,9 @@ function enrichDialogue(original: Dialogue, category: string, school: 'business'
     } else if (school === 'superCasual') {
       // Apply highly slangy Gen Z peer chat rules
       if (category.toLowerCase().includes('student')) {
-        newLine.text = `Yo! ${originalText
+        const studentGreetings = ["Hey y'all!", "Ngl,", "Sup fam!", "Whassup!", "Oh boy,", "Hey hey!"];
+        const greeting = studentGreetings[lineIdx % studentGreetings.length];
+        newLine.text = `${greeting} ${originalText
           .replace(/hey|hi|hello/gi, "Whaddian, bro!")
           .replace(/introduce myself/gi, "toss my name out")
           .replace(/software design/gi, "coding stuff")
@@ -263,20 +273,22 @@ function enrichDialogue(original: Dialogue, category: string, school: 'business'
           .replace(/schedule/gi, "daily sheet")}, ngl!`;
         
         newLine.translation = `[Bồ tèo thân thiết] Ê bồ! ${originalTrans
-          .replace(/chào cậu|xin chào/gi, "Yo súp lô bồ ơi!")
+          .replace(/chào cậu|xin chào/gi, "súp lô bồ ơi!")
           .replace(/tôi|mình/gi, "tớ")
           .replace(/bạn|cậu/gi, "bồ tèo")
           .replace(/tuyệt vời|tốt quá/gi, "đỉnh chóp luôn, ngầu đét!")}`;
       } else if (category.toLowerCase().includes('beauty') || category.toLowerCase().includes('nail')) {
-        newLine.text = `Slay, honey! ${originalText
-          .replace(/hey|hi/gi, "Yo, gorgeous!")
+        const beautyGreetings = ["Oh gorgeous!", "Fabulous, honey!", "On point!", "Perfection!", "Stunning!", "Super chic!", "Glow up!"];
+        const greeting = beautyGreetings[lineIdx % beautyGreetings.length];
+        newLine.text = `${greeting} ${originalText
+          .replace(/hey|hi/gi, "gorgeous!")
           .replace(/want/gi, "gotta secure a custom")
           .replace(/nails done/gi, "killer nails set")
           .replace(/price/gi, "bucks / deal")
           .replace(/tip/gi, "cash on top")
-          .replace(/heavy|clumpy/gi, "spider-heavy, so clumpy, fr")}, love it!`;
+          .replace(/heavy|clumpy/gi, "spider-heavy, so clumpy, fr")}`;
         
-        newLine.translation = `[Chị em bạn dì slay] Ôi chị iu ơi! Bộ này siêu slay, ${originalTrans
+        newLine.translation = `[Chị em bạn dì slay] Ôi chị iu ơi! Bộ này siêu lung linh, ${originalTrans
           .replace(/quý khách|chị/gi, "chị đẹp / tình yêu")
           .replace(/tiền tip/gi, "bắn tip lấy lộc tay")
           .replace(/tuyệt vời/gi, "xịn sò hết nước chấm")}`;
@@ -292,7 +304,9 @@ function enrichDialogue(original: Dialogue, category: string, school: 'business'
           .replace(/được rồi|đúng thế/gi, "đỉnh luôn nhen con trai cưng của mẹ, ngoan quá đi")}`;
       } else {
         // Professionals / Friends
-        newLine.text = `Yo! ${originalText
+        const profGreetings = ["Hey folks!", "Quick ping!", "Alright team,", "What's crackin'!", "Sup!", "Hey team!"];
+        const greeting = profGreetings[lineIdx % profGreetings.length];
+        newLine.text = `${greeting} ${originalText
           .replace(/hey|hi/gi, "Hey ya!")
           .replace(/collaborate/gi, "team up")
           .replace(/point of contact/gi, "main guy")
@@ -317,7 +331,7 @@ export function enrichTopics(topics: Topic[], category: string): Topic[] {
   return topics.map((t) => {
     // 1. Process structures
     const enrichedStructures = t.structures 
-      ? t.structures.map((s) => enrichStructure(s, t.subCategory?.[0] || category))
+      ? t.structures.map((s, idx) => enrichStructure(s, t.subCategory?.[0] || category, idx))
       : [];
 
     // 2. Process dialogues: We must supply exactly three full dialogue transcripts

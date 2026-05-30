@@ -1,4 +1,4 @@
-export const playTTS = async (text: string, lang: string = 'en-US') => {
+export const playTTS = async (text: string, lang: string = 'en-US', forceStandardTTS: boolean = false) => {
   try {
     const saved = localStorage.getItem('vocabjoy_progress');
     if (saved) {
@@ -11,33 +11,35 @@ export const playTTS = async (text: string, lang: string = 'en-US') => {
     // Ignore error
   }
 
-  // System sounds
-  if (text === "Correct!") {
-    new Audio("https://api.dictionaryapi.dev/media/pronunciations/en/correct-us.mp3").play().catch(console.error);
-    return;
-  }
-  
-  if (text.startsWith("Oops") || text === "Wrong!") {
-    new Audio("https://api.dictionaryapi.dev/media/pronunciations/en/wrong-ca.mp3").play().catch(console.error);
-    return;
-  }
+  if (!forceStandardTTS) {
+    // System sounds
+    if (text === "Correct!") {
+      new Audio("https://api.dictionaryapi.dev/media/pronunciations/en/correct-us.mp3").play().catch(console.error);
+      return;
+    }
+    
+    if (text.startsWith("Oops") || text === "Wrong!") {
+      new Audio("https://api.dictionaryapi.dev/media/pronunciations/en/wrong-ca.mp3").play().catch(console.error);
+      return;
+    }
 
-  // Try to get authentic audio from Dictionary API for single words
-  const cleanWord = text.trim().toLowerCase();
-  if (!cleanWord.includes(' ')) {
-    try {
-      const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${cleanWord}`);
-      const data = await response.json();
-      if (Array.isArray(data) && data[0].phonetics) {
-        const audioUrl = data[0].phonetics.find((p: any) => p.audio !== '')?.audio;
-        if (audioUrl) {
-          const audio = new Audio(audioUrl);
-          audio.play().catch(console.error);
-          return;
+    // Try to get authentic audio from Dictionary API for single words
+    const cleanWord = text.trim().toLowerCase();
+    if (!cleanWord.includes(' ')) {
+      try {
+        const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${cleanWord}`);
+        const data = await response.json();
+        if (Array.isArray(data) && data[0].phonetics) {
+          const audioUrl = data[0].phonetics.find((p: any) => p.audio !== '')?.audio;
+          if (audioUrl) {
+            const audio = new Audio(audioUrl);
+            audio.play().catch(console.error);
+            return;
+          }
         }
+      } catch (e) {
+        console.log('API Audio failed, falling back to TTS');
       }
-    } catch (e) {
-      console.log('API Audio failed, falling back to TTS');
     }
   }
 
