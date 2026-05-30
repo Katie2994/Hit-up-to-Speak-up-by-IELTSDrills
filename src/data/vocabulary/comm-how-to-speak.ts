@@ -11,9 +11,9 @@ export const howToSpeakTopics: Topic[] = [
     color: '#E63946',
     description: 'Cách ngắt cụm từ để nói tự nhiên và dễ hiểu hơn.',
     words: [
-      { id: 'hts1-1', word: 'Chunk', ipa: '/tʃʌŋk/', definition: 'Một cụm từ ngắn.', translation: 'Cụm từ', example: 'Speak in chunks, not word by word.', blankSentence: 'Read this ____.', emoji: '🧩' },
-      { id: 'hts1-2', word: 'Pause', ipa: '/pɔːz/', definition: 'Khoảng nghỉ giữa các cụm.', translation: 'Khoảng nghỉ', example: 'Take a short pause after a comma.', blankSentence: 'There is a long ____.', emoji: '⏸️' },
-      { id: 'hts1-3', word: 'Rhythm', ipa: '/ˈrɪðəm/', definition: 'Nhịp điệu khi nói.', translation: 'Nhịp điệu', example: 'English has a natural rhythm.', blankSentence: 'Feel the ____.', emoji: '🎶' }
+      { id: 'hts1-1', word: 'Chunk', ipa: '/tʃʌŋk/', definition: 'Một cụm từ ngắn.', translation: 'Cụm từ', example: 'Speak in chunks, not word by word.', blankSentence: 'Try to speak in logical ____s for natural flow.', emoji: '🧩' },
+      { id: 'hts1-2', word: 'Pause', ipa: '/pɔːz/', definition: 'Khoảng nghỉ giữa các cụm.', translation: 'Khoảng nghỉ', example: 'Take a short pause after a comma.', blankSentence: 'Take a short ____ before finishing your sentence.', emoji: '⏸️' },
+      { id: 'hts1-3', word: 'Rhythm', ipa: '/ˈrɪðəm/', definition: 'Nhịp điệu khi nói.', translation: 'Nhịp điệu', example: 'English has a natural rhythm.', blankSentence: 'English speakers speak with a musical ____.', emoji: '🎶' }
     ],
     howToSpeak: [
       {
@@ -122,9 +122,9 @@ export const howToSpeakTopics: Topic[] = [
     color: '#457B9D',
     description: 'Cách lên và xuống giọng để thể hiện cảm xúc và ý nghĩa.',
     words: [
-      { id: 'hts2-1', word: 'Pitch', ipa: '/pɪtʃ/', definition: 'Độ cao của giọng nói.', translation: 'Độ cao giọng', example: 'Change your pitch to show surprise.', blankSentence: 'His voice has a high ____.', emoji: '📈' },
-      { id: 'hts2-2', word: 'Rising', ipa: '/ˈraɪzɪŋ/', definition: 'Lên giọng ở cuối câu.', translation: 'Lên giọng', example: 'Use rising intonation for Yes/No questions.', blankSentence: 'It has a ____ tone.', emoji: '↗️' },
-      { id: 'hts2-3', word: 'Falling', ipa: '/ˈfɔːlɪŋ/', definition: 'Xuống giọng ở cuối câu.', translation: 'Xuống giọng', example: 'Use falling intonation for statements.', blankSentence: 'A ____ trend.', emoji: '↘️' }
+      { id: 'hts2-1', word: 'Pitch', ipa: '/pɪtʃ/', definition: 'Độ cao của giọng nói.', translation: 'Độ cao giọng', example: 'Change your pitch to show surprise.', blankSentence: 'You can change your vocal ____ to sound more exciting.', emoji: '📈' },
+      { id: 'hts2-2', word: 'Rising', ipa: '/ˈraɪzɪŋ/', definition: 'Lên giọng ở cuối câu.', translation: 'Lên giọng', example: 'Use rising intonation for Yes/No questions.', blankSentence: 'Use ____ intonation at the end of yes-no questions.', emoji: '↗️' },
+      { id: 'hts2-3', word: 'Falling', ipa: '/ˈfɔːlɪŋ/', definition: 'Xuống giọng ở cuối câu.', translation: 'Xuống giọng', example: 'Use falling intonation for statements.', blankSentence: 'Statements usually end with a ____ intonation.', emoji: '↘️' }
     ],
     howToSpeak: [
       {
@@ -240,8 +240,8 @@ export const howToSpeakTopics: Topic[] = [
     color: '#F4A261',
     description: 'Nhấn mạnh từ hoặc âm tiết quan trọng trong câu.',
     words: [
-      { id: 'hts3-1', word: 'Stress', ipa: '/stres/', definition: 'Nhấn mạnh.', translation: 'Trọng âm', example: 'Put stress on the first syllable.', blankSentence: 'Pay attention to the ____.', emoji: '🎯' },
-      { id: 'hts3-2', word: 'Syllable', ipa: '/ˈsɪləbl/', definition: 'Âm tiết.', translation: 'Âm tiết', example: 'The word "water" has two syllables.', blankSentence: 'Count the ____.', emoji: '🔠' }
+      { id: 'hts3-1', word: 'Stress', ipa: '/stres/', definition: 'Nhấn mạnh.', translation: 'Trọng âm', example: 'Put stress on the first syllable.', blankSentence: 'Proper sentence ____ emphasizes the most important keywords.', emoji: '🎯' },
+      { id: 'hts3-2', word: 'Syllable', ipa: '/ˈsɪləbl/', definition: 'Âm tiết.', translation: 'Âm tiết', example: 'The word "water" has two syllables.', blankSentence: 'The word "beautiful" contains three different ____s.', emoji: '🔠' }
     ],
     howToSpeak: [
       {
@@ -388,8 +388,8 @@ export const howToSpeakTopics: Topic[] = [
     color: '#2A9D8F',
     description: 'Cách nối các từ lại với nhau khi nói nhanh.',
     words: [
-      { id: 'hts4-1', word: 'Link', ipa: '/lɪŋk/', definition: 'Nối lại.', translation: 'Nối', example: 'Link the consonant to the vowel.', blankSentence: '____ the words together.', emoji: '🤝' },
-      { id: 'hts4-2', word: 'Blend', ipa: '/blend/', definition: 'Hòa quyện âm thanh.', translation: 'Hòa quyện', example: 'Blend the sounds to speak faster.', blankSentence: 'Make a good ____.', emoji: '🌪️' }
+      { id: 'hts4-1', word: 'Link', ipa: '/lɪŋk/', definition: 'Nối lại.', translation: 'Nối', example: 'Link the consonant to the vowel.', blankSentence: 'Fluent speakers usually ____ a final consonant to the next vowel.', emoji: '🤝' },
+      { id: 'hts4-2', word: 'Blend', ipa: '/blend/', definition: 'Hòa quyện âm thanh.', translation: 'Hòa quyện', example: 'Blend the sounds to speak faster.', blankSentence: 'The letters T and Y often ____ to form a "ch" sound.', emoji: '🌪️' }
     ],
     howToSpeak: [
       {

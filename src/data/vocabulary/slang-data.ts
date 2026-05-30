@@ -84,5 +84,26 @@ export const slangTopics: Topic[] = [
       { id: 'sca-9', word: 'Poutine', ipa: '/puːˈtiːn/', definition: 'Fries covered in cheese curds and gravy.', translation: 'Khoai tây chiên sốt', example: 'Poutine is a classic Canadian dish.', blankSentence: 'We ordered some delicious ____.', emoji: '🍟' },
       { id: 'sca-10', word: 'Keener', ipa: '/ˈkiːnər/', definition: 'Someone who is extremely eager or enthusiastic.', translation: 'Kẻ hăng hái thái quá', example: 'She is such a keener in class.', blankSentence: 'He is the real ____ of the group.', emoji: '🤓' },
     ]
+  },
+  {
+    id: 'slang-nz',
+    title: 'New Zealand Slang',
+    vietnameseTitle: 'Tiếng lóng Anh-New Zealand',
+    category: 'Slang',
+    icon: '🇳🇿',
+    color: '#00247D',
+    description: 'Unique and quirky slang from the beautiful islands of New Zealand.',
+    words: [
+      { id: 'snz-1', word: 'Chur', ipa: '/tʃɜːr/', definition: 'Cheers, thank you, or an expression of agreement/greeting.', translation: 'Cảm ơn/Chào bạn', example: 'Chur, bro! Appreciate the help.', blankSentence: 'I just wanted to say ____ for the coffee.', emoji: '🤙' },
+      { id: 'snz-2', word: 'Sweet as', ipa: '/swiːt æz/', definition: 'Great, awesome, or no problem.', translation: 'Tuyệt vời/Không sao', example: 'You can borrow my car tomorrow. Sweet as!', blankSentence: 'If you can make it tonight, that would be ____.', emoji: '😎' },
+      { id: 'snz-3', word: 'Bro', ipa: '/broʊ/', definition: 'Brother or friend; a term of address.', translation: 'Chiến hữu/Người anh em', example: 'What\'s up, bro?', blankSentence: 'How have you been, ____?', emoji: '🤝' },
+      { id: 'snz-4', word: 'Choice', ipa: '/tʃɔɪs/', definition: 'Excellent, awesome, or cool.', translation: 'Tuyệt đỉnh/Quá xịn', example: 'He gave me a choice seat at the game.', blankSentence: 'That lunch you cooked was absolute ____.', emoji: '🔥' },
+      { id: 'snz-5', word: 'Dairy', ipa: '/ˈdeəri/', definition: 'A local corner convenience store or newsagent.', translation: 'Cửa hàng tiện lợi', example: 'Can you go to the dairy to buy some milk?', blankSentence: 'I need to grab an ice cream at the local ____.', emoji: '🏪' },
+      { id: 'snz-6', word: 'Tiki tour', ipa: '/ˈtiːki tʊər/', definition: 'A scenic or roundabout route to get somewhere.', translation: 'Đi lòng vòng ngắm cảnh', example: 'We took a tiki tour through the forest instead of taking the highway.', blankSentence: 'We got lost and ended up taking a ____ of the city.', emoji: '🚗' },
+      { id: 'snz-7', word: 'Yeah nah', ipa: '/jeə nɑː/', definition: 'Technically means "no", but polite (acknowledging first, then declining).', translation: 'Cũng đúng nhưng thôi', example: 'Yeah nah, I don\'t think I want to go out tonight.', blankSentence: '____, that doesn\'t sound like a good plan.', emoji: '🙅' },
+      { id: 'snz-8', word: 'Wop-wops', ipa: '/wɒp wɒps/', definition: 'The middle of nowhere; extremely remote areas.', translation: 'Nơi khỉ ho cò gáy', example: 'They live out in the wop-wops, miles away from town.', blankSentence: 'His cabin is located somewhere in the ____.', emoji: '🪵' },
+      { id: 'snz-9', word: 'Scran', ipa: '/skræn/', definition: 'Food, grub, or a delicious meal.', translation: 'Mồi ngon/Đồ ăn thức uống', example: 'Let\'s grab some decent scran from the bakery.', blankSentence: 'We need some proper ____ for the road trip.', emoji: '🍔' },
+      { id: 'snz-10', word: 'Flat out', ipa: '/flæt aʊt/', definition: 'Extremely busy or at full capacity.', translation: 'Bận ngập đầu', example: 'I have been flat out with work all week.', blankSentence: 'She is ____ preparing for the product presentation.', emoji: '🏃‍♂️' }
+    ]
   }
 ];

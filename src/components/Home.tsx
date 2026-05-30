@@ -4,6 +4,7 @@ import {
   Sparkles, BookOpen, Layers, Heart, Bookmark, Search, Volume2
 } from 'lucide-react';
 import { Topic, VOCAB_TOPICS } from '../data/vocab';
+import { augmentTopic } from '../utils/vocabAugmenter';
 import { motion, AnimatePresence } from 'motion/react';
 import { playTTS } from '../services/tts';
 
@@ -155,6 +156,19 @@ export function Home({ onSelectTopic, activeCategory, setActiveCategory, activeC
           const reviewWords = reviewBuffer.flatMap(t => t.words || []);
           const includedTopicTitles = reviewBuffer.map(t => t.title).join(', ');
           
+          // Pre-augment buffer topics to fetch dialogues and structures
+          const reviewDialogues: any[] = [];
+          const reviewStructures: any[] = [];
+          reviewBuffer.forEach(t => {
+            const augmented = augmentTopic(t);
+            if (augmented.dialogues) {
+              reviewDialogues.push(...augmented.dialogues);
+            }
+            if (augmented.structures) {
+              reviewStructures.push(...augmented.structures);
+            }
+          });
+          
           result.push({
             id: `review_${activeCategory}_${activeCommTab}_${i}`,
             title: `Ôn tập tổng hợp ${reviewCounter}`,
@@ -164,6 +178,8 @@ export function Home({ onSelectTopic, activeCategory, setActiveCategory, activeC
             icon: "🔥",
             color: "bg-[#dc2323]",
             words: reviewWords,
+            dialogues: reviewDialogues,
+            structures: reviewStructures,
             subCategory: activeCommTab
           });
           reviewCounter++;
@@ -365,8 +381,8 @@ export function Home({ onSelectTopic, activeCategory, setActiveCategory, activeC
                     <div className="absolute top-0 right-0 w-80 h-80 bg-radial from-[#ffe36d]/5 to-transparent rounded-full filter blur-xl pointer-events-none group-hover:opacity-100 transition-opacity" />
 
                     <div className="flex-1 space-y-4 text-left relative z-10">
-                      <div className="inline-flex items-center gap-1.5 bg-[#dc2323]/10 border border-[#dc2323]/30 px-3.5 py-1.5 rounded-full text-[10px] font-black text-[#ff4e4e] uppercase tracking-wider">
-                        <Sparkles size={12} className="text-[#ffe36d]" /> Sân Chơi Từ Vựng Đỉnh Cao
+                      <div className="inline-flex items-center gap-1.5 bg-white border border-[#dc2323] px-3.5 py-1.5 rounded-full text-[10px] font-black text-[#dc2323] uppercase tracking-wider shadow-sm">
+                        <Sparkles size={12} className="text-[#dc2323]" /> Sân Chơi Từ Vựng Đỉnh Cao
                       </div>
                       
                       <h4 className="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tighter leading-none group-hover:text-[#ffe36d] transition-colors">
@@ -401,7 +417,7 @@ export function Home({ onSelectTopic, activeCategory, setActiveCategory, activeC
                       <motion.div 
                         animate={{ y: [0, -8, 0], rotate: [2, 3, 2] }}
                         transition={{ repeat: Infinity, duration: 4, delay: 0.5, ease: "easeInOut" }}
-                        className="absolute z-10 w-24 h-32 bg-[#121212] border border-[#ffe36d]/50 rounded-2xl rotate-[2deg] shadow-2xl flex flex-col justify-between p-3"
+                        className="absolute z-10 w-24 h-32 bg-[#1C1C1C] border border-[#ffe36d]/50 rounded-2xl rotate-[2deg] shadow-2xl flex flex-col justify-between p-3"
                       >
                         <span className="text-2xl">😎</span>
                         <div className="flex flex-col gap-0.5 text-left">

@@ -1,5 +1,208 @@
 import { Topic, Structure, Word } from '../data/vocab';
 
+const IDIOMS_DICTIONARY: Record<string, { definition: string; example: string; blankSentence: string }> = {
+  "A blessing in disguise": {
+    definition: "Trong cái rủi có cái may (điều tốt đẹp ban đầu trông như tai họa/xui xẻo).",
+    example: "Losing that job was a blessing in disguise because I found a much better one.",
+    blankSentence: "Losing my flight turned out to be a ____ because I met my old friend on the train."
+  },
+  "Beat around the bush": {
+    definition: "Nói vòng vo tam quốc, lảng tránh vấn đề chính.",
+    example: "Stop beating around the bush and tell me what you want.",
+    blankSentence: "Don't ____; just get straight to the point."
+  },
+  "Call it a day": {
+    definition: "Dừng làm việc/nghỉ ngơi (kết thúc một ngày làm việc).",
+    example: "We've been working for ten hours, let's call it a day.",
+    blankSentence: "I am too tired to continue, so let's ____."
+  },
+  "Bite the bullet": {
+    definition: "Cắn răng chịu đựng, dũng cảm quyết định đối mặt khó khăn.",
+    example: "I decided to bite the bullet and go to the dentist.",
+    blankSentence: "You have to ____ and tell her the truth instead of running away."
+  },
+  "Break a leg": {
+    definition: "Chúc may mắn (thường dùng trong nghệ thuật, sân khấu).",
+    example: "You are going on stage next, break a leg!",
+    blankSentence: "I know you will do great in your audition, so ____!"
+  },
+  "Cut corners": {
+    definition: "Đi tắt, làm ẩu, làm sơ sài (thường để tiết kiệm tiền/thời gian).",
+    example: "They cut corners to finish the building with a low budget, and now it has cracks.",
+    blankSentence: "Never ____ when it comes to medical safety."
+  },
+  "Easy does it": {
+    definition: "Cứ từ từ, cẩn thận và nhẹ nhàng kẻo hỏng.",
+    example: "Easy does it! Don't spill that hot soup.",
+    blankSentence: "____! Just move the glass table slowly."
+  },
+  "Get out of hand": {
+    definition: "Mất kiểm soát, vượt khỏi tầm tay.",
+    example: "The party got out of hand when too many people in the neighborhood showed up.",
+    blankSentence: "We must act quickly before the protests ____."
+  },
+  "Hang in there": {
+    definition: "Kiên trì lên, cố gắng vượt qua giai đoạn khó khăn.",
+    example: "I know work is tough right now, but hang in there.",
+    blankSentence: "____, things will get better soon!"
+  },
+  "Make a long story short": {
+    definition: "Nói tóm lại, rút ngắn câu chuyện dài dòng.",
+    example: "To make a long story short, we missed the flight.",
+    blankSentence: "To ____, they ended up getting married."
+  },
+  "Miss the boat": {
+    definition: "Bỏ lỡ cơ hội tốt.",
+    example: "If you don't apply today, you will miss the boat on this scholarship.",
+    blankSentence: "I waited too long to buy the tickets and totally ____."
+  },
+  "No pain, no gain": {
+    definition: "Không vục mặt thì không thể ngẩng đầu, không có gian khổ không có thành quả.",
+    example: "I practiced at the gym until all my muscles ached. No pain, no gain!",
+    blankSentence: "You must study hard every night; after all, ____."
+  },
+  "On the ball": {
+    definition: "Nhanh nhẹn, thạo việc, nắm bắt tình hình tốt.",
+    example: "That new executive is really on the ball.",
+    blankSentence: "She is always ____ and solves problems before they escalate."
+  },
+  "Pull someone's leg": {
+    definition: "Trêu chọc, đùa cợt gạt ai đó cho vui.",
+    example: "Don't worry, I am not angry, I was just pulling your leg.",
+    blankSentence: "Is it true that you won the lottery, or are you just ____ your ____?"
+  },
+  "So far so good": {
+    definition: "Đến nay mọi việc vẫn suôn sẻ tốt đẹp.",
+    example: "How is your new project? So far so good.",
+    blankSentence: "We finished the first three chapters, and ____."
+  },
+  "Under the weather": {
+    definition: "Cảm thấy không khỏe, hơi mệt mỏi.",
+    example: "I missed the meeting because I was feeling under the weather.",
+    blankSentence: "She stayed home today because she is slightly ____."
+  },
+  "Wrap your head around": {
+    definition: "Thấu hiểu nổi, tiếp thu được thông tin phức tạp.",
+    example: "I can't wrap my head around this massive theory.",
+    blankSentence: "It is hard to ____ how big the universe really is."
+  },
+  "A penny for your thoughts": {
+    definition: "Bạn đang nghĩ gì thế? (Dùng để hỏi một người đang trầm tư).",
+    example: "You have been quiet for a while; a penny for your thoughts?",
+    blankSentence: "You look so deep in thought, ____?"
+  },
+  "Barking up the wrong tree": {
+    definition: "Tìm sai chỗ, trách nhầm người, đi sai hướng giải quyết.",
+    example: "If you think I took your keys, you are barking up the wrong tree.",
+    blankSentence: "He is looking for answers in books, but he is ____."
+  },
+  "Bird in the hand": {
+    definition: "Hai thỏ đứng không bằng một chim trong tay (quý trọng cái đang có hơn cái viển vông).",
+    example: "I accepted the job offer instead of waiting for a better one; a bird in the hand.",
+    blankSentence: "A ____ is worth two in the bush, so cherish what you have."
+  },
+  "Bite off more than you can chew": {
+    definition: "Cố quá thành quá sức mình, gánh vác việc quá khả năng.",
+    example: "Taking five courses while working full-time is biting off more than you can chew.",
+    blankSentence: "Don't ____ by accepting too many tasks at once."
+  },
+  "Break the ice": {
+    definition: "Phá vỡ sự ngại ngùng e dè (khi mới gặp mặt).",
+    example: "He told a joke to break the ice during the meeting.",
+    blankSentence: "Playing a small game is a great way to ____ at a party."
+  },
+  "By the skin of your teeth": {
+    definition: "Suýt soát, vừa khít, ngay sát nút.",
+    example: "I passed the final math exam by the skin of my teeth.",
+    blankSentence: "We escaped the wild dog ____."
+  },
+  "Cost an arm and a leg": {
+    definition: "Rất đắt đỏ, tốn kém tài chính lớn.",
+    example: "Repairing that sports car is going to cost an arm and a leg.",
+    blankSentence: "Villas near the beach usually ____."
+  },
+  "Do something at the drop of a hat": {
+    definition: "Làm gì ngay lập tức không chần chừ do dự.",
+    example: "She loves traveling and packs her bags at the drop of a hat.",
+    blankSentence: "They are ready to help anyone ____."
+  },
+  "Don't cry over spilt milk": {
+    definition: "Đừng tiếc nuối những gì đã hỏng hóc qua rồi chẳng cứu vãn lại được.",
+    example: "You failed the driver test, but don't cry over spilt milk; just try again.",
+    blankSentence: "It is useless to complain about the lost key; ____."
+  },
+  "Don't put all your eggs in one basket": {
+    definition: "Đừng bỏ tất cả niềm tin vào một chỗ (chia rủi ro ra nhiều giỏ).",
+    example: "Invest in different companies; don't put all your eggs in one basket.",
+    blankSentence: "Apply for multiple jobs because you shouldn't ____."
+  },
+  "Every cloud has a silver lining": {
+    definition: "Trong cái rủi có cái may, sau cơn mưa trời lại sáng.",
+    example: "Even though I got sick, it allowed me to read my favorite book; every cloud has a silver lining.",
+    blankSentence: "Keep your spirits up, for ____."
+  },
+  "Give the benefit of the doubt": {
+    definition: "Tạm tin tưởng ai đó khi chưa có bằng chứng xác đáng chống lại họ.",
+    example: "She said her car broke down, so let's give her the benefit of the doubt.",
+    blankSentence: "I don't know if his excuse is true, but I will ____."
+  },
+  "Hit the nail on the head": {
+    definition: "Nói trúng phóc tim đen, phát biểu vô cùng chuẩn xác.",
+    example: "Her analysis of the financial problem really hit the nail on the head.",
+    blankSentence: "Your suggestion about shortening the meetings was correct; you ____."
+  },
+  "Jump on the bandwagon": {
+    definition: "Chạy theo trào lưu, ăn theo xu hướng đang thịnh hành.",
+    example: "Many stores jumped on the bandwagon of selling milktea.",
+    blankSentence: "First-time investors always ____ when Bitcoin price rises."
+  },
+  "Keep your chin up": {
+    definition: "Hãy ngẩng cao đầu vui vẻ đối mặt, chớ nản lòng.",
+    example: "Keep your chin up! You will find a better opportunity next time.",
+    blankSentence: "____ even during times of heavy challenge."
+  },
+  "Let the cat out of the bag": {
+    definition: "Để lộ bí mật (vô tình hoặc cố ý).",
+    example: "It was a surprise party, but Jamie let the cat out of the bag.",
+    blankSentence: "Who ____ about our new product launch?"
+  },
+  "Once in a blue moon": {
+    definition: "Hiếm khi nào xảy ra, năm thì mười họa mới có.",
+    example: "We only go out to expensive dining once in a blue moon.",
+    blankSentence: "He calls his parents only ____."
+  },
+  "Piece of cake": {
+    definition: "Dễ như ăn bánh.",
+    example: "That test was a piece of cake; I finished in ten minutes.",
+    blankSentence: "Don't worry about the interview; it's going to be a ____ for you."
+  },
+  "See eye to eye": {
+    definition: "Đồng quan điểm, nhất trí đồng lòng.",
+    example: "My boss and I don't always see eye to eye on design choices.",
+    blankSentence: "They finally agreed because they see eye to eye on almost everything."
+  },
+  "Spill the beans": {
+    definition: "Nôn ra bí mật, khai tuốt ra.",
+    example: "We wanted to surprise her, but Chase spilled the beans.",
+    blankSentence: "Come on, tell me what happened! ____!"
+  },
+  "Take with a grain of salt": {
+    definition: "Nửa tin nửa ngờ, chớ tin sái cổ (cần kiểm chứng độ xác thực).",
+    example: "You should take all internet advice with a grain of salt.",
+    blankSentence: "His stories are always exaggerated, so take them ____."
+  },
+  "The elephant in the room": {
+    definition: "Vấn đề hiển nhiên dập dờn sờ sờ nhưng ai cũng tránh né đề cập.",
+    example: "Their massive bad division is the elephant in the room during meetings.",
+    blankSentence: "We talked for hours but completely ignored ____."
+  },
+  "The best of both worlds": {
+    definition: "Vẹn cả đôi đường, được lợi từ cả hai phía khác biệt.",
+    example: "Working part-time allows her to spend time with her baby and keep her job; the best of both worlds.",
+    blankSentence: "Living in the countryside but commuting to the city gives her ____."
+  }
+};
+
 // Pre-defined rich content of 5 structures for core topics to give high-fidelity custom experiences
 const HANDCRAFTED_STRUCTURES: Record<string, Structure[]> = {
   'lesson-01': [
@@ -373,9 +576,28 @@ function generateProceduralDialogues(topic: Topic): any[] {
 
 // Global enrichment function called on the VOCAB_TOPICS or activeTopic
 export function augmentTopic(topic: Topic): Topic {
-  // If it is a review topic, bypass
+  let mappedWords = topic.words;
+  if (mappedWords) {
+    mappedWords = mappedWords.map(w => {
+      const match = IDIOMS_DICTIONARY[w.word.trim()];
+      if (match) {
+        return {
+          ...w,
+          definition: match.definition,
+          example: match.example,
+          blankSentence: match.blankSentence
+        };
+      }
+      return w;
+    });
+  }
+
+  // If it is a review topic, return with mapped words, and bypass extra generation
   if (topic.id.startsWith('review_')) {
-    return topic;
+    return {
+      ...topic,
+      words: mappedWords
+    };
   }
 
   // Bind custom structures if handcrafted, otherwise prefer defined topic level, otherwise procedurally generate
@@ -387,6 +609,7 @@ export function augmentTopic(topic: Topic): Topic {
   // Return augmented topic structure
   return {
     ...topic,
+    words: mappedWords,
     structures: mappedStructures,
     dialogues: mappedDialogues
   };

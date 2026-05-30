@@ -308,7 +308,7 @@ export function WordTower({ topic, onBack, updateStars, highscore, updateHighsco
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {options.map((option, i) => {
-                  let statusClass = "bg-[#1A1A1A] hover:bg-[#0D0D0D] hover:-translate-y-1 hover:shadow-lg";
+                  let statusClass = "bg-[#1A1A1A] text-white hover:bg-[#0D0D0D] hover:-translate-y-1 hover:shadow-lg";
                   let isCorrectOption = false;
                   
                   if (questionType === 'meaning') {
@@ -327,7 +327,7 @@ export function WordTower({ topic, onBack, updateStars, highscore, updateHighsco
                     } else if (isCorrectOption) {
                       statusClass = "bg-[#4ECDC4] text-white opacity-80";
                     } else {
-                      statusClass = "bg-gray-100 opacity-50";
+                      statusClass = "bg-[#1A1A1A] opacity-30 border-transparent text-white/40";
                     }
                   }
 

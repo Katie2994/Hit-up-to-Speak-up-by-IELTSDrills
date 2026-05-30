@@ -358,7 +358,12 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
   }, [topic, rawTopic]);
 
   // Filters dialogues strictly matching the active conversational school
-  const currentDialogue = topic.dialogues?.find(d => d.school === activeDialogueSchool) || topic.dialogues?.[0];
+  const matchingDialogues = useMemo(() => {
+    if (!topic.dialogues) return [];
+    const directMatches = topic.dialogues.filter((d: any) => d.school === activeDialogueSchool);
+    if (directMatches.length > 0) return directMatches;
+    return [topic.dialogues[0]];
+  }, [topic.dialogues, activeDialogueSchool]);
 
   return (
     <div className="flex flex-col h-full bg-[#0D0D0D] text-white overflow-hidden relative">
@@ -501,138 +506,145 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                   ))}
                 </div>
 
-                <div className="bg-[#1A1A1A] border border-[#2d2d2d] rounded-[32px] overflow-hidden shadow-lg">
-                  {currentDialogue ? (
-                    <>
-                      <div className="p-5 border-b border-[#2d2d2d] bg-gradient-to-r from-red-600/10 via-transparent to-transparent flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                        <div className="flex items-center gap-2.5">
-                          <span className="w-2.5 h-2.5 rounded-full bg-[#dc2323] animate-pulse"></span>
-                          <h4 className="font-black text-white tracking-tight uppercase text-sm">
-                            {currentDialogue.title}
-                          </h4>
-                        </div>
-                        <span className="text-[10px] font-black uppercase tracking-widest bg-[#222] border border-[#444] px-3 py-1 rounded-full text-gray-300">
-                          {activeDialogueSchool} MODE
-                        </span>
-                      </div>
-
-                      <div className="p-6 space-y-6">
-                        
-                        {/* Participants list */}
-                        <div className="flex flex-wrap gap-3 pb-5 border-b border-[#333] border-dashed">
-                          {currentDialogue.participants.map((p, idx) => (
-                            <div key={idx} className="flex items-center gap-2 bg-[#222] border border-[#333] px-3 py-1.5 rounded-full text-xs font-bold">
-                              <img src={p.avatar} alt={p.name} className="w-6 h-6 rounded-full bg-black/40 border border-[#444]" />
-                              <div>
-                                <p className="text-[10px] font-black text-white leading-none">{p.name}</p>
-                                {p.role && <p className="text-[8px] text-gray-500 font-bold uppercase mt-0.5">{p.role}</p>}
-                              </div>
+                <div className="space-y-6">
+                  {matchingDialogues.length > 0 ? (
+                    matchingDialogues.map((dialogue: any, dIndex: number) => {
+                      return (
+                        <div key={dIndex} className="bg-[#1A1A1A] border border-[#2d2d2d] rounded-[32px] overflow-hidden shadow-lg mb-6">
+                          <div className="p-5 border-b border-[#2d2d2d] bg-gradient-to-r from-red-600/10 via-transparent to-transparent flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                            <div className="flex items-center gap-2.5">
+                              <span className="w-2.5 h-2.5 rounded-full bg-[#dc2323] animate-pulse"></span>
+                              <h4 className="font-black text-white tracking-tight uppercase text-sm">
+                                {dialogue.title}
+                              </h4>
                             </div>
-                          ))}
-                        </div>
+                            <span className="text-[10px] font-black uppercase tracking-widest bg-[#222] border border-[#444] px-3 py-1 rounded-full text-gray-300">
+                              {activeDialogueSchool} MODE {matchingDialogues.length > 1 ? `#${dIndex + 1}` : ''}
+                            </span>
+                          </div>
 
-                        {/* Speech list bubbles */}
-                        <div className="space-y-4">
-                          {currentDialogue.lines.map((line, lIdx) => {
-                            const participant = currentDialogue.participants.find(p => p.name === line.participant);
-                            const isEven = lIdx % 2 === 0;
-                            const isRevealed = revealedLines[`${activeDialogueSchool}-${lIdx}`];
+                          <div className="p-6 space-y-6">
+                            
+                            {/* Participants list */}
+                            <div className="flex flex-wrap gap-3 pb-5 border-b border-[#333] border-dashed">
+                              {dialogue.participants.map((p: any, idx: number) => (
+                                <div key={idx} className="flex items-center gap-2 bg-[#222] border border-[#333] px-3 py-1.5 rounded-full text-xs font-bold">
+                                  <img src={p.avatar} alt={p.name} className="w-6 h-6 rounded-full bg-black/40 border border-[#444]" referrerPolicy="no-referrer" />
+                                  <div>
+                                    <p className="text-[10px] font-black text-white leading-none">{p.name}</p>
+                                    {p.role && <p className="text-[8px] text-gray-500 font-bold uppercase mt-0.5">{p.role}</p>}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
 
-                            return (
-                              <div key={lIdx} className={`flex gap-3 items-start ${isEven ? 'flex-row' : 'flex-row-reverse'}`}>
-                                <img 
-                                  src={participant?.avatar} 
-                                  alt={line.participant} 
-                                  className="w-10 h-10 rounded-xl border border-[#333] shrink-0 bg-[#222]" 
-                                />
-                                <div className={`flex flex-col ${isEven ? 'items-start' : 'items-end'} max-w-[80%] gap-1`}>
-                                  <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest">
-                                    {line.participant}
-                                  </span>
-                                  <div
-                                    onClick={() => toggleLine(activeDialogueSchool, lIdx, line.text)}
-                                    className={`p-4 sm:p-5 border text-left transition-all cursor-pointer relative group/bubble ${
-                                      isRevealed 
-                                        ? (isEven 
-                                            ? 'bg-gradient-to-br from-[#1E1E1E] to-[#252525] border-[#444] text-white rounded-[24px] rounded-tl-none ring-1 ring-white/5 shadow-md' 
-                                            : 'bg-gradient-to-br from-[#dc2323] to-[#b31414] border-[#e03a3a] text-white rounded-[24px] rounded-tr-none hover:brightness-110 shadow-lg shadow-red-950/20')
-                                        : 'bg-[#151515]/90 border-[#2b2b2b] hover:border-[#ffe36d]/50 hover:bg-[#1A1A1A] text-gray-400 rounded-[20px] transition-all duration-200'
-                                    }`}
-                                  >
-                                    {!isRevealed ? (
-                                      <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 rounded-full bg-[#222] border border-[#333] flex items-center justify-center text-[#ffe36d] group-hover/bubble:bg-[#ffe36d] group-hover/bubble:text-black transition-colors shrink-0">
-                                          <Volume2 size={14} className="animate-pulse" />
-                                        </div>
-                                        <div>
-                                          <p className="text-xs font-black uppercase tracking-widest text-[#ffe36d]">Bấm Để Hiện Hội Thoại</p>
-                                          <p className="text-[10px] text-gray-500 font-bold mt-0.5">Click to reveal dialogue & translate</p>
-                                        </div>
-                                        <span className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover/bubble:opacity-100 transition-all text-[9px] font-black uppercase bg-[#ffe36d]/10 border border-[#ffe36d]/20 px-2 py-0.5 rounded-md text-[#ffe36d] tracking-widest">TAP ⚡</span>
-                                      </div>
-                                    ) : (
-                                      <div className="space-y-2">
-                                        <div className="flex items-center justify-between gap-4 border-b border-white/5 pb-1.5 opacity-90 transition-opacity">
-                                          <span className="text-[10px] font-bold tracking-widest uppercase text-white/40">Dialogue Text</span>
-                                          
-                                          {/* Audio Player Controllers */}
-                                          <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
-                                            {playingLineId === `${activeDialogueSchool}-${lIdx}` ? (
-                                              <div className="flex items-center gap-1.5">
-                                                {!isAudioPaused ? (
-                                                  <button
-                                                    onClick={() => pauseDialogueLine()}
-                                                    className="flex items-center gap-1 px-2.5 py-1 bg-[#ffe36d] hover:bg-[#ebd05c] text-black text-[10px] font-black uppercase tracking-wider rounded-lg transition-all active:scale-95 shadow-md border border-[#ffe36d]"
-                                                  >
-                                                    <Pause size={10} className="fill-black" /> Tạm dừng
-                                                  </button>
+                            {/* Speech list bubbles */}
+                            <div className="space-y-4">
+                              {dialogue.lines.map((line: any, lIdx: number) => {
+                                const participant = dialogue.participants.find((p: any) => p.name === line.participant);
+                                const isEven = lIdx % 2 === 0;
+                                const isRevealed = revealedLines[`${activeDialogueSchool}-${dIndex}-${lIdx}`];
+
+                                return (
+                                  <div key={lIdx} className={`flex gap-3 items-start ${isEven ? 'flex-row' : 'flex-row-reverse'}`}>
+                                    <img 
+                                      src={participant?.avatar} 
+                                      alt={line.participant} 
+                                      className="w-10 h-10 rounded-xl border border-[#333] shrink-0 bg-[#222]" 
+                                      referrerPolicy="no-referrer"
+                                    />
+                                    <div className={`flex flex-col ${isEven ? 'items-start' : 'items-end'} max-w-[80%] gap-1`}>
+                                      <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest">
+                                        {line.participant}
+                                      </span>
+                                      <div
+                                        onClick={() => toggleLine(`${activeDialogueSchool}-${dIndex}`, lIdx, line.text)}
+                                        className={`p-4 sm:p-5 border text-left transition-all cursor-pointer relative group/bubble ${
+                                          isRevealed 
+                                            ? (isEven 
+                                                ? 'bg-gradient-to-br from-[#1E1E1E] to-[#252525] border-[#444] text-white rounded-[24px] rounded-tl-none ring-1 ring-white/5 shadow-md' 
+                                                : 'bg-gradient-to-br from-[#dc2323] to-[#b31414] border-[#e03a3a] text-white rounded-[24px] rounded-tr-none hover:brightness-110 shadow-lg shadow-red-950/20')
+                                            : 'bg-[#151515]/90 border-[#2b2b2b] hover:border-[#ffe36d]/50 hover:bg-[#1A1A1A] text-gray-400 rounded-[20px] transition-all duration-200'
+                                        }`}
+                                      >
+                                        {!isRevealed ? (
+                                          <div className="flex items-center gap-3">
+                                            <div className="w-8 h-8 rounded-full bg-[#222] border border-[#333] flex items-center justify-center text-[#ffe36d] group-hover/bubble:bg-[#ffe36d] group-hover/bubble:text-black transition-colors shrink-0">
+                                              <Volume2 size={14} className="animate-pulse" />
+                                            </div>
+                                            <div>
+                                              <p className="text-xs font-black uppercase tracking-widest text-[#ffe36d]">Bấm Để Hiện Hội Thoại</p>
+                                              <p className="text-[10px] text-gray-500 font-bold mt-0.5">Click to reveal dialogue & translate</p>
+                                            </div>
+                                            <span className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover/bubble:opacity-100 transition-all text-[9px] font-black uppercase bg-[#ffe36d]/10 border border-[#ffe36d]/20 px-2 py-0.5 rounded-md text-[#ffe36d] tracking-widest">TAP ⚡</span>
+                                          </div>
+                                        ) : (
+                                          <div className="space-y-2">
+                                            <div className="flex items-center justify-between gap-4 border-b border-white/5 pb-1.5 opacity-90 transition-opacity">
+                                              <span className="text-[10px] font-bold tracking-widest uppercase text-white/40">Dialogue Text</span>
+                                              
+                                              {/* Audio Player Controllers */}
+                                              <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                                                {playingLineId === `${activeDialogueSchool}-${dIndex}-${lIdx}` ? (
+                                                  <div className="flex items-center gap-1.5">
+                                                    {!isAudioPaused ? (
+                                                      <button
+                                                        onClick={() => pauseDialogueLine()}
+                                                        className="flex items-center gap-1 px-2.5 py-1 bg-[#ffe36d] hover:bg-[#ebd05c] text-black text-[10px] font-black uppercase tracking-wider rounded-lg transition-all active:scale-95 shadow-md border border-[#ffe36d]"
+                                                      >
+                                                        <Pause size={10} className="fill-black" /> Tạm dừng
+                                                      </button>
+                                                    ) : (
+                                                      <button
+                                                        onClick={() => speakDialogueLine(`${activeDialogueSchool}-${dIndex}-${lIdx}`, line.text)}
+                                                        className="flex items-center gap-1 px-2.5 py-1 bg-gradient-to-r from-emerald-500 to-green-600 hover:brightness-110 text-white text-[10px] font-black uppercase tracking-wider rounded-lg transition-all active:scale-95 shadow-md"
+                                                      >
+                                                        <Play size={10} className="fill-white" /> Tiếp tục
+                                                      </button>
+                                                    )}
+                                                    <button
+                                                      onClick={() => stopDialogueLine()}
+                                                      className="p-1 px-2 text-rose-400 hover:text-rose-300 hover:bg-rose-500/10 rounded-lg transition-colors text-[10px] font-black uppercase tracking-widest flex items-center gap-1"
+                                                    >
+                                                      <XCircle size={11} /> Tắt
+                                                    </button>
+                                                  </div>
                                                 ) : (
                                                   <button
-                                                    onClick={() => speakDialogueLine(`${activeDialogueSchool}-${lIdx}`, line.text)}
-                                                    className="flex items-center gap-1 px-2.5 py-1 bg-gradient-to-r from-emerald-500 to-green-600 hover:brightness-110 text-white text-[10px] font-black uppercase tracking-wider rounded-lg transition-all active:scale-95 shadow-md"
+                                                    onClick={() => speakDialogueLine(`${activeDialogueSchool}-${dIndex}-${lIdx}`, line.text)}
+                                                    className="flex items-center gap-1 px-2.5 py-1 bg-white hover:bg-gray-100 text-black text-[10px] font-black uppercase tracking-wider rounded-lg transition-all active:scale-95 shadow-md"
                                                   >
-                                                    <Play size={10} className="fill-white" /> Tiếp tục
+                                                    <Play size={10} className="fill-black" /> Phát âm
                                                   </button>
                                                 )}
-                                                <button
-                                                  onClick={() => stopDialogueLine()}
-                                                  className="p-1 px-2 text-rose-400 hover:text-rose-300 hover:bg-rose-500/10 rounded-lg transition-colors text-[10px] font-black uppercase tracking-widest flex items-center gap-1"
-                                                >
-                                                  <XCircle size={11} /> Tắt
-                                                </button>
                                               </div>
-                                            ) : (
-                                              <button
-                                                onClick={() => speakDialogueLine(`${activeDialogueSchool}-${lIdx}`, line.text)}
-                                                className="flex items-center gap-1 px-2.5 py-1 bg-white hover:bg-gray-100 text-black text-[10px] font-black uppercase tracking-wider rounded-lg transition-all active:scale-95 shadow-md"
-                                              >
-                                                <Play size={10} className="fill-black" /> Phát âm
-                                              </button>
+                                            </div>
+                                            <p className="font-extrabold text-sm sm:text-base text-white leading-relaxed tracking-wide select-text">{line.text}</p>
+                                            {line.translation && (
+                                              <div className="pt-2 border-t border-white/10 mt-2">
+                                                <span className="text-[9px] font-black uppercase tracking-wider text-[#ffe36d] block mb-0.5 opacity-90">Ý nghĩa:</span>
+                                                <p className="text-xs sm:text-sm font-black text-[#ffe36d] leading-relaxed select-text">
+                                                  {line.translation}
+                                                </p>
+                                              </div>
                                             )}
-                                          </div>
-                                        </div>
-                                        <p className="font-extrabold text-sm sm:text-base text-white leading-relaxed tracking-wide select-text">{line.text}</p>
-                                        {line.translation && (
-                                          <div className="pt-2 border-t border-white/10 mt-2">
-                                            <span className="text-[9px] font-black uppercase tracking-wider text-[#ffe36d] block mb-0.5 opacity-90">Ý nghĩa:</span>
-                                            <p className="text-xs sm:text-sm font-black text-[#ffe36d] leading-relaxed select-text">
-                                              {line.translation}
-                                            </p>
                                           </div>
                                         )}
                                       </div>
-                                    )}
+                                    </div>
                                   </div>
-                                </div>
-                              </div>
-                            );
-                          })}
-                        </div>
+                                );
+                              })}
+                            </div>
 
-                      </div>
-                    </>
+                          </div>
+                        </div>
+                      );
+                    })
                   ) : (
-                    <div className="p-12 text-center text-gray-400">Không có đoạn đối thoại nào sẵn có.</div>
+                    <div className="bg-[#1A1A1A] border border-[#2d2d2d] rounded-[32px] p-12 text-center text-gray-400">
+                      Không có đoạn đối thoại nào sẵn có.
+                    </div>
                   )}
                 </div>
               </motion.div>
@@ -1366,108 +1378,106 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
           )}
 
           {/* Standard Practice Drills Trigger Selection Grid (No WordSnake nor WordBlast) */}
-          {!topic.id.startsWith('review_') && (
-            <div className="mt-12 pt-8 border-t border-[#222]">
-              <h3 className="text-xl font-black uppercase tracking-tighter text-[#ffe36d] mb-6">Luyện Tập Phản Xạ</h3>
+          <div className="mt-12 pt-8 border-t border-[#222]">
+            <h3 className="text-xl font-black uppercase tracking-tighter text-[#ffe36d] mb-6">Luyện Tập Phản Xạ</h3>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <motion.button 
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  onClick={() => onSelectMode('flashcards')}
-                  className="group w-full bg-[#1A1A1A] rounded-[24px] p-5 border border-[#333] hover:border-[#ffe36d] shadow-sm flex items-center gap-4 hover:translate-y-[-2px] transition-all text-left"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-[#222] text-[#ffe36d] flex items-center justify-center group-hover:bg-[#ffe36d] group-hover:text-[#111] transition-colors shrink-0">
-                    <PlayCircle size={24} />
-                  </div>
-                  <div className="flex-1">
-                    <h2 className="text-base font-black text-white uppercase tracking-tight mb-0.5">Thẻ Từ Vựng</h2>
-                    <p className="text-gray-400 font-bold text-[9px] uppercase tracking-widest leading-none">Flashcards & phát âm</p>
-                  </div>
-                </motion.button>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <motion.button 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                onClick={() => onSelectMode('flashcards')}
+                className="group w-full bg-[#1A1A1A] rounded-[24px] p-5 border border-[#333] hover:border-[#ffe36d] shadow-sm flex items-center gap-4 hover:translate-y-[-2px] transition-all text-left"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#222] text-[#ffe36d] flex items-center justify-center group-hover:bg-[#ffe36d] group-hover:text-[#111] transition-colors shrink-0">
+                  <PlayCircle size={24} />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-base font-black text-white uppercase tracking-tight mb-0.5">Thẻ Từ Vựng</h2>
+                  <p className="text-gray-400 font-bold text-[9px] uppercase tracking-widest leading-none">Flashcards & phát âm</p>
+                </div>
+              </motion.button>
 
-                <motion.button 
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.1 }}
-                  onClick={() => onSelectMode('quiz')}
-                  className="group w-full bg-[#1A1A1A] rounded-[24px] p-5 border border-[#333] hover:border-[#ffe36d] shadow-sm flex items-center gap-4 hover:translate-y-[-2px] transition-all text-left"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-[#222] text-[#ffe36d] flex items-center justify-center group-hover:bg-[#ffe36d] group-hover:text-[#111] transition-colors shrink-0">
-                    <BrainCircuit size={24} />
-                  </div>
-                  <div className="flex-1">
-                    <h2 className="text-base font-black text-white uppercase tracking-tight mb-0.5">Trắc Nghiệm</h2>
-                    <p className="text-gray-400 font-bold text-[9px] uppercase tracking-widest leading-none">Kiểm tra trí nhớ</p>
-                  </div>
-                </motion.button>
-                
-                <motion.button 
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.2 }}
-                  onClick={() => onSelectMode('fillblank')}
-                  className="group w-full bg-[#1A1A1A] rounded-[24px] p-5 border border-[#333] hover:border-[#ffe36d] shadow-sm flex items-center gap-4 hover:translate-y-[-2px] transition-all text-left"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-[#222] text-[#ffe36d] flex items-center justify-center group-hover:bg-[#ffe36d] group-hover:text-[#111] transition-colors shrink-0">
-                    <Type size={24} />
-                  </div>
-                  <div className="flex-1">
-                    <h2 className="text-base font-black text-white uppercase tracking-tight mb-0.5">Điền Từ</h2>
-                    <p className="text-gray-400 font-bold text-[9px] uppercase tracking-widest leading-none">Hoàn thành đoạn khuyết</p>
-                  </div>
-                </motion.button>
+              <motion.button 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1 }}
+                onClick={() => onSelectMode('quiz')}
+                className="group w-full bg-[#1A1A1A] rounded-[24px] p-5 border border-[#333] hover:border-[#ffe36d] shadow-sm flex items-center gap-4 hover:translate-y-[-2px] transition-all text-left"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#222] text-[#ffe36d] flex items-center justify-center group-hover:bg-[#ffe36d] group-hover:text-[#111] transition-colors shrink-0">
+                  <BrainCircuit size={24} />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-base font-black text-white uppercase tracking-tight mb-0.5">Trắc Nghiệm</h2>
+                  <p className="text-gray-400 font-bold text-[9px] uppercase tracking-widest leading-none">Kiểm tra trí nhớ</p>
+                </div>
+              </motion.button>
+              
+              <motion.button 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2 }}
+                onClick={() => onSelectMode('fillblank')}
+                className="group w-full bg-[#1A1A1A] rounded-[24px] p-5 border border-[#333] hover:border-[#ffe36d] shadow-sm flex items-center gap-4 hover:translate-y-[-2px] transition-all text-left"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#222] text-[#ffe36d] flex items-center justify-center group-hover:bg-[#ffe36d] group-hover:text-[#111] transition-colors shrink-0">
+                  <Type size={24} />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-base font-black text-white uppercase tracking-tight mb-0.5">Điền Từ</h2>
+                  <p className="text-gray-400 font-bold text-[9px] uppercase tracking-widest leading-none">Hoàn thành đoạn khuyết</p>
+                </div>
+              </motion.button>
 
-                <motion.button 
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.3 }}
-                  onClick={() => onSelectMode('memorymatch')}
-                  className="group w-full bg-[#1A1A1A] rounded-[24px] p-5 border border-[#333] hover:border-[#ffe36d] shadow-sm flex items-center gap-4 hover:translate-y-[-2px] transition-all text-left"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-[#222] text-[#dc2323] flex items-center justify-center group-hover:bg-[#dc2323] group-hover:text-white transition-colors shrink-0">
-                    <Puzzle size={24} />
-                  </div>
-                  <div className="flex-1">
-                    <h2 className="text-base font-black text-white uppercase tracking-tight mb-0.5">Ghép Từ</h2>
-                    <p className="text-gray-400 font-bold text-[9px] uppercase tracking-widest leading-none">Nối từ & biểu tượng</p>
-                  </div>
-                </motion.button>
+              <motion.button 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.3 }}
+                onClick={() => onSelectMode('memorymatch')}
+                className="group w-full bg-[#1A1A1A] rounded-[24px] p-5 border border-[#333] hover:border-[#ffe36d] shadow-sm flex items-center gap-4 hover:translate-y-[-2px] transition-all text-left"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#222] text-[#dc2323] flex items-center justify-center group-hover:bg-[#dc2323] group-hover:text-white transition-colors shrink-0">
+                  <Puzzle size={24} />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-base font-black text-white uppercase tracking-tight mb-0.5">Ghép Từ</h2>
+                  <p className="text-gray-400 font-bold text-[9px] uppercase tracking-widest leading-none">Nối từ & biểu tượng</p>
+                </div>
+              </motion.button>
 
-                <motion.button 
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.4 }}
-                  onClick={() => onSelectMode('wordtower')}
-                  className="group w-full bg-[#1A1A1A] rounded-[24px] p-5 border border-[#333] hover:border-[#ffe36d] shadow-sm flex items-center gap-4 hover:translate-y-[-2px] transition-all text-left"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-[#222] text-[#dc2323] flex items-center justify-center group-hover:bg-[#dc2323] group-hover:text-white transition-colors shrink-0">
-                    <Blocks size={24} />
-                  </div>
-                  <div className="flex-1">
-                    <h2 className="text-base font-black text-white uppercase tracking-tight mb-0.5">Xây Tháp Từ</h2>
-                    <p className="text-gray-400 font-bold text-[9px] uppercase tracking-widest leading-none">Vừa gõ từ vừa xây tháp</p>
-                  </div>
-                </motion.button>
-                
-                <motion.button 
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.5 }}
-                  onClick={() => onSelectMode('wordflood')}
-                  className="group w-full bg-[#1A1A1A] rounded-[24px] p-5 border border-[#333] hover:border-[#ffe36d] shadow-sm flex items-center gap-4 hover:translate-y-[-2px] transition-all text-left"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-[#222] text-[#dc2323] flex items-center justify-center group-hover:bg-[#dc2323] group-hover:text-white transition-colors shrink-0">
-                    <span className="text-[22px]">🧱</span>
-                  </div>
-                  <div className="flex-1">
-                    <h2 className="text-base font-black text-white uppercase tracking-tight mb-0.5">Word Flood</h2>
-                    <p className="text-gray-400 font-bold text-[9px] uppercase tracking-widest leading-none">Tetris ghép cặp vựng</p>
-                  </div>
-                </motion.button>
-              </div>
+              <motion.button 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4 }}
+                onClick={() => onSelectMode('wordtower')}
+                className="group w-full bg-[#1A1A1A] rounded-[24px] p-5 border border-[#333] hover:border-[#ffe36d] shadow-sm flex items-center gap-4 hover:translate-y-[-2px] transition-all text-left"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#222] text-[#dc2323] flex items-center justify-center group-hover:bg-[#dc2323] group-hover:text-white transition-colors shrink-0">
+                  <Blocks size={24} />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-base font-black text-white uppercase tracking-tight mb-0.5">Xây Tháp Từ</h2>
+                  <p className="text-gray-400 font-bold text-[9px] uppercase tracking-widest leading-none">Vừa gõ từ vừa xây tháp</p>
+                </div>
+              </motion.button>
+              
+              <motion.button 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5 }}
+                onClick={() => onSelectMode('wordflood')}
+                className="group w-full bg-[#1A1A1A] rounded-[24px] p-5 border border-[#333] hover:border-[#ffe36d] shadow-sm flex items-center gap-4 hover:translate-y-[-2px] transition-all text-left"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#222] text-[#dc2323] flex items-center justify-center group-hover:bg-[#dc2323] group-hover:text-white transition-colors shrink-0">
+                  <span className="text-[22px]">🧱</span>
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-base font-black text-white uppercase tracking-tight mb-0.5">Word Flood</h2>
+                  <p className="text-gray-400 font-bold text-[9px] uppercase tracking-widest leading-none">Tetris ghép cặp vựng</p>
+                </div>
+              </motion.button>
             </div>
-          )}
+          </div>
 
         </div>
       </div>
