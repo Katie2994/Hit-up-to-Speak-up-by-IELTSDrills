@@ -119,6 +119,7 @@ export function Home({ onSelectTopic, activeCategory, setActiveCategory, activeC
     { id: 'For Students', label: 'Học sinh - Sinh viên' },
     { id: 'For Professionals', label: 'Người đi làm' },
     { id: 'For Beauty Professionals', label: 'Ngành làm đẹp' },
+    { id: 'Food - Restaurant Services', label: 'Ngành Thực phẩm - Nhà hàng' },
     { id: 'Making Friends Abroad', label: 'Kết bạn Quốc tế' },
     { id: 'Parent-Child', label: 'Bố mẹ & Con cái' },
   ];

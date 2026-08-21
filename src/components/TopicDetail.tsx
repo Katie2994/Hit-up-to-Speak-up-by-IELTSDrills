@@ -8,6 +8,7 @@ import { Topic, Structure, Word } from '../data/vocab';
 import { motion, AnimatePresence } from 'motion/react';
 import { playTTS } from '../services/tts';
 import { augmentTopic } from '../utils/vocabAugmenter';
+import { toPng } from 'html-to-image';
 
 interface TopicDetailProps {
   topic: Topic;
@@ -141,6 +142,21 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
     setRevealedLines(prev => {
       return { ...prev, [key]: !prev[key] };
     });
+  };
+
+  const handleDownloadPNG = async (dIndex: number, title: string) => {
+    const node = document.getElementById(`dialogue-card-${dIndex}`);
+    if (node) {
+      try {
+        const dataUrl = await toPng(node, { cacheBust: true, backgroundColor: '#1A1A1A' });
+        const link = document.createElement('a');
+        link.download = `${title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_${dIndex}.png`;
+        link.href = dataUrl;
+        link.click();
+      } catch (err) {
+        console.error('Failed to export PNG', err);
+      }
+    }
   };
 
   // ==========================================
@@ -292,14 +308,35 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
 
   const stressDrills = useMemo(() => {
     return topic.words.map(w => {
-      // Split by syllables if IPA has separate syllable marks or split by spaces/dashes
-      const cleanWordForSplitting = w.word.replace('-', ' ');
-      const syllables = cleanWordForSplitting.split(' ');
+      // Split word into syllables using regex
+      let syllables = [w.word];
+      const cleanWord = w.word.replace(/[^a-zA-Z]/g, '').toLowerCase();
+      if (cleanWord.length > 3) {
+        const regex = /[^aeiouy]*[aeiouy]+(?:[^aeiouy]*$|[^aeiouy](?=[^aeiouy]))?/gi;
+        const match = w.word.match(regex);
+        if (match) syllables = match;
+      } else if (w.word.includes(' ')) {
+        syllables = w.word.split(' ');
+      }
+
+      // Estimate correctIndex from IPA
+      let correctIndex = 0;
+      const parts = w.ipa.split('ˈ');
+      if (parts.length >= 2) {
+        const beforeStress = parts[0];
+        const vowelMatches = beforeStress.match(/[aeiouæɛɪɒʊʌəɑɔɜ]/gi);
+        correctIndex = vowelMatches ? vowelMatches.length : 0;
+      }
+      
+      // Safety bound
+      if (correctIndex >= syllables.length) correctIndex = syllables.length - 1;
+      if (correctIndex < 0) correctIndex = 0;
+
       return {
         word: w.word,
         ipa: w.ipa,
-        syllables: syllables.length > 1 ? syllables : [w.word],
-        correctIndex: 0, 
+        syllables: syllables,
+        correctIndex: correctIndex, 
         vietnamese: w.translation || ''
       };
     });
@@ -512,7 +549,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                   {matchingDialogues.length > 0 ? (
                     matchingDialogues.map((dialogue: any, dIndex: number) => {
                       return (
-                        <div key={dIndex} className="bg-[#1A1A1A] border border-[#2d2d2d] rounded-[32px] overflow-hidden shadow-lg mb-6">
+                        <div key={dIndex} id={`dialogue-card-${dIndex}`} className="bg-[#1A1A1A] border border-[#2d2d2d] rounded-[32px] overflow-hidden shadow-lg mb-6">
                           <div className="p-5 border-b border-[#2d2d2d] bg-gradient-to-r from-red-600/10 via-transparent to-transparent flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                             <div className="flex items-center gap-2.5">
                               <span className="w-2.5 h-2.5 rounded-full bg-[#dc2323] animate-pulse"></span>
@@ -520,9 +557,19 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                                 {dialogue.title}
                               </h4>
                             </div>
-                            <span className="text-[10px] font-black uppercase tracking-widest bg-[#222] border border-[#444] px-3 py-1 rounded-full text-gray-300">
-                              {activeDialogueSchool} MODE {matchingDialogues.length > 1 ? `#${dIndex + 1}` : ''}
-                            </span>
+                            <div className="flex items-center gap-2">
+                              <button 
+                                onClick={() => handleDownloadPNG(dIndex, dialogue.title)} 
+                                className="text-[10px] font-black uppercase tracking-widest bg-[#222] hover:bg-[#333] border border-[#444] px-3 py-1 rounded-full text-gray-300 transition-colors flex items-center gap-1"
+                                title="Download PNG"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+                                <span>PNG</span>
+                              </button>
+                              <span className="text-[10px] font-black uppercase tracking-widest bg-[#222] border border-[#444] px-3 py-1 rounded-full text-gray-300">
+                                {activeDialogueSchool} MODE {matchingDialogues.length > 1 ? `#${dIndex + 1}` : ''}
+                              </span>
+                            </div>
                           </div>
 
                           <div className="p-6 space-y-6">

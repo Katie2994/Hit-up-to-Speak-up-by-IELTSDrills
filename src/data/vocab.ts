@@ -9,6 +9,7 @@ import { parentChildTopics } from './vocabulary/comm-parent-child';
 import { specificStudents } from './vocabulary/comm-specific-students';
 import { specificProfessionals } from './vocabulary/comm-specific-professionals';
 import { specificBeauty } from './vocabulary/comm-specific-beauty';
+import { specificFood } from './vocabulary/comm-food-restaurant';
 import { makingFriendsTopics } from './vocabulary/comm-making-friends';
 import { specificTopics } from './vocabulary/comm-specific';
 import { slangTopics } from './vocabulary/slang-data';
@@ -37,6 +38,7 @@ export const VOCAB_TOPICS: Topic[] = [
   ...enrichTopics(specificStudents, 'For Students'),
   ...enrichTopics(specificProfessionals, 'For Professionals'),
   ...enrichTopics(specificBeauty, 'Beauty'),
+  ...specificFood,
   ...specificTopics,
   ...slangTopics,
   ...mapOldTopics(lifeTopics, 'Life'),
