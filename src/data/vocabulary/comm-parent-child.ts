@@ -1,6 +1,8 @@
 import { Topic } from './types';
+import { PARENT_CHILD_DIALOGUES } from './comm-parent-child-dialogues';
+import { PARENT_CHILD_STRUCTURES } from './comm-parent-child-structures';
 
-export const parentChildTopics: Topic[] = [
+const rawParentChildTopics: Topic[] = [
   {
     id: 'parent-child-01',
     title: 'Daily Connection: Catching Up & Sharing',
@@ -904,3 +906,10 @@ export const parentChildTopics: Topic[] = [
     ]
   }
 ];
+
+export const parentChildTopics: Topic[] = rawParentChildTopics.map(topic => ({
+  ...topic,
+  dialogues: PARENT_CHILD_DIALOGUES[topic.id] || topic.dialogues,
+  structures: PARENT_CHILD_STRUCTURES[topic.id] || topic.structures
+}));
+

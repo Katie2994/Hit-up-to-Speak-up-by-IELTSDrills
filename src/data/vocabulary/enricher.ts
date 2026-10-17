@@ -329,12 +329,24 @@ function enrichDialogue(original: Dialogue, category: string, school: 'business'
 // Enhances list of topics ensuring each has complete structured three registers
 export function enrichTopics(topics: Topic[], category: string): Topic[] {
   return topics.map((t) => {
-    // 1. Process structures
-    const enrichedStructures = t.structures 
-      ? t.structures.map((s, idx) => enrichStructure(s, t.subCategory?.[0] || category, idx))
-      : [];
+    // 1. Process structures: If already has 3-tier structures, keep them intact
+    const hasTierStructures = t.structures && t.structures.some(s => s && (s.business || s.casualStyle || s.superCasual));
+    const enrichedStructures = hasTierStructures
+      ? t.structures
+      : (t.structures 
+          ? t.structures.map((s, idx) => enrichStructure(s, t.subCategory?.[0] || category, idx))
+          : []);
 
-    // 2. Process dialogues: We must supply exactly three full dialogue transcripts
+    // 2. Process dialogues: If topic already has school-specific dialogues, keep them intact!
+    const hasSchoolDialogues = t.dialogues && t.dialogues.some(d => d && d.school);
+    if (hasSchoolDialogues) {
+      return {
+        ...t,
+        structures: enrichedStructures,
+        dialogues: t.dialogues
+      };
+    }
+
     const originalDialogue = t.dialogues?.[0];
     const enrichedDialogues: Dialogue[] = [];
 

@@ -1,6 +1,8 @@
 import { Topic } from './types';
+import { PROFESSIONALS_DIALOGUES } from './comm-professionals-dialogues';
+import { PROFESSIONALS_STRUCTURES } from './comm-professionals-structures';
 
-export const specificProfessionals: Topic[] = [
+const rawProfessionals: Topic[] = [
   {
     id: 'pro-01',
     title: 'Self-Introduction in the Office',
@@ -743,3 +745,9 @@ export const specificProfessionals: Topic[] = [
     ]
   }
 ];
+
+export const specificProfessionals: Topic[] = rawProfessionals.map(topic => ({
+  ...topic,
+  dialogues: PROFESSIONALS_DIALOGUES[topic.id] || topic.dialogues,
+  structures: PROFESSIONALS_STRUCTURES[topic.id] || topic.structures
+}));

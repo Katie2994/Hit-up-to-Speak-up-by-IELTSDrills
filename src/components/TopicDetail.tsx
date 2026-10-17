@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { playTTS } from '../services/tts';
 import { augmentTopic } from '../utils/vocabAugmenter';
 import { toPng } from 'html-to-image';
+import { getIntonationDrills, getLinkingDrills } from '../utils/pronunciationLabHelper';
 
 interface TopicDetailProps {
   topic: Topic;
@@ -21,6 +22,10 @@ interface TopicDetailProps {
 export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommTab, setActiveCommTab }: TopicDetailProps) {
   // Always augment the rawTopic to inject the 3 schools models and guarantee 5 structures & 3 dialogues
   const topic = useMemo(() => augmentTopic(rawTopic), [rawTopic]);
+
+  const isWordBank = useMemo(() => {
+    return rawTopic.category !== 'Communication' || ['Slang', 'Life', 'PhrasalVerbs', 'Idioms', 'Collocations'].includes(rawTopic.category as string);
+  }, [rawTopic]);
 
   const isHowToSpeak = useMemo(() => {
     return rawTopic.subCategory?.includes('How to Speak') || rawTopic.id.startsWith('hts-');
@@ -49,6 +54,12 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
     setActiveStructureSchool('casual');
     setActiveDialogueSchool('casual');
   }, [rawTopic, isParentChild]);
+
+  useEffect(() => {
+    if (isWordBank) {
+      setActiveCommTab('skillsLab');
+    }
+  }, [isWordBank, setActiveCommTab, rawTopic]);
 
   useEffect(() => {
     if (isHowToSpeak) {
@@ -234,7 +245,24 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
     const speakData = rawTopic.howToSpeak?.find(h => h.type === 'chunking');
     if (speakData?.items) return speakData.items;
 
-    // fallbacks
+    // For Communication lessons, draw examples from structures
+    if (!isWordBank && topic.structures && topic.structures.length > 0) {
+      return topic.structures.map(s => {
+        const sentence = s.casualStyle?.example || s.phrase;
+        const words = sentence.split(' ');
+        const mid = Math.ceil(words.length / 2);
+        return {
+          sentence: sentence,
+          translation: s.casualStyle?.translation || s.vietnamese || '',
+          chunks: [
+            { text: words.slice(0, mid).join(' '), pause: true },
+            { text: words.slice(mid).join(' '), pause: false }
+          ]
+        };
+      });
+    }
+
+    // For Word Bank lessons: draw from topic.words
     return topic.words.map(w => ({
       sentence: w.example,
       translation: w.translation || '',
@@ -243,7 +271,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
         { text: w.example.split(' ').slice(Math.ceil(w.example.split(' ').length / 2)).join(' '), pause: false }
       ]
     }));
-  }, [topic, rawTopic]);
+  }, [topic, rawTopic, isWordBank]);
 
   // 3. Intonation (Lên xuống) Drills
   const [intonationIndex, setIntonationIndex] = useState(0);
@@ -251,42 +279,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
   const [intonationFeedback, setIntonationFeedback] = useState<string | null>(null);
 
   const intonationDrills = useMemo(() => {
-    const speakData = rawTopic.howToSpeak?.find(h => h.type === 'intonation');
-    if (speakData?.items) {
-      // Map the structure to match the drill structure
-      return speakData.items.map(item => {
-        const lastWordPitch = item.words?.[item.words.length - 1]?.pitch || 'falling';
-        const mainPitch = item.words?.find((w: any) => w.pitch === 'rising') ? 'rising' : lastWordPitch;
-        return {
-          sentence: item.sentence,
-          translation: item.translation,
-          pitch: mainPitch === 'rising' ? 'rising' : 'falling',
-          explanation: item.translation
-        };
-      });
-    }
-
-    // fallback general questions
-    return [
-      {
-        sentence: "Do you like learning English?",
-        translation: "Bạn có thích học tiếng Anh không?",
-        pitch: "rising" as const,
-        explanation: "Lên giọng ở cuối câu hỏi Có/Không (Yes/No Question) để biểu thị sự thăm dò ngữ cảnh."
-      },
-      {
-        sentence: "Where is the international terminal?",
-        translation: "Nhà ga quốc tế nằm ở hướng nào vậy?",
-        pitch: "falling" as const,
-        explanation: "Xuống giọng ở cuối câu hỏi lấy thông tin (Wh- question) để tạo tính dứt khoát."
-      },
-      {
-        sentence: "I visited my hometown yesterday.",
-        translation: "Mình đã về thăm quê ngày hôm qua.",
-        pitch: "falling" as const,
-        explanation: "Xuống giọng ở cuối câu khẳng định thường hoặc câu kể để khẳng định tính chấm dứt câu."
-      }
-    ];
+    return getIntonationDrills(topic, rawTopic);
   }, [topic, rawTopic]);
 
   const handleCheckIntonation = (ans: 'rising' | 'falling') => {
@@ -358,41 +351,16 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
   const [linkingActivated, setLinkingActivated] = useState(false);
 
   const linkingDrills = useMemo(() => {
-    const speakData = rawTopic.howToSpeak?.find(h => h.type === 'connected_speech');
-    if (speakData?.items) {
-      return speakData.items.map(item => {
-        const linkedRepresentation = item.words?.map((w: any) => w.text + (w.linkToNext ? ' ⁀ ' : ' ')).join('').trim();
-        return {
-          phrase: item.sentence.split(' ').slice(0, 2).join(' '),
-          sentence: item.sentence,
-          linked: linkedRepresentation,
-          explanation: item.translation
-        };
-      });
-    }
-
-    // fallback general questions
-    return [
-      {
-        phrase: "find out",
-        sentence: "I want to find out the secret.",
-        linked: "fin-dout",
-        explanation: "Phụ âm đuôi /d/ của 'find' nối liền với nguyên âm /aʊ/ của 'out' tạo ra 'fin-dout'."
-      },
-      {
-        phrase: "come in",
-        sentence: "Please come on in, friend!",
-        linked: "co-min",
-        explanation: "Phụ âm đuôi /m/ của 'come' nối sang nguyên âm /ɪ/ của 'in' tạo ra 'co-min'."
-      },
-      {
-        phrase: "wake up",
-        sentence: "We need to wake up early tomorrow.",
-        linked: "way-kup",
-        explanation: "Âm /k/ của 'wake' lướt mượt sang nguyên âm /ʌ/ của 'up' tạo ra phát âm 'way-kup'."
-      }
-    ];
+    return getLinkingDrills(topic, rawTopic);
   }, [topic, rawTopic]);
+
+  useEffect(() => {
+    setIntonationIndex(0);
+    setIntonationSelected(null);
+    setIntonationFeedback(null);
+    setLinkingIndex(0);
+    setLinkingActivated(false);
+  }, [topic]);
 
   // Filters dialogues strictly matching the active conversational school
   const matchingDialogues = useMemo(() => {
@@ -444,69 +412,72 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
       </div>
 
       {/* Sub Category Controller (Switcher) */}
-      {!topic.id.startsWith('review_') && (
-        <div className="bg-[#111]/70 border-b border-[#222] px-4 py-2 sticky top-0 z-20 backdrop-blur-md">
-          <div className="max-w-4xl mx-auto w-full flex justify-center gap-2">
-            {isHowToSpeak ? (
-              <>
-                <button
-                  onClick={() => setActiveCommTab('dialogue')}
-                  className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center ${
-                    activeCommTab === 'dialogue'
-                      ? 'bg-[#ffe36d] text-black shadow-md font-extrabold'
-                      : 'text-gray-400 hover:text-white hover:bg-[#1A1A1A]'
-                  }`}
-                >
-                  📖 Bài Học & Lí Thuyết
-                </button>
-                <button
-                  onClick={() => setActiveCommTab('skillsLab')}
-                  className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center flex items-center justify-center gap-1.5 ${
-                    activeCommTab === 'skillsLab'
-                      ? 'bg-[#dc2323] text-white shadow-md font-extrabold shadow-[#dc2323]/20'
-                      : 'text-[#dc2323]/90 bg-[#dc2323]/5 border border-[#dc2323]/20 hover:bg-[#dc2323]/10'
-                  }`}
-                >
-                  ⚡ Lab Luyện Âm & Dịch <Sparkles size={13} className="animate-pulse" />
-                </button>
-              </>
-            ) : (
-              <>
-                <button
-                  onClick={() => setActiveCommTab('dialogue')}
-                  className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center ${
-                    activeCommTab === 'dialogue'
-                      ? 'bg-[#ffe36d] text-black shadow-md font-extrabold'
-                      : 'text-gray-400 hover:text-white hover:bg-[#1A1A1A]'
-                  }`}
-                >
-                  💬 Đối Thoại (3 Style)
-                </button>
-                <button
-                  onClick={() => setActiveCommTab('structures')}
-                  className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center ${
-                    activeCommTab === 'structures'
-                      ? 'bg-[#ffe36d] text-black shadow-md font-extrabold'
-                      : 'text-gray-400 hover:text-white hover:bg-[#1A1A1A]'
-                  }`}
-                >
-                  👔 5 Cấu Trúc Đa Dạng
-                </button>
-                <button
-                  onClick={() => setActiveCommTab('skillsLab')}
-                  className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center flex items-center justify-center gap-1.5 ${
-                    activeCommTab === 'skillsLab'
-                      ? 'bg-[#dc2323] text-white shadow-md font-extrabold shadow-[#dc2323]/20'
-                      : 'text-[#dc2323]/90 bg-[#dc2323]/5 border border-[#dc2323]/20 hover:bg-[#dc2323]/10'
-                  }`}
-                >
-                  ⚡ Lab Phát Âm & Dịch <Sparkles size={13} className="animate-pulse" />
-                </button>
-              </>
-            )}
-          </div>
+      <div className="bg-[#111]/70 border-b border-[#222] px-4 py-2 sticky top-0 z-20 backdrop-blur-md">
+        <div className="max-w-4xl mx-auto w-full flex justify-center gap-2">
+          {isWordBank ? (
+            <div className="flex items-center justify-center gap-2 py-2 px-6 rounded-2xl bg-gradient-to-r from-red-600/15 via-[#dc2323]/25 to-amber-500/15 border border-[#dc2323]/40 shadow-sm">
+              <Sparkles size={15} className="text-[#ffe36d] animate-pulse" />
+              <span className="text-xs sm:text-sm font-black uppercase tracking-wider text-white">⚡ Lab Phát Âm & Dịch (Word Bank)</span>
+            </div>
+          ) : isHowToSpeak ? (
+            <>
+              <button
+                onClick={() => setActiveCommTab('dialogue')}
+                className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center ${
+                  activeCommTab === 'dialogue'
+                    ? 'bg-[#ffe36d] text-black shadow-md font-extrabold'
+                    : 'text-gray-400 hover:text-white hover:bg-[#1A1A1A]'
+                }`}
+              >
+                📖 Bài Học & Lí Thuyết
+              </button>
+              <button
+                onClick={() => setActiveCommTab('skillsLab')}
+                className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center flex items-center justify-center gap-1.5 ${
+                  activeCommTab === 'skillsLab'
+                    ? 'bg-[#dc2323] text-white shadow-md font-extrabold shadow-[#dc2323]/20'
+                    : 'text-[#dc2323]/90 bg-[#dc2323]/5 border border-[#dc2323]/20 hover:bg-[#dc2323]/10'
+                }`}
+              >
+                ⚡ Lab Luyện Âm & Dịch <Sparkles size={13} className="animate-pulse" />
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                onClick={() => setActiveCommTab('dialogue')}
+                className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center ${
+                  activeCommTab === 'dialogue'
+                    ? 'bg-[#ffe36d] text-black shadow-md font-extrabold'
+                    : 'text-gray-400 hover:text-white hover:bg-[#1A1A1A]'
+                }`}
+              >
+                💬 Đối Thoại (3 Style)
+              </button>
+              <button
+                onClick={() => setActiveCommTab('structures')}
+                className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center ${
+                  activeCommTab === 'structures'
+                    ? 'bg-[#ffe36d] text-black shadow-md font-extrabold'
+                    : 'text-gray-400 hover:text-white hover:bg-[#1A1A1A]'
+                }`}
+              >
+                👔 Cấu Trúc Đa Dạng
+              </button>
+              <button
+                onClick={() => setActiveCommTab('skillsLab')}
+                className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center flex items-center justify-center gap-1.5 ${
+                  activeCommTab === 'skillsLab'
+                    ? 'bg-[#dc2323] text-white shadow-md font-extrabold shadow-[#dc2323]/20'
+                    : 'text-[#dc2323]/90 bg-[#dc2323]/5 border border-[#dc2323]/20 hover:bg-[#dc2323]/10'
+                }`}
+              >
+                ⚡ Lab Phát Âm & Dịch <Sparkles size={13} className="animate-pulse" />
+              </button>
+            </>
+          )}
         </div>
-      )}
+      </div>
 
       {/* Main Content Body */}
       <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-6 pb-24 z-0">
@@ -515,7 +486,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
           <AnimatePresence mode="wait">
             
             {/* TAB 1: DIALOGUE IN 3 SCHOOLS */}
-            {activeCommTab === 'dialogue' && !isHowToSpeak && !topic.id.startsWith('review_') && (
+            {activeCommTab === 'dialogue' && !isHowToSpeak && !isWordBank && (
               <motion.div
                 key="dialogue-tab"
                 initial={{ opacity: 0, y: 15 }}
@@ -539,8 +510,8 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                       }`}
                     >
                       {school === 'business' && '👔 Business Line'}
-                      {school === 'casual' && '💬 Casual Standard'}
-                      {school === 'superCasual' && '⚡ Super Casual'}
+                      {school === 'casual' && (isParentChild ? '🏡 Trò Chuyện Gia Đình' : '💬 Casual Standard')}
+                      {school === 'superCasual' && (isParentChild ? '⚡ Tin Nhắn & Nói Nhanh' : '⚡ Super Casual')}
                     </button>
                   ))}
                 </div>
@@ -866,7 +837,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
             )}
 
             {/* TAB 2: SENTENCE STRUCTURES IN 3 SCHOOLS */}
-            {activeCommTab === 'structures' && !isHowToSpeak && !topic.id.startsWith('review_') && (
+            {activeCommTab === 'structures' && !isHowToSpeak && !isWordBank && (
               <motion.div
                 key="structures-tab"
                 initial={{ opacity: 0, y: 15 }}
@@ -887,8 +858,8 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                       }`}
                     >
                       {school === 'business' && '👔 Business Context'}
-                      {school === 'casual' && '💬 Casual Speaking'}
-                      {school === 'superCasual' && '⚡ Super Casual'}
+                      {school === 'casual' && (isParentChild ? '🏡 Gia Đình Thường Nhật' : '💬 Casual Speaking')}
+                      {school === 'superCasual' && (isParentChild ? '⚡ Tin Nhắn & Nói Nhanh' : '⚡ Super Casual')}
                     </button>
                   ))}
                 </div>
@@ -1403,8 +1374,8 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
 
           </AnimatePresence>
 
-          {/* Core Words list (Always show general flashcard list underneath on dialogue/structures tabs, or always show for review topics) */}
-          {(activeCommTab !== 'skillsLab' || topic.id.startsWith('review_')) && (
+          {/* Core Words list (Always show general flashcard list underneath on dialogue/structures tabs, or for Word Bank / review topics) */}
+          {(activeCommTab !== 'skillsLab' || isWordBank || topic.id.startsWith('review_')) && (
             <div className="mt-12">
               <h3 className="text-base font-black uppercase tracking-widest text-[#ffe36d] mb-5 px-1 flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#ffe36d]"></span>

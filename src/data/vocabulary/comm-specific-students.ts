@@ -1,6 +1,8 @@
 import { Topic } from './types';
+import { STUDENTS_DIALOGUES } from './comm-students-dialogues';
+import { STUDENTS_STRUCTURES } from './comm-students-structures';
 
-export const specificStudents: Topic[] = [
+const rawStudents: Topic[] = [
   {
     id: 'student-01',
     title: 'School Introduction & Orientation',
@@ -1062,3 +1064,9 @@ export const specificStudents: Topic[] = [
     ]
   }
 ];
+
+export const specificStudents: Topic[] = rawStudents.map(topic => ({
+  ...topic,
+  dialogues: STUDENTS_DIALOGUES[topic.id] || topic.dialogues,
+  structures: STUDENTS_STRUCTURES[topic.id] || topic.structures
+}));

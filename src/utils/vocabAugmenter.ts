@@ -600,11 +600,27 @@ export function augmentTopic(topic: Topic): Topic {
     };
   }
 
-  // Bind custom structures if handcrafted, otherwise prefer defined topic level, otherwise procedurally generate
-  const mappedStructures = HANDCRAFTED_STRUCTURES[topic.id] || (topic.structures as Structure[]) || generateProceduralStructures(topic);
-  
-  // Bind custom dialogues if handcrafted, otherwise prefer defined topic level, otherwise procedurally generate
-  const mappedDialogues = HANDCRAFTED_DIALOGUES[topic.id] || (topic.dialogues as any[]) || generateProceduralDialogues(topic);
+  // Essential Word Bank: Bỏ đi phần đối thoại, cấu trúc đa dạng, chỉ để lại phần lab phát âm và dịch
+  const isWordBank = topic.category !== 'Communication' || ['Slang', 'Life', 'PhrasalVerbs', 'Idioms', 'Collocations'].includes(topic.category as string);
+  if (isWordBank) {
+    return {
+      ...topic,
+      words: mappedWords,
+      structures: [],
+      dialogues: []
+    };
+  }
+
+  // Check if topic already has school-specific dialogues and 3-tier structures defined
+  const hasSchoolDialogues = Array.isArray(topic.dialogues) && topic.dialogues.some((d: any) => d && d.school);
+  const mappedDialogues = hasSchoolDialogues
+    ? (topic.dialogues as any[])
+    : (HANDCRAFTED_DIALOGUES[topic.id] || (topic.dialogues as any[]) || generateProceduralDialogues(topic));
+
+  const hasTierStructures = Array.isArray(topic.structures) && topic.structures.some((s: any) => s && (s.business || s.casualStyle || s.superCasual));
+  const mappedStructures = hasTierStructures
+    ? (topic.structures as Structure[])
+    : (HANDCRAFTED_STRUCTURES[topic.id] || (topic.structures as Structure[]) || generateProceduralStructures(topic));
 
   // Return augmented topic structure
   return {
