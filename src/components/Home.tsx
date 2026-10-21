@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { 
   Settings, UserCircle, ArrowLeft, Trophy, Zap, Star, MessageCircle, ArrowRight,
-  Sparkles, BookOpen, Layers, Heart, Bookmark, Search, Volume2
+  Sparkles, BookOpen, Layers, Heart, Bookmark, Search, Volume2, LayoutGrid
 } from 'lucide-react';
 import { Topic, VOCAB_TOPICS } from '../data/vocab';
 import { augmentTopic } from '../utils/vocabAugmenter';
 import { motion, AnimatePresence } from 'motion/react';
 import { playTTS } from '../services/tts';
+import { IpaInteractiveChart } from './IpaInteractiveChart';
 
 interface HomeProps {
   onSelectTopic: (topic: Topic) => void;
@@ -112,6 +113,8 @@ export function Home({ onSelectTopic, activeCategory, setActiveCategory, activeC
   const [cardFlipIndex, setCardFlipIndex] = useState(0);
   const [isCardFlipped, setIsCardFlipped] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [commViewMode, setCommViewMode] = useState<'bento' | 'topics'>('bento');
+  const [pronunciationMode, setPronunciationMode] = useState<'ipa' | 'topics'>('ipa');
 
   const COMM_TABS = [
     { id: 'How to Speak', label: 'Kỹ năng Phát âm' },
@@ -120,8 +123,92 @@ export function Home({ onSelectTopic, activeCategory, setActiveCategory, activeC
     { id: 'For Professionals', label: 'Người đi làm' },
     { id: 'For Beauty Professionals', label: 'Ngành làm đẹp' },
     { id: 'Food - Restaurant Services', label: 'Ngành Thực phẩm - Nhà hàng' },
+    { id: 'Hotel & Hospitality', label: 'Ngành Khách sạn' },
     { id: 'Making Friends Abroad', label: 'Kết bạn Quốc tế' },
     { id: 'Parent-Child', label: 'Bố mẹ & Con cái' },
+  ];
+
+  const COMM_BENTO_SQUARES = [
+    {
+      id: 'Phổ biến',
+      label: 'Phần lớn học viên',
+      sub: 'Common Daily Life',
+      icon: '💬',
+      description: 'Tình huống đời sống hàng ngày, phản xạ thực tế hay gặp nhất.',
+      gradient: 'from-emerald-500/15 via-emerald-600/5 to-transparent',
+      border: 'border-emerald-500/30 hover:border-emerald-400',
+      tagColor: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20'
+    },
+    {
+      id: 'For Students',
+      label: 'Học sinh - Sinh viên',
+      sub: 'Academic & Campus Life',
+      icon: '🎓',
+      description: 'Tương tác giảng đường, bài tập nhóm, thuyết trình & cố vấn học tập.',
+      gradient: 'from-blue-500/15 via-blue-600/5 to-transparent',
+      border: 'border-blue-500/30 hover:border-blue-400',
+      tagColor: 'text-blue-400 bg-blue-500/10 border-blue-500/20'
+    },
+    {
+      id: 'For Professionals',
+      label: 'Người đi làm',
+      sub: 'Workplace & Career',
+      icon: '💼',
+      description: 'Họp công sở, đàm phán, email chuyên nghiệp, dự án & thăng tiến.',
+      gradient: 'from-amber-500/15 via-amber-600/5 to-transparent',
+      border: 'border-amber-500/30 hover:border-amber-400',
+      tagColor: 'text-amber-400 bg-amber-500/10 border-amber-500/20'
+    },
+    {
+      id: 'For Beauty Professionals',
+      label: 'Ngành làm đẹp',
+      sub: 'Nails, Hair, Spa & Salon',
+      icon: '💅',
+      description: 'Tư vấn khách hàng, dịch vụ nails, salon tóc, spa & chăm sóc da.',
+      gradient: 'from-pink-500/15 via-pink-600/5 to-transparent',
+      border: 'border-pink-500/30 hover:border-pink-400',
+      tagColor: 'text-pink-400 bg-pink-500/10 border-pink-500/20'
+    },
+    {
+      id: 'Food - Restaurant Services',
+      label: 'Ngành F&B - Nhà hàng',
+      sub: 'Dining & Food Services',
+      icon: '🍽️',
+      description: 'Đón tiếp khách, order món tại bàn, hương vị, thanh toán & khiếu nại.',
+      gradient: 'from-orange-500/15 via-orange-600/5 to-transparent',
+      border: 'border-orange-500/30 hover:border-orange-400',
+      tagColor: 'text-orange-400 bg-orange-500/10 border-orange-500/20'
+    },
+    {
+      id: 'Hotel & Hospitality',
+      label: 'Ngành Khách sạn',
+      sub: 'Hotel & Hospitality (20 Buổi)',
+      icon: '🏨',
+      description: 'Giao tiếp lễ tân, buồng phòng, F&B nhà hàng, xử lý phàn nàn & concierge 5 sao.',
+      gradient: 'from-sky-500/15 via-sky-600/5 to-transparent',
+      border: 'border-sky-500/30 hover:border-sky-400',
+      tagColor: 'text-sky-400 bg-sky-500/10 border-sky-500/20'
+    },
+    {
+      id: 'Making Friends Abroad',
+      label: 'Kết bạn Quốc tế',
+      sub: 'Global Friends & Culture',
+      icon: '🤝',
+      description: 'Làm quen bạn bè quốc tế, phá tan khoảng cách & giao lưu văn hóa.',
+      gradient: 'from-purple-500/15 via-purple-600/5 to-transparent',
+      border: 'border-purple-500/30 hover:border-purple-400',
+      tagColor: 'text-purple-400 bg-purple-500/10 border-purple-500/20'
+    },
+    {
+      id: 'Parent-Child',
+      label: 'Bố mẹ & Con cái',
+      sub: 'Family Communication',
+      icon: '👨‍👩‍👧‍👦',
+      description: 'Trò chuyện gia đình ấm áp, nuôi dạy con & giải quyết xung đột nhẹ nhàng.',
+      gradient: 'from-rose-500/15 via-rose-600/5 to-transparent',
+      border: 'border-rose-500/30 hover:border-rose-400',
+      tagColor: 'text-rose-400 bg-rose-500/10 border-rose-500/20'
+    }
   ];
 
   const getDisplayTopics = () => {
@@ -283,7 +370,10 @@ export function Home({ onSelectTopic, activeCategory, setActiveCategory, activeC
                     </p>
                     
                     <button 
-                      onClick={() => setActiveCategory("Communication")}
+                      onClick={() => {
+                        setActiveCategory("Communication");
+                        setCommViewMode('bento');
+                      }}
                       className="mt-6 flex items-center gap-3 bg-[#dc2323] text-white px-8 py-5 rounded-full font-black text-xl uppercase tracking-widest hover:bg-[#b01c1c] hover:scale-105 active:scale-95 transition-all shadow-xl"
                     >
                       Học Giao Tiếp <ArrowRight size={24} />
@@ -776,36 +866,182 @@ export function Home({ onSelectTopic, activeCategory, setActiveCategory, activeC
                   </div>
                 )}
               </motion.div>
+            ) : activeCategory === 'Communication' && commViewMode === 'bento' ? (
+              <motion.div
+                key="comm-bento-portal"
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                className="space-y-8 max-w-5xl mx-auto text-left"
+              >
+                {/* Navigation & Header */}
+                <div className="flex flex-col gap-4 text-left">
+                  <button 
+                    onClick={() => setActiveCategory(null)}
+                    className="flex items-center gap-2 px-4 py-2.5 bg-[#141414] hover:bg-[#222] border border-[#333] hover:border-[#ffe36d]/30 text-gray-400 hover:text-white rounded-2xl text-xs font-black uppercase tracking-widest transition-all w-fit active:scale-95"
+                  >
+                    <ArrowLeft size={16} /> Quay Lại Trang Chủ
+                  </button>
+
+                  <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#222] pb-6 text-left">
+                    <div className="space-y-2 text-left">
+                      <span className="text-xs font-black uppercase tracking-widest text-[#ffe36d] bg-[#ffe36d]/10 px-3 py-1 rounded-full border border-[#ffe36d]/20">
+                        Giáo Trình Hit Up To Speak Up
+                      </span>
+                      <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tighter uppercase">
+                        Bài Học Giao Tiếp & Phát Âm
+                      </h2>
+                      <p className="text-gray-400 text-sm sm:text-base font-semibold max-w-2xl">
+                        Làm chủ kỹ năng phát âm chuẩn quốc tế qua bảng IPA tương tác 2D và luyện tập 8 chuyên đề giao tiếp thực tế với 3 trường phái hội thoại tự nhiên.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* BENTO GRID */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                  {/* 1. TOP RECTANGLE: KỸ NĂNG PHÁT ÂM */}
+                  <motion.div
+                    whileHover={{ y: -4, scale: 1.008 }}
+                    whileTap={{ scale: 0.99 }}
+                    onClick={() => {
+                      setActiveCommTab('How to Speak');
+                      setCommViewMode('topics');
+                      setPronunciationMode('ipa');
+                    }}
+                    className="col-span-1 sm:col-span-2 lg:col-span-4 bg-gradient-to-br from-[#2b1212] via-[#1a1414] to-[#121212] border-2 border-[#ff4e4e]/30 hover:border-[#ffe36d] rounded-[32px] p-6 sm:p-8 cursor-pointer shadow-2xl relative overflow-hidden group transition-all duration-300 text-left"
+                  >
+                    <div className="absolute top-0 right-0 w-80 h-80 bg-radial from-[#dc2323]/15 to-transparent rounded-full filter blur-2xl pointer-events-none" />
+
+                    <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
+                      <div className="space-y-3 flex-1">
+                        <div className="inline-flex items-center gap-2 bg-[#dc2323]/20 border border-[#dc2323]/40 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest text-[#ffe36d]">
+                          <Sparkles size={12} className="animate-spin" /> Nền Tảng Cốt Lõi • Bảng IPA & Chuyên Đề Ngữ Âm
+                        </div>
+
+                        <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight group-hover:text-[#ffe36d] transition-colors">
+                          Kỹ Năng Phát Âm (Pronunciation & IPA Drills)
+                        </h3>
+
+                        <p className="text-gray-300 text-xs sm:text-sm font-medium leading-relaxed max-w-2xl">
+                          Bảng phiên âm quốc tế IPA tương tác 44 âm 2D, quy tắc vàng đuôi -s/-es & -ed kèm ngoại lệ tính từ, các cặp âm dễ nhầm lẫn của người Việt, cùng các chuyên đề ngắt nghỉ (Chunking), ngữ điệu (Intonation), trọng âm (Stress) và nối âm (Connected Speech).
+                        </p>
+
+                        <div className="flex flex-wrap gap-2 pt-1">
+                          {['🎯 Bảng IPA Tương Tác', '⚡ Quy Tắc Đuôi -s/-ed', '🎯 Cặp Âm Dễ Nhầm', '✂️ Chunking', '🎢 Intonation', '🔨 Stress', '🔗 Nối Âm'].map(tag => (
+                            <span key={tag} className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 bg-[#222]/90 border border-[#333] text-gray-300 rounded-lg">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col sm:flex-row md:flex-col items-center gap-3 shrink-0 self-stretch md:self-center justify-between">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-[#ffe36d] to-[#c69a0d] text-black flex items-center justify-center text-3xl sm:text-4xl shadow-xl group-hover:scale-110 transition-transform">
+                          🎙️
+                        </div>
+                        <div className="flex items-center gap-2 px-5 py-2.5 bg-[#dc2323] group-hover:bg-[#ffe36d] text-white group-hover:text-black rounded-2xl text-xs font-black uppercase tracking-wider transition-all shadow-lg shadow-[#dc2323]/20">
+                          <span>Luyện Âm & Tra Bảng IPA</span>
+                          <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* 2. THE 7 SQUARE CARDS (CÁC Ô VUÔNG NẰM NHƯ BENTO GRID) */}
+                  {COMM_BENTO_SQUARES.map((item) => {
+                    const count = VOCAB_TOPICS.filter(t => t.category === 'Communication' && (Array.isArray(t.subCategory) ? t.subCategory.includes(item.id) : t.subCategory === item.id)).length;
+                    return (
+                      <motion.div
+                        key={item.id}
+                        whileHover={{ y: -6, scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => {
+                          setActiveCommTab(item.id);
+                          setCommViewMode('topics');
+                        }}
+                        className={`bg-gradient-to-br ${item.gradient} bg-[#141414] border ${item.border} rounded-[28px] p-6 cursor-pointer flex flex-col justify-between min-h-[260px] sm:min-h-[280px] shadow-lg hover:shadow-2xl transition-all duration-300 group text-left relative overflow-hidden`}
+                      >
+                        <div className="space-y-4">
+                          <div className="flex items-center justify-between">
+                            <div className="w-14 h-14 rounded-2xl bg-[#1e1e1e] border border-[#333] flex items-center justify-center text-3xl group-hover:scale-110 group-hover:bg-[#ffe36d] group-hover:text-black transition-all shrink-0 shadow-md">
+                              {item.icon}
+                            </div>
+                            <span className={`text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md border ${item.tagColor}`}>
+                              {count} BÀI HỌC
+                            </span>
+                          </div>
+
+                          <div className="space-y-1">
+                            <h4 className="text-xl font-black text-white leading-tight group-hover:text-[#ffe36d] transition-colors">
+                              {item.label}
+                            </h4>
+                            <span className="text-[10px] font-mono font-bold uppercase text-gray-500 tracking-wider block">
+                              {item.sub}
+                            </span>
+                          </div>
+
+                          <p className="text-gray-400 text-xs font-semibold leading-relaxed line-clamp-3">
+                            {item.description}
+                          </p>
+                        </div>
+
+                        <div className="pt-4 border-t border-[#262626] flex items-center justify-between text-xs font-black uppercase tracking-wider text-gray-400 group-hover:text-white transition-colors">
+                          <span>Học ngay</span>
+                          <ArrowRight size={15} className="group-hover:translate-x-1.5 transition-transform" />
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </motion.div>
             ) : (
               <motion.div
                 key="topics-view"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                className="max-w-3xl mx-auto"
+                className={`mx-auto ${activeCategory === 'Communication' && activeCommTab === 'How to Speak' && pronunciationMode === 'ipa' ? 'max-w-5xl' : 'max-w-3xl'}`}
               >
-                <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-10 sticky top-20 z-20 bg-[#0D0D0D]/90 backdrop-blur-md pb-4 pt-2 text-left">
-                  <button 
-                    onClick={() => {
-                      if (['Slang', 'Life', 'PhrasalVerbs', 'Idioms', 'Collocations'].includes(activeCategory || '')) {
-                        setActiveCategory('EssentialVocabPortal');
-                      } else {
-                        setActiveCategory(null);
-                      }
-                    }} 
-                    className="w-12 h-12 flex items-center justify-center bg-[#1A1A1A] border border-[#333] text-white rounded-2xl hover:bg-[#333] hover:text-[#ffe36d] transition-colors"
-                  >
-                    <ArrowLeft size={24} />
-                  </button>
-                  <div>
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#ffe36d] bg-[#ffe36d]/10 px-2.5 py-0.5 rounded border border-[#ffe36d]/20">TỪ VỰNG CẦN THIẾT PORTAL</span>
-                    <h3 className="text-3xl font-black uppercase tracking-tighter text-white mt-1">
-                      {MAIN_CATEGORIES.find(c => c.id === activeCategory)?.title}
-                    </h3>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 sticky top-20 z-20 bg-[#0D0D0D]/90 backdrop-blur-md pb-4 pt-2 text-left">
+                  <div className="flex items-center gap-4">
+                    <button 
+                      onClick={() => {
+                        if (['Slang', 'Life', 'PhrasalVerbs', 'Idioms', 'Collocations'].includes(activeCategory || '')) {
+                          setActiveCategory('EssentialVocabPortal');
+                        } else if (activeCategory === 'Communication') {
+                          setCommViewMode('bento');
+                        } else {
+                          setActiveCategory(null);
+                        }
+                      }} 
+                      className="w-12 h-12 flex items-center justify-center bg-[#1A1A1A] border border-[#333] text-white rounded-2xl hover:bg-[#333] hover:text-[#ffe36d] transition-colors shrink-0"
+                    >
+                      <ArrowLeft size={24} />
+                    </button>
+                    <div>
+                      <span className="text-[10px] font-black uppercase tracking-widest text-[#ffe36d] bg-[#ffe36d]/10 px-2.5 py-0.5 rounded border border-[#ffe36d]/20">
+                        {activeCategory === 'Communication' ? 'BÀI HỌC GIAO TIẾP THỰC TẾ' : 'TỪ VỰNG CẦN THIẾT PORTAL'}
+                      </span>
+                      <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tighter text-white mt-1">
+                        {activeCategory === 'Communication' 
+                          ? (COMM_TABS.find(t => t.id === activeCommTab)?.label || 'Bài Học Giao Tiếp')
+                          : MAIN_CATEGORIES.find(c => c.id === activeCategory)?.title}
+                      </h3>
+                    </div>
                   </div>
+
+                  {activeCategory === 'Communication' && (
+                    <button
+                      onClick={() => setCommViewMode('bento')}
+                      className="flex items-center gap-2 px-4 py-2 bg-[#1A1A1A] hover:bg-[#252525] border border-[#333] hover:border-[#ffe36d]/40 rounded-xl text-xs font-black uppercase tracking-wider text-gray-300 hover:text-white transition-all self-start sm:self-center active:scale-95"
+                    >
+                      <LayoutGrid size={14} className="text-[#ffe36d]" /> Lưới Bento
+                    </button>
+                  )}
                 </div>
 
-                {/* Vertical Timeline Path */}
+                {/* Vertical Timeline Path / Pronunciation View */}
                 <div className="flex flex-col gap-4 sm:gap-6 relative py-4 text-left">
                   {(() => {
                     const renderTopic = (topic: Topic, index: number) => {
@@ -853,6 +1089,53 @@ export function Home({ onSelectTopic, activeCategory, setActiveCategory, activeC
                     };
 
                     if (activeCategory === "Communication") {
+                      if (activeCommTab === 'How to Speak') {
+                        return (
+                          <div className="space-y-6">
+                            {/* Mode switcher: IPA Chart vs 4 Advanced Topics */}
+                            <div className="flex items-center justify-between gap-3 bg-[#151515] border border-[#2b2b2b] p-2 rounded-2xl">
+                              <div className="flex gap-2">
+                                <button
+                                  onClick={() => setPronunciationMode('ipa')}
+                                  className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
+                                    pronunciationMode === 'ipa'
+                                      ? 'bg-[#ffe36d] text-black shadow-md font-extrabold'
+                                      : 'text-gray-400 hover:text-white hover:bg-[#202020]'
+                                  }`}
+                                >
+                                  <span>🎯</span> Bảng IPA Tương Tác
+                                </button>
+                                <button
+                                  onClick={() => setPronunciationMode('topics')}
+                                  className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
+                                    pronunciationMode === 'topics'
+                                      ? 'bg-[#dc2323] text-white shadow-md font-extrabold shadow-[#dc2323]/20'
+                                      : 'text-gray-400 hover:text-white hover:bg-[#202020]'
+                                  }`}
+                                >
+                                  <span>📚</span> Chuyên Đề Ngữ Âm Cốt Lõi
+                                </button>
+                              </div>
+
+                              <button
+                                onClick={() => setCommViewMode('bento')}
+                                className="hidden sm:flex items-center gap-1.5 text-xs text-gray-400 hover:text-white px-3 py-1 font-bold"
+                              >
+                                ← Quay lại Bento Grid
+                              </button>
+                            </div>
+
+                            {pronunciationMode === 'ipa' ? (
+                              <IpaInteractiveChart onBack={() => setCommViewMode('bento')} />
+                            ) : (
+                              <div className="flex flex-col gap-4 sm:gap-6">
+                                {displayTopics.map((topic, index) => renderTopic(topic, index))}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      }
+
                       return (
                         <div className="space-y-6">
                           <div className="sticky top-[140px] z-20 pb-4 bg-[#0D0D0D] border-b border-[#333] overflow-x-auto no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">

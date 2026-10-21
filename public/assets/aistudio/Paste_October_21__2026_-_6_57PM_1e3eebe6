@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IELTS Drills · Pronunciation · Bảng IPA tương tác</title>
+<style>
+  /* ===== RESET & BASE ===== */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #faf7f2;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding: 40px 6px;
+    display: flex;
+    justify-content: center;
+    color: #1e1a17;
+    line-height: 1.7;
+  }
+  .container {
+    max-width: 1600px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 40px;
+    padding: 48px 18px;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.08);
+  }
+
+  /* ===== HEADER – BRAND ===== */
+  .drills-header { display: flex; flex-direction: column; align-items: center; margin-bottom: 20px; }
+  .drills-header .brand { color: #b31b1b; font-weight: 800; font-size: 36px; letter-spacing: -0.5px; }
+  .drills-header .brand span { background: #f5c542; padding: 0 8px; border-radius: 4px; color: #1e1a17; }
+  .drills-header .sub { color: #4a4642; font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 5px; margin-top: 4px; border-top: 2px solid #b31b1b; padding-top: 6px; }
+
+  h1 { font-size: 34px; font-weight: 800; color: #1e1a17; letter-spacing: -0.02em; line-height: 1.2; text-align: center; margin: 20px 0 28px 0; }
+  h1 small { display: block; font-size: 18px; font-weight: 400; color: #4a4642; margin-top: 6px; letter-spacing: 0.3px; }
+
+  .prompt-card { background: #fcf9f5; border-radius: 28px; padding: 28px 32px; margin-bottom: 40px; border: 1px solid #ece6de; position: relative; }
+  .prompt-card .label { font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: #b31b1b; border-bottom: 3px solid #f5c542; padding-bottom: 10px; margin-bottom: 16px; display: inline-block; }
+  .prompt-card .content { font-size: 20px; font-weight: 500; color: #1e1a17; line-height: 1.7; }
+
+  .toc { background: #fcf9f5; border-radius: 28px; padding: 28px 36px 32px 36px; margin-bottom: 44px; border: 1px solid #ece6de; }
+  .toc h3 { font-size: 18px; font-weight: 700; color: #1e1a17; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; border-bottom: 2px solid #f5c542; padding-bottom: 10px; }
+  .toc ul { list-style: none; padding-left: 0; }
+  .toc ul li { margin: 7px 0; font-weight: 600; color: #1e1a17; }
+  .toc ul li ul { padding-left: 24px; list-style: disc; font-weight: 400; color: #4a4642; }
+  .toc a { text-decoration: none; color: #b31b1b; font-weight: 500; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+  .toc a:hover { border-bottom-color: #b31b1b; }
+
+  h2 { font-size: 28px; font-weight: 700; color: #1e1a17; border-bottom: 3px solid #f5c542; padding-bottom: 12px; margin: 48px 0 24px 0; scroll-margin-top: 20px; display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; }
+  h2 a { font-size: 15px; font-weight: 500; color: #b31b1b; background: #fcf9f5; padding: 4px 14px; border-radius: 40px; border: 1px solid #ece6de; transition: 0.15s; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+  h2 a:hover { background: #b31b1b; color: #fff; border-color: #b31b1b; }
+  h3 { font-size: 22px; font-weight: 700; color: #1e1a17; margin: 32px 0 16px 0; scroll-margin-top: 20px; }
+  h4 { font-size: 18px; font-weight: 600; color: #b31b1b; margin: 24px 0 12px 0; letter-spacing: -0.2px; }
+  p { font-size: 18px; line-height: 1.8; color: #2a2622; margin-bottom: 20px; }
+  ul, ol { font-size: 18px; line-height: 1.8; color: #2a2622; padding-left: 24px; margin-bottom: 20px; }
+  li { margin-bottom: 6px; }
+  li b, p b, td b { color: #b31b1b; }
+
+  code { background: #fdf3d6; border-radius: 5px; padding: 2px 8px; font-size: 15px; font-family: 'Inter', sans-serif; color: #8a1a1a; }
+
+  .highlight-box { background: #fcf9f5; border-left: 6px solid #f5c542; padding: 18px 26px; border-radius: 0 16px 16px 0; margin: 20px 0; }
+  .highlight-box p { margin-bottom: 0; }
+
+  .tense { background: #fefcf9; padding: 26px 30px; border-radius: 24px; border: 1px solid #ece6de; border-left: 8px solid #b31b1b; margin: 20px 0 24px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.02); scroll-margin-top: 20px; }
+  .tense h3 { margin-top: 0; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .tense .tag { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #fcf9f5; background: #b31b1b; border-radius: 40px; padding: 4px 14px; }
+  .tense .formula { background: #fcf9f5; border: 1px solid #ece6de; border-radius: 12px; padding: 12px 16px; font-size: 17px; font-family: 'Inter', sans-serif; font-weight: 700; margin: 12px 0; color: #1e1a17; }
+  .tense .essence { background: #fdf3d6; border-radius: 12px; font-size: 16px; padding: 12px 16px; margin: 12px 0; line-height: 1.7; }
+  .tense .essence b { color: #b31b1b; }
+  .tense .examples { font-size: 17px; line-height: 1.9; margin: 12px 0; color: #2a2622; }
+  .tense .examples em { color: #4a4642; font-style: normal; }
+  .tense .tip { font-size: 16px; line-height: 1.7; margin-top: 12px; padding-top: 12px; border-top: 2px dashed #ece6de; }
+  .tense .tip b { color: #b31b1b; }
+
+  .sub-tense { background: #fefcf9; padding: 22px 26px; border-radius: 20px; border: 1px solid #ece6de; border-left: 6px solid #f5c542; margin: 16px 0 18px 0; scroll-margin-top: 20px; }
+  .sub-tense h4 { margin-top: 0; font-size: 19px; color: #1e1a17; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .sub-tense h4 .sub-tag { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #1e1a17; background: #f5c542; border-radius: 40px; padding: 4px 12px; }
+  .sub-tense .formula { background: #fcf9f5; border: 1px solid #ece6de; border-radius: 12px; padding: 10px 14px; font-size: 16px; font-family: 'Inter', sans-serif; font-weight: 700; margin: 10px 0; color: #1e1a17; }
+  .sub-tense .essence { background: #fdf3d6; border-radius: 12px; font-size: 15.5px; padding: 12px 16px; margin: 10px 0; line-height: 1.7; }
+  .sub-tense .essence b { color: #b31b1b; }
+  .sub-tense .examples { font-size: 16px; line-height: 1.85; margin: 10px 0; color: #2a2622; }
+  .sub-tense .examples em { color: #4a4642; font-style: normal; }
+  .sub-tense .tip { font-size: 15px; line-height: 1.7; margin-top: 10px; padding-top: 10px; border-top: 2px dashed #ece6de; }
+  .sub-tense .tip b { color: #b31b1b; }
+
+  .group-label { font-size: 15px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #b31b1b; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 3px solid #f5c542; }
+
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 16px; border-radius: 20px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.02); margin: 20px 0 32px 0; border: 1px solid #ece6de; }
+  .vocab-table th { background: #1e1a17; color: #fcf9f5; font-weight: 600; padding: 14px 20px; text-align: left; letter-spacing: 0.5px; font-size: 15px; }
+  .vocab-table td { padding: 14px 20px; border: 1px solid #ece6de; vertical-align: top; line-height: 1.6; }
+  .vocab-table tr:nth-child(even) { background: #fcf9f5; }
+  .vocab-table code { font-size: 13.5px; }
+
+  .recap { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+  @media(max-width: 560px){ .recap { grid-template-columns: 1fr; } }
+  .recap-item { background: #fcf9f5; border: 1px solid #ece6de; border-left: 6px solid #f5c542; border-radius: 14px; padding: 16px 20px; font-size: 16px; line-height: 1.5; }
+  .recap-item .kw { font-weight: 700; color: #b31b1b; display: block; margin-bottom: 3px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+  .recap-item .tn { font-weight: 800; font-size: 18px; color: #1e1a17; }
+
+  .compare { background: #fcf9f5; border: 1px solid #ece6de; border-left: 6px solid #f5c542; border-radius: 0 16px 16px 0; padding: 18px 24px; margin: 20px 0; font-size: 17px; line-height: 1.7; }
+  .compare b { color: #b31b1b; }
+
+  .criteria-grid { border-radius: 24px; padding: 28px 34px; margin: 30px 0; background: #fcf9f5; border: 1px solid #ece6de; border-left: 8px solid #f5c542; }
+  .criteria-grid ul { margin-bottom: 0; }
+  .criteria-grid li { margin-bottom: 8px; }
+
+  .footnote { text-align: center; margin-top: 50px; padding-top: 30px; border-top: 3px solid #f5c542; font-weight: 700; color: #b31b1b; font-size: 18px; letter-spacing: 2px; }
+
+  .to-top { position: fixed; right: 24px; bottom: 24px; width: 52px; height: 52px; border-radius: 50%; background: #b31b1b; color: #fff; border: none; font-size: 22px; font-weight: 700; cursor: pointer; box-shadow: 0 10px 24px -8px rgba(179,27,27,0.6); display: none; align-items: center; justify-content: center; transition: transform 0.2s, background 0.2s; z-index: 100; }
+  .to-top:hover { transform: translateY(-3px); background: #8a1a1a; }
+  .to-top.show { display: flex; }
+
+  .passage { background: #fefcf9; border: 1px solid #ece6de; border-left: 8px solid #b31b1b; border-radius: 24px; padding: 28px 32px; margin: 24px 0 20px 0; font-size: 17px; line-height: 2; }
+  .passage u { text-decoration: underline; text-decoration-color: #b31b1b; text-underline-offset: 4px; text-decoration-thickness: 2px; font-weight: 600; color: #1e1a17; }
+  .passage .note { display: inline; font-size: 14px; color: #8a1a1a; background: #fdf3d6; border-radius: 30px; padding: 2px 12px; margin-left: 6px; font-weight: 500; letter-spacing: 0.2px; white-space: normal; word-break: break-word; overflow-wrap: anywhere; box-decoration-break: clone; -webkit-box-decoration-break: clone; line-height: 1.9; }
+  .passage p { margin-bottom: 18px; }
+
+
+  /* Corrected IPA chart layout */
+  #vowel-head, #cons-head { display:none !important; }
+  #vowel-chart.ipa-chart, #cons-chart.ipa-chart { display:block; overflow:visible; padding:0; }
+  .chart-section-title { margin:20px 0 8px; font-size:17px; font-weight:800; color:#8a1a1a; }
+  .chart-help { margin:0 0 12px; font-size:14px; color:#5f5852; line-height:1.6; }
+  .vowel-quad { display:grid; grid-template-columns:92px repeat(3,minmax(90px,1fr)); gap:7px; align-items:stretch; }
+  .quad-corner,.quad-colhead,.quad-rowlabel { display:flex; align-items:center; justify-content:center; padding:8px 5px; border-radius:10px; background:#f5efe6; color:#5a4a42; font-size:12px; font-weight:800; text-align:center; }
+  .quad-cell { display:flex; align-items:stretch; justify-content:center; min-width:0; }
+  .quad-cell .ipa-cell { width:100%; min-width:0; }
+  .quad-empty { min-height:78px; border:1px dashed #e8e0d6; border-radius:12px; background:rgba(252,249,245,.45); }
+  .duo-central { gap:4px; flex-direction:column; }
+  .duo-central .ipa-cell { min-height:62px; }
+  .quad-separator { font-size:10px; color:#887c70; text-align:center; }
+  .diph-grid { display:grid; grid-template-columns:repeat(4,minmax(110px,1fr)); gap:7px; }
+  .cons-table { display:grid; grid-template-columns:112px repeat(9,minmax(82px,1fr)); gap:5px; overflow-x:auto; padding:4px 2px 12px; }
+  .cons-corner,.cons-place,.cons-manner { display:flex; align-items:center; justify-content:center; text-align:center; padding:8px 5px; border-radius:9px; background:#f5efe6; font-size:11px; line-height:1.3; font-weight:800; color:#5a4a42; min-height:50px; }
+  .cons-manner { background:#1e1a17; color:#fff; }
+  .cons-slot { display:flex; flex-direction:column; gap:4px; min-width:0; }
+  .cons-slot .ipa-cell { width:100%; min-width:0; min-height:62px; padding:7px 3px; }
+  .cons-slot .ipa-cell .sym { font-size:20px; }
+  .cons-slot .ipa-cell .ex { font-size:10px; }
+  .chart-legend { display:flex; align-items:center; gap:8px; font-size:13px; color:#5f5852; margin:4px 0 14px; }
+  .legend-dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
+  .voiced-dot { background:#b31b1b; }
+  .unvoiced-dot { background:#77716b; }
+  @media(max-width:760px) {
+    .vowel-quad { grid-template-columns:72px repeat(3,minmax(78px,1fr)); gap:4px; }
+    .quad-colhead,.quad-rowlabel,.quad-corner { font-size:10px; padding:6px 2px; }
+    .diph-grid { grid-template-columns:repeat(2,minmax(100px,1fr)); }
+    .cons-table { grid-template-columns:94px repeat(9,minmax(76px,1fr)); }
+  }
+
+  /* ===== IPA CHART ===== */
+  .ipa-wrap { margin: 24px 0; }
+
+  .ipa-head { display: grid; grid-template-columns: repeat(8, minmax(72px, 1fr)); gap: 6px; margin-bottom: 6px; }
+  .ipa-head .h { font-weight: 700; font-size: 13px; text-align: center; color: #b31b1b; text-transform: uppercase; letter-spacing: 1px; background: #fcf9f5; border: 1px solid #ece6de; border-radius: 10px; padding: 8px 4px; }
+
+  .ipa-chart { display: grid; grid-template-columns: repeat(8, minmax(72px, 1fr)); gap: 6px; overflow-x: auto; padding-bottom: 4px; }
+
+  .ipa-cell { border: 1px solid #ece6de; border-radius: 14px; padding: 10px 4px 8px; cursor: pointer; text-align: center; background: #fcf9f5; transition: transform 0.12s, border-color 0.12s, box-shadow 0.12s; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 78px; font-family: inherit; color: #1e1a17; }
+  .ipa-cell:hover { border-color: #f5c542; box-shadow: 0 4px 12px -4px rgba(179,27,27,0.2); transform: translateY(-2px); }
+  .ipa-cell .sym { font-size: 22px; font-weight: 700; line-height: 1.2; color: #1e1a17; }
+  .ipa-cell .ex { font-size: 12px; color: #4a4642; margin-top: 2px; text-decoration: underline; text-decoration-color: #f5c542; text-underline-offset: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+
+  .ipa-cell.vowel { background: #fefcf9; border-left: 4px solid #b31b1b; }
+  .ipa-cell.diph  { background: #fdf3d6; border-left: 4px solid #f5c542; }
+  .ipa-cell.cons  { background: #fcf9f5; border-left: 4px solid #4a4642; }
+  .ipa-cell.voiced .sym { color: #b31b1b; }
+  .ipa-cell.unvoiced .sym { color: #4a4642; opacity: .75; }
+
+  .ipa-cell.on { outline: 3px solid #b31b1b; outline-offset: 1px; background: #fdf3d6; }
+
+  .ipa-detail { background: #fefcf9; border: 1px solid #ece6de; border-left: 8px solid #b31b1b; border-radius: 0 24px 24px 0; padding: 24px 28px; margin-top: 20px; }
+  .ipa-detail-grid { display: grid; grid-template-columns: minmax(180px, 1fr) minmax(260px, 1.6fr); gap: 24px; align-items: start; }
+  @media(max-width: 720px){ .ipa-detail-grid { grid-template-columns: 1fr; } }
+
+  .ipa-big { font-size: 46px; font-weight: 800; color: #b31b1b; line-height: 1.1; }
+  .ipa-word { font-size: 20px; font-weight: 600; color: #1e1a17; margin: 4px 0 2px; }
+  .ipa-word span { font-weight: 400; color: #4a4642; font-size: 16px; }
+
+  .ipa-tags { margin-top: 10px; }
+  .ipa-tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 3px 12px; border-radius: 40px; margin: 3px 4px 0 0; background: #fcf9f5; border: 1px solid #ece6de; color: #4a4642; text-transform: uppercase; letter-spacing: 0.5px; }
+  .ipa-tag.hot { background: #fdf3d6; border-color: #f5c542; color: #8a1a1a; }
+
+  .ipa-btn { display: inline-flex; align-items: center; gap: 6px; background: #b31b1b; color: #fff; border: none; border-radius: 40px; padding: 8px 18px; font-family: inherit; font-size: 15px; font-weight: 600; cursor: pointer; margin: 12px 8px 0 0; transition: background 0.15s, transform 0.15s; }
+  .ipa-btn:hover { background: #8a1a1a; transform: translateY(-1px); }
+  .ipa-btn.alt { background: #fcf9f5; color: #1e1a17; border: 1px solid #ece6de; }
+  .ipa-btn.alt:hover { background: #f5c542; border-color: #f5c542; color: #1e1a17; }
+
+  .ipa-mouth { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+
+  /* *** SVG: đồng nhất kích thước *** */
+  .mouth-svg {
+    width: 200px;
+    height: 240px;
+    background: #fcf9f5;
+    border: 1px solid #ece6de;
+    border-radius: 16px;
+    cursor: zoom-in;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .mouth-svg:hover { transform: scale(1.03); box-shadow: 0 6px 18px -8px rgba(179,27,27,.35); }
+
+  .ipa-note { background: #fdf3d6; border-radius: 14px; padding: 14px 18px; margin-top: 14px; font-size: 15.5px; line-height: 1.7; color: #2a2622; }
+  .ipa-note b { color: #b31b1b; }
+
+  .ipa-tipbox { background: #fcf9f5; border: 1px solid #ece6de; border-radius: 14px; padding: 14px 18px; margin-top: 12px; font-size: 15.5px; line-height: 1.7; }
+  .ipa-tipbox b { color: #b31b1b; }
+
+  /* *** Bảng phụ âm vô thanh *** */
+  .voiceless-table { margin-top: 24px; }
+  .voiceless-table th { background: #4a4642; }
+
+  /* chips */
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; }
+  .chip { display: inline-block; margin: 0; padding: 7px 16px; border-radius: 40px; background: #fcf9f5; border: 1px solid #ece6de; cursor: pointer; color: #1e1a17; font: inherit; font-size: 15px; transition: 0.15s; }
+  .chip:hover { border-color: #f5c542; background: #fdf3d6; }
+
+  /* svg styling */
+  .mouth-svg .pl { fill: none; stroke: #445; stroke-width: 2.5; }
+  .mouth-svg .tg { fill: #f28b82; stroke: #a33; stroke-width: 1.5; }
+  .mouth-svg .th { fill: #fff; stroke: #445; stroke-width: 1; }
+  .mouth-svg .lp { fill: #e9967a; }
+  .mouth-svg .vc { fill: none; stroke: #2563eb; stroke-width: 2.5; }
+  .mouth-svg text { fill: #667; font-size: 8px; }
+  .mouth-svg .ct { fill: none; stroke: #e11; stroke-width: 2; animation: pu 1.2s infinite; }
+  @keyframes pu { 0%,100% { r: 3; opacity: 1; } 50% { r: 7; opacity: .3; } }
+  .mouth-svg .ar { fill: none; stroke: #2563eb; stroke-width: 2; stroke-dasharray: 3 2; }
+
+  /* *** Modal phóng to SVG *** */
+  .svg-modal {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(20,16,14,.82);
+    display: none; align-items: center; justify-content: center;
+    padding: 24px;
+    backdrop-filter: blur(4px);
+  }
+  .svg-modal.open { display: flex; }
+  .svg-modal-inner {
+    position: relative;
+    background: #fcf9f5;
+    border-radius: 28px;
+    padding: 28px;
+    max-width: min(92vw, 760px);
+    max-height: 92vh;
+    overflow: auto;
+    box-shadow: 0 30px 80px -20px rgba(0,0,0,.6);
+    text-align: center;
+  }
+  .svg-modal-inner svg {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 78vh;
+    border-radius: 16px;
+    background: #fff;
+  }
+  .svg-modal-close {
+    position: absolute; top: 10px; right: 14px;
+    background: #b31b1b; color: #fff; border: none;
+    width: 38px; height: 38px; border-radius: 50%;
+    font-size: 20px; font-weight: 700; cursor: pointer;
+    line-height: 1;
+  }
+  .svg-modal-close:hover { background: #8a1a1a; }
+  .svg-modal-caption { margin-top: 10px; font-size: 14px; color: #4a4642; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1200px) { .container { padding: 40px 14px; } }
+  @media (max-width: 900px) {
+    body { padding: 24px 4px; }
+    .container { padding: 32px 12px; border-radius: 28px; }
+    .passage { padding: 22px 20px; }
+    .ipa-chart { grid-template-columns: repeat(6, minmax(64px, 1fr)); }
+    .ipa-head { grid-template-columns: repeat(6, minmax(64px, 1fr)); }
+  }
+  @media (max-width: 640px) {
+    .container { padding: 24px 10px; border-radius: 22px; }
+    h1 { font-size: 26px; }
+    h2 { font-size: 22px; flex-direction: column; align-items: flex-start; }
+    .prompt-card { padding: 20px; }
+    .toc { padding: 20px; }
+    .tense { padding: 20px; }
+    .sub-tense { padding: 18px; }
+    body { padding: 16px 4px; }
+    p, ul, ol { font-size: 16px; }
+    .passage { padding: 18px 16px; font-size: 16px; }
+    .passage .note { font-size: 13px; padding: 2px 10px; margin-left: 4px; }
+    .to-top { right: 16px; bottom: 16px; width: 46px; height: 46px; font-size: 20px; }
+    .ipa-chart { grid-template-columns: repeat(4, minmax(64px, 1fr)); }
+    .ipa-head { grid-template-columns: repeat(4, minmax(64px, 1fr)); }
+    .ipa-cell .sym { font-size: 19px; }
+    .ipa-cell .ex { font-size: 11px; }
+    .ipa-detail { padding: 18px; }
+    .ipa-big { font-size: 36px; }
+    .mouth-svg { width: 160px; height: 192px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ================= HEADER ================= -->
+  <div class="drills-header">
+    <div class="brand">IELTS <span>Drills</span></div>
+    <div class="sub">Drill Your Skills</div>
+  </div>
+
+  <h1>
+    Phát âm tiếng Anh — Bảng IPA tương tác
+    <small>Nghe – nhìn khẩu hình – so sánh với tiếng Việt – sửa lỗi thường gặp</small>
+  </h1>
+
+  <!-- ================= PROMPT CARD ================= -->
+  <div class="prompt-card">
+    <div class="label">Nguyên tắc quan trọng nhất</div>
+    <div class="content">
+      Đừng học phát âm bằng cách nhìn mặt chữ. Hãy học theo <b>âm (IPA)</b> — vì một chữ cái tiếng Anh có thể đọc nhiều cách, và một âm có thể được viết bằng nhiều chữ khác nhau.
+    </div>
+  </div>
+
+  <!-- ================= MỤC LỤC ================= -->
+  <div class="toc" id="muc-luc">
+    <h3>Mục lục bài học</h3>
+    <ul>
+      <li><a href="#p1">Phần 1. Tổng quan hệ thống âm</a></li>
+      <li><a href="#p2">Phần 2. Bảng IPA tương tác</a>
+        <ul>
+          <li><a href="#p2-1">2.1. Nguyên âm đơn &amp; nguyên âm đôi</a></li>
+          <li><a href="#p2-2">2.2. Phụ âm</a></li>
+          <li><a href="#p2-3">2.3. Chi tiết âm đang chọn</a></li>
+        </ul>
+      </li>
+      <li><a href="#p3">Phần 3. Cặp âm dễ nhầm (bấm để nghe)</a></li>
+      <li><a href="#p4">Phần 4. Lỗi thường gặp của người Việt</a></li>
+      <li><a href="#p5">Phần 5. Âm cuối và cụm phụ âm</a></li>
+      <li><a href="#p6">Phần 6. Trọng âm và độ dài nguyên âm</a></li>
+      <li><a href="#p7">Phần 7. Chiến lược dạy – học 5 bước</a></li>
+      <li><a href="#p8">Phần 8. Gợi ý cấu trúc bài giảng (8 buổi)</a></li>
+    </ul>
+  </div>
+
+  <!-- ================= PHẦN 1 ================= -->
+  <h2 id="p1">Phần 1. Tổng quan hệ thống âm <a href="#muc-luc">↑ Mục lục</a></h2>
+
+  <p>Hãy hiểu hệ thống âm của tiếng Anh qua 3 câu hỏi:</p>
+
+  <table class="vocab-table">
+    <thead>
+      <tr><th>#</th><th>Câu hỏi</th><th>Nội dung</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>1</b></td>
+        <td><b>LOẠI ÂM? — Nguyên âm hay phụ âm?</b></td>
+        <td><b>Nguyên âm:</b> luồng hơi không bị cản → tạo âm vang. <b>Phụ âm:</b> luồng hơi bị cản ở một vị trí nào đó (môi, răng, lợi, vòm…).</td>
+      </tr>
+      <tr>
+        <td><b>2</b></td>
+        <td><b>VỊ TRÍ? — Lưỡi, môi, răng ở đâu?</b></td>
+        <td>Nguyên âm: cao/thấp, trước/sau, tròn/dẹt. Phụ âm: môi–môi, răng–môi, lưỡi–răng, lưỡi–lợi, lưỡi–vòm mềm…</td>
+      </tr>
+      <tr>
+        <td><b>3</b></td>
+        <td><b>RUNG KHÔNG? — Hữu thanh hay vô thanh?</b></td>
+        <td>Đặt tay lên cổ họng: <b>/z, v, b, d, g/</b> rung (hữu thanh); <b>/s, f, p, t, k/</b> không rung (vô thanh).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>1. Hai nhóm âm chính</h3>
+  <table class="vocab-table">
+    <thead>
+      <tr><th>Nhóm</th><th>Số lượng</th><th>Cách hình dung</th><th>Từ khóa ghi nhớ</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>Nguyên âm</b></td>
+        <td>20 âm</td>
+        <td>12 đơn + 8 đôi</td>
+        <td>Đơn: ngắn/dài. Đôi: trượt từ âm này sang âm khác.</td>
+      </tr>
+      <tr>
+        <td><b>Phụ âm</b></td>
+        <td>24 âm</td>
+        <td>Tắc, xát, tắc–xát, mũi, bên, tiếp cận</td>
+        <td>Vô thanh / hữu thanh; theo vị trí cấu âm.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <p><b>Lưu ý:</b> Bảng nguyên âm dùng mô hình giảng dạy truyền thống của tiếng Anh Anh (RP/SSBE), nên vị trí trên sơ đồ là gần đúng chứ không phải phép đo chính xác cho mọi người nói. Giọng Anh hiện đại và giọng Mỹ có thể khác nhau về /ɒ/, /ɑː/, /ɜː/, /əʊ/ và âm /r/. Hãy học âm thanh, vị trí cấu âm và từ mẫu; đừng xem các so sánh với tiếng Việt là tương đương tuyệt đối.</p>
+  </div>
+
+  <!-- ================= PHẦN 2: BẢNG IPA ================= -->
+  <h2 id="p2">Phần 2. Bảng IPA tương tác <a href="#muc-luc">↑ Mục lục</a></h2>
+
+  <p>
+    Bấm vào từng ký hiệu để nghe từ mẫu và xem hình minh họa khẩu hình. Các hình là sơ đồ trực quan hóa đơn giản, không phải ảnh giải phẫu chính xác; vị trí lưỡi có thể thay đổi nhẹ theo giọng nói. Ở bảng phụ âm, màu đỏ biểu thị hữu thanh và màu xám biểu thị vô thanh.
+  </p>
+
+  <h3 id="p2-1">2.1. Nguyên âm đơn &amp; nguyên âm đôi</h3>
+  <div class="ipa-wrap">
+    <div class="ipa-chart ipa-vowel-container" id="vowel-chart"></div>
+  </div>
+
+  <h3 id="p2-2">2.2. Phụ âm</h3>
+  <div class="ipa-wrap">
+    <div class="ipa-chart ipa-cons-container" id="cons-chart"></div>
+  </div>
+
+  <!-- *** BẢNG 8 PHỤ ÂM VÔ THANH *** -->
+  <h4 style="margin-top:32px;">Bảng nhanh: 8 phụ âm vô thanh thường gặp</h4>
+  <table class="vocab-table voiceless-table">
+    <thead>
+      <tr>
+        <th>Âm</th>
+        <th>Ví dụ</th>
+        <th>Vị trí cấu âm</th>
+        <th>Mô tả &amp; lưu ý cho người Việt</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>/p/</code></td>
+        <td>pen, cap, happy</td>
+        <td>Hai môi</td>
+        <td>Hai môi khép bật hơi mạnh; không rung cổ. Đầu từ bật hơi rõ (pie), cuối từ vẫn phải “chốt” môi (cap).</td>
+      </tr>
+      <tr>
+        <td><code>/t/</code></td>
+        <td>tea, cat, water</td>
+        <td>Đầu lưỡi – lợi trên</td>
+        <td>Khác “t” tiếng Việt: bật hơi mạnh ở đầu từ; cuối từ phải đặt lưỡi chạm lợi rồi dừng (cat).</td>
+      </tr>
+      <tr>
+        <td><code>/k/</code></td>
+        <td>key, back, school</td>
+        <td>Gốc lưỡi – vòm mềm</td>
+        <td>Bật hơi mạnh; cuối từ phải “chốt” gốc lưỡi (back), tránh bỏ âm cuối.</td>
+      </tr>
+      <tr>
+        <td><code>/f/</code></td>
+        <td>fan, leaf, coffee</td>
+        <td>Răng trên – môi dưới</td>
+        <td>Răng trên chạm nhẹ môi dưới, thổi hơi; không rung cổ. Khác “ph” tiếng Việt ở chỗ môi–răng rõ hơn.</td>
+      </tr>
+      <tr>
+        <td><code>/θ/</code></td>
+        <td>think, both, healthy</td>
+        <td>Lưỡi giữa hai răng</td>
+        <td>Không có trong tiếng Việt: thè nhẹ đầu lưỡi giữa hai hàm răng, thổi hơi. Tránh đọc thành /t/ (“tink”) hay /s/ (“sink”).</td>
+      </tr>
+      <tr>
+        <td><code>/s/</code></td>
+        <td>see, bus, sister</td>
+        <td>Đầu lưỡi – lợi trên</td>
+        <td>Giống “x” (sờ) tiếng Việt; cuối từ phải giữ hơi xì (bus), không được bỏ.</td>
+      </tr>
+      <tr>
+        <td><code>/ʃ/</code></td>
+        <td>she, shoe, nation</td>
+        <td>Đầu lưỡi – sau lợi</td>
+        <td>Môi hơi chu, lưỡi nâng gần vòm cứng; giống “s” miền Nam nhưng tròn môi hơn.</td>
+      </tr>
+      <tr>
+        <td><code>/tʃ/</code></td>
+        <td>chair, watch, teacher</td>
+        <td>Đầu lưỡi – sau lợi</td>
+        <td>Tắc–xát vô thanh = /t/ + /ʃ/. Người Việt thường đọc “ch” khá đúng, chỉ cần không nuốt âm cuối (watch).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 id="p2-3">2.3. Chi tiết âm đang chọn</h3>
+  <div class="ipa-detail" id="ipa-detail"></div>
+
+  <!-- ================= PHẦN 3 ================= -->
+  <h2 id="p3">Phần 3. Cặp âm dễ nhầm (bấm để nghe) <a href="#muc-luc">↑ Mục lục</a></h2>
+
+  <p>Nghe lần lượt từng từ trong cặp, sau đó nghe lại cả cặp để so sánh.</p>
+
+  <div class="chip-row" id="pair-chips"></div>
+
+  <div class="highlight-box">
+    <p><b>Mẹo:</b> Với cặp dài–ngắn (sheep – ship), hãy kéo dài nguyên âm dài khoảng gấp đôi nguyên âm ngắn. Với cặp hữu thanh–vô thanh (cap – cab), hãy đặt tay lên cổ họng để cảm nhận độ rung.</p>
+  </div>
+
+  <!-- ================= PHẦN 4 ================= -->
+  <h2 id="p4">Phần 4. Lỗi thường gặp của người Việt <a href="#muc-luc">↑ Mục lục</a></h2>
+
+  <table class="vocab-table">
+    <thead>
+      <tr><th>Vấn đề</th><th>Ví dụ</th><th>Cách sửa</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Bỏ âm cuối</td><td>cat /kæt/ – cab /kæb/ – ca</td><td>Đọc rõ và “chốt” phụ âm cuối; luyện cap–cab, back–bag, seat–seed.</td></tr>
+      <tr><td>Không phân biệt dài/ngắn</td><td>sheep /ʃiːp/ – ship /ʃɪp/</td><td>Nguyên âm dài kéo gấp đôi ngắn, môi căng hơn.</td></tr>
+      <tr><td>/θ, ð/ đọc thành t, s, d, z</td><td>think → “sink”, this → “dis”</td><td>Thè nhẹ đầu lưỡi giữa hai hàm răng, thổi hơi.</td></tr>
+      <tr><td>/v/ đọc thành /w/ hoặc /j/</td><td>vine – wine</td><td>/v/: răng trên chạm môi dưới; /w/: chu môi tròn.</td></tr>
+      <tr><td>/r/ rung hoặc lật lưỡi kiểu Việt</td><td>red, try</td><td>Cong lưỡi lên nhưng không chạm vòm, không rung.</td></tr>
+      <tr><td>Nguyên âm đôi đọc phẳng</td><td>go → “gô”, my → “mai”</td><td>Miệng phải <b>trượt</b> từ vị trí đầu sang vị trí cuối trong một nhịp.</td></tr>
+      <tr><td>Thêm /g/ sau /ŋ/</td><td>sing → “sinh-gờ”</td><td>Chỉ để gốc lưỡi chạm vòm mềm rồi dừng, không bật.</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Cụm phụ âm &amp; trọng âm</h4>
+  <p>Luyện chậm theo từng khối:</p>
+  <div class="chip-row">
+    <span class="chip" data-w="spring">s – pr – ɪŋ → spring</span>
+    <span class="chip" data-w="street">street</span>
+    <span class="chip" data-w="texts">texts</span>
+  </div>
+  <p style="margin-top:12px;">Trọng âm sai cũng làm người nghe không hiểu: nhấn mạnh âm tiết chính, các âm tiết yếu thường thành /ə/ (about, teacher, sofa).</p>
+
+  <!-- ================= PHẦN 5 ================= -->
+  <h2 id="p5">Phần 5. Âm cuối và cụm phụ âm <a href="#muc-luc">↑ Mục lục</a></h2>
+
+  <p>Tiếng Việt ít dùng phụ âm cuối nên người Việt hay bỏ âm cuối trong tiếng Anh, làm thay đổi nghĩa:</p>
+
+  <div class="chip-row">
+    <span class="chip" data-p="cat,cab">cat /kæt/ – cab /kæb/</span>
+    <span class="chip" data-p="light,lie">light /laɪt/ – lie /laɪ/</span>
+    <span class="chip" data-p="miss,mix">miss /mɪs/ – mix /mɪks/</span>
+  </div>
+
+  <div class="ipa-tipbox" style="margin-top:18px;">
+    <b>Khi dạy/học:</b> luôn nhấn vào âm cuối; tập thói quen “gõ” nhẹ lên bàn khi phát âm âm cuối; luyện từng cặp cap – cab, back – bag, seat – seed.
+  </div>
+
+  <p><b>Cụm phụ âm:</b> spring /sprɪŋ/, street /striːt/, texts /teksts/. Nên luyện chậm, chia cụm: s – prɪŋ → sprɪŋ.</p>
+
+  <!-- ================= PHẦN 6 ================= -->
+  <h2 id="p6">Phần 6. Trọng âm và độ dài nguyên âm <a href="#muc-luc">↑ Mục lục</a></h2>
+
+  <p>Nhiều khi không phải phát âm sai âm mà do không kéo dài nguyên âm dài hoặc đặt sai trọng âm.</p>
+
+  <div class="chip-row">
+    <span class="chip" data-p="sheep,ship">sheep /ʃiːp/ – ship /ʃɪp/</span>
+    <span class="chip" data-p="beat,bit">beat /biːt/ – bit /bɪt/</span>
+  </div>
+
+  <div class="ipa-tipbox">
+    <b>Khi dạy:</b> gạch chân âm chính (SH-EE-P, SH-I-P); kéo dài rõ nguyên âm dài, khoảng gấp đôi nguyên âm ngắn.
+  </div>
+
+  <!-- ================= PHẦN 7 ================= -->
+  <h2 id="p7">Phần 7. Chiến lược dạy – học 5 bước <a href="#muc-luc">↑ Mục lục</a></h2>
+
+  <div class="criteria-grid">
+    <ol>
+      <li><b>Học bảng IPA cơ bản:</b> in bảng IPA, đánh dấu từng âm; nghe mẫu từng âm (từ điển Oxford, Cambridge online) và bắt chước.</li>
+      <li><b>Luyện nhóm âm dễ nhầm theo cặp:</b> /iː/–/ɪ/ (sheep – ship, leave – live); /e/–/æ/ (men – man); /æ/–/ʌ/ (cap – cup); /ʊ/–/uː/ (full – fool).</li>
+      <li><b>Luyện phụ âm khó với người Việt:</b> /θ, ð/ lưỡi giữa hai hàm răng (think, this, both, mother); /v/ vs /w/ (vine – wine, vest – west); /r/ Mỹ: lưỡi cong lên, không rung.</li>
+      <li><b>Từ → cụm từ → câu:</b> bắt đầu từ từ đơn có âm đó rồi ghép cụm:
+        <div class="chip-row" style="margin-top:6px;">
+          <span class="chip" data-w="three thin things">three thin things</span>
+          <span class="chip" data-w="this is the thing that they think">this is the thing that they think</span>
+        </div>
+      </li>
+      <li><b>Thu âm – so sánh:</b> dùng điện thoại thu lại và so với phát âm mẫu trong từ điển.</li>
+    </ol>
+  </div>
+
+  <!-- ================= PHẦN 8 ================= -->
+  <h2 id="p8">Phần 8. Gợi ý cấu trúc bài giảng (8 buổi) <a href="#muc-luc">↑ Mục lục</a></h2>
+
+  <table class="vocab-table">
+    <thead>
+      <tr><th>Buổi</th><th>Nội dung</th><th>Bài tập</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>1–2</b></td><td>Giới thiệu hệ IPA, phân loại nguyên âm – phụ âm; học nguyên âm đơn ngắn /ɪ, e, æ, ʌ, ɒ, ʊ, ə/.</td><td>Nghe – chép, đọc từ mẫu, phân biệt cặp tối thiểu (minimal pairs).</td></tr>
+      <tr><td><b>3–4</b></td><td>Nguyên âm dài /iː, ɑː, ɔː, uː, ɜː/ và nguyên âm đôi /eɪ, aɪ, ɔɪ, aʊ, əʊ/.</td><td>Luyện kéo dài – rút ngắn, cặp tối thiểu.</td></tr>
+      <tr><td><b>5–6</b></td><td>Phụ âm tắc, xát, mũi, lỏng; tập trung các âm khó /θ, ð, r, l, v, z, ʃ, ʒ, ŋ/.</td><td>Luyện theo cặp hữu thanh – vô thanh.</td></tr>
+      <tr><td><b>7–8</b></td><td>Âm cuối, cụm phụ âm, nối âm cơ bản; ứng dụng trong đọc câu, hội thoại ngắn.</td><td>Thu âm và tự so sánh.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box" style="border-left-color:#b31b1b;">
+    <p><b>Nếu chỉ nhớ một câu, hãy nhớ câu này:</b><br>
+    Phát âm tiếng Anh không nằm ở chữ cái — nó nằm ở <b>âm</b>, <b>khẩu hình</b> và <b>độ rung của dây thanh</b>. Hãy luyện theo IPA, đừng đoán theo mặt chữ.</p>
+  </div>
+
+  <div class="footnote">IELTS Drills – Drill Your Skills</div>
+</div>
+
+<button class="to-top" id="toTop" title="Về mục lục" onclick="document.getElementById('muc-luc').scrollIntoView({behavior:'smooth'});">↑</button>
+
+<!-- Modal phóng to SVG -->
+<div class="svg-modal" id="svgModal">
+  <div class="svg-modal-inner">
+    <button class="svg-modal-close" id="svgModalClose" title="Đóng">✕</button>
+    <div id="svgModalBody"></div>
+    <div class="svg-modal-caption">Bấm ra ngoài hoặc nhấn Esc để đóng</div>
+  </div>
+</div>
+
+<script>
+/* ==================================================================
+   1. DỮ LIỆU ÂM
+   ================================================================== */
+
+const M = (o,r,h,b) => ({o,r,h,b});
+// M(opening, rounding, tongue height, backness): simplified illustration controls,
+// not measured articulatory coordinates.
+const V = {
+ 'iː':['sheep','/ʃiːp/', M(.15,0,.95,.15),'Nguyên âm trước, cao; môi thường hơi kéo ngang, lưỡi nâng cao phía trước. Trong nhiều giọng hiện đại, âm có thể kết thúc bằng một chuyển động nhẹ; không chỉ là “i Việt Nam kéo dài”.'],
+ 'ɪ':['ship','/ʃɪp/', M(.28,0,.78,.22),'Nguyên âm trước gần cao; lưỡi thấp hơn và cơ miệng thư giãn hơn /iː/. Khác nhau cả về chất âm lẫn độ dài, không chỉ là bản ngắn của /iː/.'],
+ 'ʊ':['good','/ɡʊd/', M(.3,.55,.72,.82),'Nguyên âm sau gần cao; môi tròn nhẹ đến vừa, lưỡi thấp hơn /uː/. Đừng ép môi chu quá mức hoặc chỉ rút ngắn /uː/.'],
+ 'uː':['shoot','/ʃuːt/', M(.18,.75,.93,.9),'Nguyên âm sau cao; môi thường tròn, lưỡi nâng cao phía sau. Mức độ tròn môi thay đổi theo giọng; giữ chất âm rõ, không chỉ kéo dài “u” tiếng Việt.'],
+ 'e':['bed','/bed/', M(.42,0,.58,.18),'Nguyên âm trước giữa-cao (close-mid trong mô hình truyền thống); môi không tròn, hàm mở vừa. So sánh với “e” tiếng Việt chỉ là mẹo gần đúng.'],
+ 'ə':['teacher','/ˈtiːtʃə/', M(.35,0,.48,.48),'Schwa: nguyên âm trung tâm, môi và lưỡi thả lỏng; thường ngắn và không nhấn. Đừng cố tạo một âm “ơ” thật rõ như khi đọc tiếng Việt.'],
+ 'ɜː':['bird','/bɜːd/', M(.38,0,.52,.5),'Nguyên âm trung tâm, không tròn môi, thường dài trong mô hình RP truyền thống. Không bắt buộc cuộn lưỡi. Trong nhiều giọng Mỹ, từ này có nguyên âm rhotic, thường ghi /ɝː/ hoặc /ɝ/.'],
+ 'ɔː':['door','/dɔː/', M(.48,.65,.42,.88),'Nguyên âm sau, môi thường tròn, lưỡi ở vùng giữa-thấp. Cách phát âm và việc giữ phân biệt với /ɒ/ khác nhau giữa các giọng.'],
+ 'æ':['cat','/kæt/', M(.82,0,.25,.18),'Nguyên âm trước gần thấp; hạ hàm khá rõ, môi không tròn. Đừng chỉ đổi chữ “e” sang “a”: hãy chú ý vị trí lưỡi trước và độ mở hàm.'],
+ 'ʌ':['up','/ʌp/', M(.58,0,.32,.48),'Nguyên âm trung tâm hoặc hơi lùi, gần thấp-trung, không tròn môi. Không có âm tiếng Việt trùng khít; đừng mặc định đọc thành /a/.'],
+ 'ɑː':['far','/fɑː/', M(.88,0,.12,.82),'Nguyên âm thấp, sau, không tròn môi; hàm mở rộng. Độ lùi và độ dài thay đổi theo giọng, đặc biệt khi so Anh–Anh với Anh–Mỹ.'],
+ 'ɒ':['on','/ɒn/', M(.82,.5,.16,.84),'Nguyên âm thấp, sau, thường có môi tròn trong mô hình Anh–Anh truyền thống. Không nên ghi chú rằng nó luôn tương đương /ɑː/ trong tiếng Mỹ: nhiều giọng Mỹ dùng /ɑ/, nhưng hệ thống phụ thuộc vùng và người nói.']
+};
+const D = {
+  'ɪə':['here','/hɪə/','ɪ','ə','Trong mô hình RP truyền thống: bắt đầu gần /ɪ/ rồi hướng về /ə/. Nhiều người nói hiện đại phát âm gần nguyên âm dài hoặc có biến thể khác; giọng rhotic thường có /r/.'],
+  'eɪ':['wait','/weɪt/','e','ɪ','Bắt đầu ở vùng /e/ rồi trượt lên phía /ɪ/. Hãy tạo chuyển động giữa hai vị trí, không đọc thành hai âm tiết tách rời.'],
+  'ʊə':['tourist','/ˈtʊərɪst/','ʊ','ə','Đây là cách phân tích truyền thống trong một số mô tả RP. Âm này ít ổn định trong tiếng Anh hiện đại; nhiều người nói dùng nguyên âm khác hoặc có /r/ tùy giọng.'],
+  'ɔɪ':['boy','/bɔɪ/','ɔː','ɪ','Bắt đầu ở vùng nguyên âm sau tương đối mở và trượt lên phía /ɪ/. Mức độ tròn môi ở đầu âm thay đổi theo giọng.'],
+  'əʊ':['show','/ʃəʊ/','ə','ʊ','Trong mô hình Anh–Anh truyền thống, bắt đầu ở trung tâm rồi trượt về phía /ʊ/. Nhiều giọng Anh–Mỹ có /oʊ/ với điểm bắt đầu khác.'],
+  'eə':['hair','/heə/','e','ə','Cách ghi truyền thống: bắt đầu gần /e/ rồi hướng về /ə/. Trong nhiều giọng hiện đại, âm này có thể là nguyên âm dài hoặc có cách hiện thực khác; giọng rhotic thường có /r/.'],
+  'aɪ':['my','/maɪ/','a','ɪ','Bắt đầu bằng nguyên âm thấp, thường gần [a] hoặc [ɑ]-like tùy giọng, rồi trượt lên phía /ɪ/. Môi và hàm thay đổi trong suốt âm.'],
+  'aʊ':['cow','/kaʊ/','a','ʊ','Bắt đầu bằng nguyên âm thấp, rồi trượt về phía /ʊ/; môi thường tròn dần về cuối. Đừng đọc như một nguyên âm “ao” phẳng.']
+};
+
+const C = {
+  'p':['pea','/piː/','lips','Tắc',0,'Giống “p” cuối từ; đầu từ bật hơi mạnh (đưa tờ giấy trước miệng sẽ bay).'],
+  'b':['boat','/bəʊt/','lips','Tắc',1,'Gần “b” tiếng Việt, hai môi khép rồi bật, rung cổ.'],
+  't':['tea','/tiː/','alv','Tắc',0,'Khác “t” Việt: đầu lưỡi chạm lợi trên và bật hơi mạnh ở đầu từ.'],
+  'd':['dog','/dɒɡ/','alv','Tắc',1,'Gần “đ” tiếng Việt, đầu lưỡi chạm lợi trên, rung cổ.'],
+  'tʃ':['cheese','/tʃiːz/','post','Tắc–xát',0,'Gần “ch”, môi hơi chu và bật hơi mạnh hơn.'],
+  'dʒ':['June','/dʒuːn/','post','Tắc–xát',1,'Gần “gi/ch” nhưng rung cổ; không có tương đương hoàn toàn.'],
+  'k':['car','/kɑː/','vel','Tắc',0,'Gần “c/k”, bật hơi mạnh ở đầu từ.'],
+  'g':['go','/ɡəʊ/','vel','Tắc',1,'Gần “g” (gờ), gốc lưỡi chạm vòm mềm, rung cổ.'],
+  'f':['fly','/flaɪ/','ld','Xát',0,'Giống “ph” trong “phở”; răng trên chạm môi dưới.'],
+  'v':['video','/ˈvɪdiəʊ/','ld','Xát',1,'Giống “v” nhưng răng chạm môi dưới rõ hơn và rung cổ; đừng đọc “w/d”.'],
+  'θ':['think','/θɪŋk/','dent','Xát',0,'Âm vô thanh: đặt đầu lưỡi hơi giữa hai răng hoặc sát mặt sau răng trên, để hơi đi qua khe hẹp. Không rung dây thanh; không thay bằng /t/ hay /s/.'],
+  'ð':['this','/ðɪs/','dent','Xát',1,'Âm hữu thanh: đặt lưỡi như /θ/ nhưng rung dây thanh khi hơi đi qua khe hẹp. Không thay hoàn toàn bằng /d/ hoặc /z/.'],
+  's':['see','/siː/','alv','Xát',0,'Giống “s/x” (xờ) miền Bắc, hơi xì qua khe lưỡi.'],
+  'z':['zoo','/zuː/','alv','Xát',1,'Như /s/ nhưng rung cổ; tiếng Việt không có.'],
+  'ʃ':['shall','/ʃæl/','post','Xát',0,'Giống “s” miền Nam trong “sáng”, môi chu nhẹ.'],
+  'ʒ':['television','/ˈtelɪvɪʒn/','post','Xát',1,'Gần “gi/d” miền Nam nhẹ, môi chu, rung cổ.'],
+  'm':['man','/mæn/','lips','Mũi',1,'Giống “m”, hơi thoát qua mũi. Âm cuối phải khép môi.'],
+  'n':['now','/naʊ/','alv','Mũi',1,'Giống “n”, đầu lưỡi chạm lợi trên.'],
+  'ŋ':['sing','/sɪŋ/','vel','Mũi',1,'Giống “ng” cuối từ “sang”; đừng thêm /g/ sau đó.'],
+  'h':['hat','/hæt/','glot','Xát',0,'Giống “h” tiếng Việt, chỉ là hơi thoát ra, không rung.'],
+  'l':['love','/lʌv/','alv','Bên',1,'Gần “l”; đầu lưỡi chạm lợi trên. “l” cuối từ (full) lưỡi lùi, không được bỏ.'],
+  'r':['red','/red/','rr','Tiếp cận',1,'Trong mô hình này ký hiệu /r/ đại diện cho âm tiếp cận thường được phiên âm hẹp là [ɹ]. Nâng hoặc hơi kéo lưỡi về phía sau vòm miệng nhưng không chặn luồng hơi; không rung đầu lưỡi. Không bắt buộc phải cuộn đầu lưỡi.'],
+  'w':['wet','/wet/','w','Tiếp cận',1,'Chu môi khi bắt đầu đồng thời nâng phần sau lưỡi về phía vòm mềm, rồi chuyển nhanh sang nguyên âm. Đây là âm tiếp cận môi–ngạc mềm; không đọc thành /v/.'],
+  'j':['yes','/jes/','pal','Tiếp cận',1,'Gần âm đầu “y” trong “yêu”: phần trước lưỡi nâng gần vòm cứng, không tạo ma sát mạnh. Ký hiệu IPA /j/ không phải âm /dʒ/.']
+};
+
+const PL = {
+  lips:'Hai môi',
+  ld:'Răng trên – môi dưới',
+  dent:'Lưỡi giữa hai răng',
+  alv:'Đầu lưỡi – lợi trên',
+  post:'Đầu lưỡi – sau lợi',
+  rr:'Lưỡi cong, không chạm',
+  w:'Hai môi chu tròn',
+  pal:'Giữa lưỡi – vòm cứng',
+  vel:'Gốc lưỡi – vòm mềm',
+  glot:'Thanh hầu'
+};
+
+const CP = {
+  lips:{o:0,r:0,h:.3,b:.5,lo:48,ll:43},
+  ld:{o:.1,r:0,h:.3,b:.5,ll:46},
+  dent:{o:.2,r:0,h:.4,b:.3,tx:27,ty:50,hx:62,hy:54},
+  alv:{o:.2,r:0,h:.8,b:.2,tx:36,ty:41,hx:62,hy:48},
+  post:{o:.2,r:.5,h:.8,b:.3,tx:50,ty:36,hx:76,hy:46},
+  rr:{o:.3,r:.4,h:.6,b:.5,tx:52,ty:44,hx:82,hy:50},
+  w:{o:.3,r:1,h:.8,b:.9},
+  pal:{o:.25,r:0,h:.9,b:.6,tx:34,ty:58,hx:78,hy:32},
+  vel:{o:.3,r:0,h:.9,b:.9,tx:34,ty:62,hx:102,hy:31},
+  glot:{o:.4,r:0,h:.3,b:.5}
+};
+
+const X = {
+  'ɪ':['sit, hit, ship, live','Miệng mở vừa, môi thư giãn, lưỡi nâng lên nhưng không cao như /iː/. Âm ngắn, dứt nhanh.','Dễ nhầm với /iː/ (seat). Mẹo: /ɪ/ “lỏng – nhanh”, /iː/ “căng – kéo dài”.'],
+  'e':['pen, bed, head','Miệng mở nhẹ, môi hơi dẹt sang hai bên, lưỡi ở vị trí trước – trung bình.','Đừng mở miệng quá to như “e” kéo dài, chỉ “bật” nhẹ.'],
+  'æ':['cat, man, black','Miệng mở rộng, hàm dưới hạ rõ rệt, môi hơi kéo ngang, lưỡi thấp – trước.','Dễ nhầm với /e/ (nếu mở miệng chưa đủ rộng) và /ɑː/ (car). Mẹo: nói “e” nhưng há miệng lớn.'],
+  'ʌ':['cup, bus, love','Miệng mở vừa, lưỡi ở giữa – hơi lùi, âm rất ngắn, dứt.','Người Việt hay đọc thành /a/. Hãy nghĩ tới “cấp, bất” nhưng ngắn.'],
+  'ɒ':['hot, not, rock','Môi hơi tròn, miệng mở vừa, lưỡi thấp – sau.','Nhiều giọng Mỹ dùng /ɑ/ trong hot, nhưng cách phát âm còn tùy vùng.'],
+  'ʊ':['book, put, cook','Môi hơi tròn, lưỡi nâng lên nhưng thấp hơn /uː/. Âm ngắn, không kéo dài.','Dễ nhầm với /uː/ (food).'],
+  'ə':['about /əˈbaʊt/, teacher /ˈtiːtʃə/, sofa /ˈsəʊfə/','Miệng thả lỏng, không mở to, môi – lưỡi thư giãn. Âm rất ngắn, nhẹ, thường không nhấn.','Âm quan trọng nhất cho nối âm, nuốt âm; xuất hiện cực nhiều ở âm tiết không nhấn của từ đa âm tiết.'],
+  'iː':['see, eat, teacher','Môi hơi kéo ngang, lưỡi nâng cao về phía trước. Giữ âm dài, có độ căng.','So với /ɪ/: dài hơn, căng hơn.'],
+  'ɑː':['car, star, heart','Miệng mở rộng, lưỡi thấp – sau, môi thư giãn. Âm dài, trầm.','So với /æ/: /æ/ ở trước, /ɑː/ lùi sâu hơn. Anh–Anh rõ hơn Anh–Mỹ.'],
+  'ɔː':['talk, wall, thought','Môi tròn, miệng mở vừa, lưỡi lùi sau. Âm dài, tròn.','Người Việt hay đọc thành “ô/oa”.'],
+  'uː':['blue, food, school','Môi tròn, hơi chu ra, lưỡi nâng cao – sau. Âm dài, rõ.','So với /ʊ/: dài hơn, môi tròn mạnh hơn.'],
+  'ɜː':['bird, word, learn, girl','Lưỡi ở giữa – hơi sau, miệng mở vừa.','Giọng Mỹ là /ɜːr/ ≈ /ɝ/ với /r/ rất rõ: bird ≈ /bɝːd/.'],
+  'eɪ':['face, name, day','Bắt đầu từ /e/, trượt lên /ɪ/.','Đừng đọc “êi” dài như tiếng Việt: là e + i nhanh.'],
+  'aɪ':['time, like, my','Bắt đầu như /a/ rồi trượt lên /ɪ/.','Đừng đọc “ai” phẳng; cần có chuyển động miệng.'],
+  'ɔɪ':['boy, toy, choice','Bắt đầu gần /ɔː/ rồi trượt lên /ɪ/.',''],
+  'aʊ':['now, house, about','Bắt đầu /a/, trượt về /ʊ/.','Khác “ao” tiếng Việt: phải có chuyển động miệng.'],
+  'əʊ':['go, no, open','Anh–Anh /əʊ/, Anh–Mỹ /oʊ/: bắt đầu âm trung rồi trượt lên /ʊ/.','Người Việt hay đọc “gô” (một nguyên âm), trong khi tiếng Anh có sự trượt.'],
+  'ɪə':['near, here','Từ /ɪ/ trượt sang /ə/.','Giọng Mỹ thường “r hóa”: here /hɪr/.'],
+  'eə':['care, hair','Từ /e/ trượt sang /ə/.','Giọng Mỹ: care /ker/.'],
+  'ʊə':['tour','Từ /ʊ/ trượt sang /ə/.','Ít dùng dần; giọng Mỹ thường là /ʊr/.'],
+  'p':['pen, cap','Vô thanh: hai môi chạm nhau, bật mạnh; không rung dây thanh.','Mẹo: để tay lên cổ họng, /b/ sẽ rung còn /p/ không.'],
+  'b':['bed, cab','Hữu thanh: hai môi chạm nhau, bật ra; cổ họng rung.','Cặp /p/–/b/.'],
+  't':['top, bat','Vô thanh: đầu lưỡi chạm lợi trên (sau răng trên), bật nhẹ.','Cặp /t/–/d/.'],
+  'd':['dog, bad','Hữu thanh: đầu lưỡi chạm lợi trên, bật nhẹ.','Cặp /t/–/d/.'],
+  'k':['cat, back','Vô thanh: gốc lưỡi chạm vòm mềm rồi bật ra.','Cặp /k/–/g/.'],
+  'g':['go, bag','Hữu thanh: gốc lưỡi chạm vòm mềm rồi bật ra.','Cặp /k/–/g/.'],
+  'f':['fan, leaf','Vô thanh: răng trên chạm nhẹ môi dưới, thổi hơi.','Cặp /f/–/v/.'],
+  'v':['van, leave','Hữu thanh: răng trên chạm nhẹ môi dưới, thổi hơi, cổ họng rung.','Luyện vine – wine, vest – west.'],
+  'θ':['think, both','Vô thanh: đặt đầu lưỡi giữa hai hàm răng (thò nhẹ ra), thổi hơi.','Sai phổ biến: /θ/ → /t/ hoặc /s/ (“sink” thay vì “think”).'],
+  'ð':['this, mother','Hữu thanh: đầu lưỡi giữa hai hàm răng, thổi hơi, cổ họng rung.','Sai phổ biến: /ð/ → /d/ hoặc /z/.'],
+  's':['see, bus','Vô thanh: đầu lưỡi gần lợi trên, hơi xì qua khe nhỏ.','Cặp /s/–/z/.'],
+  'z':['zoo, busy','Hữu thanh: giống /s/ nhưng cổ họng rung.','Cặp /s/–/z/.'],
+  'ʃ':['she, shoe, nation','Vô thanh: hai môi hơi tròn, lưỡi nâng gần vòm cứng, luồng hơi xát.','Cặp /ʃ/–/ʒ/.'],
+  'ʒ':['vision, pleasure','Hữu thanh: giống /ʃ/ nhưng rung cổ.','Thường nằm giữa hoặc cuối từ.'],
+  'h':['he, hello','Chỉ là hơi thoát ra từ cổ họng, không rung dây thanh.',''],
+  'tʃ':['chair, watch','Tắc–xát vô thanh: kết hợp /t/ + /ʃ/.','Người Việt đọc “ch” đã khá đúng, chỉ cần không nuốt âm cuối.'],
+  'dʒ':['job, bridge','Tắc–xát hữu thanh: kết hợp /d/ + /ʒ/.','Cặp /tʃ/–/dʒ/.'],
+  'm':['man, time','Hai môi khép lại, hơi thoát qua mũi.',''],
+  'n':['no, ten','Đầu lưỡi chạm lợi trên, hơi thoát qua mũi.',''],
+  'ŋ':['sing, long, thanks','Gốc lưỡi chạm vòm mềm, miệng mở, hơi thoát qua mũi.','Không thêm /g/ sau /ŋ/ trong sing (“sinh-gờ”).'],
+  'l':['light, feel','Đầu lưỡi chạm lợi trên, hơi luồn qua hai bên lưỡi.','Có “clear l” và “dark l” (cuối âm tiết /ɫ/). Giọng Mỹ thường rất “dark l” ở cuối từ: full.'],
+  'r':['red, try, very','Âm tiếp cận thường được phiên âm hẹp là [ɹ]; lưỡi nâng hoặc hơi kéo về sau mà không chặn luồng hơi.','Không rung hoặc lật đầu lưỡi; không bắt buộc phải cuộn lưỡi. Cách đặt lưỡi thay đổi theo giọng.'],
+  'w':['we, window, quick','Chu môi đồng thời nâng phần sau lưỡi về phía vòm mềm, rồi chuyển nhanh sang nguyên âm.','/w/ là âm tiếp cận môi–ngạc mềm; đừng đọc thành /v/.'],
+  'j':['yes, you, young','Lưỡi nâng lên gần vòm cứng; giống “y” trong “yêu”.','']
+};
+
+/* ==================================================================
+   2. VẼ SVG
+   ================================================================== */
+
+// draw0: CHỈ vẽ mặt cắt ngang, đã bỏ phần miệng nhìn từ trước
+function draw0(p, v, n){
+  const T = {
+    lips:{lo:140,tx:94,ty:148,hx:140,hy:146,c:[52,144],ix:14,iy:.8},
+    ld:{lo:150,tx:94,ty:156,hx:140,hy:152,c:[76,148],ix:18,iy:3,bite:1},
+    dent:{lo:166,tx:78,ty:150,hx:135,hy:152,c:[80,152],ix:14,iy:6,tg:1},
+    alv:{lo:160,tx:92,ty:134,hx:135,hy:146,c:[92,131],ix:16,iy:5},
+    post:{lo:160,tx:105,ty:124,hx:140,hy:140,c:[106,121],ix:11,iy:8},
+    rr:{lo:162,tx:110,ty:132,hx:150,hy:134,ix:10,iy:7},
+    w:{lo:160,tx:94,ty:168,hx:165,hy:124,ix:7,iy:7},
+    pal:{lo:162,tx:94,ty:168,hx:140,hy:118,c:[140,115],ix:17,iy:5},
+    vel:{lo:164,tx:94,ty:170,hx:168,hy:121,c:[170,120],ix:17,iy:6},
+    glot:{lo:168,tx:94,ty:174,hx:140,hy:172,c:[162,262],ix:16,iy:8}
+  };
+  let q = T[p.pl];
+  if (!q) {
+    const lo = 146 + p.o*34, hy = lo+16 - p.h*(lo+16-124);
+    q = {lo, tx:94, ty:lo+6, hx:118+p.b*50, hy, ix:20-p.r*12, iy:2+p.o*12+p.r*3};
+  }
+  window.LQ = q;
+  const {lo,tx,ty,hx,hy} = q;
+  const air = ['Xát','Tắc–xát','Tắc'].includes(p.air)
+    ? `<path class='ar' d='M44 ${lo+12}H16M22 ${lo+6}L16 ${lo+12}L22 ${lo+18}'/>`
+    : p.air === 'Mũi'
+      ? `<path class='ar' d='M26 102L6 108M6 108L8 99M6 108L15 107'/>`
+      : '';
+  const vel = n ? 'M175 120Q192 128 192 154' : 'M175 120C190 126 200 134 200 140M186 116L200 140';
+  const cord = v
+    ? `<path class='vc' d='M152 262h26'/><path class='vc' d='M150 252q4-6 8 0t8 0t8 0t8 0' style='stroke-width:1.5'/>`
+    : `<path class='vc' d='M152 254L160 270M178 254L170 270'/>`;
+  // ĐÃ BỎ phần <g transform="translate(150 40)"> ... </g> (miệng nhìn từ trước)
+  return `<svg class='mouth-svg' viewBox='0 0 210 300' role='img'>
+    <path class='tg' d='M${tx} ${ty}C${tx+14} ${ty-4} ${hx-28} ${hy} ${hx} ${hy}C${hx+22} ${hy} 184 ${hy+6} 188 ${hy+30}L188 232C170 224 130 ${ty+22} ${tx} ${ty+12}Q${tx-3} ${ty+6} ${tx} ${ty}Z'/>
+    <path class='pl' d='M55 29L22 65Q14 85 25 94L50 96Q56 104 54 112Q44 122 44 134Q46 142 56 141L70 134'/>
+    <path class='pl' d='M88 132C108 118 150 110 175 120'/>
+    <path class='pl' d='${vel}'/>
+    <path class='pl' d='M82 ${lo+2}Q58 ${lo-6} 55 ${lo+6}Q58 ${lo+16} 66 ${lo+26}Q68 210 64 222Q68 236 95 236Q118 232 130 240Q146 262 142 290'/>
+    <ellipse class='th' cx='75' cy='132' rx='6' ry='14'/>
+    ${lo>=144 ? `<ellipse class='th' cx='86' cy='${lo+9}' rx='5' ry='9'/>` : ''}
+    ${q.c ? `<circle class='ct' cx='${q.c[0]}' cy='${q.c[1]}' r='4'/>` : ''}
+    ${air}${cord}
+    <g font-size='7'>
+      <text x='${hx-8}' y='${hy+22}' fill='#fff'>lưỡi</text>
+      <text x='108' y='104'>vòm cứng</text>
+      <text x='158' y='104'>vòm mềm</text>
+      <text x='150' y='288'>dây thanh</text>
+    </g>
+  </svg>`;
+}
+
+// lips: miệng nhìn từ trước – giữ nguyên
+function lips() {
+  const q = window.LQ || {ix:14, iy:3};
+  const cx = 110, cy = 120;
+  const mw = 26 + q.ix*2.6, mh = q.iy*2.6;
+  const id = 'lp' + (window._li = (window._li || 0) + 1);
+  const op = `M${cx-mw} ${cy}C${cx-mw*.6} ${cy-mh*1.3} ${cx+mw*.6} ${cy-mh*1.3} ${cx+mw} ${cy}C${cx+mw*.6} ${cy+mh*1.4} ${cx-mw*.6} ${cy+mh*1.4} ${cx-mw} ${cy}Z`;
+  const tw = Math.min(mw*1.7, 120);
+  const tt = (y,h) => Array.from({length:6}, (_,i) =>
+    `<rect x='${cx-tw/2+i*tw/6+.8}' y='${y}' width='${tw/6-1.6}' height='${h}' rx='5' fill='#fffdf5' stroke='#cfc9b8'/>`
+  ).join('');
+  const open = mh > 5 && !q.bite;
+  return `<svg class='mouth-svg' viewBox='0 0 220 232' role='img'>
+    <rect width='220' height='232' rx='20' fill='#f3d9c8'/>
+    <path d='M${cx-26} 28Q${cx} 46 ${cx+26} 28' fill='none' stroke='#8a5a50' stroke-width='2'/>
+    <ellipse cx='${cx-13}' cy='34' rx='7' ry='4' fill='#6b3b34' opacity='.6'/>
+    <ellipse cx='${cx+13}' cy='34' rx='7' ry='4' fill='#6b3b34' opacity='.6'/>
+    <path d='M${cx-7} 48Q${cx-9} 62 ${cx-12} ${cy-mh*1.3-24}M${cx+7} 48Q${cx+9} 62 ${cx+12} ${cy-mh*1.3-24}' fill='none' stroke='#8a5a50' stroke-width='1.5' opacity='.5'/>
+    <path d='M${cx-mw-8} ${cy}C${cx-mw*.55} ${cy-mh*1.3-36} ${cx+mw*.55} ${cy-mh*1.3-36} ${cx+mw+8} ${cy}C${cx+mw*.55} ${cy+mh*1.4+40} ${cx-mw*.55} ${cy+mh*1.4+40} ${cx-mw-8} ${cy}Z' fill='#c4605e' stroke='#7a2b2b' stroke-width='2'/>
+    <path d='M${cx-16} ${cy-mh*1.15-18}Q${cx} ${cy-mh*1.15-10} ${cx+16} ${cy-mh*1.15-18}' fill='none' stroke='#8f3b3b' stroke-width='2'/>
+    <ellipse cx='${cx}' cy='${cy+mh*1.4+16}' rx='${mw*.4}' ry='5' fill='#fff' opacity='.28'/>
+    <clipPath id='${id}'><path d='${op}'/></clipPath>
+    <path d='${op}' fill='#3b0d10'/>
+    ${open ? `<g clip-path='url(#${id})'>
+      <ellipse cx='${cx}' cy='${cy+mh*.55}' rx='${mw*.75}' ry='${mh*.6}' fill='#d6544a'/>
+      ${tt(cy-mh*1.15-2,22)}
+      ${tt(cy+mh*1.2-16,20)}
+      ${q.tg ? `<ellipse cx='${cx}' cy='${cy}' rx='30' ry='10' fill='#d6544a' stroke='#a33' stroke-width='1.5'/>` : ''}
+    </g>` : ''}
+    ${q.bite ? tt(cy-6,22) : ''}
+    <path d='${op}' fill='none' stroke='#2a0808' stroke-width='2'/>
+    <text x='110' y='224' text-anchor='middle' font-size='9' fill='#667'>miệng nhìn từ phía trước</text>
+  </svg>`;
+}
+
+function pair(p, v, n) {
+  return `<div class='ipa-mouth'>${draw0(p, v, n)}${lips()}</div>`;
+}
+
+/* ==================================================================
+   3. RENDER BẢNG IPA
+   ================================================================== */
+
+const vowelRows = [
+  {label:'Cao', front:'iː', central:'', back:'uː'},
+  {label:'Gần cao', front:'ɪ', central:'', back:'ʊ'},
+  {label:'Giữa-cao', front:'e', central:'', back:''},
+  {label:'Trung tâm', front:'', central:'ə / ɜː', back:''},
+  {label:'Giữa-thấp', front:'', central:'ʌ', back:'ɔː'},
+  {label:'Gần thấp', front:'æ', central:'', back:'ɒ'},
+  {label:'Thấp', front:'', central:'', back:'ɑː'}
+];
+const diphthongKeys = ['ɪə','eɪ','ʊə','ɔɪ','əʊ','eə','aɪ','aʊ'];
+const consRows = [
+  {label:'Tắc', cells:{'Môi–môi':['p','b'],'Lợi':['t','d'],'Ngạc mềm':['k','g']}},
+  {label:'Tắc–xát', cells:{'Sau lợi':['tʃ','dʒ']}},
+  {label:'Xát', cells:{'Môi–răng':['f','v'],'Răng':['θ','ð'],'Lợi':['s','z'],'Sau lợi':['ʃ','ʒ'],'Thanh hầu':['h']}},
+  {label:'Mũi', cells:{'Môi–môi':['m'],'Lợi':['n'],'Ngạc mềm':['ŋ']}},
+  {label:'Tiếp cận / bên', cells:{'Lợi':['l'],'Sau lợi':['r'],'Vòm cứng':['j'],'Môi–ngạc mềm':['w']}}
+];
+
+function makeSoundButton(k, cls) {
+  const data = V[k] || D[k] || C[k];
+  const word = data ? data[0] : k;
+  const voiced = C[k] ? C[k][4] === 1 : false;
+  const klass = cls || (D[k] ? 'diph' : V[k] ? 'vowel' : ('cons ' + (voiced ? 'voiced' : 'unvoiced')));
+  return `<button class="ipa-cell ${klass}" data-k="${k}" type="button" aria-label="Âm ${k}"><span class="sym">${k}</span><span class="ex">${word}</span></button>`;
+}
+function renderVowels() {
+  const chart = document.getElementById('vowel-chart');
+  let mono = `<div class="chart-section-title">12 nguyên âm đơn</div>
+    <p class="chart-help">Sơ đồ gần đúng: từ trên xuống là lưỡi cao đến thấp; từ trái sang phải là trước – trung tâm – sau. Các vị trí minh họa không phải ranh giới tuyệt đối. Bấm vào một ký hiệu IPA để xem hướng dẫn và nghe từ ví dụ có chứa âm đó.</p>
+    <div class="vowel-quad"><div class="quad-corner">Độ cao</div><div class="quad-colhead">Trước</div><div class="quad-colhead">Trung tâm</div><div class="quad-colhead">Sau</div>`;
+  vowelRows.forEach(row => {
+    mono += `<div class="quad-rowlabel">${row.label}</div>`;
+    ['front','central','back'].forEach(pos => {
+      const val = row[pos];
+      if (!val) { mono += '<div class="quad-empty" aria-hidden="true"></div>'; return; }
+      if (val.includes(' / ')) {
+        mono += `<div class="quad-cell duo-central">${makeSoundButton('ə','vowel')}<div class="quad-separator">và</div>${makeSoundButton('ɜː','vowel')}</div>`;
+      } else mono += `<div class="quad-cell">${makeSoundButton(val,'vowel')}</div>`;
+    });
+  });
+  mono += '</div>';
+  let diph = `<div class="chart-section-title diph-title">8 nguyên âm đôi (có chuyển động)</div><p class="chart-help">Mỗi âm bắt đầu ở một vị trí rồi trượt về vị trí đích; cách hiện thực có thể thay đổi theo giọng.</p><div class="diph-grid">`;
+  diphthongKeys.forEach(k => { diph += makeSoundButton(k,'diph'); });
+  diph += '</div>';
+  chart.innerHTML = mono + diph;
+}
+function renderCons() {
+  const chart = document.getElementById('cons-chart');
+  const places = ['Môi–môi','Môi–răng','Răng','Lợi','Sau lợi','Vòm cứng','Ngạc mềm','Môi–ngạc mềm','Thanh hầu'];
+  let html = `<div class="chart-section-title">24 phụ âm tiếng Anh (bảng phân loại theo cách và vị trí cấu âm)</div><p class="chart-help">Các âm được nhóm theo cách tạo âm và vị trí gần đúng. Bấm vào một ký hiệu IPA để xem hướng dẫn và nghe từ ví dụ có chứa âm đó. Một số âm có nhiều biến thể theo giọng; /r/ trong ô này là ký hiệu rộng thường gặp trong từ điển, còn âm tiếp cận điển hình thường được phiên âm hẹp là [ɹ].</p><div class="cons-table"><div class="cons-corner">Cách tạo âm</div>`;
+  places.forEach(p => { html += `<div class="cons-place">${p}</div>`; });
+  consRows.forEach(row => {
+    html += `<div class="cons-manner">${row.label}</div>`;
+    places.forEach(place => {
+      const sounds = row.cells[place] || [];
+      html += `<div class="cons-slot">${sounds.map(k => makeSoundButton(k)).join('')}</div>`;
+    });
+  });
+  html += '</div><div class="chart-legend"><span class="legend-dot voiced-dot"></span> Hữu thanh <span class="legend-dot unvoiced-dot"></span> Vô thanh</div>';
+  chart.innerHTML = html;
+}
+/* ==================================================================
+   4. CHI TIẾT ÂM
+   ================================================================== */
+
+function showDetail(k) {
+  document.querySelectorAll('.ipa-cell.on').forEach(e => e.classList.remove('on'));
+  const el = document.querySelector(`.ipa-cell[data-k="${k}"]`);
+  if (el) el.classList.add('on');
+
+  let w, wi, vi, tags = '', mouthHtml = '';
+
+  if (V[k]) {
+    [w, wi, , vi] = V[k];
+    tags = `<span class="ipa-tag hot">Nguyên âm đơn</span><span class="ipa-tag">${k.includes('ː') ? 'Dài' : 'Ngắn / trung tính'}</span>`;
+    mouthHtml = pair(V[k][2]);
+  } else if (D[k]) {
+    const d = D[k];
+    [w, wi] = d;
+    vi = d[4];
+    tags = `<span class="ipa-tag hot">Nguyên âm đôi</span><span class="ipa-tag">/${d[2]}/ → /${d[3]}/</span>`;
+    const P = {};
+    Object.keys(V).forEach(key => { P[key] = V[key][2]; });
+    P.a = M(.82,0,.18,.38); // approximate low starting point used only for /aɪ/ and /aʊ/
+    mouthHtml = pair(P[d[2]]) + '<span style="font-size:1.6rem;align-self:center;color:#b31b1b;font-weight:700;">→</span>' + pair(P[d[3]]);
+  } else {
+    const c = C[k];
+    [w, wi] = c;
+    vi = c[5];
+    const pr = CP[c[2]];
+    tags = `<span class="ipa-tag hot">Phụ âm ${c[3].toLowerCase()}</span><span class="ipa-tag">${c[4] ? 'Hữu thanh (rung cổ)' : 'Vô thanh (không rung)'}</span><span class="ipa-tag">${PL[c[2]]}</span>`;
+    mouthHtml = pair({ ...pr, pl: c[2], air: c[3] }, c[4], c[3] === 'Mũi');
+  }
+
+  const x = X[k];
+  const extra = x ? `<div class="ipa-tipbox"><b>Ví dụ:</b> ${x[0]}<br><b>Cách phát âm:</b> ${x[1]}${x[2] ? `<br><b>Lưu ý:</b> ${x[2]}` : ''}</div>` : '';
+
+  document.getElementById('ipa-detail').innerHTML = `
+    <div class="ipa-detail-grid">
+      <div>
+        <div class="ipa-big">/${k}/</div>
+        <div class="ipa-word">${w} <span>${wi}</span></div>
+        <button class="ipa-btn" onclick="say('${w}',.9)">🔊 Nghe</button>
+        <button class="ipa-btn alt" onclick="say('${w}',.45)">🐢 Chậm</button>
+        <div class="ipa-tags">${tags}</div>
+      </div>
+      <div>
+        ${mouthHtml}
+        <p style="font-size:14px;color:#4a4642;margin:6px 0 0;">
+          Hình cắt ngang miệng là minh họa khái quát (môi ở bên trái); hình còn lại mô phỏng miệng nhìn từ phía trước. Màu sắc và vị trí là quy ước minh họa, không phải ảnh giải phẫu hay phép đo chính xác. Bấm vào hình để phóng to.
+        </p>
+        <div class="ipa-note"><b>So với tiếng Việt:</b> ${vi}</div>
+        ${extra}
+      </div>
+    </div>
+  `;
+
+  // Gắn sự kiện phóng to cho SVG vừa render
+  document.querySelectorAll('#ipa-detail .mouth-svg').forEach(svg => {
+    svg.addEventListener('click', () => openSvgModal(svg));
+  });
+}
+
+/* ==================================================================
+   5. PHÁT ÂM
+   ================================================================== */
+
+function say(w, r) {
+  if (!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(w);
+  u.lang = 'en-GB';
+  u.rate = r || .85;
+  speechSynthesis.speak(u);
+}
+
+/* ==================================================================
+   6. CẶP ÂM DỄ NHẦM
+   ================================================================== */
+
+const pairs = [
+  ['sheep','ship'], ['leave','live'], ['men','man'], ['cap','cup'],
+  ['full','fool'], ['think','sink'], ['then','den'], ['vine','wine'],
+  ['cap','cab'], ['back','bag'], ['seat','seed'], ['light','lie'],
+  ['miss','mix'], ['sing','sin']
+];
+
+function renderPairs() {
+  const el = document.getElementById('pair-chips');
+  el.innerHTML = pairs.map(p => `<span class="chip" data-p="${p}">${p[0]} – ${p[1]}</span>`).join('');
+}
+
+/* ==================================================================
+   7. PHÓNG TO SVG (MODAL)
+   ================================================================== */
+
+function openSvgModal(svgEl) {
+  const modal = document.getElementById('svgModal');
+  const body = document.getElementById('svgModalBody');
+  body.innerHTML = '';
+  const clone = svgEl.cloneNode(true);
+  // bỏ class hover/zoom cho bản clone
+  clone.style.cursor = 'default';
+  body.appendChild(clone);
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSvgModal() {
+  document.getElementById('svgModal').classList.remove('open');
+  document.getElementById('svgModalBody').innerHTML = '';
+  document.body.style.overflow = '';
+}
+
+/* ==================================================================
+   8. SỰ KIỆN
+   ================================================================== */
+
+function bindEvents() {
+  document.querySelectorAll('.ipa-chart').forEach(chart => {
+    chart.addEventListener('click', e => {
+      const b = e.target.closest('.ipa-cell');
+      if (b && b.dataset.k) {
+        const soundKey = b.dataset.k;
+        showDetail(soundKey);
+        // Web Speech API không phát âm vị IPA độc lập một cách đáng tin cậy.
+        // Vì vậy, tự phát từ ví dụ đại diện cho âm vừa được chọn.
+        const soundData = V[soundKey] || D[soundKey] || C[soundKey];
+        if (soundData && soundData[0]) say(soundData[0], 0.82);
+        if (window.innerWidth < 700) {
+          document.getElementById('ipa-detail').scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  });
+
+  document.addEventListener('click', e => {
+    const c = e.target.closest('.chip');
+    if (!c) return;
+    if (c.dataset.w) { say(c.dataset.w, .6); return; }
+    if (c.dataset.p) {
+      const [a, b] = c.dataset.p.split(',');
+      say(a, .8);
+      setTimeout(() => say(b, .8), 1100);
+    }
+  });
+
+  // modal
+  document.getElementById('svgModalClose').addEventListener('click', closeSvgModal);
+  document.getElementById('svgModal').addEventListener('click', e => {
+    if (e.target.id === 'svgModal') closeSvgModal();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeSvgModal();
+  });
+}
+
+/* ==================================================================
+   9. BACK TO TOP + INIT
+   ================================================================== */
+
+function initToTop() {
+  const btn = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) btn.classList.add('show');
+    else btn.classList.remove('show');
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderVowels();
+  renderCons();
+  renderPairs();
+  bindEvents();
+  initToTop();
+  showDetail('iː');
+});
+</script>
+</body>
+</html>

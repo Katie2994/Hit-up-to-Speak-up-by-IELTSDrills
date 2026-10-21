@@ -61,7 +61,7 @@ export const specificFood: Topic[] = [
     dialogues: [
       {
         type: 'pair',
-        title: 'Ordering at Table & Customizing Taste',
+        title: 'Formal Fine Dining Table Service & Taste Customization',
         school: 'business',
         participants: [
           { name: 'Waiter', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Waiter1', role: 'Server' },
@@ -78,7 +78,7 @@ export const specificFood: Topic[] = [
       },
       {
         type: 'pair',
-        title: 'Ordering at Table & Customizing Taste',
+        title: 'Ordering at Table & Customizing Taste with Server',
         school: 'casual',
         participants: [
           { name: 'Waiter', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Waiter1', role: 'Server' },
@@ -95,7 +95,7 @@ export const specificFood: Topic[] = [
       },
       {
         type: 'pair',
-        title: 'Ordering at Table & Customizing Taste',
+        title: 'Fast Counter Food Order & Quick Modifiers',
         school: 'superCasual',
         participants: [
           { name: 'Waiter', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Waiter1', role: 'Server' },
@@ -111,7 +111,7 @@ export const specificFood: Topic[] = [
       },
       {
         type: 'pair',
-        title: 'Handling Complaints & Paying the Bill',
+        title: 'Formal Guest Complaint Resolution & Bill Settlement',
         school: 'business',
         participants: [
           { name: 'Staff', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=StaffBill', role: 'Server' },
@@ -128,7 +128,7 @@ export const specificFood: Topic[] = [
       },
       {
         type: 'pair',
-        title: 'Handling Complaints & Paying the Bill',
+        title: 'Handling Food Temperature & Splitting the Bill',
         school: 'casual',
         participants: [
           { name: 'Staff', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=StaffBill', role: 'Server' },
@@ -145,7 +145,7 @@ export const specificFood: Topic[] = [
       },
       {
         type: 'pair',
-        title: 'Handling Complaints & Paying the Bill',
+        title: 'Fast Cold Food Fix & Quick Card Pay',
         school: 'superCasual',
         participants: [
           { name: 'Staff', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=StaffBill', role: 'Server' },
@@ -222,7 +222,7 @@ export const specificFood: Topic[] = [
     dialogues: [
       {
         type: 'pair',
-        title: 'Ordering Bubble Tea & Handling Out of Stock',
+        title: 'Bespoke Beverage Customization & Sold-Out Handling',
         school: 'business',
         participants: [
           { name: 'Staff', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Barista1', role: 'Staff' },
@@ -254,7 +254,7 @@ export const specificFood: Topic[] = [
       },
       {
         type: 'pair',
-        title: 'Ordering Bubble Tea & Handling Out of Stock',
+        title: 'Fast Boba Order & Quick Ice-Sugar Tweaks',
         school: 'superCasual',
         participants: [
           { name: 'Staff', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Barista1', role: 'Staff' },
@@ -270,7 +270,7 @@ export const specificFood: Topic[] = [
       },
       {
         type: 'pair',
-        title: 'Booking a Table Over the Phone',
+        title: 'Executive VIP Table Reservation by Phone',
         school: 'business',
         participants: [
           { name: 'Staff', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=HostPizza', role: 'Receptionist' },
@@ -285,7 +285,7 @@ export const specificFood: Topic[] = [
       },
       {
         type: 'pair',
-        title: 'Booking a Table Over the Phone',
+        title: 'Booking a Dinner Table Over the Phone',
         school: 'casual',
         participants: [
           { name: 'Staff', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=HostPizza', role: 'Receptionist' },
@@ -300,7 +300,7 @@ export const specificFood: Topic[] = [
       },
       {
         type: 'pair',
-        title: 'Booking a Table Over the Phone',
+        title: 'Fast Table Reservation Text',
         school: 'superCasual',
         participants: [
           { name: 'Staff', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=HostPizza', role: 'Receptionist' },
@@ -371,7 +371,7 @@ export const specificFood: Topic[] = [
     dialogues: [
       {
         type: 'pair',
-        title: 'Team Assistance & Supplies Check',
+        title: 'Kitchen Inventory Audit & Shift Assistance',
         school: 'business',
         participants: [
           { name: 'Staff 1', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=StaffA', role: 'Server' },
@@ -387,7 +387,7 @@ export const specificFood: Topic[] = [
       },
       {
         type: 'pair',
-        title: 'Team Assistance & Supplies Check',
+        title: 'Team Assistance & Supplies Check on Shift',
         school: 'casual',
         participants: [
           { name: 'Staff 1', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=StaffA', role: 'Server' },
@@ -403,7 +403,7 @@ export const specificFood: Topic[] = [
       },
       {
         type: 'pair',
-        title: 'Team Assistance & Supplies Check',
+        title: 'Fast Station Restock & Rush Hour Backup',
         school: 'superCasual',
         participants: [
           { name: 'Staff 1', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=StaffA', role: 'Server' },
@@ -418,7 +418,7 @@ export const specificFood: Topic[] = [
       },
       {
         type: 'pair',
-        title: 'Shift Swapping & Scheduling',
+        title: 'Formal Roster Swapping & Manager Authorization',
         school: 'business',
         participants: [
           { name: 'Staff 1', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ColleagueA', role: 'Employee' },
@@ -433,7 +433,7 @@ export const specificFood: Topic[] = [
       },
       {
         type: 'pair',
-        title: 'Shift Swapping & Scheduling',
+        title: 'Shift Swapping & Scheduling with Peer',
         school: 'casual',
         participants: [
           { name: 'Staff 1', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ColleagueA', role: 'Employee' },
@@ -448,7 +448,7 @@ export const specificFood: Topic[] = [
       },
       {
         type: 'pair',
-        title: 'Shift Swapping & Scheduling',
+        title: 'Fast Shift Cover Ping Between Staff',
         school: 'superCasual',
         participants: [
           { name: 'Staff 1', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ColleagueA', role: 'Employee' },
@@ -510,7 +510,7 @@ export const specificFood: Topic[] = [
     dialogues: [
       {
         type: 'pair',
-        title: 'Rush Hour Briefing & Service Feedback',
+        title: 'Pre-Service Executive Operations & Shift Briefing',
         school: 'business',
         participants: [
           { name: 'Manager', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ManagerPro', role: 'Supervisor' },
@@ -542,7 +542,7 @@ export const specificFood: Topic[] = [
       },
       {
         type: 'pair',
-        title: 'Rush Hour Briefing & Service Feedback',
+        title: 'Fast Pre-Rush Huddle & Station Check',
         school: 'superCasual',
         participants: [
           { name: 'Manager', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ManagerPro', role: 'Supervisor' },
@@ -557,7 +557,7 @@ export const specificFood: Topic[] = [
       },
       {
         type: 'pair',
-        title: 'Complaint Resolution & Uniform Standards',
+        title: 'Senior Management Quality Audit & Uniform Compliance',
         school: 'business',
         participants: [
           { name: 'Manager', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Manager2', role: 'Supervisor' },
@@ -573,7 +573,7 @@ export const specificFood: Topic[] = [
       },
       {
         type: 'pair',
-        title: 'Complaint Resolution & Uniform Standards',
+        title: 'Customer Complaint Resolution & Uniform Standards',
         school: 'casual',
         participants: [
           { name: 'Manager', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Manager2', role: 'Supervisor' },
@@ -589,7 +589,7 @@ export const specificFood: Topic[] = [
       },
       {
         type: 'pair',
-        title: 'Complaint Resolution & Uniform Standards',
+        title: 'Quick Apron & Name Tag Check',
         school: 'superCasual',
         participants: [
           { name: 'Manager', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Manager2', role: 'Supervisor' },
@@ -656,7 +656,7 @@ export const specificFood: Topic[] = [
     dialogues: [
       {
         type: 'pair',
-        title: 'Pitching Promo Deals & Advertising Specials',
+        title: 'Strategic Culinary Campaign Pitch & Menu Promotion',
         school: 'business',
         participants: [
           { name: 'Marketer', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AdExec', role: 'Sales Lead' },
@@ -686,7 +686,7 @@ export const specificFood: Topic[] = [
       },
       {
         type: 'pair',
-        title: 'Pitching Promo Deals & Advertising Specials',
+        title: 'Fast Social Media Promo Drop & Hashtag Ping',
         school: 'superCasual',
         participants: [
           { name: 'Staff', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AdExec', role: 'Server' },
@@ -697,6 +697,113 @@ export const specificFood: Topic[] = [
           { participant: 'Customer', text: 'No way, for real? Hook me up with the cheeseburger combo!', translation: 'Thật luôn á? Lên ngay cho tui một combo cheeseburger đi!' },
           { participant: 'Staff', text: 'Gotcha! Free crispy fries included while supplies last.', translation: 'Oke chốt đơn! Tặng kèm khoai tây giòn rụm số lượng có hạn nhen.' },
           { participant: 'Customer', text: 'Sweet, best value ever!', translation: 'Đỉnh chóp, hời nhất quả đất!' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'food-06',
+    title: 'Dietary Restrictions, Allergens & Custom Requests',
+    vietnameseTitle: 'Ăn kiêng, Dị ứng & Yêu cầu Món Đặc biệt',
+    category: 'Communication',
+    subCategory: ['Food - Restaurant Services'],
+    icon: '🥗',
+    color: '#10B981',
+    description: 'Hỏi han và xử lý yêu cầu dị ứng (đậu phộng, hải sản, bơ sữa, gluten), các chế độ ăn chay (vegetarian, vegan), phòng tránh nhiễm khuẩn chéo trong bếp và tư vấn món thay thế an toàn.',
+    words: [
+      { id: 'f6-01', word: 'Allergy', ipa: '/ˈælədʒi/', definition: 'Tình trạng dị ứng thực phẩm', translation: 'Dị ứng', example: 'Do you have any food allergies we should be aware of?', blankSentence: 'Please inform us if you have any severe food ____.', emoji: '⚠️' },
+      { id: 'f6-02', word: 'Allergic to', ipa: '/əˈlɜːdʒɪk tuː/', definition: 'Bị dị ứng với thành phần nào đó', translation: 'Bị dị ứng với...', example: 'I am highly allergic to peanuts and tree nuts.', blankSentence: 'My son is severely ____ dairy products.', emoji: '🥜' },
+      { id: 'f6-03', word: 'Vegetarian', ipa: '/ˌvedʒəˈteəriən/', definition: 'Người ăn chay (không ăn thịt cá, có thể dùng trứng sữa)', translation: 'Ăn chay', example: 'We have a delicious vegetarian pasta with mushrooms.', blankSentence: 'Is this vegetable broth suitable for a strict ____?', emoji: '🥦' },
+      { id: 'f6-04', word: 'Vegan', ipa: '/ˈviːɡən/', definition: 'Thuần chay (không dùng bất kỳ sản phẩm từ động vật, mật ong, bơ sữa)', translation: 'Thuần chay', example: 'This rich chocolate cake is one hundred percent vegan.', blankSentence: 'We offer plant-based cheese for our ____ guests.', emoji: '🌱' },
+      { id: 'f6-05', word: 'Gluten-free', ipa: '/ˌɡluːtn ˈfriː/', definition: 'Không chứa gluten (dành cho người bệnh celiac hoặc kiêng lúa mì)', translation: 'Không chứa gluten', example: 'Do you offer gluten-free bread for sandwiches?', blankSentence: 'Our chef prepared a special ____ pizza crust.', emoji: '🌾' },
+      { id: 'f6-06', word: 'Dairy-free', ipa: '/ˈdeəri friː/', definition: 'Không chứa sữa động vật hoặc bơ phô mai', translation: 'Không sữa động vật', example: 'Can I substitute dairy milk with oat milk?', blankSentence: 'This iced latte is made with ____ almond milk.', emoji: '🥛' },
+      { id: 'f6-07', word: 'Cross-contamination', ipa: '/ˌkrɒs kənˌtæmɪˈneɪʃn/', definition: 'Nhiễm chéo giữa các nguyên liệu trong quá trình chế biến', translation: 'Lây nhiễm chéo trong bếp', example: 'We sanitize all cutting boards to prevent cross-contamination.', blankSentence: 'Our dedicated allergy station eliminates all risks of ____.', emoji: '🧼' },
+      { id: 'f6-08', word: 'Seafood', ipa: '/ˈsiːfuːd/', definition: 'Hải sản (tôm, cua, mực, cá)', translation: 'Hải sản', example: 'Does this fried rice contain any shellfish or seafood?', blankSentence: 'She requested a meal completely free of ____.', emoji: '🦐' },
+      { id: 'f6-09', word: 'Substitute', ipa: '/ˈsʌbstɪtjuːt/', definition: 'Thay thế thành phần nguyên liệu khác', translation: 'Thay thế', example: 'Can we substitute tofu for chicken in this curry?', blankSentence: 'You can ____ brown rice for white rice without extra charge.', emoji: '🔄' },
+      { id: 'f6-10', word: 'Separate cookware', ipa: '/ˈseprət ˈkʊkweə(r)/', definition: 'Nồi chảo và dụng cụ nấu riêng biệt', translation: 'Dụng cụ nấu riêng', example: 'The chef always uses separate cookware for allergen-free meals.', blankSentence: 'We prepare your gluten-free dish using ____.', emoji: '🍳' }
+    ],
+    structures: [
+      {
+        phrase: 'Do you have any food allergies or dietary requirements?',
+        meaning: 'Nhân viên chủ động hỏi khách về dị ứng hoặc chế độ ăn kiêng trước khi gọi món.',
+        vietnamese: 'Quý khách có bị dị ứng thực phẩm hay có chế độ ăn kiêng nào không ạ?',
+        business: { phrase: 'Before we take your order, may I ask if anyone at the table has food allergies or specific dietary restrictions?', example: 'Before we take your order, may I ask if anyone has food allergies?', translation: 'Trước khi ghi nhận gọi món, xin phép hỏi quý khách có ai bị dị ứng hay kiêng món gì không ạ?' },
+        casualStyle: { phrase: 'Do you have any food allergies or dietary restrictions we should let the chef know?', example: 'Do you have any food allergies or dietary restrictions?', translation: 'Bạn có bị dị ứng hay kiêng ăn món gì để mình báo bếp không?' },
+        superCasual: { phrase: 'Any allergies or special diet we should know?', example: 'Any food allergies? No nuts, no dairy?', translation: 'Có kiêng hay dị ứng gì không bạn?' }
+      },
+      {
+        phrase: 'Could we make this dish [dairy-free / gluten-free / vegetarian]?',
+        meaning: 'Khách hỏi xem nhà hàng có thể điều chỉnh cách nấu món ăn theo chế độ ăn riêng hay không.',
+        vietnamese: 'Món này có thể nấu theo kiểu [không sữa / không gluten / ăn chay] được không?',
+        business: { phrase: 'Would the chef be able to prepare the signature risotto without dairy butter or cheese, please?', example: 'Would the chef be able to prepare this risotto dairy-free?', translation: 'Bếp trưởng có thể nấu món risotto đặc trưng này mà không dùng bơ sữa hay phô mai được không ạ?' },
+        casualStyle: { phrase: 'Can I get this pasta gluten-free, and swap the cream for tomato sauce?', example: 'Can I get this pasta gluten-free, please?', translation: 'Cho mình làm món mì này không gluten, và đổi sốt kem sang sốt cà chua được không?' },
+        superCasual: { phrase: 'Can you make it vegan? No cheese or eggs.', example: 'Make it vegan, please. No cheese.', translation: 'Làm món này thuần chay giùm nhé, không phô mai trứng.' }
+      },
+      {
+        phrase: 'I have a severe [peanut/shellfish] allergy. Can you ensure no cross-contamination?',
+        meaning: 'Khách thông báo mức độ dị ứng nguy hiểm và yêu cầu đảm bảo an toàn tuyệt đối.',
+        vietnamese: 'Tôi bị dị ứng [đậu phộng/hải sản] rất nặng. Quán có thể đảm bảo không bị dính chéo nguyên liệu không?',
+        business: { phrase: 'I must mention that I have an acute peanut allergy. Could you verify with the head chef that separate cookware is used?', example: 'I have a severe nut allergy. Can you ensure no cross-contamination?', translation: 'Tôi xin lưu ý là tôi bị dị ứng đậu phộng rất nặng. Bạn có thể xác nhận với bếp trưởng dùng chảo riêng không ạ?' },
+        casualStyle: { phrase: 'I’m super allergic to peanuts. Is there any chance of cross-contamination in the fryer?', example: 'I’m very allergic to shellfish. Is the oil shared?', translation: 'Mình bị dị ứng đậu phộng nặng lắm. Nồi chiên có bị chiên chung dính dầu không bạn?' },
+        superCasual: { phrase: 'Deathly allergic to nuts, zero contact please!', example: 'No nuts at all, severe allergy, please be careful!', translation: 'Dị ứng hạt rất nặng, tuyệt đối không dính hạt nha bạn!' }
+      },
+      {
+        phrase: 'Let me double-check with the chef right away to guarantee your safety.',
+        meaning: 'Nhân viên trấn an khách và cam kết vào bếp kiểm tra kỹ danh sách thành phần gia vị.',
+        vietnamese: 'Để tôi vào bếp kiểm tra kỹ lại với bếp trưởng ngay để đảm bảo an toàn tuyệt đối cho quý khách.',
+        business: { phrase: 'I completely understand your concern. Allow me to consult directly with our executive chef to ensure absolute safety.', example: 'I will consult directly with the chef to ensure your meal is safe.', translation: 'Tôi hoàn toàn thấu hiểu mối lo của quý khách. Xin phép để tôi trao đổi trực tiếp với bếp trưởng để đảm bảo an toàn.' },
+        casualStyle: { phrase: 'No worries at all! Let me double-check with the kitchen right now and mark your ticket as allergy priority.', example: 'Let me check with the kitchen to make sure it’s completely nut-free.', translation: 'Bạn yên tâm nhé! Để mình vô bếp hỏi kỹ lại liền và gắn nhãn ưu tiên dị ứng cho đơn của bạn.' },
+        superCasual: { phrase: 'Got it, checking with the chef now. Safety first!', example: 'Checking with the kitchen right away, hang on!', translation: 'Hiểu rồi, mình đi hỏi bếp liền đây. An toàn là trên hết!' }
+      }
+    ],
+    dialogues: [
+      {
+        type: 'pair',
+        title: 'High-End Dining Allergy & Dietary Consultation',
+        school: 'business',
+        participants: [
+          { name: 'Server', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ServerFine', role: 'Head Server' },
+          { name: 'Guest', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=GuestAllergy', role: 'VIP Guest' }
+        ],
+        lines: [
+          { participant: 'Server', text: 'Good evening, ladies and gentlemen. Before we proceed with the dinner menu, may I inquire if anyone at the table has any food allergies or specific dietary requirements?', translation: 'Chào buổi tối quý khách. Trước khi xem qua thực đơn tối, xin phép hỏi quý khách có ai bị dị ứng thực phẩm hay có yêu cầu ăn kiêng đặc biệt nào không ạ?' },
+          { participant: 'Guest', text: 'Thank you for asking. Yes, I have a severe peanut and tree nut allergy, and my colleague is strictly vegetarian.', translation: 'Cảm ơn bạn đã hỏi. Tôi bị dị ứng đậu phộng và các loại hạt rất nặng, còn đồng nghiệp của tôi thì ăn chay trường.' },
+          { participant: 'Server', text: 'Thank you for informing us. For your nut allergy, I will notify the head chef immediately to prepare your dishes with separate sanitized cookware to eliminate cross-contamination.', translation: 'Cảm ơn quý khách đã báo trước. Về phần dị ứng hạt, tôi sẽ báo ngay cho bếp trưởng dùng dụng cụ nấu riêng biệt đã tiệt trùng để triệt tiêu mọi rủi ro lây nhiễm chéo.' },
+          { participant: 'Guest', text: 'That gives me complete peace of mind. Which vegetarian main course would you recommend for my colleague?', translation: 'Nghe vậy tôi hoàn toàn yên tâm. Bạn có thể gợi ý món chính chay nào ngon cho đồng nghiệp của tôi không?' },
+          { participant: 'Server', text: 'Our truffle mushroom risotto is completely vegetarian and can also be prepared dairy-free if requested. It is extraordinarily flavorful.', translation: 'Món cơm Ý risotto nấm truffle của chúng tôi hoàn toàn chay và có thể làm không sữa nếu muốn. Hương vị vô cùng đậm đà tuyệt hảo ạ.' },
+          { participant: 'Guest', text: 'Splendid! We will take the risotto and the grilled salmon without any nut garnishes, please.', translation: 'Tuyệt vời! Chúng tôi xin gọi món risotto và cá hồi nướng tuyệt đối không rắc vụn hạt trang trí nhé.' }
+        ]
+      },
+      {
+        type: 'pair',
+        title: 'Casual Restaurant Ordering with Gluten-Free & Dairy-Free Options',
+        school: 'casual',
+        participants: [
+          { name: 'Waiter', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=WaiterFriendly', role: 'Waiter' },
+          { name: 'Diner', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DinerHealthy', role: 'Customer' }
+        ],
+        lines: [
+          { participant: 'Waiter', text: 'Hi guys! Are you ready to order, or do you have any dietary restrictions we should know about?', translation: 'Chào các bạn! Các bạn đã sẵn sàng gọi món chưa, hay có cần lưu ý dị ứng gì không nè?' },
+          { participant: 'Diner', text: 'Hi! Actually, I’m gluten intolerant, and my friend cannot have dairy products. Can we customize the burger combo?', translation: 'Chào bạn! Thật ra mình không dung nạp gluten, còn bạn mình thì không ăn được bơ sữa. Tụi mình có thể tùy chỉnh combo burger được không?' },
+          { participant: 'Waiter', text: 'Absolutely! We have freshly baked gluten-free buns, and we can replace regular cheese with vegan cheese or sliced avocado.', translation: 'Dạ được chứ bạn ơi! Quán có sẵn vỏ bánh mì không gluten mới nướng, và tụi mình có thể đổi phô mai thường sang phô mai thuần chay hoặc bơ tươi thái lát.' },
+          { participant: 'Diner', text: 'That sounds amazing! Are the crispy french fries fried in a dedicated fryer, or shared with breaded chicken?', translation: 'Nghe tuyệt quá! Cho mình hỏi thêm khoai tây chiên giòn có chiên trong nồi riêng không, hay chiên chung với gà tẩm bột vậy bạn?' },
+          { participant: 'Waiter', text: 'Great question! We use a dedicated fryer exclusively for french fries, so there is zero gluten cross-contamination.', translation: 'Bạn hỏi chuẩn bài luôn! Quán có một nồi chiên riêng chỉ dành cho khoai tây thôi, nên bảo đảm không dính chút gluten nào hết.' },
+          { participant: 'Diner', text: 'Awesome! We’ll get two gluten-free burgers with dairy-free cheese and two orders of fries, please!', translation: 'Đỉnh quá bạn ơi! Cho tụi mình hai burger không gluten với phô mai thuần chay và hai phần khoai tây chiên nhé!' }
+        ]
+      },
+      {
+        type: 'pair',
+        title: 'Quick Counter Order with Severe Allergy Alert',
+        school: 'superCasual',
+        participants: [
+          { name: 'Cashier', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=CashierFast', role: 'Staff' },
+          { name: 'Customer', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=CustomerFast', role: 'Customer' }
+        ],
+        lines: [
+          { participant: 'Customer', text: 'Hey, I need a chicken salad, but heads up: I’m deathly allergic to sesame and peanuts.', translation: 'Ê bạn, cho một salad gà, nhưng lưu ý nha: tui dị ứng đậu phộng với mè nặng lắm đó.' },
+          { participant: 'Cashier', text: 'Got it! I’m tagging this order with a red allergy alert. The chef will change gloves and wipe down the station.', translation: 'Rõ luôn! Mình gắn thẻ báo động đỏ dị ứng liền. Bếp sẽ thay găng tay mới và lau sạch bàn làm.' },
+          { participant: 'Customer', text: 'Thanks a ton, really appreciate the care! Any drinks with oat milk?', translation: 'Cảm ơn nhiều nha, chu đáo ghê! Có đồ uống nào pha sữa yến mạch không?' },
+          { participant: 'Cashier', text: 'Yup, cold brew with creamy oat milk. No dairy, super safe. Ready in three mins!', translation: 'Có luôn, cà phê ủ lạnh sữa yến mạch béo ngậy. Không dính sữa bò, bao an toàn. 3 phút có liền nha!' }
         ]
       }
     ]

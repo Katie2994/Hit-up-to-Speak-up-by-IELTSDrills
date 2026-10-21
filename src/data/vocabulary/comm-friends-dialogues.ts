@@ -1,5 +1,5 @@
 // Distinct 3-tier Dialogues (Business/Diplomatic, Casual, Super Casual) for Lessons mf-01 to mf-20 (Making Friends Abroad)
-// Guarantees 100% differentiation across all 3 communication schools with no overlapping scenarios.
+// Guarantees 100% alignment with lesson topics and differentiation across all 3 communication schools.
 
 import { Dialogue } from './comm-students-dialogues';
 
@@ -56,46 +56,46 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'International Literature & Creative Arts Panel Discussion',
+      title: 'Bilateral Applied Linguistics & Pedagogy Symposium',
       participants: [
-        { name: 'Curator Vance', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=CuratorVance', role: 'Museum Curator' },
-        { name: 'Mai', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MaiArts', role: 'Art Historian' }
+        { name: 'Professor Vance', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=CuratorVance', role: 'Linguistics Chair' },
+        { name: 'Dr. Mai', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MaiArts', role: 'Senior Researcher' }
       ],
       lines: [
-        { participant: 'Mai', text: "Good evening, Curator Vance. I was deeply impressed by your curated exhibition on contemporary Southeast Asian pottery.", translation: "Kính chào Giám tuyển Vance. Tôi vô cùng ấn tượng trước triển lãm của ông về nghệ thuật gốm đương đại Đông Nam Á." },
-        { participant: 'Curator Vance', text: "Thank you, Mai. My enduring research passion has always centered on indigenous ceramic glazing traditions.", translation: "Cảm ơn cô Mai. Đam mê nghiên cứu bền bỉ của tôi luôn gắn liền với các kỹ thuật tráng men truyền thống bản địa." },
-        { participant: 'Mai', text: "Fascinating. In Vietnam, our traditional Bat Trang ceramics reflect a parallel evolution of cobalt-pigment techniques.", translation: "Thật cuốn hút. Tại Việt Nam, làng gốm Bát Tràng truyền thống cũng phản ánh sự phát triển tương đồng về kỹ thuật chế tác sắc tố lam cobalt." },
-        { participant: 'Curator Vance', text: "A remarkable cultural correlation. Let us exchange academic portfolios to facilitate mutual research cataloging.", translation: "Một mối liên hệ văn hóa thật đáng chú ý. Chúng ta hãy cùng trao đổi hồ sơ nghiên cứu để thuận tiện cho việc lưu trữ tài liệu chung." }
+        { participant: 'Dr. Mai', text: "Good afternoon, Professor Vance. Our academic consortium has evaluated the outcomes of digital peer-to-peer language exchange platforms.", translation: "Kính chào Giáo sư Vance. Hiệp hội học thuật chúng tôi đã đánh giá kết quả từ các nền tảng trao đổi ngôn ngữ số giữa các bạn đồng trang lứa." },
+        { participant: 'Professor Vance', text: "The preliminary metrics are quite illuminating, Dr. Mai. Contextual peer immersion demonstrates superior retention compared to rote acquisition.", translation: "Các chỉ số ban đầu rất sáng tỏ, thưa Tiến sĩ Mai. Việc tương tác ngữ cảnh đồng cấp cho thấy tỷ lệ ghi nhớ vượt trội so với học vẹt." },
+        { participant: 'Dr. Mai', text: "Indeed. Integrating structured constructive feedback mechanisms allows learners to calibrate idiomatic expressions effectively.", translation: "Dạ đúng như vậy. Việc tích hợp cơ chế góp ý mang tính xây dựng giúp người học điều chỉnh cách diễn đạt thành ngữ rất hiệu quả." },
+        { participant: 'Professor Vance', text: "A splendid pedagogy. Let us formalize these findings into our upcoming curriculum reform whitepaper.", translation: "Một phương pháp sư phạm tuyệt vời. Chúng ta hãy văn bản hóa các phát hiện này vào sách trắng cải cách chương trình sắp tới." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Bonding Over Photography Gear at a Scenic Lookout',
+      title: 'Practicing English & Vietnamese Slang over Coffee',
       participants: [
-        { name: 'Duc', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DucPhoto', role: 'Photographer' },
-        { name: 'Emma', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=EmmaPhoto', role: 'Backpacker' }
+        { name: 'Khang', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Khang', role: 'Local Learner' },
+        { name: 'Emma', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=EmmaPhoto', role: 'Expat Partner' }
       ],
       lines: [
-        { participant: 'Duc', text: "Nice camera! Are you shooting with a 35mm prime lens on that Fuji body?", translation: "Máy ảnh xịn quá bạn ơi! Bạn đang chụp bằng ống kính 35mm một tiêu cự trên thân máy Fuji hả?" },
-        { participant: 'Emma', text: "Hey! Yes, good eye! Street photography is my biggest passion whenever I travel through Asia.", translation: "Chào bạn! Chuẩn luôn, mắt nhìn tinh ghê! Chụp ảnh đường phố là đam mê lớn nhất của mình mỗi khi đi du lịch châu Á." },
-        { participant: 'Duc', text: "Same here. The golden hour lighting over the old town roofs right now is unbelievable.", translation: "Mình cũng mê thể loại đó. Ánh sáng giờ vàng chiếu qua mấy mái ngói phố cổ lúc này đẹp không tin nổi luôn." },
-        { participant: 'Emma', text: "Totally breathtaking! Do you share your shots on Instagram? Let's follow each other!", translation: "Quá choáng ngợp luôn! Bạn có hay đăng ảnh lên Instagram không? Cho mình kết bạn theo dõi với nha!" }
+        { participant: 'Khang', text: "Hey Emma, thanks for doing this language exchange! Feel free to correct my English anytime—I really value constructive feedback.", translation: "Chào Emma, cảm ơn bạn đã cùng mình trao đổi ngôn ngữ nha! Cứ tự nhiên sửa lỗi tiếng Anh cho mình bất kỳ lúc nào nhé, mình rất trân trọng góp ý xây dựng." },
+        { participant: 'Emma', text: "You got it, Khang! And in return, you have to teach me authentic Vietnamese slang that young people actually say on threads.", translation: "Nhất trí luôn Khang! Đổi lại bạn phải dạy mình mấy từ lóng tiếng Việt chuẩn bài mà giới trẻ hay nói trên mạng nhé." },
+        { participant: 'Khang', text: "Deal! Today's phrase is 'bó tay'—literally 'fold your hands', used when you're completely out of solutions. Does that make sense?", translation: "Chốt kèo! Cụm từ hôm nay là 'bó tay'—nghĩa đen là trói tay lại, dùng khi hết cách giải quyết. Nói vậy bạn hiểu chứ?" },
+        { participant: 'Emma', text: "Haha, totally makes sense! 'Bó tay' is going right into my flashcards app today.", translation: "Haha, hiểu liền luôn! Cụm 'bó tay' sẽ vào ngay ứng dụng từ vựng của mình hôm nay." }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Gaming Tag Exchange on Discord',
+      title: 'Quick Tandem / Discord Slang Ping',
       participants: [
-        { name: 'Khoa', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KhoaGame', role: 'Gamer' },
-        { name: 'Leo', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LeoGame', role: 'Gamer' }
+        { name: 'Khoa', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KhoaGame', role: 'Learner' },
+        { name: 'Leo', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LeoGame', role: 'Friend' }
       ],
       lines: [
-        { participant: 'Khoa', text: "Play Valorant or Apex?", translation: "Có chơi Valorant hay Apex không?" },
-        { participant: 'Leo', text: "Maining Apex! Diamond rank.", translation: "Chuyên cày Apex nè! Hạng Kim cương." },
-        { participant: 'Khoa', text: "Drop your Discord tag, let's duo!", translation: "Cho xin tên Discord đi, tối nay leo rank đôi!" },
-        { participant: 'Leo', text: "Leo#1024. Adding you now, let's frag!", translation: "Leo#1024 nè. Add ông liền, tối bắn cháy máy!" }
+        { participant: 'Khoa', text: "Yo Leo, quick check: does 'no cap' mean for real?", translation: "Ê Leo hỏi nhanh nè: 'no cap' nghĩa là thiệt 100% đúng hông?" },
+        { participant: 'Leo', text: "Spot on bro! 100% no lie.", translation: "Chuẩn bài luôn bạn ơi! Đúng kiểu không điêu một câu." },
+        { participant: 'Khoa', text: "Nice! Teach you 'đỉnh chóp' in return tonight.", translation: "Ngon! Tối nay dạy lại từ 'đỉnh chóp' nha." },
+        { participant: 'Leo', text: "Bet! Jumping on voice chat at 9.", translation: "Hứa nha! 9 giờ tối lên voice chat." }
       ]
     }
   ],
@@ -106,14 +106,14 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
       school: 'business',
       title: 'Diplomatic Culinary Heritage Presentation',
       participants: [
-        { name: 'Ambassador Miller', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MillerAmb', role: 'Ambassador' },
-        { name: 'Chef Thao', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ThaoChef', role: 'Gastronomy Envoy' }
+        { name: 'Attache Miller', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Miller', role: 'Commercial Attache' },
+        { name: 'Huong', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=HuongDiplomat', role: 'Hospitality Director' }
       ],
       lines: [
-        { participant: 'Chef Thao', text: "Excellency, it is an honor to present our traditional Vietnamese Phở broth, slow-simmered for twelve hours with star anise, cinnamon, and roasted ginger.", translation: "Kính thưa Đại sứ, thật vinh dự được giới thiệu món nước dùng Phở truyền thống Việt Nam, ninh chậm suốt 12 tiếng cùng hoa hồi, quế và gừng nướng." },
-        { participant: 'Ambassador Miller', text: "The aromatic complexity is truly magnificent, Chef Thao. Culinary tradition is perhaps the most resonant ambassador of national heritage.", translation: "Hương thơm phức hợp này thực sự tuyệt vời, thưa Bếp trưởng Thảo. Ẩm thực truyền thống có lẽ là vị đại sứ truyền cảm hứng nhất của di sản văn hóa một quốc gia." },
-        { participant: 'Chef Thao', text: "Indeed, Excellency. Vietnamese gastronomy is predicated on the philosophy of yin-yang balance and fresh medicinal herbs.", translation: "Dạ đúng như vậy thưa ngài. Nghệ thuật ẩm thực Việt Nam dựa trên triết lý cân bằng âm dương và các loại thảo mộc tươi tốt cho sức khỏe." },
-        { participant: 'Ambassador Miller', text: "A profound cultural testament. We look forward to featuring this showcase at our upcoming diplomatic culinary summit.", translation: "Một minh chứng văn hóa thật sâu sắc. Chúng tôi rất mong được đưa món ăn này vào buổi tiệc chiêu đãi ngoại giao sắp tới." }
+        { participant: 'Huong', text: "Good evening, Attache Miller. Beyond our formal agenda, we are pleased to introduce our delegation to the authentic regional flavors of Vietnam.", translation: "Kính chào Tùy viên Miller. Ngoài chương trình nghị sự chính thức, chúng tôi rất hân hạnh được giới thiệu tới phái đoàn hương vị ẩm thực vùng miền đích thực của Việt Nam." },
+        { participant: 'Attache Miller', text: "A marvelous cultural gesture, Huong. The depth of Vietnamese culinary craftsmanship has garnered widespread acclaim.", translation: "Một nghĩa cử văn hóa tuyệt vời, thưa cô Hương. Chiều sâu tinh hoa ẩm thực Việt Nam nhận được sự đánh giá rất cao từ cộng đồng quốc tế." },
+        { participant: 'Huong', text: "Our culinary ethos is built upon balanced herbs, fresh produce, and legendary hospitality across every province.", translation: "Triết lý ẩm thực của chúng tôi dựa trên sự cân bằng của thảo mộc, nông sản tươi sạch và lòng hiếu khách nồng hậu khắp các tỉnh thành." },
+        { participant: 'Attache Miller', text: "It is thoroughly impressive. We are eager to partake in tonight's traditional banquet.", translation: "Thật sự rất ấn tượng. Chúng tôi rất hào hứng được thưởng thức bữa tiệc truyền thống tối nay." }
       ]
     },
     {
@@ -121,14 +121,14 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
       school: 'casual',
       title: 'Introducing Street Food Culture to an Expat Friend',
       participants: [
-        { name: 'Hung', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=HungStreet', role: 'Local Friend' },
-        { name: 'Chloe', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ChloeStreet', role: 'Expat Friend' }
+        { name: 'Vy', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=VyStreet', role: 'Local Friend' },
+        { name: 'Dave', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DaveTravel', role: 'Expat Friend' }
       ],
       lines: [
-        { participant: 'Hung', text: "Chloe, have you ever eaten Banh Mi at a roadside cart while sitting on tiny plastic stools?", translation: "Chloe ơi, bạn đã bao giờ ngồi ghế nhựa lề đường ăn bánh mì ở một xe đẩy ven đường chưa?" },
-        { participant: 'Chloe', text: "Not yet! I've only been to sit-down restaurants so far. Show me how locals do it!", translation: "Chưa luôn á! Từ hồi tới đây mình toàn ăn ở nhà hàng máy lạnh thôi. Dẫn mình đi trải nghiệm như người bản địa đi!" },
-        { participant: 'Hung', text: "You're in for a treat! The crispy warm baguette with pâté, grilled pork, pickled daikon, and fresh coriander is a flavor explosion.", translation: "Bạn sắp được mở mang tầm mắt rồi! Bánh mì nóng giòn rụm kẹp pate, thịt nướng, đồ chua với rau mùi tươi ngon bùng nổ vị giác luôn." },
-        { participant: 'Chloe', text: "I can smell the grill already! Let's get two and find a spot by the park.", translation: "Mình ngửi thấy mùi thịt nướng thơm phức rồi nè! Mua hai ổ rồi ra công viên ngồi ăn thôi bạn!" }
+        { participant: 'Dave', text: "Vy, I keep watching videos of motorbikes and street vendors in Saigon. Isn't it super hectic?", translation: "Vy ơi, mình xem video thấy xe máy với hàng quán vỉa hè ở Sài Gòn đông đúc ghê. Nhìn bộ nhộn nhạo lắm đúng không?" },
+        { participant: 'Vy', text: "It looks chaotic on camera, but there is actually a natural rhythm to it! Street food here is vibrant, affordable, and incredibly fresh.", translation: "Lên hình trông thế thôi chứ thật ra có nhịp điệu riêng đấy! Ẩm thực đường phố ở đây cực kỳ sôi động, giá hợp lý và nguyên liệu siêu tươi ngon." },
+        { participant: 'Dave', text: "What's that sizzling sound coming from that corner stall with the plastic red stools?", translation: "Tiếng xèo xèo thơm nức mũi phát ra từ cái quán góc đường kê ghế nhựa đỏ kia là món gì thế?" },
+        { participant: 'Vy', text: "That is Banh Xeo, crispy Vietnamese savory pancakes wrapped in fresh herbs. Grab a stool, my treat!", translation: "Đó là Bánh xèo đó, bánh giòn rụm cuộn rau rừng tươi ngon. Ngồi xuống ghế nhựa đi, hôm nay mình bao!" }
       ]
     },
     {
@@ -136,14 +136,14 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
       school: 'superCasual',
       title: 'Fast Midnight Street Food Run',
       participants: [
-        { name: 'Dat', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DatNight', role: 'Friend' },
-        { name: 'Sam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SamNight', role: 'Friend' }
+        { name: 'Tuan', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TuanFood', role: 'Friend' },
+        { name: 'Chris', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ChrisFood', role: 'Friend' }
       ],
       lines: [
-        { participant: 'Dat', text: "Late night snail stall? Best in town.", translation: "Đi ăn ốc đêm hông? Quán đỉnh nhất thành phố luôn." },
-        { participant: 'Sam', text: "Are they spicy? I love spicy!", translation: "Có cay không? Mê ăn cay lắm đó!" },
-        { participant: 'Dat', text: "Chili salt and lemongrass. Unmatched!", translation: "Muối ớt với sả thơm lừng. Hết nước chấm!" },
-        { participant: 'Sam', text: "Hop on the scooter, let's ride!", translation: "Lên xe máy liền, phóng thôi nào!" }
+        { participant: 'Tuan', text: "Hungry? Grilled pork skewers alley?", translation: "Đói bụng chưa? Ra hẻm nem nướng hông?" },
+        { participant: 'Chris', text: "Starving! Scooter ready?", translation: "Đói meo mốc mồm rồi! Xe sẵn sàng chưa?" },
+        { participant: 'Tuan', text: "Downstairs already. Put on your helmet!", translation: "Dưới sảnh rồi nè. Đội mũ bảo hiểm vô!" },
+        { participant: 'Chris', text: "Running down in 30 seconds!", translation: "30 giây phi xuống liền!" }
       ]
     }
   ],
@@ -152,46 +152,46 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'International Tourism Development Roundtable',
+      title: 'Global Pop Culture & Digital Media Convergence Panel',
       participants: [
-        { name: 'Director Sterling', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DirectorSterling', role: 'Tourism Board' },
-        { name: 'Dr. Trang', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DrTrangTour', role: 'Heritage Specialist' }
+        { name: 'Panel Chair Scott', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=PanelScott', role: 'Media Director' },
+        { name: 'Trang', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TrangMedia', role: 'Pop Culture Analyst' }
       ],
       lines: [
-        { participant: 'Dr. Trang', text: "Good morning, Director Sterling. I am presenting our UNESCO heritage stewardship framework for Ha Long Bay and Phong Nha-Ke Bang.", translation: "Kính chào Giám đốc Sterling. Tôi xin trình bày khung quản lý di sản UNESCO bền vững cho Vịnh Hạ Long và Vườn quốc gia Phong Nha - Kẻ Bàng." },
-        { participant: 'Director Sterling', text: "Welcome, Dr. Trang. How do you propose harmonizing eco-tourism accessibility with strict environmental conservation?", translation: "Chào Tiến sĩ Trang. Bà đề xuất việc dung hòa giữa việc mở cửa du lịch sinh thái với công tác bảo tồn môi trường nghiêm ngặt như thế nào?" },
-        { participant: 'Dr. Trang', text: "We enforce strict carrying-capacity quotas, zero-plastic maritime corridors, and mandatory local community revenue-sharing.", translation: "Chúng tôi áp dụng định mức hạn chế sức tải du khách nghiêm ngặt, hành lang biển không rác thải nhựa và bắt buộc chia sẻ lợi ích kinh tế với cộng đồng bản địa." },
-        { participant: 'Director Sterling', text: "A compelling sustainable model. We will incorporate these strategic recommendations into our regional development whitepaper.", translation: "Một mô hình phát triển bền vững rất thuyết phục. Chúng tôi sẽ đưa các khuyến nghị chiến lược này vào báo cáo phát triển khu vực." }
+        { participant: 'Trang', text: "Good morning, Director Scott. Digital streaming platforms and viral social memes have established unprecedented common ground among Gen Z internationally.", translation: "Kính chào Giám đốc Scott. Các nền tảng phát trực tuyến và trào lưu meme trên mạng xã hội đã tạo ra điểm chung chưa từng có giữa thế hệ trẻ toàn cầu." },
+        { participant: 'Panel Chair Scott', text: "Indeed, Trang. Contemporary youth culture transcends geopolitical borders via shared audiovisual appreciation.", translation: "Dạ đúng vậy thưa cô Trang. Văn hóa giới trẻ đương đại vượt qua ranh giới địa lý nhờ sự đồng điệu về âm nhạc và hình ảnh." },
+        { participant: 'Trang', text: "Our focus group metrics confirm that international students bond significantly faster over shared musical tastes and popular media.", translation: "Số liệu khảo sát của chúng tôi khẳng định sinh viên quốc tế kết nối nhanh hơn rõ rệt khi có chung sở thích âm nhạc và văn hóa đại chúng." },
+        { participant: 'Panel Chair Scott', text: "Remarkable insights. This should inform our cross-border campus engagement campaigns.", translation: "Góc nhìn rất sâu sắc. Điều này sẽ định hình các chiến dịch gắn kết giới trẻ quốc tế của chúng ta." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Swapping Backpacking Stories in a Hostel Common Room',
+      title: 'Swapping Playlists and Memes at a Coffee Shop',
       participants: [
-        { name: 'Khang', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KhangTravel', role: 'Backpacker' },
-        { name: 'Oliver', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=OliverTravel', role: 'Traveler' }
+        { name: 'Sarah', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SarahMusic', role: 'International Friend' },
+        { name: 'Nam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=NamMusic', role: 'Local Friend' }
       ],
       lines: [
-        { participant: 'Khang', text: "Oliver, how was your motorbike trip riding through the Ha Giang Loop last week?", translation: "Oliver ơi, chuyến phượt xe máy qua cung đường đèo Hà Giang tuần trước của bạn thế nào rồi?" },
-        { participant: 'Oliver', text: "It was hands down the most breathtaking adventure of my life! The mountain passes and misty valleys were surreal.", translation: "Phải nói là chuyến phiêu lưu đẹp nghẹt thở nhất cuộc đời mình từ trước đến nay! Mấy cung đèo hiểm trở với thung lũng mờ sương trông ảo diệu vô cùng." },
-        { participant: 'Khang', text: "Did you stop by the Ma Pi Leng pass and take a boat tour on the Nho Que river?", translation: "Bạn có ghé đèo Mã Pí Lèng rồi đi thuyền ngắm sông Nho Quế màu ngọc bích không?" },
-        { participant: 'Oliver', text: "Yes! The emerald-green water looked like something straight out of a fantasy movie. Vietnam's north is magic.", translation: "Có chứ! Làn nước xanh như ngọc bích nhìn như cảnh bước ra từ phim điện ảnh thần thoại vậy. Miền Bắc Việt Nam quá kỳ diệu." }
+        { participant: 'Nam', text: "Sarah, are you into indie pop at all? I noticed you were listening to Men I Trust on your headphones.", translation: "Sarah ơi, bạn có thích nghe indie pop không? Mình thấy bạn đeo tai nghe nghe nhạc của Men I Trust nè." },
+        { participant: 'Sarah', text: "Oh, I am totally obsessed with them! How do you know them? I thought they were pretty niche!", translation: "Ôi trời, mình mê ban nhạc đó điên đảo luôn! Sao bạn biết hay vậy? Mình tưởng họ kén người nghe lắm chứ!" },
+        { participant: 'Nam', text: "Indie vibes are huge among students in Saigon! Also, have you seen this hilarious cat meme trending on TikTok?", translation: "Gu indie thịnh hành lắm trong giới trẻ Sài Gòn á! À mà bạn đã xem cái meme con mèo hài hước đang viral trên TikTok chưa?" },
+        { participant: 'Sarah', text: "Hahaha, that audio track is pure gold! Send me that video and let's swap Spotify playlists!", translation: "Hahaha, đoạn âm thanh đó đỉnh thật sự! Gửi video đó cho mình với, tụi mình đổi danh sách nhạc Spotify cho nhau nghe đi!" }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Fast Travel Photo Ping',
+      title: 'Fast Spotify Playlist & Meme Drop',
       participants: [
-        { name: 'Son', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SonPhoto', role: 'Friend' },
-        { name: 'Max', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MaxPhoto', role: 'Friend' }
+        { name: 'Kien', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KienMeme', role: 'Homie' },
+        { name: 'Alex', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AlexMeme', role: 'Homie' }
       ],
       lines: [
-        { participant: 'Son', text: "Check your WhatsApp! Dropped Ha Giang pics.", translation: "Xem WhatsApp liền đi! Gửi ảnh Hà Giang qua rồi đó." },
-        { participant: 'Max', text: "Dude, that canyon view is insane!", translation: "Trời ơi bạn ơi, cái hẻm núi nhìn choáng ngợp dã man!" },
-        { participant: 'Son', text: "Booking your flight yet?", translation: "Đã đặt vé máy bay chưa đó?" },
-        { participant: 'Max', text: "Packing my bags right now!", translation: "Đang xếp ba lô liền đây!" }
+        { participant: 'Kien', text: "New track dropped today. Pure fire vibe!", translation: "Bài hát mới ra lò hôm nay nè. Vibe đỉnh chóp luôn!" },
+        { participant: 'Alex', text: "Link it bro! On Spotify?", translation: "Thả link liền ông bạn! Trên Spotify hả?" },
+        { participant: 'Kien', text: "Sent! Check DMs. Also that meme is you lol.", translation: "Gửi rồi! Check tin nhắn đi. Mà cái meme đó giống ông y đúc haha." },
+        { participant: 'Alex', text: "LMAO spot on! Adding to my playlist now.", translation: "Haha chuẩn không cần chỉnh! Thêm vô playlist liền." }
       ]
     }
   ],
@@ -200,46 +200,46 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'Cross-Cultural Sociolinguistics Seminar',
+      title: 'Diplomatic Protocol Briefing on Cross-Cultural Norms',
       participants: [
-        { name: 'Professor Higgins', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ProfHiggins', role: 'Linguist' },
-        { name: 'Yen', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=YenLinguist', role: 'Researcher' }
+        { name: 'Chief of Protocol Sterling', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sterling', role: 'Chief of Protocol' },
+        { name: 'Attache Binh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=BinhProtocol', role: 'Liaison Officer' }
       ],
       lines: [
-        { participant: 'Yen', text: "Professor Higgins, our comparative research examines how digital shorthand and pragmatic particles evolve in cross-cultural messaging.", translation: "Kính thưa Giáo sư Higgins, nghiên cứu đối chiếu của chúng em phân tích cách thức các từ ngữ viết tắt kỹ thuật số và trợ từ ngữ dụng tiến hóa trong giao tiếp liên văn hóa." },
-        { participant: 'Professor Higgins', text: "A captivating inquiry, Yen. Contemporary youth communications exhibit remarkable semantic economy and contextual nuances.", translation: "Một hướng nghiên cứu rất hấp dẫn, Yen à. Ngôn ngữ giao tiếp của giới trẻ đương đại thể hiện tính tiết kiệm ngữ nghĩa và sắc thái ngữ cảnh vô cùng độc đáo." },
-        { participant: 'Yen', text: "Precisely, sir. Even tone-modulating emojis fulfill the pragmatic function of epistemic stance markers.", translation: "Dạ chính xác thưa thầy. Ngay cả các biểu tượng cảm xúc điều chỉnh sắc thái cũng đảm nhiệm chức năng ngữ dụng như các chỉ dấu biểu thị thái độ." },
-        { participant: 'Professor Higgins', text: "Indeed. Your thesis draft will serve as an insightful chapter in our forthcoming sociolinguistic compendium.", translation: "Rất đúng. Bản thảo luận văn của em sẽ là một chương nghiên cứu sâu sắc trong tuyển tập xã hội học ngôn ngữ sắp tới của khoa." }
+        { participant: 'Attache Binh', text: "Good morning, Chief Sterling. Before the international delegates arrive, we have compiled a briefing on local social norms and etiquette.", translation: "Kính chào Trưởng ban Sterling. Trước khi các đại biểu quốc tế đến, chúng tôi đã biên soạn cẩm nang về chuẩn mực xã hội và phong tục địa phương." },
+        { participant: 'Chief of Protocol Sterling', text: "Punctuality and respect for generational seniority are paramount, I presume?", translation: "Tính đúng giờ và sự tôn trọng đối với các bậc tiền bối là những yếu tố tối quan trọng đúng không?" },
+        { participant: 'Attache Binh', text: "Precisely, sir. Furthermore, touching heads or pointing feet toward altars are considered cultural taboos in Southeast Asia.", translation: "Chính xác thưa ngài. Ngoài ra, việc xoa đầu hoặc hướng mũi chân về phía bàn thờ được xem là điều kiêng kỵ tại Đông Nam Á." },
+        { participant: 'Chief of Protocol Sterling', text: "Essential cultural nuances. We shall distribute this guidance to ensure exemplary diplomatic decorum.", translation: "Những sắc thái văn hóa rất thiết yếu. Chúng tôi sẽ phổ biến tài liệu này để đảm bảo tác phong ngoại giao mẫu mực." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Deciphering Slang and Texting Abbreviations Over Coffee',
+      title: 'Discussing Punctuality and Social Boundaries over Lunch',
       participants: [
-        { name: 'Minh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MinhSlang', role: 'Local' },
-        { name: 'Alex', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AlexSlang', role: 'Exchange Student' }
+        { name: 'Hans', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=HansGerman', role: 'German Colleague' },
+        { name: 'Minh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MinhCasual', role: 'Vietnamese Friend' }
       ],
       lines: [
-        { participant: 'Alex', text: "Minh, what does 'dinh chop' or 'het nuoc cham' actually mean in Vietnamese slang? I see it all over TikTok comments!", translation: "Minh ơi, mấy từ lóng tiếng Việt như 'đỉnh chóp' với 'hết nước chấm' thực sự có nghĩa là gì thế? Mình thấy người ta bình luận đầy trên TikTok luôn!" },
-        { participant: 'Minh', text: "Haha! 'Dinh chop' literally means 'mountain peak', basically meaning 'top-tier' or 'peak excellence'. And 'het nuoc cham' means something is so good you ran out of dipping sauce!", translation: "Haha! 'Đỉnh chóp' nghĩa đen là đỉnh núi, tương đương với 'top-tier' cực kỳ xuất sắc. Còn 'hết nước chấm' là món ngon đến mức ăn sạch cả nước chấm luôn!" },
-        { participant: 'Alex', text: "That is so hilarious and expressive! What's the equivalent of 'chill out' or 'relax'?", translation: "Diễn đạt hài hước mà hình tượng ghê! Thế còn từ tương đương với 'chill out' hay 'thư giãn' là gì?" },
-        { participant: 'Minh', text: "We just say 'Chill di' or 'Cu binh tinh'! Short, punchy, and everyone understands.", translation: "Tụi mình hay bảo 'Chill đi' hoặc 'Cứ bình tĩnh'! Ngắn gọn, dễ hiểu ai cũng dùng." }
+        { participant: 'Hans', text: "Minh, sorry I seemed surprised earlier when our friends arrived fifteen minutes past our scheduled lunch time.", translation: "Minh ơi, xin lỗi ban nãy mình có vẻ ngạc nhiên khi thấy mấy bạn đến muộn hơn giờ hẹn ăn trưa 15 phút nhé." },
+        { participant: 'Minh', text: "No worries at all, Hans! In Germany, punctuality is absolute, right? Here in casual social outings, people sometimes operate on 'rubber time' due to traffic.", translation: "Không sao đâu Hans! Ở Đức tính đúng giờ là tuyệt đối đúng không? Còn ở đây khi đi chơi bạn bè, mọi người thỉnh thoảng hơi co giãn giờ giấc vì kẹt xe đó." },
+        { participant: 'Hans', text: "I see! Are there any other daily taboos I should keep in mind so I don't misinterpret things?", translation: "Mình hiểu rồi! Có điều kiêng kỵ nào thường ngày mà mình nên lưu ý để không hiểu lầm không?" },
+        { participant: 'Minh', text: "Always take off your shoes when entering someone's home, and pass things with two hands to elders. That shows instant respect!", translation: "Luôn cởi giày trước khi vào nhà ai đó, và đưa đồ vật cho người lớn bằng hai tay nhé. Như vậy là thể hiện sự tôn trọng ngay lập tức luôn!" }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Fast Slang Texting Chat',
+      title: 'Quick Traffic Jam Running Late Ping',
       participants: [
-        { name: 'Vy', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=VyText', role: 'Friend' },
-        { name: 'Tom', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TomText', role: 'Friend' }
+        { name: 'Quang', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=QuangTraffic', role: 'Friend' },
+        { name: 'Tom', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TomFriend', role: 'Friend' }
       ],
       lines: [
-        { participant: 'Vy', text: "Concert was absolute peak! Pure vibes.", translation: "Buổi hòa nhạc đỉnh chóp luôn! Vibe cực cháy." },
-        { participant: 'Tom', text: "FOMO hitting hard! Send video clips.", translation: "Thấy mà tiếc hùi hụi luôn nè! Gửi mấy đoạn video xem với." },
-        { participant: 'Vy', text: "Uploading to IG story now. Check it!", translation: "Đang up lên story Instagram nè. Vào xem lẹ!" },
-        { participant: 'Tom', text: "Watching right now, insane crowd!", translation: "Đang xem nè, khán giả cuồng nhiệt dã man!" }
+        { participant: 'Quang', text: "Stuck at red light on Cong Hoa! 5 mins late.", translation: "Đang kẹt cứng đèn đỏ đường Cộng Hòa! Trễ 5 phút nha." },
+        { participant: 'Tom', text: "No sweat, ordered coffee already.", translation: "Không sao đâu, tớ gọi cà phê sẵn rồi nè." },
+        { participant: 'Quang', text: "Thanks bro, parking scooter now!", translation: "Cảm ơn bồ tèo, đang gửi xe máy vô liền đây!" },
+        { participant: 'Tom', text: "Corner table, take your time.", translation: "Bàn trong góc nha, cứ từ từ không vội." }
       ]
     }
   ],
@@ -248,46 +248,46 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'Formal Bilateral Weekend Excursion Protocol',
+      title: 'Diplomatic Dialogue Navigating Geopolitical Sensitivities',
       participants: [
-        { name: 'Protocol Officer Henderson', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=OfficerHenderson', role: 'Protocol Lead' },
-        { name: 'Dr. Tuan', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DrTuan', role: 'Visiting Scholar' }
+        { name: 'Ambassador Thorne', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ThorneAmbassador', role: 'Ambassador' },
+        { name: 'Liaison Director Thao', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ThaoLiaison', role: 'Liaison Director' }
       ],
       lines: [
-        { participant: 'Dr. Tuan', text: "Good afternoon, Officer Henderson. Our visiting academic delegation wishes to arrange a cultural weekend excursion to the Imperial Citadel of Hue.", translation: "Kính chào Trưởng ban Lễ tân Henderson. Phái đoàn học giả của chúng tôi mong muốn sắp xếp một chuyến tham quan văn hóa cuối tuần tới Đại Nội Huế ạ." },
-        { participant: 'Protocol Officer Henderson', text: "Certainly, Dr. Tuan. We can coordinate an official diplomatic transport van and accredited heritage guides for Saturday morning.", translation: "Chắc chắn rồi Tiến sĩ Tuấn. Chúng tôi có thể điều phối xe ngoại giao và hướng dẫn viên di sản được cấp phép cho sáng thứ Bảy." },
-        { participant: 'Dr. Tuan', text: "That is most gracious. I shall submit our delegation manifest and dietary preferences by 4 PM today.", translation: "Thật vô cùng chu đáo. Tôi sẽ gửi danh sách đoàn và các yêu cầu khẩu vị trước 4 giờ chiều hôm nay." },
-        { participant: 'Protocol Officer Henderson', text: "We look forward to curating an enriching historical experience for your scholars.", translation: "Chúng tôi rất mong được mang đến cho các học giả một trải nghiệm lịch sử phong phú và ý nghĩa." }
+        { participant: 'Ambassador Thorne', text: "Director Thao, international press briefings occasionally raise inquiries regarding past geopolitical conflicts and sovereignty.", translation: "Thưa Giám đốc Thảo, các buổi họp báo quốc tế thỉnh thoảng nêu ra câu hỏi liên quan đến các cuộc xung đột địa chính trị trong quá khứ và chủ quyền." },
+        { participant: 'Liaison Director Thao', text: "Our diplomatic posture remains consistent, Excellency: we approach complex historical narratives with dignity, mutual respect, and a forward-looking commitment to peace.", translation: "Lập trường ngoại giao của chúng tôi luôn nhất quán, thưa ngài Đại sứ: chúng tôi tiếp cận các câu chuyện lịch sử phức tạp bằng sự tôn trọng lẫn nhau và cam kết hướng tới hòa bình tương lai." },
+        { participant: 'Ambassador Thorne', text: "An admirably balanced perspective. Acknowledging nuance without perpetuating historical acrimony is the hallmark of seasoned statecraft.", translation: "Một góc nhìn cân bằng rất đáng khâm phục. Thấu hiểu sắc thái mà không duy trì sự hiềm khích lịch sử chính là bản lĩnh ngoại giao dày dặn." },
+        { participant: 'Liaison Director Thao', text: "Thank you, Ambassador. Fostering bilateral understanding requires open yet courteous dialogue.", translation: "Cảm ơn ngài Đại sứ. Xây dựng sự hiểu biết song phương luôn cần đối thoại cởi mở nhưng mực thước." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Planning a Saturday Beach and Cafe Hangout',
+      title: 'Discussing War History and National Stereotypes Civilly',
       participants: [
-        { name: 'Huong', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=HuongHangout', role: 'Local Friend' },
-        { name: 'Daniel', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DanielHangout', role: 'Expat Friend' }
+        { name: 'Kien', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KienCasual', role: 'Vietnamese Host' },
+        { name: 'Arthur', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ArthurExpat', role: 'American Friend' }
       ],
       lines: [
-        { participant: 'Huong', text: "Hey Daniel, do you have any plans for this Saturday? The weather forecast looks sunny and breezy.", translation: "Daniel ơi, thứ Bảy này bạn có kế hoạch gì chưa? Dự báo thời tiết có nắng nhẹ mà gió mát lắm." },
-        { participant: 'Daniel', text: "I'm totally free! I was thinking of renting a surfboard at My Khe beach in the morning. Are you down to join?", translation: "Mình rảnh nguyên ngày luôn! Mình đang tính sáng sớm ra biển Mỹ Khê thuê ván lướt sóng. Bạn có muốn đi cùng không?" },
-        { participant: 'Huong', text: "Count me in! We can surf for a couple of hours and then grab avocado smoothies at that open-air cafe nearby.", translation: "Tính mình một chân với nha! Tụi mình lướt sóng tầm hai tiếng rồi ghé quán cà phê thoáng mát gần đó uống sinh tố bơ." },
-        { participant: 'Daniel', text: "Sounds like the perfect weekend plan. I'll pick you up at 7:30 AM so we beat the midday heat.", translation: "Kế hoạch cuối tuần quá chuẩn bài luôn. Tầm 7h30 sáng mình qua đón bạn để tránh nắng gắt buổi trưa nhé." }
+        { participant: 'Arthur', text: "Kien, can I ask you something personal? How do younger people in Vietnam actually feel when foreigners ask about the war?", translation: "Kiên ơi, mình hỏi tế nhị chút được không? Người trẻ ở Việt Nam thực sự cảm thấy thế nào khi người nước ngoài hỏi về chiến tranh?" },
+        { participant: 'Kien', text: "I appreciate you asking respectfully, Arthur. History is complicated and painful, but our generation focuses on peace, reconciliation, and building a bright future.", translation: "Mình rất trân trọng vì bạn hỏi chuyện một cách lịch sự, Arthur. Lịch sử rất phức tạp và đau thương, nhưng thế hệ tụi mình hướng tới hòa bình, hàn gắn và cùng nhau xây dựng tương lai." },
+        { participant: 'Arthur', text: "That is so inspiring. Movies back home sometimes push outdated stereotypes, but everyone I've met here has been so warm.", translation: "Nghe cảm động thật đấy. Phim ảnh ở quê mình đôi khi hay gắn những định kiến cũ rích, nhưng mọi người mình gặp ở đây đều vô cùng nồng hậu." },
+        { participant: 'Kien', text: "Stereotypes never tell the whole story. What matters is how we listen and connect as individuals today.", translation: "Định kiến không bao giờ phản ánh toàn bộ câu chuyện. Quan trọng là cách tụi mình lắng nghe và gắn kết như những người bạn ngày hôm nay." }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Quick Weekend Chill Ping',
+      title: 'Keeping Group Chat Respectful and Chill',
       participants: [
-        { name: 'Kien', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KienChill', role: 'Friend' },
-        { name: 'Sam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SamChill', role: 'Friend' }
+        { name: 'Bao', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=BaoChill', role: 'Gamer' },
+        { name: 'Ken', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KenChill', role: 'Gamer' }
       ],
       lines: [
-        { participant: 'Kien', text: "Free tonight? Rooftop drinks?", translation: "Tối nay rảnh hông? Lên quán bar sân thượng ngắm cảnh?" },
-        { participant: 'Sam', text: "100% down! What time?", translation: "Chốt kèo liền! Mấy giờ thế?" },
-        { participant: 'Kien', text: "8 PM. Sunset view is fire.", translation: "8 giờ tối nha. Ngắm hoàng hôn bao đỉnh." },
-        { participant: 'Sam', text: "See you there! Don't be late.", translation: "Hẹn gặp ở đó! Cấm cao su giờ dây thun nhen." }
+        { participant: 'Bao', text: "Hey guys, let's keep politics out of the squad channel.", translation: "Ê mấy ông, đừng bàn chuyện chính trị nhạy cảm trong nhóm nha." },
+        { participant: 'Ken', text: "My bad, got carried away. All good vibes here!", translation: "Lỗi tôi, hơi lỡ lời xíu. Nhóm mình chơi vui là chính!" },
+        { participant: 'Bao', text: "Respect bro! Let's queue up next match.", translation: "Tôn trọng nhau vậy là ok rồi! Vô tìm trận tiếp theo thôi." },
+        { participant: 'Ken', text: "Ready! Locking in healer.", translation: "Sẵn sàng! Tôi chọn tướng hồi máu nhé." }
       ]
     }
   ],
@@ -296,46 +296,46 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'International Film Festival Reception & Panel',
+      title: 'Municipal Tourism Bureau Visitor Safety Protocol',
       participants: [
-        { name: 'Jury President Laurent', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=JuryLaurent', role: 'Jury President' },
-        { name: 'Director Ha', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DirectorHa', role: 'Filmmaker' }
+        { name: 'Inspector Pham', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=InspectorPham', role: 'Tourism Inspector' },
+        { name: 'Coordinator Evans', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=EvansCoord', role: 'Travel Agency Director' }
       ],
       lines: [
-        { participant: 'Director Ha', text: "Good evening, President Laurent. It is a distinct privilege to screen our independent feature at this international festival.", translation: "Kính chào Chủ tịch Ban giám khảo Laurent. Thật là một đặc ân to lớn khi bộ phim độc lập của chúng tôi được trình chiếu tại liên hoan phim quốc tế này ạ." },
-        { participant: 'Jury President Laurent', text: "Congratulations, Director Ha. The jury was profoundly moved by your cinematic portrayal of rural matrilineal traditions.", translation: "Xin chúc mừng Đạo diễn Hà. Ban giám khảo đã vô cùng xúc động trước ngôn ngữ điện ảnh khắc họa truyền thống mẫu hệ nông thôn của bà." },
-        { participant: 'Director Ha', text: "Thank you, sir. We sought to illuminate universal human vulnerability through an intimate indigenous cultural lens.", translation: "Cảm ơn ngài. Chúng tôi mong muốn làm sáng tỏ những góc khuất tâm hồn phổ quát của con người qua lăng kính văn hóa bản địa sâu sắc." },
-        { participant: 'Jury President Laurent', text: "You achieved that with poetic mastery. We anticipate widespread distribution acclaim for your motion picture.", translation: "Bà đã đạt được điều đó với sự điêu luyện đầy chất thơ. Chúng tôi tin rằng bộ phim sẽ nhận được sự tán thưởng rộng rãi khi phát hành." }
+        { participant: 'Inspector Pham', text: "Good morning, Director Evans. Our municipal task force has cracked down on unregistered tour operators and taxi overcharging in District 1.", translation: "Kính chào Giám đốc Evans. Đội đặc nhiệm đô thị đã xử lý dứt điểm các đơn vị lữ hành không phép và tình trạng taxi 'chặt chém' tại Quận 1." },
+        { participant: 'Coordinator Evans', text: "Excellent initiative, Inspector. Protecting international travelers from fraudulent pricing safeguards our nation's hospitality reputation.", translation: "Sáng kiến rất kịp thời, thưa Thanh tra. Bảo vệ du khách quốc tế khỏi gian lận giá cả sẽ giữ vững uy tín hiếu khách của quốc gia." },
+        { participant: 'Inspector Pham', text: "We have established verified multi-language information kiosks throughout pedestrian hubs to assist independent travelers.", translation: "Chúng tôi đã thiết lập các trạm thông tin đa ngữ có chứng nhận dọc các tuyến phố đi bộ để hỗ trợ khách du lịch tự túc." },
+        { participant: 'Coordinator Evans', text: "Commendable governance. We will integrate these verified points into our incoming tourist guides.", translation: "Công tác quản lý rất đáng khen ngợi. Chúng tôi sẽ tích hợp các điểm uy tín này vào cẩm nang du lịch cho du khách." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Discussing Favorite Indie Bands and Movies',
+      title: 'Helping a Lost Backpacker in the Old Quarter',
       participants: [
-        { name: 'Nam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=NamIndie', role: 'Music Fan' },
-        { name: 'Maya', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MayaIndie', role: 'Film Buff' }
+        { name: 'Linh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LinhTouristGuide', role: 'Local Youth' },
+        { name: 'Chloe', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ChloeBackpacker', role: 'Backpacker' }
       ],
       lines: [
-        { participant: 'Nam', text: "Maya, have you listened to any Vietnamese indie bands like Ngot or Ca Hoi Hoang?", translation: "Maya ơi, bạn đã nghe ban nhạc indie Việt Nam nào như Ngọt hay Cá Hồi Hoang chưa?" },
-        { participant: 'Maya', text: "Not yet! I've been meaning to explore local music. Send me your top playlist on Spotify!", translation: "Chưa luôn á! Mình cũng đang muốn tìm hiểu nhạc bản địa nè. Gửi playlist ruột của bạn trên Spotify qua cho mình với!" },
-        { participant: 'Nam', text: "Sending it right now! The melodic guitar riffs and poetic lyrics are so soulful.", translation: "Gửi qua liền nè! Giai điệu guitar với lời ca giàu chất thơ nghe thấm lắm." },
-        { participant: 'Maya', text: "Thanks! In exchange, you have to watch this Korean indie thriller I discovered last weekend. It'll blow your mind.", translation: "Cảm ơn bạn nha! Đổi lại bạn phải xem bộ phim trinh thám indie Hàn Quốc mình mới cày tuần trước. Đảm bảo cuốn đến phút chót." }
+        { participant: 'Chloe', text: "Excuse me! Do you know how to get to the water puppet theater from here? A cyclo driver just offered to take me for 500,000 VND.", translation: "Bạn ơi làm phiền chút! Bạn có biết đường đi đến Nhà hát múa rối nước từ đây không? Một bác xích lô vừa đòi chở mình với giá 500.000 đồng." },
+        { participant: 'Linh', text: "Oh, definitely don't take that! That is an extreme rip-off; the theater is literally a two-minute walk right down this street.", translation: "Ôi đừng đi xe đó nha! Giá đó là bị 'chém đẹp' rồi đấy, nhà hát chỉ cách đây có đúng hai phút đi bộ thẳng theo con phố này thôi." },
+        { participant: 'Chloe', text: "Phew, thank goodness I asked you! Are there any trustworthy ways to travel around if I want to explore further?", translation: "May quá mình hỏi bạn kịp thời! Có cách nào uy tín để đi lại nếu mình muốn đi xa hơn không?" },
+        { participant: 'Linh', text: "Always book through ride-hailing apps like Grab so the fare is fixed, or look for reputable metered green cabs. Have a wonderful time in Hanoi!", translation: "Bạn cứ đặt qua ứng dụng như Grab để cố định giá tiền, hoặc chọn taxi xanh có đồng hồ chuẩn nha. Chúc bạn có chuyến đi thật vui ở Hà Nội!" }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Fast Spotify Song Share',
+      title: 'Fast Map Pin & Street Food Tip for Traveler',
       participants: [
-        { name: 'Bao', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=BaoSong', role: 'Friend' },
-        { name: 'Leo', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LeoSong', role: 'Friend' }
+        { name: 'Duy', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DuyLocal', role: 'Local' },
+        { name: 'Ben', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=BenTraveler', role: 'Traveler' }
       ],
       lines: [
-        { participant: 'Bao', text: "Listen to this track right now!", translation: "Nghe bài hát này liền đi ông bạn!" },
-        { participant: 'Leo', text: "Putting headphones on... That beat is crazy!", translation: "Đang đeo tai nghe... Tiếng beat căng đét luôn!" },
-        { participant: 'Bao', text: "Told you! On repeat all day.", translation: "Đã bảo mà! Bật lặp lại cả ngày nay." },
-        { participant: 'Leo', text: "Added to my favorites. Pure heat!", translation: "Thêm vào danh sách yêu thích rồi. Quá cháy!" }
+        { participant: 'Ben', text: "Hey man, best Pho spot around here?", translation: "Bạn ơi, quanh đây quán Phở nào ngon nhất?" },
+        { participant: 'Duy', text: "Alley 10 on your left. Real broth, no tourist price!", translation: "Hẻm số 10 bên tay trái bạn á. Nước dùng chuẩn vị, không chặt chém!" },
+        { participant: 'Ben', text: "Legend! Thanks a ton.", translation: "Đỉnh quá! Cảm ơn bạn nhiều nha." },
+        { participant: 'Duy', text: "Enjoy the food, bro!", translation: "Ăn ngon miệng nha người anh em!" }
       ]
     }
   ],
@@ -344,46 +344,46 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'Expatriate Well-being Consultation at International Institute',
+      title: 'Global Online Communities & Anti-Harassment Governance',
       participants: [
-        { name: 'Director Dr. Morrison', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DrMorrison', role: 'Expat Counselor' },
-        { name: 'Quang', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=QuangExpat', role: 'Visiting Scholar' }
+        { name: 'Council Chair Watson', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=WatsonGovernance', role: 'Moderation Director' },
+        { name: 'Liaison Trang', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TrangDiscord', role: 'Community Lead' }
       ],
       lines: [
-        { participant: 'Quang', text: "Good morning, Dr. Morrison. I would like to consult with you regarding cultural transition challenges during my first semester abroad.", translation: "Kính chào Tiến sĩ Morrison. Em xin phép được tham vấn thầy về những khó khăn trong việc thích ứng văn hóa trong học kỳ đầu ở nước ngoài ạ." },
-        { participant: 'Director Dr. Morrison', text: "Welcome, Quang. Navigating culture shock and homesickness is an entirely natural phase of cross-border relocation.", translation: "Chào em Quang. Trải qua cảm giác sốc văn hóa và nhớ nhà là một giai đoạn hoàn toàn tự nhiên khi chuyển đến sống ở một quốc gia khác." },
-        { participant: 'Quang', text: "The unfamiliar social norms and linguistic differences occasionally induce a sense of isolation.", translation: "Các quy chuẩn xã hội xa lạ và sự khác biệt về ngôn ngữ đôi lúc làm em cảm thấy bị cô lập ạ." },
-        { participant: 'Director Dr. Morrison', text: "We facilitate a weekly international scholar peer-support circle. Connecting with fellow overseas students accelerates cultural adaptation remarkably.", translation: "Viện có tổ chức nhóm chia sẻ đồng cảnh ngộ hàng tuần cho học giả quốc tế. Việc kết nối với các bạn du học sinh sẽ giúp đẩy nhanh quá trình hòa nhập rất nhiều." }
+        { participant: 'Trang', text: "Good afternoon, Chair Watson. Our international gaming servers have instituted proactive filter algorithms to eradicate toxic harassment and hate speech.", translation: "Kính chào Chủ tịch Watson. Hệ thống máy chủ trò chơi quốc tế của chúng tôi đã triển khai thuật toán lọc chủ động để loại bỏ quấy rối độc hại và ngôn từ kích động thù địch." },
+        { participant: 'Council Chair Watson', text: "Splendid execution, Trang. Online spaces must offer inclusive sanctuary rather than toxic exposure for international youth.", translation: "Thực thi rất xuất sắc, thưa cô Trang. Không gian mạng phải là nơi trú ẩn an toàn, hòa nhập chứ không phải nơi tiêm nhiễm độc hại cho giới trẻ toàn cầu." },
+        { participant: 'Trang', text: "Furthermore, our multilingual community moderators ensure transparent reporting channels across Discord and Reddit hubs.", translation: "Hơn nữa, đội ngũ điều phối viên đa ngữ của chúng tôi đảm bảo các kênh báo cáo sai phạm minh bạch trên cả Discord và Reddit." },
+        { participant: 'Council Chair Watson', text: "Exemplary stewardship. This standard will define our international esports charter.", translation: "Sự quản trị rất kiểu mẫu. Tiêu chuẩn này sẽ định hình điều lệ thể thao điện tử quốc tế của chúng ta." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Sharing Homesickness and Comfort Food with a Friend',
+      title: 'Joining a Discord Gaming Lobby and Avoiding Toxic Trolls',
       participants: [
-        { name: 'Trang', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TrangHome', role: 'Student Abroad' },
-        { name: 'Liam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LiamHome', role: 'Local Friend' }
+        { name: 'Long', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LongGamer', role: 'Vietnamese Gamer' },
+        { name: 'Marcus', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MarcusDiscord', role: 'Online Friend' }
       ],
       lines: [
-        { participant: 'Liam', text: "Hey Trang, you looked a bit quiet during lunch today. Everything alright?", translation: "Trang ơi, lúc ăn trưa thấy bạn hơi trầm lặng. Mọi chuyện vẫn ổn chứ?" },
-        { participant: 'Trang', text: "Honestly, I'm just feeling pretty homesick today. My family is having a big reunion dinner back home for the Lunar New Year.", translation: "Thú thật là hôm nay mình nhớ nhà quá. Ở quê gia đình đang sum họp ăn bữa cơm tất niên mừng năm mới." },
-        { participant: 'Liam', text: "I completely understand how tough that can feel. Do you want to go to the Asian market and cook some traditional spring rolls together tonight?", translation: "Mình hoàn toàn hiểu cảm giác trống trải đó. Tối nay bạn có muốn cùng mình ghé chợ châu Á mua đồ về tự cuốn nem rán truyền thống không?" },
-        { participant: 'Trang', text: "That would mean the world to me, Liam! Cooking family recipes always makes me feel so much better.", translation: "Bạn chu đáo quá Liam ơi! Tự tay nấu mấy món quen thuộc của gia đình lúc nào cũng làm mình thấy ấm lòng hơn." }
+        { participant: 'Long', text: "Hey Marcus! I've been lurking in this international Discord server for a week. Are people usually friendly here?", translation: "Chào Marcus! Mình theo dõi trong kênh Discord quốc tế này cả tuần rồi. Mọi người ở đây thường có thân thiện không?" },
+        { participant: 'Marcus', text: "Most members are super welcoming! We have zero tolerance for spamming or toxic trash talk. If anyone gets rude, admins ban them immediately.", translation: "Đa số thành viên cực kỳ cởi mở luôn! Tụi mình không bao giờ dung thứ cho việc spam hay nói chuyện độc hại. Ai thô lỗ là ban quản trị cấm cửa liền." },
+        { participant: 'Long', text: "That is great to hear. I was worried my English might be rusty during fast-paced voice comms.", translation: "Nghe vậy an tâm hẳn. Mình từng lo tiếng Anh của mình không theo kịp khi giao tiếp nhanh trong phòng thoại." },
+        { participant: 'Marcus', text: "Don't sweat it at all! Just hop into Voice Channel 3, we're all playing for fun and good vibes.", translation: "Đừng lo lắng gì cả! Cứ nhảy vào Phòng thoại số 3 nhé, tụi mình chơi vui vẻ và thoải mái là chính." }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Quick Homesick Comfort Text',
+      title: 'Fast Squad Invite Ping on Discord',
       participants: [
-        { name: 'Duc', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DucText', role: 'Friend' },
-        { name: 'An', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AnText', role: 'Friend' }
+        { name: 'Tri', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TriSquad', role: 'Gamer' },
+        { name: 'Sam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SamSquad', role: 'Gamer' }
       ],
       lines: [
-        { participant: 'Duc', text: "Craving mom's beef pho so bad.", translation: "Thèm phở bò mẹ nấu cồn cào luôn." },
-        { participant: 'An', text: "Found an authentic pho spot yesterday! Going?", translation: "Hôm qua mới tìm được một quán phở chuẩn vị nè! Đi ăn không?" },
-        { participant: 'Duc', text: "Save my life! Send location.", translation: "Cứu tinh đời tui! Gửi định vị qua liền đi." },
-        { participant: 'An', text: "Sent! Meet you outside in 15.", translation: "Gửi rồi đó! 15 phút nữa gặp trước quán nha." }
+        { participant: 'Tri', text: "Need +1 for Valorant comp, hop on VC!", translation: "Thiếu 1 chân leo rank Valorant nè, vô voice đi!" },
+        { participant: 'Sam', text: "Booting up PC now. Who's in lobby?", translation: "Đang bật máy tính đây. Trong phòng có những ai rồi?" },
+        { participant: 'Tri', text: "Just chill friends, no toxicity.", translation: "Toàn bạn bè thân thiện thôi, không toxic đâu." },
+        { participant: 'Sam', text: "Love that. Joining in 1 minute!", translation: "Thích thế. 1 phút nữa có mặt!" }
       ]
     }
   ],
@@ -392,46 +392,46 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'Formal Commendation at International Charity Gala',
+      title: 'Corporate Social Media Influencer Outreach Protocol',
       participants: [
-        { name: 'Ambassador Thorne', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AmbThorne', role: 'Ambassador' },
-        { name: 'Ms. Linh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LinhCharity', role: 'NGO Director' }
+        { name: 'Director Sterling', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SterlingDirector', role: 'Brand Director' },
+        { name: 'Liaison Nga', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=NgaOutreach', role: 'Digital Strategist' }
       ],
       lines: [
-        { participant: 'Ambassador Thorne', text: "Ms. Linh, I wish to extend our deepest commendations for your exceptional humanitarian leadership in disaster relief operations.", translation: "Kính thưa bà Linh, tôi xin gửi lời khen ngợi sâu sắc nhất trước sự lãnh đạo nhân đạo xuất sắc của bà trong các hoạt động cứu trợ thiên tai." },
-        { participant: 'Ms. Linh', text: "Your Excellency is most generous. This achievement belongs entirely to our courageous frontline volunteers and grassroots partners.", translation: "Đại sứ thật quá lời khen ngợi ạ. Thành quả này thuộc về toàn bộ các tình nguyện viên tuyến đầu quả cảm và các đối tác cơ sở." },
-        { participant: 'Ambassador Thorne', text: "Your humility exemplifies true statesmanship. Our embassy pledges matching financial grants for your ongoing rural clinic construction.", translation: "Sự khiêm nhường của bà thể hiện phẩm chất của một nhà lãnh đạo chân chính. Đại sứ quán chúng tôi cam kết tài trợ đối ứng cho dự án xây dựng trạm y tế nông thôn." },
-        { participant: 'Ms. Linh', text: "We accept this partnership with immense gratitude. It will transform countless lives across mountainous communities.", translation: "Chúng tôi đón nhận sự hợp tác này với lòng biết ơn vô hạn. Dự án sẽ thay đổi cuộc sống của vô số người dân vùng cao." }
+        { participant: 'Nga', text: "Good morning, Director Sterling. When initiating collaboration inquiries via Instagram direct messaging, our team adheres to strict professional courtesy.", translation: "Kính chào Giám đốc Sterling. Khi gửi lời mời hợp tác qua tin nhắn trực tiếp trên Instagram, nhóm chúng tôi luôn tuân thủ tác phong chuyên nghiệp lịch thiệp." },
+        { participant: 'Director Sterling', text: "Conciseness and authentic engagement are essential, Nga. Cold spamming damages brand credibility.", translation: "Sự ngắn gọn và tương tác chân thành là cốt lõi, thưa cô Nga. Việc gửi tin nhắn rác hàng loạt sẽ hủy hoại uy tín thương hiệu." },
+        { participant: 'Nga', text: "Precisely. We open by commending a specific creative campaign, outline mutual value, and provide formal institutional email contacts.", translation: "Dạ chính xác ạ. Chúng tôi mở đầu bằng lời khen ngợi một chiến dịch sáng tạo cụ thể, nêu rõ giá trị hợp tác và để lại địa chỉ email cơ quan chính thức." },
+        { participant: 'Director Sterling', text: "An impeccable communication framework. Proceed with the influencer outreach.", translation: "Một quy trình giao tiếp hoàn hảo. Hãy tiến hành liên hệ với các nhà sáng tạo nội dung." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Cheering Up a Friend After a Rough Presentation',
+      title: 'Politely Replying to an Instagram Story without Spamming',
       participants: [
-        { name: 'Mai', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MaiFriend', role: 'Classmate' },
-        { name: 'Chris', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ChrisFriend', role: 'Classmate' }
+        { name: 'An', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AnInstagram', role: 'Local Friend' },
+        { name: 'Sophie', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SophieInstagram', role: 'Traveler' }
       ],
       lines: [
-        { participant: 'Chris', text: "I totally butchered that presentation today, Mai. I stumbled over my words and lost my place on slide four.", translation: "Hôm nay mình thuyết trình tệ quá Mai ơi. Mình bị vấp từ liên tục rồi lúng túng quên mất ý ở slide số bốn." },
-        { participant: 'Mai', text: "Hey, don't be so hard on yourself! You handled the Q&A section with incredible clarity, and your research data was rock solid.", translation: "Này, đừng quá khắt khe với bản thân thế chứ! Phần trả lời câu hỏi bạn giải thích cực kỳ gãy gọn, với lại số liệu nghiên cứu của bạn rất chặt chẽ mà." },
-        { participant: 'Chris', text: "Do you really think so? I was convinced everyone was judging my accent.", translation: "Bạn thật sự nghĩ vậy hả? Mình cứ đinh ninh là mọi người đang săm soi giọng phát âm của mình." },
-        { participant: 'Mai', text: "Nobody cared about your accent at all! Everyone was focused on your insights. You did great, honestly.", translation: "Chẳng có ai để ý giọng của bạn đâu! Ai cũng chăm chú lắng nghe các góc nhìn sâu sắc của bạn hết. Bạn đã làm rất tốt, thật lòng đó." }
+        { participant: 'An', text: "Hey Sophie! I saw your story from Da Nang yesterday—that sunset photo over Dragon Bridge looked unbelievable!", translation: "Chào Sophie! Mình thấy bạn đăng story ở Đà Nẵng hôm qua—tấm ảnh hoàng hôn trên Cầu Rồng nhìn đẹp mê hồn luôn!" },
+        { participant: 'Sophie', text: "Hey An! Thanks so much for reaching out! It was mesmerizing in person. Do you know if the fire-breathing show happens every night?", translation: "Chào An! Cảm ơn bạn đã nhắn tin nha! Ngoài đời cảnh đó đẹp ngẩn ngơ luôn á. Bạn có biết màn phun lửa của Cầu Rồng có diễn ra mỗi tối không?" },
+        { participant: 'An', text: "It only happens on weekend nights at 9 PM! Definitely head there on Saturday around 8:30 to get a good viewing spot.", translation: "Chỉ diễn ra vào tối cuối tuần lúc 9 giờ thôi bạn ơi! Thứ Bảy bạn cứ ra tầm 8 rưỡi để xí được chỗ ngắm đẹp nhất nhé." },
+        { participant: 'Sophie', text: "That is so helpful, thank you! I'm glad I didn't get ghosted by bad online travel guides!", translation: "Thông tin hữu ích quá, cảm ơn bạn nhiều! May mà mình không bị bỏ rơi bởi mấy bài cẩm nang du lịch cũ rích!" }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Fast Hype and Support Text',
+      title: 'Quick Story React & Casual DM Ping',
       participants: [
-        { name: 'Nam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=NamHype', role: 'Friend' },
-        { name: 'Jake', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=JakeHype', role: 'Friend' }
+        { name: 'Huy', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=HuyDM', role: 'Friend' },
+        { name: 'Mia', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MiaDM', role: 'Friend' }
       ],
       lines: [
-        { participant: 'Nam', text: "Killed it on stage today, bro!", translation: "Hôm nay trên sân khấu biểu diễn đỉnh chóp luôn bạn ơi!" },
-        { participant: 'Jake', text: "Felt shaky at first, not gonna lie.", translation: "Lúc đầu run bắn người, thề luôn á." },
-        { participant: 'Nam', text: "Looked like a rockstar! Crowd went wild.", translation: "Nhìn như ngôi sao ca nhạc luôn! Khán giả hò reo quá trời." },
-        { participant: 'Jake', text: "Thanks for the hype, means a lot!", translation: "Cảm ơn đã tiếp thêm tinh thần nha, quý lắm!" }
+        { participant: 'Huy', text: "That coffee shop story is aesthetic! Where is it?", translation: "Story quán cà phê nhìn nghệ quá! Ở đâu thế bạn?" },
+        { participant: 'Mia', text: "District 3, hidden alley! Sent you the address.", translation: "Quận 3 trong hẻm nhỏ á! Gửi địa chỉ cho rồi nè." },
+        { participant: 'Huy', text: "Saving to my places list, thanks!", translation: "Lưu vào danh sách địa điểm liền, cảm ơn nha!" },
+        { participant: 'Mia', text: "Try their coconut coffee, top tier!", translation: "Uống thử cà phê dừa ở đó đi, đỉnh của chóp luôn!" }
       ]
     }
   ],
@@ -440,46 +440,46 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'Diplomatic Dialogue on International Trade Policy Divergence',
+      title: 'Executive LinkedIn Connection & Thought Leadership Outreach',
       participants: [
-        { name: 'Minister Chen', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MinisterChen', role: 'Trade Minister' },
-        { name: 'Delegate Bao', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DelegateBao', role: 'Delegate' }
+        { name: 'Vice President Lawson', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LawsonVP', role: 'Executive' },
+        { name: 'Minh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MinhLinkedIn', role: 'Tech Consultant' }
       ],
       lines: [
-        { participant: 'Delegate Bao', text: "Minister Chen, while we concur on tariff harmonization, our delegation holds a divergent perspective regarding agricultural subsidies.", translation: "Thưa Bộ trưởng Chen, mặc dù chúng tôi đồng thuận về việc hài hòa thuế quan, phái đoàn chúng tôi có góc nhìn khác biệt liên quan đến trợ cấp nông nghiệp." },
-        { participant: 'Minister Chen', text: "I welcome your candid and civil presentation of that nuance, Delegate Bao. Wherein lies your primary economic divergence?", translation: "Tôi rất hoan nghênh cách trình bày thẳng thắn và lịch thiệp của quý vị, thưa Đại biểu Bảo. Điểm khác biệt kinh tế trọng yếu của quý vị nằm ở đâu?" },
-        { participant: 'Delegate Bao', text: "We submit that premature subsidy phase-outs pose acute risks to smallholder farmer livelihoods in transitional developing economies.", translation: "Chúng tôi nhận định rằng việc cắt giảm trợ cấp vội vàng sẽ gây rủi ro nghiêm trọng đến sinh kế của các hộ nông dân nhỏ tại các nền kinh tế đang phát triển." },
-        { participant: 'Minister Chen', text: "A legitimate geopolitical concern. Let us draft a transitional grace period into the multilateral treaty annex.", translation: "Một mối quan ngại địa chính trị hoàn toàn chính đáng. Chúng ta hãy cùng đưa điều khoản gia hạn chuyển tiếp vào phụ lục hiệp định đa phương." }
+        { participant: 'Minh', text: "Dear Vice President Lawson, I recently read your insightful article on decentralized database architecture on LinkedIn.", translation: "Kính gửi Phó Chủ tịch Lawson, gần đây tôi đã đọc bài viết sâu sắc của ông về kiến trúc cơ sở dữ liệu phi tập trung trên LinkedIn." },
+        { participant: 'Vice President Lawson', text: "Thank you, Minh. We have been examining how low-latency consensus models scale across cross-border financial networks.", translation: "Cảm ơn Minh. Chúng tôi đang nghiên cứu cách các mô hình đồng thuận độ trễ thấp mở rộng quy mô trên mạng lưới tài chính xuyên biên giới." },
+        { participant: 'Minh', text: "Indeed. I would be honored to connect and follow your upcoming executive case studies in this domain.", translation: "Dạ đúng như vậy. Tôi rất vinh hạnh được kết nối và theo dõi các nghiên cứu điển hình sắp tới của ông trong lĩnh vực này ạ." },
+        { participant: 'Vice President Lawson', text: "With pleasure. I have accepted your connection request; let us maintain professional dialogue.", translation: "Rất sẵn lòng. Tôi đã chấp nhận yêu cầu kết nối; chúng ta hãy tiếp tục trao đổi chuyên môn nhé." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Civil Debate on Remote Work vs Office Work at a Cafe',
+      title: 'Civil Debate on Tech Reddit without Hostility',
       participants: [
-        { name: 'Thao', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ThaoDebate', role: 'Friend' },
-        { name: 'Mark', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MarkDebate', role: 'Friend' }
+        { name: 'Khoa', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KhoaReddit', role: 'Subreddit Member' },
+        { name: 'Dave', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DaveReddit', role: 'Subreddit Member' }
       ],
       lines: [
-        { participant: 'Mark', text: "Honestly Thao, I feel like full remote work will eventually replace offices completely. It saves so much commute time.", translation: "Thú thật với Thảo, mình nghĩ làm việc từ xa hoàn toàn sẽ sớm thay thế văn phòng truyền thống. Tiết kiệm biết bao nhiêu thời gian đi lại." },
-        { participant: 'Thao', text: "I see where you're coming from, but I look at it a bit differently. In-person brainstorms spark spontaneous creativity that Zoom calls just can't match.", translation: "Mình hiểu lý lẽ của bạn, nhưng mình có góc nhìn hơi khác một chút. Những buổi cùng ngồi thảo luận trực tiếp tạo ra sự sáng tạo ngẫu hứng mà họp qua Zoom không thể nào có được." },
-        { participant: 'Mark', text: "That is a very fair point. Hybrid might truly be the best of both worlds.", translation: "Ý đó cũng rất hợp lý. Có lẽ mô hình kết hợp linh hoạt cả hai mới thực sự là lựa chọn vẹn toàn nhất." },
-        { participant: 'Thao', text: "Exactly! Thanks for having an open mind. It's refreshing to debate without anyone taking it personally.", translation: "Chính xác luôn! Cảm ơn bạn vì tinh thần cởi mở. Thích nhất là được tranh luận thẳng thắn mà không ai để bụng chuyện cá nhân." }
+        { participant: 'Khoa', text: "Hey Dave, I saw your comment on the programming subreddit. While I respectfully disagree with your framework choice, your benchmark data was super interesting.", translation: "Chào Dave, mình thấy bình luận của bạn trên diễn đàn lập trình Reddit. Dù quan điểm của mình hơi khác về lựa chọn framework, nhưng dữ liệu đối chuẩn bạn đưa ra rất thú vị." },
+        { participant: 'Dave', text: "Thanks for keeping the discussion civil, Khoa! So many online threads turn into toxic flame wars, so I appreciate your constructive points.", translation: "Cảm ơn bạn đã tranh luận rất văn minh nhé Khoa! Nhiều chủ đề trên mạng hay biến thành cuộc cãi vã độc hại, nên mình rất trân trọng các ý kiến xây dựng của bạn." },
+        { participant: 'Khoa', text: "Totally! In our field, comparing real metrics beats self-promotion and arguing every single time.", translation: "Chuẩn luôn! Trong ngành này, so sánh số liệu thực tế luôn tốt hơn nhiều so với việc tự bốc phét hay cãi vã vô bổ." },
+        { participant: 'Dave', text: "Agreed 100%. Let's continue sharing benchmark experiments in the thread!", translation: "Đồng ý 100%. Tụi mình cùng tiếp tục chia sẻ các thử nghiệm đo lường trong bài viết nhé!" }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Quick Friendly Tech Disagreement',
+      title: 'Quick LinkedIn / Reddit DM Ping',
       participants: [
-        { name: 'Tri', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TriTech', role: 'Dev' },
-        { name: 'Dan', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DanTech', role: 'Dev' }
+        { name: 'Tuan', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TuanPing', role: 'Dev' },
+        { name: 'Sam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SamPing', role: 'Dev' }
       ],
       lines: [
-        { participant: 'Tri', text: "TypeScript beats JavaScript every day of the week.", translation: "TypeScript ăn đứt JavaScript về mọi mặt luôn." },
-        { participant: 'Dan', text: "For big apps yes, small scripts JS is faster!", translation: "Dự án lớn thì đúng, còn làm việc nhỏ thì viết JS nhanh hơn!" },
-        { participant: 'Tri', text: "Fair take! Agree to disagree on the small stuff.", translation: "Góc nhìn công bằng đó! Đồng ý bất đồng mấy vụ việc nhỏ." },
-        { participant: 'Dan', text: "Deal! Coffee time?", translation: "Chốt kèo! Đi làm ly cà phê không?" }
+        { participant: 'Tuan', text: "Upvoted your solution on Reddit! Super clean code.", translation: "Vừa upvote câu trả lời của bạn trên Reddit! Code chuẩn chỉ ghê." },
+        { participant: 'Sam', text: "Appreciate the karma boost, bro!", translation: "Cảm ơn bạn đã cộng điểm uy tín cho mình nha!" },
+        { participant: 'Tuan', text: "Sent you a quick LinkedIn connect too.", translation: "Vừa gửi lời mời kết bạn bên LinkedIn luôn rồi á." },
+        { participant: 'Sam', text: "Accepted! Let's stay in touch.", translation: "Đồng ý liền! Giữ liên lạc nha." }
       ]
     }
   ],
@@ -490,14 +490,14 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
       school: 'business',
       title: 'Executive Cross-Cultural Linguistic Debrief',
       participants: [
-        { name: 'Director Sterling', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DirectorSterling', role: 'Director' },
-        { name: 'Khang', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KhangDebrief', role: 'Liaison' }
+        { name: 'Director Sterling', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DirectorSterling', role: 'Managing Director' },
+        { name: 'Phuong', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=PhuongDebrief', role: 'Regional Liaison' }
       ],
       lines: [
-        { participant: 'Khang', text: "Director Sterling, I wish to clarify a semantic ambiguity during our bilateral negotiation with the Australian delegation.", translation: "Kính thưa Giám đốc Sterling, tôi xin phép làm rõ một điểm mập mờ ngữ nghĩa trong buổi đàm phán song phương với phái đoàn Úc ạ." },
-        { participant: 'Director Sterling', text: "Please elaborate, Khang. Precision in international covenant diction is paramount.", translation: "Bạn vui lòng nói rõ hơn, Khang. Sự chuẩn xác trong từ ngữ giao kết quốc tế là tối quan trọng." },
-        { participant: 'Khang', text: "When their counsel employed self-deprecating irony regarding their turnaround timetable, our junior staff initially misconstrued it as a formal delay.", translation: "Khi luật sư của họ sử dụng lối nói mỉa mai tự trào về thời hạn hoàn thành, các nhân viên trẻ của chúng ta lúc đầu hiểu nhầm thành việc trì hoãn chính thức." },
-        { participant: 'Director Sterling', text: "An astute observation. We shall conduct a cross-cultural idiomatic briefing for all international delegates.", translation: "Một quan sát rất tinh tế. Chúng ta sẽ tổ chức buổi tập huấn về thành ngữ liên văn hóa cho toàn bộ các đại biểu." }
+        { participant: 'Phuong', text: "Good morning, Director Sterling. During yesterday's multilateral briefing, I noticed several British idioms that could be misinterpreted by our Asian partners.", translation: "Kính chào Giám đốc Sterling. Trong phiên họp đa phương hôm qua, tôi nhận thấy một số cách diễn đạt đậm chất Anh có thể bị các đối tác châu Á hiểu lầm." },
+        { participant: 'Director Sterling', text: "An astute observation, Phuong. British understatement and gentle dry humor often convey nuanced critique rather than literal endorsement.", translation: "Quan sát rất sắc sảo, cô Phương. Lối nói giảm nói tránh và sự châm biếm hóm hỉnh của người Anh thường thể hiện ý phê bình tế nhị chứ không phải sự tán đồng theo nghĩa đen." },
+        { participant: 'Phuong', text: "Indeed, sir. For instance, 'with the greatest respect' frequently signifies strong underlying disagreement in formal negotiations.", translation: "Dạ đúng như vậy thưa ngài. Ví dụ cụm từ 'với sự tôn trọng cao nhất' thường mang hàm ý bất đồng quan điểm sâu sắc trong đàm phán chính thức." },
+        { participant: 'Director Sterling', text: "Precisely. We must issue a clarifying addendum to ensure complete alignment across all regional delegations.", translation: "Chính xác. Chúng ta cần ban hành bản phụ lục giải thích rõ để đảm bảo sự thống nhất giữa các đoàn đại biểu khu vực." }
       ]
     },
     {
@@ -505,14 +505,14 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
       school: 'casual',
       title: 'Deciphering British Sarcasm and Gentle Humor',
       participants: [
-        { name: 'Tom', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TomBritish', role: 'British Expat' },
-        { name: 'Linh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LinhHumor', role: 'Friend' }
+        { name: 'Oliver', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=OliverHumor', role: 'British Expat' },
+        { name: 'Linh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LinhHumor', role: 'Vietnamese Friend' }
       ],
       lines: [
-        { participant: 'Tom', text: "Oh brilliant! It's pouring rain and our ferry got delayed by another hour. What absolute splendid luck.", translation: "Ồ vi diệu ghê! Trời thì mưa như trút nước còn chuyến phà thì hoãn thêm một tiếng nữa. Đúng là vận may tuyệt vời son sẻ." },
-        { participant: 'Linh', text: "Wait, Tom, are you being completely sarcastic right now, or are you actually enjoying the rain?", translation: "Khoan đã Tom, bạn đang nói mỉa mai ngược đời đúng không, hay là bạn đang thích ngắm mưa thật thế?" },
-        { participant: 'Tom', text: "Haha! Complete sarcasm, Linh! British people love complaining about misery by pretending it's wonderful.", translation: "Haha! Mỉa mai 100% luôn đó Linh! Dân Anh tụi mình khoái phàn nàn chuyện xui xẻo bằng cách giả vờ khen nó tuyệt vời." },
-        { participant: 'Linh', text: "Haha, got it! In Vietnamese, we'd say 'Soi den het cho noi'. Thanks for clarifying the tone!", translation: "Haha mình hiểu rồi! Tiếng Việt tụi mình sẽ bảo 'Số đen hết chỗ nói'. Cảm ơn bạn đã giải thích rõ ngữ điệu nha!" }
+        { participant: 'Linh', text: "Oliver, earlier when it started pouring rain and you said 'Oh, lovely tropical weather we're having', were you being sarcastic?", translation: "Oliver ơi, lúc nãy khi trời đổ mưa tầm tã mà bạn bảo 'Ôi, thời tiết nhiệt đới dễ thương ghê', có phải bạn đang nói mỉa mai không?" },
+        { participant: 'Oliver', text: "Haha, spot on, Linh! Classic British dry humor. When things go terribly wrong, we often say the complete opposite with a deadpan face.", translation: "Haha, chuẩn luôn Linh ơi! Khiếu hài hước tỉnh bơ kinh điển của người Anh đó. Khi mọi thứ rối tung lên, tụi mình hay nói ngược lại với khuôn mặt tỉnh bơ." },
+        { participant: 'Linh', text: "I'm glad I checked! In Vietnamese, we have playful sarcasm too, but tone of voice usually gives it away much more clearly.", translation: "May quá mình hỏi lại cho chắc! Trong tiếng Việt tụi mình cũng hay nói kháy đùa vui, nhưng tông giọng thường lộ rõ hơn nhiều." },
+        { participant: 'Oliver', text: "Tone is everything! Don't worry, if I'm ever being genuinely serious, I'll let you know without the cheeky jokes.", translation: "Ngữ điệu quyết định tất cả mà! Đừng lo, khi nào mình nghiêm túc thật sự, mình sẽ nói thẳng chứ không đùa cợt đâu." }
       ]
     },
     {
@@ -520,14 +520,14 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
       school: 'superCasual',
       title: 'Quick Joke Check Between Friends',
       participants: [
-        { name: 'Nam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=NamJoke', role: 'Friend' },
+        { name: 'Tuan', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TuanJoke', role: 'Friend' },
         { name: 'Jack', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=JackJoke', role: 'Friend' }
       ],
       lines: [
-        { participant: 'Jack', text: "Loving this 40-degree heatwave so much.", translation: "Đang cực kỳ tận hưởng đợt nắng nóng 40 độ này đây." },
-        { participant: 'Nam', text: "Sarcasm detector beeped! Melting already?", translation: "Máy dò mỉa mai reo vang rồi nha! Sắp tan chảy chưa?" },
-        { participant: 'Jack', text: "Melting into a puddle. Get inside the AC!", translation: "Chảy thành vũng nước luôn rồi. Vào phòng máy lạnh gấp!" },
-        { participant: 'Nam', text: "Iced tea's waiting for you inside!", translation: "Trà đá đang chờ sẵn bên trong nè!" }
+        { participant: 'Jack', text: "Yeah right, like you can eat 5 bowls of Pho!", translation: "Ừ chắc vậy, làm như ông húp được 5 tô Phở không bằng!" },
+        { participant: 'Tuan', text: "Sarcasm detected! Are we betting boba on this?", translation: "Nghe mùi mỉa mai rồi nha! Cá cược chầu trà sữa hông?" },
+        { participant: 'Jack', text: "You're on! Winner gets extra toppings.", translation: "Chơi luôn! Người thắng được thêm trân châu." },
+        { participant: 'Tuan', text: "Deal! Pho shop after school, let's go.", translation: "Chốt kèo! Tan học ra quán phở triển luôn." }
       ]
     }
   ],
@@ -538,14 +538,14 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
       school: 'business',
       title: 'Diplomatic Declination of Unscheduled Proposal',
       participants: [
-        { name: 'Senior Envoy Vance', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=EnvoyVance', role: 'Envoy' },
-        { name: 'Undersecretary Mai', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=UndersecretaryMai', role: 'Government Official' }
+        { name: 'Ambassador Thorne', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ThorneDiplomat', role: 'Ambassador' },
+        { name: 'Director Ha', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DirectorHaDiplomat', role: 'Director' }
       ],
       lines: [
-        { participant: 'Senior Envoy Vance', text: "Undersecretary Mai, would your ministry entertain an expedited review of the maritime transit amendment this evening?", translation: "Kính thưa Thứ trưởng Mai, liệu bộ của bà có thể xem xét nhanh bản sửa đổi quá cảnh hàng hải ngay trong tối nay không ạ?" },
-        { participant: 'Undersecretary Mai', text: "We appreciate your proactive engagement, Senior Envoy. However, our statutory governance guidelines preclude impromptu deliberations without prior cabinet scrutiny.", translation: "Chúng tôi đánh giá cao sự chủ động của ngài, thưa Đặc phái viên. Tuy nhiên, quy chế quản trị bắt buộc không cho phép chúng tôi thảo luận đột xuất khi chưa có sự thẩm định trước của nội các." },
-        { participant: 'Senior Envoy Vance', text: "We respect your administrative protocol completely. We shall table the motion for the formal plenary session next week.", translation: "Chúng tôi hoàn toàn tôn trọng quy trình hành chính của quý bộ. Chúng tôi sẽ đưa nội dung này vào phiên họp toàn thể tuần tới." },
-        { participant: 'Undersecretary Mai', text: "Thank you for your diplomatic consideration and mutual respect of institutional boundaries.", translation: "Cảm ơn sự thấu hiểu ngoại giao và sự tôn trọng lẫn nhau đối với các nguyên tắc tổ chức." }
+        { participant: 'Director Ha', text: "Good afternoon, Ambassador Thorne. We were wondering if your delegation might accommodate an impromptu press conference this evening.", translation: "Kính chào Đại sứ Thorne. Chúng tôi muốn thăm dò xem liệu phái đoàn của ngài có thể thu xếp một buổi họp báo đột xuất vào tối nay không ạ." },
+        { participant: 'Ambassador Thorne', text: "While we deeply value your initiative, Director Ha, protocol boundaries require our scheduled delegation briefings to proceed without alteration.", translation: "Mặc dù chúng tôi rất trân trọng sáng kiến của Giám đốc Hà, nhưng các nguyên tắc nghi lễ đòi hỏi lịch trình của phái đoàn phải diễn ra đúng kế hoạch đã định." },
+        { participant: 'Director Ha', text: "We entirely respect your scheduling constraints, Excellency. We will defer media engagements to the official summit slot.", translation: "Chúng tôi hoàn toàn tôn trọng các ràng buộc về lịch trình của ngài Đại sứ. Chúng tôi sẽ dời việc gặp gỡ truyền thông sang khung giờ chính thức của hội nghị thượng đỉnh." },
+        { participant: 'Ambassador Thorne', text: "Thank you for your gracious understanding. Maintaining structured commitments ensures optimal bilateral collaboration.", translation: "Cảm ơn sự thấu hiểu lịch thiệp của quý vị. Việc duy trì các cam kết có tổ chức sẽ đảm bảo sự hợp tác song phương đạt hiệu quả cao nhất." }
       ]
     },
     {
@@ -553,14 +553,14 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
       school: 'casual',
       title: 'Politely Declining an Invitation and Setting Boundaries',
       participants: [
-        { name: 'Chloe', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ChloeBound', role: 'Friend' },
-        { name: 'An', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AnBound', role: 'Friend' }
+        { name: 'Sophie', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SophieExpat', role: 'Expat Friend' },
+        { name: 'Trang', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TrangBoundaries', role: 'Local Friend' }
       ],
       lines: [
-        { participant: 'Chloe', text: "Hey An! A group of us are heading to a loud techno club tonight around 11 PM. Do you want to come along?", translation: "An ơi! Nhóm tụi mình định tầm 11 giờ đêm nay đi bar nghe nhạc techno sôi động nè. Bạn đi chung với tụi mình không?" },
-        { participant: 'An', text: "Thanks so much for thinking of me, Chloe! But late-night loud clubs really aren't my scene. I need some quiet recharge time tonight.", translation: "Cảm ơn bạn nhiều vì đã rủ mình nha Chloe! Nhưng mấy quán bar ồn ào đêm muộn thực sự không hợp gu của mình. Tối nay mình cần chút không gian yên tĩnh để nạp lại năng lượng." },
-        { participant: 'Chloe', text: "I totally respect that! How about we meet up for quiet coffee or breakfast this Sunday instead?", translation: "Mình hoàn toàn tôn trọng điều đó mà! Hay là sáng Chủ nhật này tụi mình hẹn nhau đi cà phê hoặc ăn sáng nhẹ nhàng nhé?" },
-        { participant: 'An', text: "Sunday morning sounds wonderful! Let's do that.", translation: "Sáng Chủ nhật thì quá tuyệt luôn! Nhất trí thế nha." }
+        { participant: 'Sophie', text: "Trang! A big group of us are going to a late-night club in Bui Vien tonight until 3 AM. You have to come with us!", translation: "Trang ơi! Tối nay cả nhóm tụi mình rủ nhau đi quẩy ở Bùi Viện tới 3 giờ sáng nè. Bạn nhất định phải đi chung đó nha!" },
+        { participant: 'Trang', text: "Thank you so much for thinking of me, Sophie! That sounds super fun, but I really need to get some rest and study for my exam tomorrow.", translation: "Cảm ơn Sophie rất nhiều vì đã rủ mình nhé! Nghe vui quá, nhưng tối nay mình thật sự cần nghỉ ngơi và ôn bài cho bài thi ngày mai." },
+        { participant: 'Sophie', text: "Are you sure? You could just stay for an hour!", translation: "Bạn có chắc không đấy? Đi một tiếng thôi cũng được mà!" },
+        { participant: 'Trang', text: "I'd love to hang out another time, but late clubs aren't really my thing during weekdays. How about coffee this Sunday instead?", translation: "Mình rất muốn đi chơi dịp khác, nhưng đi bar khuya trong tuần không hợp với mình lắm. Hay là Chủ nhật này tụi mình đi cà phê bù nhé?" }
       ]
     },
     {
@@ -568,14 +568,14 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
       school: 'superCasual',
       title: 'Quick Polite No Text',
       participants: [
-        { name: 'Jake', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=JakeNo', role: 'Friend' },
-        { name: 'Khoa', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KhoaNo', role: 'Friend' }
+        { name: 'Khang', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KhangText', role: 'Friend' },
+        { name: 'Leo', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LeoText', role: 'Friend' }
       ],
       lines: [
-        { participant: 'Jake', text: "Late karaoke tonight? Starting at 10.", translation: "Tối nay đi hát karaoke tăng hai không? 10 giờ bắt đầu." },
-        { participant: 'Khoa', text: "Gotta pass tonight, early morning tomorrow!", translation: "Tối nay tui xin kiếu nha, mai có việc phải dậy sớm!" },
-        { participant: 'Jake', text: "Totally understand. Rest up bro!", translation: "Hiểu mà. Nghỉ ngơi dưỡng sức nhen bạn hiền!" },
-        { participant: 'Khoa', text: "Catch you next weekend for sure!", translation: "Chắc chắn cuối tuần sau hội ngộ nha!" }
+        { participant: 'Leo', text: "Beers tonight downtown?", translation: "Tối nay ra phố làm vài vại bia không ông?" },
+        { participant: 'Khang', text: "Can't tonight bro, battery is at 0%. Catch you this weekend!", translation: "Tối nay không được rồi ông bạn, pin cạn 0% rồi. Cuối tuần bù nha!" },
+        { participant: 'Leo', text: "All good, get some sleep!", translation: "Không sao đâu, ngủ đẫy mắt đi!" },
+        { participant: 'Khang', text: "Thanks for understanding! Catch you soon.", translation: "Cảm ơn đã thông cảm nha! Hẹn sớm gặp lại." }
       ]
     }
   ],
@@ -584,46 +584,46 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'Global Esports Governance & Streaming Rights Symposium',
+      title: 'Corporate Data Privacy & Anti-Phishing Security Briefing',
       participants: [
-        { name: 'Commissioner Zhang', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ZhangEsports', role: 'Esports Commissioner' },
-        { name: 'Executive Minh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MinhEsports', role: 'Broadcast Director' }
+        { name: 'CISO Morrison', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MorrisonCISO', role: 'Chief Information Security Officer' },
+        { name: 'Huy', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=HuySecurity', role: 'Systems Analyst' }
       ],
       lines: [
-        { participant: 'Executive Minh', text: "Good morning, Commissioner Zhang. We are proposing a standardized cross-border broadcasting protocol for our upcoming regional championship.", translation: "Kính chào Trưởng ban Zhang. Chúng tôi xin đề xuất quy chuẩn phát sóng xuyên biên giới cho giải vô địch khu vực sắp tới ạ." },
-        { participant: 'Commissioner Zhang', text: "Welcome, Minh. How does your digital network ensure broadcast latency parity across multiple time zones?", translation: "Chào Minh. Hệ thống mạng số của bạn làm thế nào để đảm bảo tính đồng bộ về độ trễ phát sóng qua các múi giờ khác nhau?" },
-        { participant: 'Executive Minh', text: "We deploy distributed edge server relays coupled with automated Discord community moderation channels.", translation: "Chúng tôi triển khai các máy chủ trung chuyển phân tán tại biên kết hợp cùng hệ thống kiểm duyệt cộng đồng Discord tự động ạ." },
-        { participant: 'Commissioner Zhang', text: "Technologically robust. The commission endorses your streaming distribution tender.", translation: "Hạ tầng công nghệ rất vững chắc. Ủy ban chính thức phê duyệt gói thầu phân phối phát sóng của quý đơn vị." }
+        { participant: 'Huy', text: "Good morning, Officer Morrison. Our threat intelligence monitoring has intercepted targeted phishing vectors disguised as external event invitations.", translation: "Kính chào Giám đốc An ninh Morrison. Hệ thống theo dõi mối đe dọa của chúng tôi vừa phát hiện các luồng mã độc giả mạo thư mời sự kiện bên ngoài." },
+        { participant: 'CISO Morrison', text: "Vigilance is paramount, Huy. Unverified attachments and deceptive hyperlinks represent the primary attack surface across our international network.", translation: "Cảnh giác là yếu tố tối thượng, Huy. Tệp đính kèm chưa xác thực và đường liên kết giả mạo chính là lỗ hổng tấn công chính trong toàn mạng lưới quốc tế." },
+        { participant: 'Huy', text: "Understood, sir. We have mandated multi-factor verification and issued guidance against over-sharing organizational credentials.", translation: "Rõ thưa Giám đốc. Chúng tôi đã kích hoạt xác thực hai lớp bắt buộc và ban hành hướng dẫn nghiêm cấm chia sẻ thông tin đăng nhập nội bộ." },
+        { participant: 'CISO Morrison', text: "Rigorous execution. Consistent digital hygiene protects our corporate confidentiality.", translation: "Thực thi rất chặt chẽ. Kỷ luật an toàn số nghiêm ngặt sẽ bảo vệ tính bảo mật của toàn cơ quan." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Setting Up a Co-op Gaming Session on Discord',
+      title: 'Warning an Online Friend About Suspicious Links & Catfishing',
       participants: [
-        { name: 'Phong', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=PhongGamer', role: 'Gamer' },
-        { name: 'Marcus', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MarcusGamer', role: 'Gamer' }
+        { name: 'Kien', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KienPrivacy', role: 'Cyber-Savvy Friend' },
+        { name: 'Mark', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MarkGamer', role: 'Online Friend' }
       ],
       lines: [
-        { participant: 'Phong', text: "Marcus, are you free tonight to jump into our Discord server and play some Helldivers 2 with the group?", translation: "Marcus ơi, tối nay bạn có rảnh vào server Discord của tụi mình chơi Helldivers 2 với cả nhóm không?" },
-        { participant: 'Marcus', text: "Yes! I just updated the game patch. What time are you guys hopping into the voice channel?", translation: "Có chứ! Mình vừa cập nhật bản vá xong. Mấy giờ mấy bạn vào phòng voice thế?" },
-        { participant: 'Phong', text: "Around 8:30 PM. We need a fourth player to tackle the higher-difficulty missions.", translation: "Tầm 8h30 tối nha. Tụi mình đang thiếu một người để đi mấy nhiệm vụ độ khó cao nè." },
-        { participant: 'Marcus', text: "Count me in! I'll bring the heavy armor and airstrike support.", translation: "Tính mình một chân! Mình sẽ mang giáp hạng nặng với gọi hỗ trợ pháo kích cho." }
+        { participant: 'Mark', text: "Hey Kien, check out this private Discord link someone just sent me! It promises free Steam game codes if you link your account.", translation: "Kiên ơi, xem cái link Discord riêng mà ai đó vừa gửi cho mình nè! Họ bảo sẽ tặng mã game Steam miễn phí nếu liên kết tài khoản." },
+        { participant: 'Kien', text: "Stop right there, Mark! Do not click that link. That is a textbook phishing scam designed to steal your inventory and login credentials.", translation: "Dừng lại ngay Mark ơi! Tuyệt đối không bấm vào link đó nha. Đó là chiêu trò lừa đảo câu thông tin điển hình để hack tài khoản và đồ trong game của bạn đấy." },
+        { participant: 'Mark', text: "Wait, really? But their profile had a picture of a mutual gaming friend!", translation: "Ủa thật hả bạn? Nhưng hồ sơ của họ để hình của một người bạn chơi game chung mà!" },
+        { participant: 'Kien', text: "People catfish and clone profiles all the time online. Never share personal information or credentials unless it's an official verified domain.", translation: "Trên mạng người ta làm giả hồ sơ và mạo danh suốt ngày á bạn. Đừng bao giờ chia sẻ thông tin cá nhân hay mật khẩu trừ khi đó là trang web chính thức có chứng nhận." }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Fast Discord Voice Call Ping',
+      title: 'Fast Scam Alert Warning in Group Chat',
       participants: [
-        { name: 'Tri', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TriDiscord', role: 'Friend' },
-        { name: 'Leo', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LeoDiscord', role: 'Friend' }
+        { name: 'Dan', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DanAlert', role: 'Friend' },
+        { name: 'Kylie', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KylieAlert', role: 'Friend' }
       ],
       lines: [
-        { participant: 'Tri', text: "Hop in voice! Squad is ready.", translation: "Vào phòng voice liền đi! Đội hình sẵn sàng rồi." },
-        { participant: 'Leo', text: "Grabbing my headset. Launching game now.", translation: "Đang lấy tai nghe. Đang bật game lên nè." },
-        { participant: 'Tri', text: "Invited you to the lobby.", translation: "Đã gửi lời mời vào sảnh chờ rồi đó." },
-        { participant: 'Leo', text: "Joined! Let's win this match.", translation: "Vào rồi nè! Trận này quyết thắng nha." }
+        { participant: 'Dan', text: "DO NOT click the link that bot sent! Total phishing.", translation: "ĐỪNG bấm vào cái link con bot vừa gửi nha! Lừa đảo chiếm tài khoản đó." },
+        { participant: 'Kylie', text: "Got it! Banned and deleted the bot.", translation: "Nhận tin rồi! Đã khóa và xóa nick con bot đó rồi." },
+        { participant: 'Dan', text: "Good catch, stay safe out there.", translation: "Xử lý chuẩn đấy, cẩn thận kẻo mất nick nha cả nhà." },
+        { participant: 'Kylie', text: "Thanks for the heads-up bro!", translation: "Cảm ơn bạn đã cảnh báo kịp thời nhé!" }
       ]
     }
   ],
@@ -632,46 +632,46 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'International Philosophical Forum on Technology and Ethics',
+      title: 'Executive Security Protocol for First-Time Field Representative Meetings',
       participants: [
-        { name: 'Professor Vance', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ProfVance', role: 'Philosopher' },
-        { name: 'Scholar Linh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ScholarLinh', role: 'Ethics Fellow' }
+        { name: 'Director Henderson', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=HendersonDirector', role: 'Security Director' },
+        { name: 'Agent Nga', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=NgaAgent', role: 'Field Representative' }
       ],
       lines: [
-        { participant: 'Scholar Linh', text: "Professor Vance, our plenary inquiry centers on whether artificial intelligence autonomy reshapes classical definitions of moral agency.", translation: "Kính thưa Giáo sư Vance, chủ đề hội thảo của chúng ta tập trung vào việc liệu quyền tự chủ của trí tuệ nhân tạo có định hình lại các định nghĩa cổ điển về tư cách đạo đức không ạ." },
-        { participant: 'Professor Vance', text: "A timeless existential inquiry, Linh. Technology amplifies human intent, but human responsibility remains fundamentally unalterable.", translation: "Một câu hỏi hiện sinh mang tính thời đại, Linh à. Công nghệ khuếch đại ý chí của con người, nhưng trách nhiệm của con người về bản chất vẫn không thể chuyển giao." },
-        { participant: 'Scholar Linh', text: "Indeed, sir. Eastern philosophy consistently emphasizes harmony between societal technological stewardship and inner moral cultivate.", translation: "Dạ đúng như vậy thưa thầy. Triết học phương Đông luôn nhấn mạnh sự hài hòa giữa việc quản trị công nghệ xã hội và sự tu dưỡng đạo đức nội tâm." },
-        { participant: 'Professor Vance', text: "A profound convergence of traditions. We shall publish this dialogue in our global ethics journal.", translation: "Một sự giao thoa tư tưởng vô cùng sâu sắc. Chúng ta sẽ xuất bản cuộc đối thoại này trên tạp chí đạo đức toàn cầu." }
+        { participant: 'Agent Nga', text: "Good morning, Director Henderson. I am preparing to meet an external international consultant whose initial engagement occurred via professional web forums.", translation: "Kính chào Giám đốc Henderson. Tôi đang chuẩn bị gặp gỡ trực tiếp một chuyên gia tư vấn quốc tế mà sự kết nối ban đầu diễn ra qua các diễn đàn chuyên môn trực tuyến." },
+        { participant: 'Director Henderson', text: "Adhere strictly to protocol, Nga: initial physical meetups must transpire exclusively in public commercial venues during daylight hours.", translation: "Phải tuân thủ tuyệt đối quy trình an toàn, cô Nga: buổi gặp mặt trực tiếp đầu tiên phải diễn ra tại địa điểm thương mại công cộng và trong khung giờ ban ngày." },
+        { participant: 'Agent Nga', text: "Understood, sir. The rendezvous is set at the hotel business lounge, and our regional headquarters maintains continuous location monitoring.", translation: "Rõ thưa Giám đốc. Điểm hẹn được ấn định tại sảnh phòng chờ khách sạn, và ban chỉ huy khu vực sẽ duy trì việc giám sát vị trí liên tục." },
+        { participant: 'Director Henderson', text: "Exemplary operational diligence. Establish your check-in confirmation upon arrival.", translation: "Kỷ luật vận hành rất mẫu mực. Hãy xác nhận điểm danh ngay khi đến nơi." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Late Night Balcony Chat About Life and Aspirations',
+      title: 'Planning a Safe First Meetup at a Busy Cafe',
       participants: [
-        { name: 'Duy', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DuyNight', role: 'Friend' },
-        { name: 'Liam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LiamNight', role: 'Friend' }
+        { name: 'Nga', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=NgaSafe', role: 'Local Friend' },
+        { name: 'Mark', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MarkTraveler', role: 'Online Friend' }
       ],
       lines: [
-        { participant: 'Duy', text: "Liam, looking out over the city lights tonight makes you think about where we'll both be in ten years.", translation: "Liam ơi, ngắm ánh đèn thành phố đêm nay làm mình tự hỏi không biết mười năm nữa hai đứa mình sẽ ở đâu nhỉ." },
-        { participant: 'Liam', text: "I was just thinking the exact same thing. When I first moved abroad, I was obsessed with achieving fast milestones, but now I value inner peace and genuine friendships so much more.", translation: "Mình cũng vừa nghĩ y chang như thế luôn. Hồi mới ra nước ngoài, mình lúc nào cũng ám ảnh việc phải thành công thật nhanh, nhưng giờ mình trân trọng sự bình yên trong tâm hồn và những tình bạn chân thành hơn nhiều." },
-        { participant: 'Duy', text: "That resonates with me deeply. Chasing passion without losing sight of human connections is what truly gives life meaning.", translation: "Những lời đó chạm đúng vào suy nghĩ của mình. Theo đuổi đam mê mà không đánh mất đi sự gắn kết giữa người với người mới thực sự tạo nên ý nghĩa cuộc sống." },
-        { participant: 'Liam', text: "Cheers to that, Duy. Conversations like this are rare and precious.", translation: "Cụng ly vì điều đó nha Duy. Những cuộc trò chuyện sâu lắng như thế này thực sự rất hiếm và đáng quý." }
+        { participant: 'Mark', text: "Nga! I am finally visiting Hanoi after chatting online for six months. Can I pick you up from your house around 8 PM so we can drive somewhere quiet?", translation: "Nga ơi! Cuối cùng mình cũng ghé thăm Hà Nội sau nửa năm trò chuyện trên mạng. Tối tầm 8 giờ mình ghé đón bạn tận nhà rồi mình kiếm chỗ nào vắng vẻ dạo nhé?" },
+        { participant: 'Nga', text: "That is so exciting you're here, Mark! But for our first time meeting in real life, let's meet directly at Highlands Coffee near Hoan Kiem Lake around 3 PM.", translation: "Vui quá đi Mark ơi! Nhưng mà lần đầu tiên gặp nhau ngoài đời thực, tụi mình hẹn gặp thẳng ở quán cà phê Highlands gần bờ hồ Hoàn Kiếm lúc 3 giờ chiều đi." },
+        { participant: 'Mark', text: "Oh, sure, no problem! Is that easier for you?", translation: "À được chứ, không vấn đề gì! Chỗ đó thuận tiện hơn cho bạn hả?" },
+        { participant: 'Nga', text: "Yes, it's a bustling public spot and easy to find. I also always share my schedule and live location with my roommates as a standard backup plan!", translation: "Đúng rồi, chỗ đó đông đúc an toàn và dễ tìm. Mình cũng luôn gửi lịch trình và định vị cho các bạn cùng phòng như một phương án an toàn quen thuộc ấy mà!" }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Late Night Balcony Breeze Chat',
+      title: 'Live Location Pin Text Before Meetup',
       participants: [
-        { name: 'Son', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SonLate', role: 'Friend' },
-        { name: 'Sam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SamLate', role: 'Friend' }
+        { name: 'Linh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LinhPin', role: 'Friend' },
+        { name: 'Emma', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=EmmaPin', role: 'Online Friend' }
       ],
       lines: [
-        { participant: 'Son', text: "Stars are out tonight. So peaceful.", translation: "Đêm nay trời đầy sao luôn. Yên bình thật sự." },
-        { participant: 'Sam', text: "Best view in the whole building.", translation: "Góc ngắm cảnh đỉnh nhất cả tòa nhà này." },
-        { participant: 'Son', text: "Grateful for this friendship, bro.", translation: "Rất trân trọng tình bạn này nha ông bạn." },
-        { participant: 'Sam', text: "Right back at you! Always got your back.", translation: "Tôi cũng thế! Lúc nào cũng sẵn sàng tương trợ." }
+        { participant: 'Linh', text: "Arrived at the cafe! Sitting by the window on 1st floor.", translation: "Tớ tới quán cà phê rồi nè! Đang ngồi cạnh cửa sổ tầng 1." },
+        { participant: 'Emma', text: "Walking up the stairs now! Wearing a yellow jacket.", translation: "Đang đi bộ lên cầu thang nè! Tớ mặc áo khoác màu vàng nha." },
+        { participant: 'Linh', text: "See you! Pinned location sent to my sister too.", translation: "Thấy rồi nha! Tớ cũng gửi định vị cho chị gái rồi." },
+        { participant: 'Emma', text: "Smart move! Wave your hand, spotting you now!", translation: "Cẩn thận vậy là chuẩn đó! Vẫy tay đi, tớ thấy bạn rồi!" }
       ]
     }
   ],
@@ -680,46 +680,46 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'Consular Multilateral Cultural Festival Opening',
+      title: 'Diplomatic Facilitation on Cultural Respect at Youth Forum',
       participants: [
-        { name: 'Consul General Dubois', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ConsulDubois', role: 'Consul General' },
-        { name: 'Director Ha', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DirectorHaFestival', role: 'Festival Director' }
+        { name: 'Dr. Vance', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=VanceTribunal', role: 'Forum Facilitator' },
+        { name: 'Duy', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DuyCounselor', role: 'Youth Delegate' }
       ],
       lines: [
-        { participant: 'Director Ha', text: "Good evening, Consul General Dubois. We are honored to inaugurate the International Spring Festival celebrating cross-cultural heritage.", translation: "Kính chào Tổng Lãnh sự Dubois. Chúng tôi rất vinh dự được khai mạc Lễ hội Mùa xuân Quốc tế tôn vinh các di sản văn hóa đa quốc gia ạ." },
-        { participant: 'Consul General Dubois', text: "A splendid cultural assembly, Director Ha. Traditional festivals remind us of our collective shared humanity.", translation: "Một cuộc hội ngộ văn hóa thật lộng lẫy, thưa Giám đốc Hà. Các lễ hội truyền thống nhắc nhở chúng ta về những giá trị nhân văn chung của nhân loại." },
-        { participant: 'Director Ha', text: "Indeed, Excellency. Tonight's pavilion features lantern arts from Hoi An alongside culinary crafts from fifteen nations.", translation: "Dạ đúng như vậy thưa ngài. Gian trưng bày tối nay giới thiệu nghệ thuật đèn lồng Hội An song hành cùng tinh hoa ẩm thực từ 15 quốc gia." },
-        { participant: 'Consul General Dubois', text: "Magnificent craftsmanship. Our diplomatic mission is proud to be a premier institutional patron.", translation: "Nghệ thuật chế tác tuyệt mỹ. Phái đoàn ngoại giao chúng tôi rất tự hào được làm nhà bảo trợ chính thức." }
+        { participant: 'Duy', text: "Excuse me, Dr. Vance. During the round table, a few remarks relied heavily on outdated cultural stereotypes about Southeast Asian participants.", translation: "Xin lỗi tiến sĩ Vance. Trong phiên thảo luận bàn tròn vừa rồi, một vài ý kiến đã dựa trên những định kiến văn hóa khá cũ kỹ về các đại biểu Đông Nam Á." },
+        { participant: 'Dr. Vance', text: "Thank you for bringing this to my attention, Duy. We strive to cultivate an environment founded on mutual cultural dignity.", translation: "Cảm ơn Duy đã thông báo kịp thời. Diễn đàn luôn nỗ lực xây dựng một không gian giao lưu dựa trên sự tôn trọng phẩm giá văn hóa của nhau." },
+        { participant: 'Duy', text: "I appreciate that. I believe addressing cross-cultural awareness early will keep our collaborative discussions constructive.", translation: "Em rất trân trọng điều đó. Em tin rằng việc nâng cao nhận thức giao lưu văn hóa từ sớm sẽ giúp các phiên thảo luận nhóm diễn ra mang tính xây dựng hơn." },
+        { participant: 'Dr. Vance', text: "Absolutely. I will emphasize inclusive communication principles at the opening of our afternoon plenary.", translation: "Chắc chắn rồi. Tôi sẽ nhấn mạnh các nguyên tắc giao tiếp tôn trọng và hòa nhập ngay đầu phiên họp toàn thể chiều nay." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Celebrating Mid-Autumn Festival with Lanterns and Mooncakes',
+      title: 'Confronting an Insensitive Accent Joke Assertively',
       participants: [
-        { name: 'Ngan', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=NganFestival', role: 'Local Friend' },
-        { name: 'Emma', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=EmmaFestival', role: 'Expat Friend' }
+        { name: 'Duy', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Duy', role: 'Vietnamese Student' },
+        { name: 'Jake', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Bully', role: 'Exchange Peer' }
       ],
       lines: [
-        { participant: 'Ngan', text: "Emma, tonight is the Mid-Autumn Festival! Look at all the glowing carp lanterns along the pedestrian street.", translation: "Emma ơi, tối nay là Tết Trung thu đó! Nhìn mấy chiếc đèn lồng cá chép phát sáng rực rỡ dọc phố đi bộ kìa." },
-        { participant: 'Emma', text: "It's like a magical fairytale! What are the traditional cakes everyone is sharing with hot tea?", translation: "Đẹp như trong truyện cổ tích luôn! Còn mấy cái bánh truyền thống mà mọi người đang ăn cùng trà nóng là bánh gì thế?" },
-        { participant: 'Ngan', text: "Those are mooncakes! This one has lotus seed paste and a salted egg yolk inside representing the full moon. Try a slice!", translation: "Đó là bánh trung thu đó! Chiếc này có nhân hạt sen với lòng đỏ trứng muối tượng trưng cho trăng tròn. Bạn thử một miếng đi!" },
-        { participant: 'Emma', text: "Mmm, the sweet and savory combination with jasmine tea is absolutely delicious! Thank you for showing me this tradition.", translation: "Ngon quá, vị mặn ngọt hòa quyện uống với trà hoa lài hợp dã man! Cảm ơn bạn đã dắt mình đi trải nghiệm phong tục này nha." }
+        { participant: 'Jake', text: "Haha Duy, your accent sounds so exotic! Can you say that again for our video?", translation: "Haha Duy ơi, giọng cậu nghe lạ tai ghê á! Nói lại câu đó cho tụi mình quay clip đi?" },
+        { participant: 'Duy', text: "Actually, Jake, making fun of someone's accent isn't funny. My accent just shows I'm fluent in more than one language.", translation: "Thật ra thì Jake à, việc đem phát âm của người khác ra làm trò cười không vui chút nào đâu. Giọng của tớ chỉ chứng minh tớ nói được nhiều hơn một thứ tiếng thôi." },
+        { participant: 'Jake', text: "Hey, sorry man! I didn't mean to make you feel uncomfortable, honestly.", translation: "Ủa xin lỗi bồ nhé! Tớ thực sự không có ý làm cậu cảm thấy khó chịu đâu." },
+        { participant: 'Duy', text: "Thanks for understanding. Let's just focus on finishing our group presentation together.", translation: "Cảm ơn bạn đã hiểu. Tụi mình cùng tập trung hoàn thành bài thuyết trình nhóm thôi nào." }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Fast Festival Gathering Ping',
+      title: 'Muting & Reporting a Toxic Troll in Discord Voice Chat',
       participants: [
-        { name: 'Tuan', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TuanFest', role: 'Friend' },
-        { name: 'Jack', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=JackFest', role: 'Friend' }
+        { name: 'Nam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=NamBlock', role: 'Gamer' },
+        { name: 'Alex', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AlexBlock', role: 'Gamer' }
       ],
       lines: [
-        { participant: 'Tuan', text: "Dragon dance starting in 5 mins!", translation: "Múa lân 5 phút nữa bắt đầu kìa!" },
-        { participant: 'Jack', text: "At the square? Pushing through the crowd!", translation: "Ở quảng trường hả? Đang lách qua đám đông nè!" },
-        { participant: 'Tuan', text: "Saved you a front-row spot. Hurry!", translation: "Giữ cho một chỗ hàng đầu rồi. Nhanh lên!" },
-        { participant: 'Jack', text: "Here! Those drums are loud!", translation: "Tới rồi nè! Tiếng trống gõ vang trời luôn!" }
+        { participant: 'Nam', text: "That guy is dropping rude racist jokes in voice chat.", translation: "Thằng kia đang phun mấy câu đùa phân biệt chủng tộc kìa." },
+        { participant: 'Alex', text: "Mute him instantly. Don't feed the troll.", translation: "Mute mic nó ngay và luôn đi. Đừng tiếp chuyện kẻ độc hại." },
+        { participant: 'Nam', text: "Done. Clicked report for toxic harassment too.", translation: "Mute rồi. Vừa bấm report hành vi độc hại quấy rối luôn." },
+        { participant: 'Alex', text: "Good call. Server mod already kicked him.", translation: "Xử lý chuẩn đấy. Mod server vừa kick nó ra luôn rồi." }
       ]
     }
   ],
@@ -728,46 +728,46 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'International Marathon Committee Logistics Briefing',
+      title: 'Transnational Alumni Association Secretariat Coordination',
       participants: [
-        { name: 'Race Director Henderson', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=HendersonMarathon', role: 'Race Director' },
-        { name: 'Coordinator Duc', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DucMarathon', role: 'Course Coordinator' }
+        { name: 'Secretariat Director Thorne', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ThorneSecretariat', role: 'Secretariat Director' },
+        { name: 'Coordinator My', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MyCoord', role: 'Global Liaison' }
       ],
       lines: [
-        { participant: 'Coordinator Duc', text: "Good morning, Race Director Henderson. Our international marathon course preparations in Da Nang are finalized.", translation: "Kính chào Giám đốc Đường đua Henderson. Công tác chuẩn bị cung đường chạy marathon quốc tế tại Đà Nẵng đã hoàn tất ạ." },
-        { participant: 'Race Director Henderson', text: "Welcome, Duc. Have all medical stations and electrolyte hydration points been strategically positioned along the coastal route?", translation: "Chào Duc. Toàn bộ các trạm y tế và điểm tiếp nước điện giải đã được bố trí chiến lược dọc tuyến đường ven biển chưa?" },
-        { participant: 'Coordinator Duc', text: "Yes, sir. Certified emergency medical personnel are stationed every two kilometers, backed by automated timing transponders.", translation: "Dạ rồi thưa Giám đốc. Đội ngũ y tế cấp cứu được bố trí đều đặn mỗi hai cây số, cùng hệ thống chip bấm giờ tự động." },
-        { participant: 'Race Director Henderson', text: "Exemplary operational execution. We are set to host four thousand overseas athletes safely.", translation: "Vận hành rất mẫu mực. Chúng ta đã sẵn sàng đón tiếp bốn nghìn vận động viên quốc tế thi đấu an toàn." }
+        { participant: 'Coordinator My', text: "Good evening, Director Thorne. Coordinating alumni chapters across twelve disparate time zones presents substantial logistical friction.", translation: "Kính chào Giám đốc Thorne. Việc điều phối các chi hội cựu sinh viên trên 12 múi giờ cách biệt tạo ra những thách thức hậu cần không nhỏ ạ." },
+        { participant: 'Secretariat Director Thorne', text: "Indeed, My. Asynchronous communication channels and scheduled quarterly roundtables have become critical to maintaining institutional solidarity.", translation: "Dạ đúng vậy thưa cô My. Các kênh thông tin bất đối xứng và các buổi tọa đàm định kỳ hàng quý đã trở thành yếu tố then chốt để duy trì tình đoàn kết." },
+        { participant: 'Coordinator My', text: "Furthermore, sending annual commemorative packages has strengthened enduring ties between international fellows and our home base.", translation: "Hơn nữa, việc gửi các kiện quà lưu niệm thường niên đã thắt chặt sợi dây liên kết bền bỉ giữa các học viên quốc tế và trụ sở chính." },
+        { participant: 'Secretariat Director Thorne', text: "An invaluable initiative. Distance must never erode our collective global fellowship.", translation: "Một sáng kiến vô cùng giá trị. Khoảng cách địa lý không bao giờ được phép làm phai nhạt tình bạn bè quốc tế của chúng ta." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Morning Jog and Workout at the Coastal Boardwalk',
+      title: 'Catching Up Across Time Zones & Sending Care Packages',
       participants: [
-        { name: 'Phuong', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=PhuongJog', role: 'Runner' },
-        { name: 'Sarah', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SarahJog', role: 'Runner' }
+        { name: 'Linh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LinhLongDistance', role: 'Friend in Vietnam' },
+        { name: 'Liam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LiamLongDistance', role: 'Friend in US' }
       ],
       lines: [
-        { participant: 'Phuong', text: "Sarah, what pace are you aiming for our 5k morning run along the beach boardwalk?", translation: "Sarah ơi, sáng nay chạy 5 cây số dọc bờ biển thì bạn tính chạy theo tốc độ bao nhiêu thế?" },
-        { participant: 'Sarah', text: "Let's keep an easy, conversational pace, around six minutes per kilometer. The sunrise breeze is so refreshing!", translation: "Tụi mình chạy thong thả vừa chạy vừa nói chuyện được nha, tầm 6 phút một cây số. Gió biển buổi sáng sớm mát rượi luôn!" },
-        { participant: 'Phuong', text: "Sounds perfect. Afterward, do you want to hit the outdoor pull-up bars for some calisthenics?", translation: "Tốc độ đó chuẩn luôn. Chạy xong bạn có muốn ghé khu xà đơn ngoài trời tập thêm vài bài thể hình không?" },
-        { participant: 'Sarah', text: "Definitely! Then fresh coconut water by the beach. Let's start stretching!", translation: "Chắc chắn rồi! Xong xuôi làm trái dừa tươi ven biển nữa là hết bài. Khởi động giãn cơ thôi bạn!" }
+        { participant: 'Liam', text: "Linh! It is so good to see your face on FaceTime! Sorry for the weird calling hour—it's morning for you and night for me.", translation: "Linh ơi! Được nhìn thấy mặt bạn qua FaceTime vui quá đi! Xin lỗi vì gọi vào giờ hơi lệch—bên bạn đang là sáng còn bên mình đã là tối muộn." },
+        { participant: 'Linh', text: "Liam, no need to apologize at all! With a twelve-hour time zone difference, we always make it work. By the way, did my care package arrive?", translation: "Liam ơi, không cần xin lỗi gì cả đâu! Lệch nhau tận 12 múi giờ mà tụi mình vẫn giữ liên lạc đều đặn được là đỉnh lắm rồi. À mà gói quà của mình gửi qua tới nơi chưa?" },
+        { participant: 'Liam', text: "Yes! I opened it yesterday—the Vietnamese coffee filter, Trung Nguyen coffee grounds, and dried mango slices were unbelievable!", translation: "Tới rồi bạn ơi! Hôm qua mình vừa bóc hộp ra—cái phin cà phê Việt Nam, bịch cà phê Trung Nguyên với xoài sấy dẻo ngon xuất sắc luôn!" },
+        { participant: 'Linh', text: "I'm so glad you loved it! I'm preparing another batch of handwritten postcards for your birthday next month.", translation: "Thấy bạn thích là mình vui lắm rồi! Mình đang chuẩn bị thêm mấy tấm bưu thiếp viết tay cho sinh nhật tháng sau của bạn nè." }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Fast Gym Meetup Text',
+      title: 'Fast Time Zone Greeting Ping',
       participants: [
-        { name: 'Dat', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DatGym', role: 'Friend' },
-        { name: 'Marcus', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MarcusGym', role: 'Friend' }
+        { name: 'Huy', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=HuyTime', role: 'Friend' },
+        { name: 'Jake', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=JakeTime', role: 'Friend' }
       ],
       lines: [
-        { participant: 'Dat', text: "Leg day today? Gym in 20?", translation: "Hôm nay tập chân đúng không? 20 phút nữa ở phòng gym nha?" },
-        { participant: 'Marcus', text: "Spotting you on squats! On my way.", translation: "Để tui đỡ tạ gánh đùi cho! Đang phóng xe qua nè." },
-        { participant: 'Dat', text: "Bring lifting straps!", translation: "Nhớ mang theo dây đai quấn cổ tay nhen!" },
-        { participant: 'Marcus', text: "Got 'em in my bag. Let's lift heavy!", translation: "Có sẵn trong túi rồi. Lên tạ nặng thôi!" }
+        { participant: 'Huy', text: "Morning from Hanoi! Night time for you bro?", translation: "Chào buổi sáng từ Hà Nội nha! Bên ông chắc đang nửa đêm hả?" },
+        { participant: 'Jake', text: "Heading to bed! Miss the Saigon iced coffee.", translation: "Đang chuẩn bị chui vô chăn nè! Nhớ cà phê sữa đá Sài Gòn ghê." },
+        { participant: 'Huy', text: "Sleep well! Let's voice call this Sunday.", translation: "Ngủ ngon nha bạn hiền! Chủ nhật này gọi điện buôn chuyện nha." },
+        { participant: 'Jake', text: "Deal! Sunday 8 PM your time.", translation: "Chốt kèo! 8 giờ tối Chủ nhật bên ông nhé." }
       ]
     }
   ],
@@ -778,14 +778,14 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
       school: 'business',
       title: 'Multilingual Pedagogy & Language Acquisition Conference',
       participants: [
-        { name: 'Dean Dr. Bennett', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DrBennett', role: 'Dean' },
-        { name: 'Lecturer Ha', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LecturerHa', role: 'Linguistics Lecturer' }
+        { name: 'Dean Martinez', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MartinezDean', role: 'Faculty Dean' },
+        { name: 'Huong', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=HuongExchange', role: 'Exchange Coordinator' }
       ],
       lines: [
-        { participant: 'Lecturer Ha', text: "Good morning, Dean Bennett. Our faculty research validates the cognitive efficacy of tandem bilingual immersion partnerships.", translation: "Kính chào Trưởng khoa Bennett. Nghiên cứu của khoa chúng tôi đã kiểm chứng tính hiệu quả nhận thức của mô hình học tập song ngữ ghép cặp tương hỗ ạ." },
-        { participant: 'Dean Dr. Bennett', text: "Welcome, Ha. How do your empirical findings measure communicative fluency progression?", translation: "Chào cô Hà. Các kết quả thực nghiệm đo lường sự tiến bộ về độ trôi chảy trong giao tiếp như thế nào?" },
-        { participant: 'Lecturer Ha', text: "Participants demonstrated a forty percent increase in spontaneous lexical retrieval and cross-cultural pragmatics proficiency.", translation: "Người tham gia cho thấy sự cải thiện 40% về khả năng phản xạ từ vựng tự nhiên và năng lực vận dụng ngữ dụng liên văn hóa." },
-        { participant: 'Dean Dr. Bennett', text: "Impeccable research rigour. We shall institutionalize this tandem language program for all incoming exchange students.", translation: "Nghiên cứu rất chặt chẽ và chuẩn mực. Chúng ta sẽ đưa chương trình học song ngữ này vào áp dụng chính thức cho toàn bộ sinh viên trao đổi." }
+        { participant: 'Huong', text: "Good afternoon, Dean Martinez. Our cross-border virtual exchange pilot has completed its initial semester evaluation.", translation: "Kính chào Trưởng khoa Martinez. Dự án thí điểm trao đổi học thuật trực tuyến xuyên biên giới của chúng tôi đã hoàn tất kỳ đánh giá học kỳ đầu tiên ạ." },
+        { participant: 'Dean Martinez', text: "Splendid news, Huong. How did the structured tandem learning partnerships perform regarding student engagement?", translation: "Tin rất vui, cô Hương. Các cặp đối tác học tập theo mô hình tandem có cấu trúc đã đạt hiệu quả thế nào về mức độ gắn kết của sinh viên?" },
+        { participant: 'Huong', text: "Over ninety percent of student pairs maintained consistent weekly collaborative meetings, producing bilingual research summaries.", translation: "Dạ hơn 90% các cặp sinh viên duy trì gặp mặt hợp tác đều đặn hàng tuần và cùng nhau xuất bản các bản tóm tắt nghiên cứu song ngữ ạ." },
+        { participant: 'Dean Martinez', text: "Remarkable dedication. The faculty will allocate formal funding to expand this exchange program university-wide.", translation: "Sự cống hiến rất đáng trân trọng. Ban giám hiệu sẽ cấp ngân sách chính thức để mở rộng chương trình trao đổi này ra toàn trường." }
       ]
     },
     {
@@ -793,14 +793,14 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
       school: 'casual',
       title: 'Weekly 1-on-1 Vietnamese-English Language Exchange',
       participants: [
-        { name: 'Thanh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ThanhLang', role: 'Native Speaker' },
-        { name: 'Oliver', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=OliverLang', role: 'Learner' }
+        { name: 'Clara', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ClaraPartner', role: 'Language Partner' },
+        { name: 'Nam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=NamPartner', role: 'Language Partner' }
       ],
       lines: [
-        { participant: 'Thanh', text: "Oliver, let's split our session today: 30 minutes practicing your Vietnamese tones, and 30 minutes on my English idioms.", translation: "Oliver ơi, hôm nay tụi mình chia đôi thời gian nhé: 30 phút đầu luyện thanh điệu tiếng Việt cho bạn, 30 phút sau luyện thành ngữ tiếng Anh cho mình." },
-        { participant: 'Oliver', text: "Sounds perfect! I still struggle with the difference between 'dấu hỏi' and 'dấu ngã'. They sound so similar to my ears!", translation: "Nghe chuẩn quá! Mình vẫn hay bị lẫn giữa dấu hỏi với dấu ngã. Lỗ tai mình nghe hai dấu đó cứ thấy na ná nhau!" },
-        { participant: 'Thanh', text: "Don't worry, it's very common for English speakers! 'Dấu hỏi' drops down then goes slightly up, while 'dấu ngã' has a sharp glottal break in the middle. Repeat after me: 'hỏi' vs 'ngã'.", translation: "Đừng lo, người nói tiếng Anh ai mới học cũng bị vậy hết á! 'Dấu hỏi' trầm xuống rồi hơi hất nhẹ lên, còn 'dấu ngã' thì bị ngắt một nhịp ở cổ họng. Đọc theo mình nè: 'hỏi' khác với 'ngã'." },
-        { participant: 'Oliver', text: "Ah, I hear the break now! That physical tip makes so much more sense than just reading a textbook.", translation: "À, mình nghe ra chỗ ngắt giọng rồi! Mẹo thực tế này dễ hiểu hơn nhiều so với việc chỉ đọc sách giáo khoa." }
+        { participant: 'Nam', text: "Hey Clara, I'm so glad we committed to this weekly language exchange! How about we do thirty minutes of Vietnamese first, then thirty minutes of English?", translation: "Chào Clara, mình rất vui vì tụi mình đã cam kết duy trì buổi trao đổi ngoại ngữ hàng tuần này! Hay là tụi mình nói 30 phút tiếng Việt trước, sau đó 30 phút tiếng Anh nhé?" },
+        { participant: 'Clara', text: "That sounds like the perfect balance! Today I prepared questions about how to order food at local Vietnamese markets.", translation: "Nghe cân bằng hoàn hảo luôn! Hôm nay mình đã chuẩn bị sẵn mấy câu hỏi về cách gọi món tại các chợ dân sinh ở Việt Nam nè." },
+        { participant: 'Nam', text: "Awesome! And afterwards, could you help me review the abstract for my university environmental presentation?", translation: "Tuyệt quá! Còn lát nữa, bạn có thể xem giúp mình bản tóm tắt bài thuyết trình về môi trường ở trường đại học được không?" },
+        { participant: 'Clara', text: "I'd love to! Having a collaborative partner makes studying so much more motivating than doing it alone.", translation: "Mình rất sẵn lòng! Có một người bạn đồng hành hợp tác thế này làm việc học có động lực hơn hẳn tự học một mình." }
       ]
     },
     {
@@ -808,14 +808,14 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
       school: 'superCasual',
       title: 'Fast Daily Vocab Quiz Text',
       participants: [
-        { name: 'Nam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=NamVocab', role: 'Friend' },
-        { name: 'Sam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SamVocab', role: 'Friend' }
+        { name: 'Binh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=BinhQuiz', role: 'Study Buddy' },
+        { name: 'Tom', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TomQuiz', role: 'Study Buddy' }
       ],
       lines: [
-        { participant: 'Nam', text: "Quick test! What does 'Cam on' mean?", translation: "Kiểm tra nhanh! 'Cảm ơn' nghĩa là gì nào?" },
-        { participant: 'Sam', text: "Thank you! Too easy, give me a harder one.", translation: "Cảm ơn! Dễ ợt, đố từ nào khó hơn đi." },
-        { participant: 'Nam', text: "How about 'Khong co chi'?", translation: "Thế còn 'Không có chi'?" },
-        { participant: 'Sam', text: "You're welcome! Nailed it, right?", translation: "Không có gì / You're welcome! Đúng phóc rồi chứ gì?" }
+        { participant: 'Binh', text: "Quick quiz: How do you say 'Thank you very much' in Vietnamese?", translation: "Đố vui nhanh nè: 'Thank you very much' nói tiếng Việt thế nào?" },
+        { participant: 'Tom', text: "'Cảm ơn rất nhiều!' Did I nail the tone?", translation: "'Cảm ơn rất nhiều!' Tớ phát âm đúng dấu chưa?" },
+        { participant: 'Binh', text: "10/10! Ready for our Skype study session tonight?", translation: "10/10 điểm luôn! Sẵn sàng cho buổi học qua Skype tối nay chưa?" },
+        { participant: 'Tom', text: "Ready! See you at 8 sharp.", translation: "Sẵn sàng luôn! Đúng 8 giờ gặp nhau nha." }
       ]
     }
   ],
@@ -824,46 +824,46 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'Urban Planning & Eco-Sanctuary Development Forum',
+      title: 'International Youth Leadership Forum Opening Assembly',
       participants: [
-        { name: 'Urban Director Campbell', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=CampbellUrban', role: 'Urban Director' },
-        { name: 'Architect Kien', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KienArchitect', role: 'Landscape Architect' }
+        { name: 'Secretary General Larsson', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LarssonSG', role: 'Secretary General' },
+        { name: 'Delegate Quynh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=QuynhDelegate', role: 'Youth Delegate' }
       ],
       lines: [
-        { participant: 'Architect Kien', text: "Good morning, Director Campbell. Our master plan harmonizes metropolitan density with restorative countryside eco-corridors.", translation: "Kính chào Giám đốc Campbell. Đồ án quy hoạch tổng thể của chúng tôi dung hòa giữa mật độ đô thị với các hành lang sinh thái đồng quê nghỉ dưỡng ạ." },
-        { participant: 'Urban Director Campbell', text: "Welcome, Kien. How do your residential clusters mitigate urban sensory overload and air quality degradation?", translation: "Chào Kien. Các cụm dân cư của bạn làm thế nào để giảm thiểu tình trạng quá tải giác quan đô thị và suy giảm chất lượng không khí?" },
-        { participant: 'Architect Kien', text: "We integrate agro-forestry buffers, electric micro-mobility networks, and biophilic architectural standards.", translation: "Chúng tôi tích hợp các vành đai nông lâm kết hợp, mạng lưới giao thông vi mô xe điện và các tiêu chuẩn kiến trúc thuận tự nhiên ạ." },
-        { participant: 'Urban Director Campbell', text: "A vision of sustainable equilibrium. We will recommend this blueprint to the municipal developmental council.", translation: "Một tầm nhìn về sự cân bằng bền vững. Chúng tôi sẽ đề xuất bản thiết kế này lên hội đồng phát triển đô thị thành phố." }
+        { participant: 'Delegate Quynh', text: "Good morning, Secretary General Larsson. The Vietnamese youth delegation has arrived for the Global Leadership Camp in Geneva.", translation: "Kính chào Tổng Thư ký Larsson. Phái đoàn thanh niên Việt Nam đã có mặt tham dự Trại hè Lãnh đạo Toàn cầu tại Geneva ạ." },
+        { participant: 'Secretary General Larsson', text: "Welcome, Quynh. Our annual camp unites delegates from sixty nations to foster intercultural understanding and problem-solving.", translation: "Chào mừng Quỳnh. Trại hè thường niên của chúng tôi quy tụ đại biểu từ 60 quốc gia để thúc đẩy sự thấu hiểu văn hóa và kỹ năng giải quyết vấn đề." },
+        { participant: 'Delegate Quynh', text: "We are eager to step outside our comfort zones, collaborate with diverse peers, and share our sustainability frameworks.", translation: "Chúng tôi rất háo hức được bước ra khỏi vùng an toàn, hợp tác cùng các bạn bè đa quốc gia và chia sẻ các đề án phát triển bền vững." },
+        { participant: 'Secretary General Larsson', text: "A laudable ethos. May this international forum forge lifelong diplomatic bonds.", translation: "Một tinh thần rất đáng khen ngợi. Chúc diễn đàn quốc tế này sẽ hun đúc nên những tình bạn ngoại giao bền chặt suốt đời." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Escaping the City for a Weekend Farm Stay',
+      title: 'Mingling at an International Summer Camp Common Room',
       participants: [
-        { name: 'Huong', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=HuongFarm', role: 'City Resident' },
-        { name: 'Chloe', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ChloeFarm', role: 'City Resident' }
+        { name: 'Minh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MinhCamp', role: 'Camp Participant' },
+        { name: 'Lucas', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LucasCamp', role: 'Camp Participant' }
       ],
       lines: [
-        { participant: 'Huong', text: "Chloe, Saigon traffic and noise have been driving me crazy this month. Want to escape to a farmstay in Da Lat this weekend?", translation: "Chloe ơi, tháng này xe cộ với tiếng còi xe ở Sài Gòn làm mình căng thẳng quá. Cuối tuần này bạn có muốn trốn lên một nông trại ở Đà Lạt không?" },
-        { participant: 'Chloe', text: "Oh, that sounds like pure bliss! Pine trees, crisp mountain air, and waking up to birds instead of motorbike honks.", translation: "Trời ơi, nghe như thiên đường vậy! Có rừng thông, không khí núi trong lành, sáng thức dậy nghe tiếng chim hót thay vì tiếng còi xe máy." },
-        { participant: 'Huong', text: "I found this rustic wooden homestay surrounded by organic strawberry fields and a babbling stream.", translation: "Mình tìm được một căn homestay gỗ mộc mạc bao quanh bởi vườn dâu tây hữu cơ với một con suối róc rách nè." },
-        { participant: 'Chloe', text: "Book it immediately! Let's pack warm sweaters and disconnect our work Slack apps for 48 hours.", translation: "Đặt phòng liền đi bạn! Tụi mình xếp áo len ấm rồi tắt thông báo Slack công việc trong vòng 48 tiếng nhé." }
+        { participant: 'Minh', text: "Hey! Do you mind if I sit here? I saw the Brazilian flag on your backpack; are you from São Paulo?", translation: "Chào bạn! Mình ngồi đây được không? Thấy cờ Brazil trên balo của bạn, bạn đến từ São Paulo hả?" },
+        { participant: 'Lucas', text: "Please, have a seat! Yes, born and raised in São Paulo. My first time attending an international youth camp in Asia!", translation: "Cứ tự nhiên ngồi đi bạn ơi! Đúng rồi, mình sinh ra và lớn lên ở São Paulo. Lần đầu tiên mình tham gia trại hè quốc tế ở châu Á luôn đấy!" },
+        { participant: 'Minh', text: "Welcome! I'm Minh from Hanoi. Stepping into this huge camp full of diverse nationalities felt intimidating at first, but everyone is so friendly.", translation: "Chào mừng bạn nhé! Mình là Minh đến từ Hà Nội. Ban đầu bước vào trại hè lớn toàn bạn bè đa quốc tịch thế này mình cũng hơi ngợp, nhưng mọi người ai cũng thân thiện ghê." },
+        { participant: 'Lucas', text: "Totally agree! It pushes you right out of your comfort zone in the best way. Have you signed up for the talent show tonight?", translation: "Hoàn toàn đồng ý luôn! Trại hè này đẩy mình ra khỏi vùng an toàn theo cách tuyệt vời nhất. Bạn đã đăng ký tiết mục giao lưu tối nay chưa?" }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Quick Weekend Getaway Text',
+      title: 'Fast Camp Ping Pong Challenge Ping',
       participants: [
-        { name: 'Vy', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=VyEscape', role: 'Friend' },
-        { name: 'Dan', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DanEscape', role: 'Friend' }
+        { name: 'Dat', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DatPingPong', role: 'Camper' },
+        { name: 'Felix', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=FelixPingPong', role: 'Camper' }
       ],
       lines: [
-        { participant: 'Vy', text: "Camping trip this Saturday?", translation: "Thứ Bảy này đi cắm trại hông?" },
-        { participant: 'Dan', text: "Tent and campfire? Sign me up!", translation: "Ngủ lều với đốt lửa trại hả? Đăng ký một vé liền!" },
-        { participant: 'Vy', text: "By the lake, grilling sausages.", translation: "Cạnh bờ hồ, nướng xúc xích ăn." },
-        { participant: 'Dan', text: "Grabbing marshmallows right now!", translation: "Đang đi mua kẹo xốp nướng liền nè!" }
+        { participant: 'Dat', text: "Ping pong table free! Rematch?", translation: "Bàn bóng bàn trống rồi kìa! Tái đấu không?" },
+        { participant: 'Felix', text: "You're on! Grabbing my paddle now.", translation: "Chơi luôn sợ gì! Đang đi lấy vợt đây." },
+        { participant: 'Dat', text: "First to 11 points buys ice cream!", translation: "Ai tới 11 điểm trước được khao kem nha!" },
+        { participant: 'Felix', text: "Deal, meet you at the rec hall!", translation: "Chốt kèo, gặp ở phòng sinh hoạt chung nha!" }
       ]
     }
   ],
@@ -872,46 +872,46 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'Global Alumni Strategic Outreach & Endowment Meeting',
+      title: 'Cross-Cultural Diplomacy Briefing on Humor and Light-Hearted Wit',
       participants: [
-        { name: 'President Dr. Sterling', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SterlingAlumni', role: 'University President' },
-        { name: 'Ambassador Bao', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=BaoAlumni', role: 'Global Alumni Chair' }
+        { name: 'Protocol Chief Vance', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ProtocolVance', role: 'Protocol Chief' },
+        { name: 'Counselor Ha', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=CounselorHa', role: 'Counselor' }
       ],
       lines: [
-        { participant: 'Ambassador Bao', text: "Good afternoon, President Sterling. Our international alumni network now spans chapters across forty-two countries, maintaining robust cross-border mentorship ties.", translation: "Kính chào Hiệu trưởng Sterling. Mạng lưới cựu sinh viên quốc tế của chúng ta hiện đã có chi hội tại 42 quốc gia, duy trì mối liên kết cố vấn xuyên biên giới rất chặt chẽ." },
-        { participant: 'President Dr. Sterling', text: "Welcome, Ambassador Bao. Sustaining meaningful lifelong fellowship across continents is the bedrock of our global reputation.", translation: "Chào Đại sứ Bảo. Việc duy trì tình bạn đồng môn bền chặt suốt đời qua các châu lục chính là nền tảng cho danh tiếng toàn cầu của trường ta." },
-        { participant: 'Ambassador Bao', text: "We have established an endowment fund to support incoming international exchange students facing financial hardships.", translation: "Chúng tôi đã thành lập một quỹ tài trợ để hỗ trợ các bạn sinh viên trao đổi quốc tế có hoàn cảnh khó khăn." },
-        { participant: 'President Dr. Sterling', text: "A noble testament to enduring institutional loyalty. We express our deepest gratitude to our global alumni community.", translation: "Một minh chứng cao đẹp cho sự gắn bó thủy chung với mái trường. Chúng tôi xin gửi lời tri ân sâu sắc nhất tới cộng đồng cựu sinh viên toàn cầu." }
+        { participant: 'Counselor Ha', text: "Good morning, Chief Vance. Incorporating light-hearted wit into our keynote speeches requires thorough cultural calibration.", translation: "Kính chào Trưởng ban Vance. Việc đưa sự hóm hỉnh nhẹ nhàng vào các bài diễn văn chính đòi hỏi sự cân nhắc văn hóa rất kỹ lưỡng." },
+        { participant: 'Protocol Chief Vance', text: "Indeed, Counselor Ha. Gentle self-deprecating remarks can break tension, but sensitive religious or national topics remain strictly off-limits.", translation: "Dạ đúng vậy thưa Tham tán Hà. Lời tự trào tế nhị có thể giải tỏa căng thẳng, nhưng các chủ đề tôn giáo hoặc quốc gia nhạy cảm phải tuyệt đối tránh xa." },
+        { participant: 'Counselor Ha', text: "We have reviewed the draft addresses to ensure the humor highlights personal humility without compromising institutional dignity.", translation: "Chúng tôi đã rà soát các bản thảo phát biểu để đảm bảo sự hài hước thể hiện sự khiêm nhường cá nhân mà không làm tổn hại đến phẩm giá cơ quan." },
+        { participant: 'Protocol Chief Vance', text: "Exemplary diplomatic tact. A measured smile builds trust across any bilateral assembly.", translation: "Sự khéo léo ngoại giao rất chuẩn mực. Một nụ cười đúng mực luôn xây dựng được niềm tin ở mọi cuộc gặp song phương." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Catching Up with an Overseas Friend over FaceTime',
+      title: 'Gentle Banter and Self-Deprecation Over Accent Bloopers',
       participants: [
-        { name: 'Minh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MinhFaceTime', role: 'Friend' },
-        { name: 'Alex', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AlexFaceTime', role: 'Friend' }
+        { name: 'Vy', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=VyHumor', role: 'Vietnamese Friend' },
+        { name: 'Leo', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LeoHumor', role: 'Expat Friend' }
       ],
       lines: [
-        { participant: 'Minh', text: "Alex! It's so amazing to see your face! How has life been in London since you finished your exchange semester here?", translation: "Alex ơi! Nhìn thấy mặt bạn vui quá đi mất! Cuộc sống ở London thế nào rồi từ sau khi kết thúc kỳ học trao đổi bên này?" },
-        { participant: 'Alex', text: "Minh! I miss Vietnam every single day! I finally found an authentic Vietnamese noodle shop in Soho, but it's not quite the same as sitting on stools with you in Hanoi.", translation: "Minh ơi! Ngày nào mình cũng nhớ Việt Nam hết á! Cuối cùng mình cũng tìm được một quán bún chuẩn vị ở Soho, nhưng mà không thể nào bằng cảm giác hai đứa ngồi ghế nhựa ở Hà Nội được." },
-        { participant: 'Minh', text: "Haha, nothing beats street food in Hanoi! Are you still planning to come back for a visit next winter?", translation: "Haha, không gì sánh bằng đồ ăn vỉa hè Hà Nội đâu! Mùa đông năm tới bạn vẫn lên kế hoạch quay lại chơi chứ?" },
-        { participant: 'Alex', text: "100%! My tickets are already bookmarked. Distance really can't fade a true friendship.", translation: "100% luôn! Mình đã lưu sẵn vé máy bay rồi. Khoảng cách địa lý chắc chắn không thể làm phai mờ tình bạn chân thành đâu." }
+        { participant: 'Leo', text: "Vy, did you really accidentally tell the restaurant server that you wanted to eat 'chồng' instead of 'chả' earlier?", translation: "Vy ơi, lúc nãy có thật là bạn lỡ miệng nói với nhân viên nhà hàng là muốn ăn 'chồng' thay vì 'chả' không vậy?" },
+        { participant: 'Vy', text: "Hahaha, please don't remind me! My brain completely short-circuited under pressure. The server's face was utterly priceless!", translation: "Hahaha, ôi đừng nhắc lại nữa mà! Lúc đó não mình bị đơ toàn tập dưới áp lực. Mặt bạn nhân viên lúc đó nhìn đúng là không nhịn được cười!" },
+        { participant: 'Leo', text: "Don't feel bad, last week I tried to order noodles in Vietnamese and accidentally insulted the chef's grandmother!", translation: "Đừng ngại, tuần trước mình tập gọi bún bằng tiếng Việt còn suýt nói nhầm xúc phạm tới cả bà nội đầu bếp kìa!" },
+        { participant: 'Vy', text: "Haha, learning languages without a sense of self-deprecating humor is impossible! As long as it's light-hearted, laughing at our own mistakes is great.", translation: "Haha, học ngoại ngữ mà không có tính tự trào biết cười bản thân thì không sống nổi! Miễn là vui vẻ nhẹ nhàng thì cùng cười trên lỗi sai của mình cũng vui mà." }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Fast Long-Distance Postcard Ping',
+      title: 'Fast Autocorrect Fail Laugh Ping',
       participants: [
-        { name: 'An', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AnPostcard', role: 'Friend' },
-        { name: 'Jake', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=JakePostcard', role: 'Friend' }
+        { name: 'Nam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=NamTypo', role: 'Friend' },
+        { name: 'Sam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SamTypo', role: 'Friend' }
       ],
       lines: [
-        { participant: 'An', text: "Got your postcard from Berlin in the mail!", translation: "Nhận được bưu thiếp bạn gửi từ Berlin qua đường bưu điện rồi nè!" },
-        { participant: 'Jake', text: "It finally arrived? Took 3 weeks!", translation: "Tới nơi rồi hả? Đi mất tận 3 tuần luôn á!" },
-        { participant: 'An', text: "Pinned on my fridge. Miss you bro!", translation: "Ghim ngay trên cửa tủ lạnh rồi. Nhớ ông bạn ghê!" },
-        { participant: 'Jake', text: "Miss you too! FaceTime this Sunday?", translation: "Tôi cũng nhớ bạn nhiều! Chủ nhật này gọi FaceTime nha?" }
+        { participant: 'Nam', text: "Autocorrect just changed 'see you soon' to 'sue you soon' LMAO!", translation: "Bàn phím vừa tự sửa 'hẹn sớm gặp' thành 'hẹn sớm kiện ra tòa' cười chết mất haha!" },
+        { participant: 'Sam', text: "Hahaha don't take me to court bro!", translation: "Hahaha đừng lôi tôi ra tòa nha người anh em!" },
+        { participant: 'Nam', text: "Never! See you at 5.", translation: "Ai dám đâu! 5 giờ chiều gặp nha." },
+        { participant: 'Sam', text: "Holding you to it, attorney Nam!", translation: "Nhớ đó nha luật sư Nam!" }
       ]
     }
   ],
@@ -922,14 +922,14 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
       school: 'business',
       title: 'International Creative Residency & Bilateral Exhibition Agreement',
       participants: [
-        { name: 'Biennale Curator Sterling', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=CuratorSterlingArt', role: 'Biennale Curator' },
-        { name: 'Artist Huong', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ArtistHuong', role: 'Visual Artist' }
+        { name: 'Curator Sterling', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=CuratorSterling', role: 'Gallery Curator' },
+        { name: 'Mai', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MaiArtist', role: 'Visual Artist' }
       ],
       lines: [
-        { participant: 'Artist Huong', text: "Good morning, Curator Sterling. I present our proposed collaborative installation pairing Vietnamese lacquer techniques with digital neon projections.", translation: "Kính chào Giám tuyển Sterling. Tôi xin trình bày tác phẩm sắp đặt kết hợp giữa nghệ thuật sơn mài truyền thống Việt Nam với hiệu ứng chiếu sáng neon kỹ thuật số ạ." },
-        { participant: 'Biennale Curator Sterling', text: "Welcome, Huong. The visual dialogue between traditional eggshell lacquer and futuristic luminescence is profoundly striking.", translation: "Chào nghệ sĩ Hương. Sự đối thoại thị giác giữa kỹ thuật cẩn vỏ trứng sơn mài truyền thống với ánh sáng phát quang tương lai vô cùng ấn tượng." },
-        { participant: 'Artist Huong', text: "Thank you, sir. Our collaborative cohort includes Tokyo-based generative projection designers and traditional artisans from Ha Thai village.", translation: "Cảm ơn ngài. Nhóm hợp tác của chúng tôi gồm các nhà thiết kế tạo hình từ Tokyo cùng các nghệ nhân truyền thống từ làng nghề Hạ Thái." },
-        { participant: 'Biennale Curator Sterling', text: "A masterclass in cross-cultural synthesis. We will feature your collaborative pavilion as the centerpiece of our autumn Biennale.", translation: "Một tác phẩm đỉnh cao của sự hòa hợp đa văn hóa. Chúng tôi sẽ chọn gian trưng bày này làm điểm nhấn trung tâm của triển lãm Biennale mùa thu." }
+        { participant: 'Mai', text: "Good afternoon, Curator Sterling. I have finalized the creative portfolio proposing a collaborative photography and lacquer art residency between Vietnamese and Canadian artists.", translation: "Kính chào Giám tuyển Sterling. Tôi đã hoàn thiện hồ sơ sáng tạo đề xuất chương trình lưu trú nghệ thuật kết hợp nhiếp ảnh và tranh sơn mài giữa các nghệ sĩ Việt Nam và Canada." },
+        { participant: 'Curator Sterling', text: "The synergy between traditional lacquer textures and contemporary architectural photography is breathtaking, Mai.", translation: "Sự cộng hưởng giữa chất liệu sơn mài truyền thống và nhiếp ảnh kiến trúc đương đại thật sự ngoạn mục, thưa cô Mai." },
+        { participant: 'Mai', text: "Thank you, sir. Our primary objective is to facilitate reciprocal mentorship and exhibit the final joint series at the upcoming cultural festival.", translation: "Cảm ơn ông. Mục tiêu trọng tâm của chúng tôi là tạo điều kiện cho các nghệ sĩ học hỏi lẫn nhau và trưng bày chuỗi tác phẩm chung tại lễ hội văn hóa sắp tới." },
+        { participant: 'Curator Sterling', text: "A splendid cultural initiative. Our foundation guarantees full grant sponsorship and gallery pavilion hosting.", translation: "Một sáng kiến văn hóa rất tuyệt vời. Quỹ của chúng tôi cam kết tài trợ toàn phần và cung cấp không gian triển lãm cho dự án." }
       ]
     },
     {
@@ -937,14 +937,14 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
       school: 'casual',
       title: 'Planning an Art Collaboration Between Photographer and Illustrator',
       participants: [
-        { name: 'Huong', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=HuongCollab', role: 'Photographer' },
-        { name: 'Kento', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KentoCollab', role: 'Illustrator' }
+        { name: 'Kien', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KienArt', role: 'Street Photographer' },
+        { name: 'Emma', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=EmmaArt', role: 'Digital Illustrator' }
       ],
       lines: [
-        { participant: 'Huong', text: "Hey Kento! I just saw your digital artwork on Instagram and was completely blown away by your usage of vivid neon colors.", translation: "Chào Kento! Mình vừa xem tranh vẽ kỹ thuật số của bạn trên Instagram và bị choáng ngợp hoàn toàn trước cách phối tông màu neon rực rỡ của bạn luôn." },
-        { participant: 'Kento', text: "Wow, Huong! Thank you so much! Coming from an amazing photographer like you, that means the world to me.", translation: "Woah Hương ơi! Cảm ơn bạn nhiều lắm! Nhận lời khen từ một nhiếp ảnh gia tài năng như bạn đúng là niềm vinh hạnh lớn của mình." },
-        { participant: 'Huong', text: "Would you be open to doing a collaboration where we combine my night photos of Saigon with your futuristic anime illustrations?", translation: "Bạn có sẵn lòng hợp tác một dự án nơi tụi mình lồng ghép ảnh chụp đêm Sài Gòn của mình với nét vẽ anime tương lai của bạn không?" },
-        { participant: 'Kento', text: "OMG, absolutely! That combination is going to turn out epic. Let's create a shared Google Drive and start dropping assets!", translation: "Trời ơi, chắc chắn rồi! Sự kết hợp này hứa hẹn sẽ cực kỳ bùng nổ đây. Tụi mình tạo Google Drive chung rồi bắt đầu tải tư liệu lên nhé!" }
+        { participant: 'Emma', text: "Hey Kien! I just saw your high-contrast black and white photos of Hanoi's railway tracks on Instagram. The lighting is mesmerizing!", translation: "Chào Kiên! Mình vừa xem loạt ảnh đen trắng độ tương phản cao bạn chụp đường ray xe lửa Hà Nội trên Instagram. Ánh sáng đẹp mê hồn luôn!" },
+        { participant: 'Kien', text: "Thanks so much, Emma! I've been admiring your neon digital illustrations for a while. Your cyberpunk color palettes are so unique.", translation: "Cảm ơn Emma nhiều nha! Mình cũng theo dõi tranh minh họa kỹ thuật số phong cách neon của bạn lâu rồi. Bảng màu cyberpunk của bạn độc đáo dã man." },
+        { participant: 'Emma', text: "How would you feel about collaborating? What if I drew vibrant mythological creatures over your urban street shots?", translation: "Bạn nghĩ sao về việc tụi mình cùng kết hợp làm một dự án chung? Nếu mình vẽ thêm các sinh vật thần thoại rực rỡ đè lên ảnh đường phố của bạn thì sao?" },
+        { participant: 'Kien', text: "That sounds like an incredible concept! Blending real street life with fantasy illustration would make a stunning zine. Let's start sketching!", translation: "Ý tưởng đó đỉnh thật sự luôn! Kết hợp đời sống đường phố chân thực với minh họa kỳ ảo sẽ tạo nên một cuốn tạp chí nghệ thuật tuyệt đẹp. Tụi mình bắt tay vào phác thảo liền đi!" }
       ]
     },
     {
@@ -952,14 +952,14 @@ export const FRIENDS_DIALOGUES: Record<string, Dialogue[]> = {
       school: 'superCasual',
       title: 'Fast Art Collab File Drop',
       participants: [
-        { name: 'Son', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SonArt', role: 'Friend' },
-        { name: 'Leo', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LeoArt', role: 'Friend' }
+        { name: 'Linh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LinhCollab', role: 'Artist' },
+        { name: 'Max', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MaxCollab', role: 'Animator' }
       ],
       lines: [
-        { participant: 'Son', text: "Sent the beat draft on Google Drive!", translation: "Gửi bản nháp beat nhạc qua Google Drive rồi nha!" },
-        { participant: 'Leo', text: "Listening now... Bassline is disgusting! In a good way.", translation: "Đang nghe nè... Đoạn bass đỉnh dã man! Hay xỉu luôn." },
-        { participant: 'Son', text: "Drop your guitar solo on track 3?", translation: "Thu đoạn solo guitar vào track 3 giùm tui nha?" },
-        { participant: 'Leo', text: "Plugging in my amp right now!", translation: "Đang cắm dây đàn vào âm ly liền đây!" }
+        { participant: 'Linh', text: "Exported the background layer PSD to Google Drive!", translation: "Vừa xuất file PSD lớp nền lên Google Drive rồi nè!" },
+        { participant: 'Max', text: "Downloading now! The color tones are insane.", translation: "Đang tải xuống đây! Tông màu nhìn cháy quá." },
+        { participant: 'Linh', text: "Animate the floating lanterns next?", translation: "Hoạt họa tiếp mấy cái đèn lồng bay lơ lửng nha?" },
+        { participant: 'Max', text: "On it! Will share preview clip tonight.", translation: "Triển luôn! Tối nay gửi clip xem thử liền." }
       ]
     }
   ]

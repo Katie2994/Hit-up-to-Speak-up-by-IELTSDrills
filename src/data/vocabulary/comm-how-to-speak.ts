@@ -1,6 +1,7 @@
 import { Topic } from './types';
+import { ipaTopics } from './comm-ipa-data';
 
-export const howToSpeakTopics: Topic[] = [
+const prosodyTopics: Topic[] = [
   {
     id: 'hts-01',
     title: 'Chunking (Ngắt nghỉ)',
@@ -503,4 +504,9 @@ export const howToSpeakTopics: Topic[] = [
       }
     ]
   }
+];
+
+export const howToSpeakTopics: Topic[] = [
+  ...ipaTopics,
+  ...prosodyTopics
 ];

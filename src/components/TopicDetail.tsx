@@ -9,7 +9,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { playTTS } from '../services/tts';
 import { augmentTopic } from '../utils/vocabAugmenter';
 import { toPng } from 'html-to-image';
-import { getIntonationDrills, getLinkingDrills } from '../utils/pronunciationLabHelper';
+import { getIntonationDrills, getLinkingDrills, getPhoneticDiscriminationDrills } from '../utils/pronunciationLabHelper';
+import { IpaInteractiveChart } from './IpaInteractiveChart';
 
 interface TopicDetailProps {
   topic: Topic;
@@ -48,7 +49,8 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
   const [activeDialogueSchool, setActiveDialogueSchool] = useState<'business' | 'casual' | 'superCasual'>('casual');
 
   // Interactive Lab tab manager
-  const [activeLabDrill, setActiveLabDrill] = useState<'translation' | 'chunking' | 'intonation' | 'stress' | 'linking'>('translation');
+  const [activeLabDrill, setActiveLabDrill] = useState<'discrimination' | 'translation' | 'chunking' | 'intonation' | 'stress' | 'linking'>('translation');
+  const [showIpaModal, setShowIpaModal] = useState<boolean>(false);
 
   useEffect(() => {
     setActiveStructureSchool('casual');
@@ -63,7 +65,9 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
 
   useEffect(() => {
     if (isHowToSpeak) {
-      if (rawTopic.id === 'hts-01') {
+      if (rawTopic.id === 'hts-ending-sounds' || rawTopic.id === 'hts-minimal-pairs') {
+        setActiveLabDrill('discrimination');
+      } else if (rawTopic.id === 'hts-01') {
         setActiveLabDrill('chunking');
       } else if (rawTopic.id === 'hts-02') {
         setActiveLabDrill('intonation');
@@ -71,6 +75,8 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
         setActiveLabDrill('stress');
       } else if (rawTopic.id === 'hts-04') {
         setActiveLabDrill('linking');
+      } else {
+        setActiveLabDrill('discrimination');
       }
     } else {
       setActiveLabDrill('translation');
@@ -238,6 +244,35 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
     setTransFeedback(null);
   };
 
+  // 0. Sound Discrimination Drills (for hts-ending-sounds, hts-minimal-pairs, and phonetics)
+  const [discIndex, setDiscIndex] = useState(0);
+  const [discSelectedOpt, setDiscSelectedOpt] = useState<number | null>(null);
+  const [discFeedback, setDiscFeedback] = useState<string | null>(null);
+
+  const discriminationDrills = useMemo(() => {
+    return getPhoneticDiscriminationDrills(rawTopic);
+  }, [rawTopic]);
+
+  const handleSelectDiscrimination = (optIdx: number) => {
+    if (discSelectedOpt !== null) return;
+    setDiscSelectedOpt(optIdx);
+    const current = discriminationDrills[discIndex];
+    if (!current) return;
+    const isCorrect = current.options[optIdx]?.isCorrect;
+    if (isCorrect) {
+      playTTS(current.options[optIdx].text.split(' ')[0], 'en-US', true);
+      setDiscFeedback(`✅ Chính xác! ${current.explanation}`);
+    } else {
+      setDiscFeedback(`❌ Chưa chính xác. ${current.explanation}`);
+    }
+  };
+
+  const nextDiscriminationDrill = () => {
+    setDiscSelectedOpt(null);
+    setDiscFeedback(null);
+    setDiscIndex(prev => (prev + 1) % (discriminationDrills.length || 1));
+  };
+
   // 2. Chunking (Ngắt nghỉ) Drills
   const [chunkingIndex, setChunkingIndex] = useState(0);
   const [chunkingRevealed, setChunkingRevealed] = useState(false);
@@ -245,8 +280,8 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
     const speakData = rawTopic.howToSpeak?.find(h => h.type === 'chunking');
     if (speakData?.items) return speakData.items;
 
-    // For Communication lessons, draw examples from structures
-    if (!isWordBank && topic.structures && topic.structures.length > 0) {
+    // For lessons with structures (including ending sounds & minimal pairs)
+    if (topic.structures && topic.structures.length > 0) {
       return topic.structures.map(s => {
         const sentence = s.casualStyle?.example || s.phrase;
         const words = sentence.split(' ');
@@ -262,8 +297,24 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
       });
     }
 
-    // For Word Bank lessons: draw from topic.words
-    return topic.words.map(w => ({
+    // For howToSpeak items
+    if (rawTopic.howToSpeak?.[0]?.items && rawTopic.howToSpeak[0].items.length > 0) {
+      return rawTopic.howToSpeak[0].items.map((it: any) => {
+        const words = it.sentence.split(' ');
+        const mid = Math.ceil(words.length / 2);
+        return {
+          sentence: it.sentence,
+          translation: it.translation || '',
+          chunks: [
+            { text: words.slice(0, mid).join(' '), pause: true },
+            { text: words.slice(mid).join(' '), pause: false }
+          ]
+        };
+      });
+    }
+
+    // Fallback: draw from topic.words
+    return (topic.words || []).map(w => ({
       sentence: w.example,
       translation: w.translation || '',
       chunks: [
@@ -271,7 +322,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
         { text: w.example.split(' ').slice(Math.ceil(w.example.split(' ').length / 2)).join(' '), pause: false }
       ]
     }));
-  }, [topic, rawTopic, isWordBank]);
+  }, [topic, rawTopic]);
 
   // 3. Intonation (Lên xuống) Drills
   const [intonationIndex, setIntonationIndex] = useState(0);
@@ -440,6 +491,12 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                 }`}
               >
                 ⚡ Lab Luyện Âm & Dịch <Sparkles size={13} className="animate-pulse" />
+              </button>
+              <button
+                onClick={() => setShowIpaModal(true)}
+                className="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-center flex items-center justify-center gap-1.5 bg-[#1C1C1C] hover:bg-[#252525] border border-[#ffe36d]/30 text-[#ffe36d] hover:border-[#ffe36d] active:scale-95"
+              >
+                🎯 Tra Bảng IPA
               </button>
             </>
           ) : (
@@ -703,15 +760,15 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                     </div>
                  </div>
 
-                 {/* 10 Interactive Sentence Items */}
-                 <div className="space-y-4">
-                    <h3 className="text-lg font-black uppercase tracking-widest text-gray-400 px-1 flex items-center gap-2">
-                       <span className="w-2.5 h-2.5 rounded-full bg-[#ffe36d]"></span>
-                       10 Bài học thực hành ngữ âm
-                    </h3>
+                  {/* 10 Interactive Sentence Items */}
+                  <div className="space-y-4">
+                     <h3 className="text-lg font-black uppercase tracking-widest text-gray-400 px-1 flex items-center gap-2">
+                        <span className="w-2.5 h-2.5 rounded-full bg-[#ffe36d]"></span>
+                        {howToSpeakData.items.length} Bài học thực hành ngữ âm
+                     </h3>
 
-                    <div className="grid grid-cols-1 gap-4">
-                       {howToSpeakData.items.map((item: any, idx: number) => (
+                     <div className="grid grid-cols-1 gap-4">
+                        {howToSpeakData.items.map((item: any, idx: number) => (
                           <div 
                             key={idx}
                             className="bg-[#1A1A1A] border border-[#2d2d2d] hover:border-[#ffe36d]/50 p-6 rounded-[28px] shadow-md transition-all flex flex-col gap-4 text-left relative overflow-hidden group"
@@ -721,7 +778,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                             
                             <div className="flex items-center justify-between">
                               <span className="text-[10px] bg-[#222]/80 border border-[#333] font-black text-gray-400 uppercase tracking-widest px-3 py-1 rounded-full">
-                                Bài tập {idx + 1}/10
+                                Mục {idx + 1}/{howToSpeakData.items.length}
                               </span>
                               <button
                                 onClick={() => playTTS(item.sentence)}
@@ -733,6 +790,131 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
 
                             {/* Custom rendering based on pronunciation type */}
                             
+                            {/* ENDING SOUNDS VIEW */}
+                            {howToSpeakData.type === 'ending_sounds' && (
+                              <div className="space-y-3 bg-black/40 border border-[#262626] p-4 sm:p-5 rounded-2xl">
+                                <div>
+                                  <div className="flex items-center gap-2">
+                                    <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#dc2323]/20 border border-[#dc2323]/40 text-[#ff6b6b] font-black uppercase tracking-wider">
+                                      {item.sound}
+                                    </span>
+                                  </div>
+                                  <p className="text-sm font-bold text-gray-200 mt-2">
+                                    <span className="text-[#ffe36d] font-black">Nguyên tắc: </span>
+                                    {item.rule}
+                                  </p>
+                                  {item.tip && (
+                                    <p className="text-xs font-semibold text-amber-300/90 mt-1 italic bg-amber-500/10 p-2 rounded-lg border border-amber-500/20">
+                                      💡 {item.tip}
+                                    </p>
+                                  )}
+                                </div>
+
+                                {item.examples && item.examples.length > 0 && (
+                                  <div>
+                                    <p className="text-[11px] font-black uppercase tracking-wider text-gray-400 mb-2">
+                                      Từ vựng mẫu & phát âm (Bấm để nghe):
+                                    </p>
+                                    <div className="flex flex-wrap gap-2">
+                                      {item.examples.map((ex: any, exIdx: number) => (
+                                        <button
+                                          key={exIdx}
+                                          onClick={() => playTTS(ex.word, 'en-US', true)}
+                                          className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#222] hover:bg-[#2e2e2e] border border-[#383838] hover:border-[#ffe36d] text-white transition-all active:scale-95 text-left group"
+                                        >
+                                          <Volume2 size={13} className="text-[#ffe36d] shrink-0 group-hover:scale-110 transition-transform" />
+                                          <span className="font-black text-sm text-white">{ex.word}</span>
+                                          <span className="font-mono text-xs text-[#ffe36d]">{ex.ipa}</span>
+                                          <span className="text-[10px] text-gray-400 font-medium">({ex.translation})</span>
+                                        </button>
+                                      ))}
+                                    </div>
+                                  </div>
+                                )}
+
+                                <div className="p-3 bg-[#161616] rounded-xl border border-[#2a2a2a] flex items-center justify-between gap-3">
+                                  <div>
+                                    <p className="text-xs font-bold text-white">Câu mẫu: <span className="text-[#ffe36d] font-black">"{item.sentence}"</span></p>
+                                  </div>
+                                  <button
+                                    onClick={() => playTTS(item.sentence)}
+                                    className="p-2 rounded-lg bg-[#2a2a2a] hover:bg-[#ffe36d] text-[#ffe36d] hover:text-black transition-all shrink-0"
+                                    title="Nghe câu"
+                                  >
+                                    <Volume2 size={16} />
+                                  </button>
+                                </div>
+                              </div>
+                            )}
+
+                            {/* MINIMAL PAIRS VIEW */}
+                            {howToSpeakData.type === 'minimal_pairs' && (
+                              <div className="space-y-4 bg-black/40 border border-[#262626] p-4 sm:p-5 rounded-2xl">
+                                <div className="flex items-center gap-2">
+                                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 font-black uppercase tracking-wider">
+                                    {item.sound}
+                                  </span>
+                                </div>
+
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                  {/* Pair A */}
+                                  <div className="bg-[#1f1f1f] border border-[#333] hover:border-[#ffe36d] p-4 rounded-xl space-y-2 transition-all">
+                                    <div className="flex items-center justify-between">
+                                      <span className="text-[10px] font-black uppercase tracking-widest text-[#ffe36d]">Âm A</span>
+                                      <button
+                                        onClick={() => playTTS(item.pairA.word, 'en-US', true)}
+                                        className="p-1.5 rounded-lg bg-[#2d2d2d] hover:bg-[#ffe36d] text-[#ffe36d] hover:text-black transition-all"
+                                      >
+                                        <Volume2 size={14} />
+                                      </button>
+                                    </div>
+                                    <div className="flex items-baseline gap-2">
+                                      <h4 className="text-xl font-black text-white">{item.pairA.word}</h4>
+                                      <span className="font-mono text-sm text-[#ffe36d]">{item.pairA.ipa}</span>
+                                    </div>
+                                    <p className="text-xs text-gray-300 font-bold">{item.pairA.translation}</p>
+                                  </div>
+
+                                  {/* Pair B */}
+                                  <div className="bg-[#1f1f1f] border border-[#333] hover:border-cyan-400 p-4 rounded-xl space-y-2 transition-all">
+                                    <div className="flex items-center justify-between">
+                                      <span className="text-[10px] font-black uppercase tracking-widest text-cyan-300">Âm B (Đối sánh)</span>
+                                      <button
+                                        onClick={() => playTTS(item.pairB.word, 'en-US', true)}
+                                        className="p-1.5 rounded-lg bg-[#2d2d2d] hover:bg-cyan-400 text-cyan-300 hover:text-black transition-all"
+                                      >
+                                        <Volume2 size={14} />
+                                      </button>
+                                    </div>
+                                    <div className="flex items-baseline gap-2">
+                                      <h4 className="text-xl font-black text-white">{item.pairB.word}</h4>
+                                      <span className="font-mono text-sm text-cyan-300">{item.pairB.ipa}</span>
+                                    </div>
+                                    <p className="text-xs text-gray-300 font-bold">{item.pairB.translation}</p>
+                                  </div>
+                                </div>
+
+                                {item.note && (
+                                  <div className="p-3 bg-rose-500/10 border border-rose-500/20 rounded-xl text-xs font-semibold text-rose-300">
+                                    ⚠️ <b>Lưu ý khẩu hình:</b> {item.note}
+                                  </div>
+                                )}
+
+                                <div className="p-3 bg-[#161616] rounded-xl border border-[#2a2a2a] flex items-center justify-between gap-3">
+                                  <div>
+                                    <p className="text-xs font-bold text-white">Câu luyện tai: <span className="text-[#ffe36d] font-black">"{item.sentence}"</span></p>
+                                  </div>
+                                  <button
+                                    onClick={() => playTTS(item.sentence)}
+                                    className="p-2 rounded-lg bg-[#2a2a2a] hover:bg-[#ffe36d] text-[#ffe36d] hover:text-black transition-all shrink-0"
+                                    title="Nghe câu"
+                                  >
+                                    <Volume2 size={16} />
+                                  </button>
+                                </div>
+                              </div>
+                            )}
+
                             {/* CHUNKING VIEW */}
                             {howToSpeakData.type === 'chunking' && (
                               <div className="flex flex-wrap items-center gap-y-3 gap-x-2.5 bg-black/30 border border-[#222] p-4 rounded-2xl min-h-[72px]">
@@ -930,6 +1112,18 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
               >
                 {/* Lab Inner category selector */}
                 <div className="flex flex-wrap bg-[#151515] p-1.5 rounded-[20px] border border-[#2d2d2d] gap-1 shadow-inner">
+                  {/* Phonics discrimination button for ending sounds / minimal pairs */}
+                  {discriminationDrills.length > 0 && (
+                    <button
+                      onClick={() => setActiveLabDrill('discrimination')}
+                      className={`flex-1 py-2 px-3 rounded-lg text-[10px] sm:text-xs font-black uppercase tracking-widest transition-all ${
+                        activeLabDrill === 'discrimination' ? 'bg-[#dc2323] text-white shadow-md' : 'text-gray-400 hover:text-white'
+                      }`}
+                    >
+                      🎯 Chọn Âm Chuẩn
+                    </button>
+                  )}
+
                   {/* Dịch cụm is always enabled for all lessons! */}
                   <button
                     onClick={() => setActiveLabDrill('translation')}
@@ -941,7 +1135,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                   </button>
 
                   {/* Chunking button */}
-                  {(!isHowToSpeak || rawTopic.id === 'hts-01') && (
+                  {(!isHowToSpeak || ['hts-01', 'hts-ending-sounds', 'hts-minimal-pairs'].includes(rawTopic.id)) && (
                     <button
                       onClick={() => setActiveLabDrill('chunking')}
                       className={`flex-1 py-2 px-3 rounded-lg text-[10px] sm:text-xs font-black uppercase tracking-widest transition-all ${
@@ -953,7 +1147,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                   )}
 
                   {/* Intonation button */}
-                  {(!isHowToSpeak || rawTopic.id === 'hts-02') && (
+                  {(!isHowToSpeak || ['hts-02', 'hts-ending-sounds', 'hts-minimal-pairs'].includes(rawTopic.id)) && (
                     <button
                       onClick={() => setActiveLabDrill('intonation')}
                       className={`flex-1 py-2 px-3 rounded-lg text-[10px] sm:text-xs font-black uppercase tracking-widest transition-all ${
@@ -965,7 +1159,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                   )}
 
                   {/* Stress button */}
-                  {(!isHowToSpeak || rawTopic.id === 'hts-03') && (
+                  {(!isHowToSpeak || ['hts-03', 'hts-ending-sounds', 'hts-minimal-pairs'].includes(rawTopic.id)) && (
                     <button
                       onClick={() => setActiveLabDrill('stress')}
                       className={`flex-1 py-2 px-3 rounded-lg text-[10px] sm:text-xs font-black uppercase tracking-widest transition-all ${
@@ -977,7 +1171,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                   )}
 
                   {/* Linking button */}
-                  {(!isHowToSpeak || rawTopic.id === 'hts-04') && (
+                  {(!isHowToSpeak || ['hts-04', 'hts-ending-sounds', 'hts-minimal-pairs'].includes(rawTopic.id)) && (
                     <button
                       onClick={() => setActiveLabDrill('linking')}
                       className={`flex-1 py-2 px-3 rounded-lg text-[10px] sm:text-xs font-black uppercase tracking-widest transition-all ${
@@ -988,6 +1182,103 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                     </button>
                   )}
                 </div>
+
+                {/* Sub Module 0: Sound Discrimination */}
+                {activeLabDrill === 'discrimination' && discriminationDrills.length > 0 && (
+                  <div className="bg-[#1A1A1A] border-2 border-[#dc2323]/20 p-6 rounded-[32px] space-y-6">
+                    <div className="flex justify-between items-center pb-3 border-b border-[#2d2d2d]">
+                      <h3 className="text-base font-black text-white uppercase tracking-wider flex items-center gap-2">
+                        <span>🎯</span> Chọn Âm Chuẩn Xác & Phân Biệt Ngữ Âm
+                      </h3>
+                      <div className="text-xs font-black uppercase tracking-widest text-gray-400 bg-black/40 px-3 py-1.5 rounded-full border border-[#2d2d2d]">
+                        Câu {discIndex + 1}/{discriminationDrills.length}
+                      </div>
+                    </div>
+
+                    <div className="p-5 bg-red-600/5 border border-red-500/10 rounded-2xl text-center space-y-3">
+                      <p className="text-xs font-black uppercase tracking-widest text-[#ff4c4c]">Thử thách phân biệt âm:</p>
+                      <h4 className="text-lg sm:text-xl font-black text-white leading-snug">
+                        {discriminationDrills[discIndex].question}
+                      </h4>
+                      {discriminationDrills[discIndex].targetWord && (
+                        <div className="flex items-center justify-center gap-3 pt-1">
+                          <button
+                            onClick={() => playTTS(discriminationDrills[discIndex].targetWord, 'en-US', true)}
+                            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#2a2a2a] hover:bg-[#ffe36d] hover:text-black text-white font-black text-sm uppercase tracking-wider transition-all shadow-md active:scale-95"
+                          >
+                            <Volume2 size={18} className="text-[#ffe36d]" /> Nghe Từ Mục Tiêu
+                          </button>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Options Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {discriminationDrills[discIndex].options.map((opt, optIdx) => {
+                        const isChosen = discSelectedOpt === optIdx;
+                        let btnStyle = "bg-[#222] border-[#333] hover:border-[#ffe36d] text-white";
+                        if (discSelectedOpt !== null) {
+                          if (opt.isCorrect) {
+                            btnStyle = "bg-emerald-500/20 border-emerald-500 text-emerald-300 font-extrabold shadow-lg";
+                          } else if (isChosen) {
+                            btnStyle = "bg-rose-500/20 border-rose-500 text-rose-300 font-extrabold";
+                          } else {
+                            btnStyle = "bg-black/20 border-[#222] text-gray-500 opacity-50";
+                          }
+                        }
+
+                        return (
+                          <button
+                            key={optIdx}
+                            disabled={discSelectedOpt !== null}
+                            onClick={() => handleSelectDiscrimination(optIdx)}
+                            className={`p-4 rounded-2xl border-2 text-left transition-all active:scale-95 flex items-center justify-between ${btnStyle}`}
+                          >
+                            <span className="font-black text-sm sm:text-base">{opt.text}</span>
+                            {discSelectedOpt !== null && opt.isCorrect && (
+                              <span className="text-emerald-400 font-black text-lg">✓</span>
+                            )}
+                            {discSelectedOpt === optIdx && !opt.isCorrect && (
+                              <span className="text-rose-400 font-black text-lg">✗</span>
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Feedback block */}
+                    {discFeedback && (
+                      <div className={`p-4 rounded-2xl text-xs sm:text-sm font-bold leading-relaxed ${
+                        discFeedback.startsWith('✅')
+                          ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-300'
+                          : 'bg-rose-500/10 border border-rose-500/30 text-rose-300'
+                      }`}>
+                        {discFeedback}
+                      </div>
+                    )}
+
+                    {/* Action buttons */}
+                    <div className="flex gap-3 justify-center">
+                      <button
+                        onClick={() => {
+                          setDiscSelectedOpt(null);
+                          setDiscFeedback(null);
+                        }}
+                        className="flex items-center gap-2 px-5 py-3.5 bg-[#222] hover:bg-[#333] text-gray-300 font-bold uppercase tracking-widest text-xs rounded-xl border border-[#444] transition-all active:scale-95"
+                      >
+                        <RefreshCw size={14} /> Làm Lại
+                      </button>
+
+                      <button
+                        onClick={nextDiscriminationDrill}
+                        disabled={discSelectedOpt === null}
+                        className="flex items-center gap-2 px-8 py-3.5 bg-[#ffe36d] hover:bg-[#ebd05a] disabled:opacity-40 disabled:pointer-events-none text-black font-black uppercase tracking-widest text-xs rounded-xl transition-all active:scale-95 shadow-md"
+                      >
+                        Câu Tiếp Theo <ChevronRight size={14} />
+                      </button>
+                    </div>
+                  </div>
+                )}
 
                 {/* Sub Module 1: Chunk-by-chunk Translation */}
                 {activeLabDrill === 'translation' && transDrills.length > 0 && (
@@ -1518,6 +1809,27 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
 
         </div>
       </div>
+
+      {/* IPA Reference Modal */}
+      {showIpaModal && (
+        <div className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md overflow-y-auto p-4 sm:p-8 flex justify-center">
+          <div className="max-w-5xl w-full space-y-4 my-auto py-8">
+            <div className="flex items-center justify-between border-b border-[#333] pb-4">
+              <div className="flex items-center gap-2">
+                <span className="text-xl">🎯</span>
+                <h3 className="text-xl font-black uppercase text-white tracking-tight">Tra Cứu Bảng Âm IPA Quốc Tế</h3>
+              </div>
+              <button
+                onClick={() => setShowIpaModal(false)}
+                className="px-4 py-2 bg-[#222] hover:bg-[#333] border border-[#444] text-white rounded-xl text-xs font-black uppercase tracking-wider flex items-center gap-1.5 transition-all"
+              >
+                ✕ Đóng Bảng IPA
+              </button>
+            </div>
+            <IpaInteractiveChart onBack={() => setShowIpaModal(false)} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -106,46 +106,46 @@ export const BEAUTY_DIALOGUES_PART2: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'Ventilation & Monomer Safety Compliance Briefing',
+      title: 'Discreet Health Consultation on Onychomycosis & Podiatrist Referral',
       participants: [
-        { name: 'Robert', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=RobertSafety', role: 'Safety Compliance Officer' },
-        { name: 'Kim', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KimTechOwner', role: 'Salon Supervisor' }
+        { name: 'Kim', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KimTechOwnerHealth', role: 'Salon Supervisor' },
+        { name: 'Mrs. Harrington', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=HarringtonClientHealth', role: 'Client' }
       ],
       lines: [
-        { participant: 'Robert', text: "Good morning, Kim. As part of our semi-annual health review, I am inspecting your local source-capture exhaust systems at every nail station.", translation: "Chào cô Kim. Trong đợt kiểm tra sức khỏe an toàn lao động định kỳ, tôi sẽ kiểm tra hệ thống hút bụi và khí thải cục bộ tại từng bàn làm móng ạ." },
-        { participant: 'Kim', text: "Good morning, Inspector Robert. We recently installed HEPA carbon filtration down-draft units on all twelve tables, and our central HVAC cycles fresh air every ten minutes.", translation: "Chào Thanh tra Robert. Bên em vừa lắp đặt đồng bộ máy hút âm bàn màng lọc than hoạt tính HEPA cho cả 12 bàn, và hệ thống thông gió tổng luôn luân chuyển khí tươi 10 phút một lần ạ." },
-        { participant: 'Robert', text: "Excellent. Please also confirm your technicians store all ethyl methacrylate monomers in tightly sealed, labeled dispensers to minimize chemical vapors.", translation: "Rất tốt. Cô cũng vui lòng đảm bảo các kỹ thuật viên luôn chứa dung dịch đắp bột EMA trong bình chuyên dụng có nắp đậy kín và dán nhãn rõ ràng để hạn chế tối đa hơi hóa chất nhé." },
-        { participant: 'Kim', text: "All stations strictly comply with OSHA labeling guidelines. Here is our Safety Data Sheet binder for your inspection.", translation: "Toàn bộ bàn làm việc đều tuân thủ nghiêm ngặt quy định nhãn mác của OSHA. Em xin gửi tập hồ sơ Bảng chỉ dẫn an toàn hóa chất (SDS) để anh kiểm tra ạ." }
+        { participant: 'Kim', text: "Mrs. Harrington, upon inspecting your right big toenail, I observe localized yellow-green discoloration and minor nail plate thickening consistent with a fungal condition.", translation: "Thưa bà Harrington, qua kiểm tra móng chân cái bên phải của bà, em nhận thấy có vùng đổi màu vàng xanh cục bộ và bản móng hơi dày lên, đây là dấu hiệu đặc trưng của tình trạng nấm móng ạ." },
+        { participant: 'Mrs. Harrington', text: "Oh dear, I was hoping you could simply buff it down and cover it with dark acrylic powder.", translation: "Ôi trời, tôi cứ tưởng các cô chỉ cần mài phẳng đi rồi đắp bột acrylic màu tối lên là che được chứ." },
+        { participant: 'Kim', text: "Under State Board health regulations, applying an acrylic seal over an active fungal infection traps moisture and accelerates spore proliferation. For your safety, we must leave that nail bare. We can perform our soothing medical-grade herbal soak on all ten toes, and I strongly recommend consulting a podiatrist for antifungal treatment.", translation: "Dạ theo quy định y tế của Hội đồng Thẩm mỹ Bang, việc đắp bột bịt kín lên móng đang nhiễm nấm sẽ giữ ẩm và làm bào tử nấm lây lan nhanh hơn rất nhiều ạ. Vì an toàn của bà, tiệm bắt buộc phải để móng đó thông thoáng. Bên em sẽ thực hiện ngâm thảo mộc kháng khuẩn cho cả mười ngón, và em chân thành khuyên bà nên đến gặp bác sĩ chuyên khoa chân để được kê thuốc điều trị dứt điểm ạ." },
+        { participant: 'Mrs. Harrington', text: "Thank you for your honesty and medical ethics rather than taking the easy route. I will make a doctor appointment tomorrow.", translation: "Cảm ơn cô đã rất trung thực và giữ đúng y đức thay vì chỉ làm cho xong chuyện. Ngày mai tôi sẽ đi khám bác sĩ ngay." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Assuring a Sensitive Client about Odor & Fresh Air Quality',
+      title: 'Discreet Advice on Greenish Nail Pocket & Deferring Polish',
       participants: [
-        { name: 'Linh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LinhAirAssure', role: 'Technician' },
-        { name: 'Theresa', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TheresaSmell', role: 'Client' }
+        { name: 'Linh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LinhTechFungus', role: 'Nail Tech' },
+        { name: 'Sarah', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SarahClientFungus', role: 'Client' }
       ],
       lines: [
-        { participant: 'Theresa', text: "Linh, I usually get headaches from strong acrylic odors at traditional nail shops, but your salon smells remarkably fresh!", translation: "Linh ơi, bình thường mình hay bị nhức đầu bởi mùi nồng của bột đắp móng ở mấy tiệm truyền thống, mà sao salon bên bạn ngửi thoáng mát dễ chịu thế!" },
-        { participant: 'Linh', text: "Thank you for noticing, Theresa! We use 100% EMA monomer instead of harsh chemicals, and every single desk has a built-in vacuum that sucks dust and vapor down immediately.", translation: "Cảm ơn bạn đã nhận ra nha Theresa! Bên mình chỉ sử dụng dung dịch EMA chuẩn y tế không mùi gắt độc hại, hơn nữa mỗi bàn đều tích hợp máy hút bụi chân không hút sạch bụi và mùi ngay lập tức đó." },
-        { participant: 'Theresa', text: "That makes a huge difference. I can actually breathe comfortably while getting my full set done.", translation: "Khác biệt lớn thật sự luôn á. Mình có thể thở hoàn toàn thoải mái trong suốt lúc làm móng." },
-        { participant: 'Linh', text: "Your health and our staff's well-being are always our top priorities. Let me know if you ever want the desk fan turned on higher too!", translation: "Sức khỏe của bạn và nhân viên luôn là ưu tiên hàng đầu của tiệm. Nếu bạn muốn chỉnh quạt bàn mạnh hơn thì cứ bảo mình nha!" }
+        { participant: 'Linh', text: "Sarah, I'm speaking softly so only you can hear: when I gently removed your old gel, I noticed a tiny green spot on your thumbnail. It looks like a classic moisture pocket where bacteria settled.", translation: "Sarah ơi, mình nói nhỏ riêng với bạn nghe thôi nhé: lúc mình tháo lớp sơn gel cũ ra, mình thấy có một đốm xanh lá nhỏ trên ngón tay cái. Đây là vết ố ẩm vi khuẩn rất phổ biến khi móng bị hở mép đó." },
+        { participant: 'Sarah', text: "Oh no! Is it mold? That sounds horrifying! Can you paint over it?", translation: "Ôi chết rồi! Có phải bị mốc không bạn? Nghe sợ quá vậy! Bạn sơn đè lên che giùm mình được không?" },
+        { participant: 'Linh', text: "Don't panic at all! It is not dangerous if treated properly, but painting gel over it will trap the moisture and make it worse. I will sanitize it with tea tree oil, trim it clean, and leave it bare for two weeks until it grows out. We can paint the other nine fingers gorgeously!", translation: "Bạn đừng hoảng nha! Cái này không nguy hiểm nếu chăm sóc đúng cách, nhưng nếu sơn gel đè lên thì móng sẽ bí hơi và lan rộng hơn đó. Mình sẽ sát trùng bằng tinh dầu tràm trà, tỉa gọn gàng và để móng đó mọc tự nhiên trong 2 tuần nhé. Chín ngón còn lại mình sơn thật xinh cho bạn nha!" },
+        { participant: 'Sarah', text: "Phew, thank you for being so discreet and protecting my natural nails! You're the best.", translation: "Phù, cảm ơn bạn đã nói riêng tế nhị và bảo vệ móng thật cho mình nhé! Bạn chu đáo quá chừng." }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Quick Filter Check & Dust Empty',
+      title: 'Quick Private Check on Toenail Fungal Spot',
       participants: [
-        { name: 'Nate', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=NateFilter', role: 'Tech' },
-        { name: 'Ken', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KenTech', role: 'Tech' }
+        { name: 'Vy', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=VyTechFungus', role: 'Tech' },
+        { name: 'Emily', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=EmilyToenail', role: 'Client' }
       ],
       lines: [
-        { participant: 'Nate', text: "Ken, did you swap the vacuum filter on desk 5?", translation: "Ken ơi, thay tấm lọc máy hút ở bàn số 5 chưa?" },
-        { participant: 'Ken', text: "Emptied the tray and put in a fresh filter 5 mins ago. Ready for the next set!", translation: "Đổ khay bụi với lắp tấm lọc mới tinh 5 phút trước rồi nha. Sẵn sàng làm bộ tiếp theo rồi!" },
-        { participant: 'Nate', text: "Awesome, keeping the air clean!", translation: "Đỉnh, giữ không khí trong lành thế này là chuẩn!" },
-        { participant: 'Ken', text: "Always!", translation: "Chuẩn luôn!" }
+        { participant: 'Vy', text: "Discreet heads-up Em: tiny fungal spot on the left big toe.", translation: "Nhắc nhỏ Emily nè: khóe móng chân cái bên trái hơi có dấu hiệu nấm nha." },
+        { participant: 'Emily', text: "Yikes, should we skip polish on that one?", translation: "Trời, vậy ngón đó khỏi sơn màu hả bạn?" },
+        { participant: 'Vy', text: "Yeah, keep it completely bare, dab rubbing alcohol daily!", translation: "Đúng rồi, để móng trần thông thoáng, mỗi ngày chấm cồn sát trùng nhé!" },
+        { participant: 'Emily', text: "Got it, thanks for catching that!", translation: "Hiểu rồi, may mà bạn phát hiện sớm giùm mình!" }
       ]
     }
   ],
@@ -154,46 +154,46 @@ export const BEAUTY_DIALOGUES_PART2: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'Bridal Party Contract, Deposit & Staggered Timeline Consultation',
+      title: 'Ergonomic & Chemical-Free Accommodation for Expectant Mothers',
       participants: [
-        { name: 'Sophia', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SophiaBridalManager', role: 'Event Coordinator' },
-        { name: 'Bridesmaid Chloe', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ChloeMaid', role: 'Maid of Honor' }
+        { name: 'Elena', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ElenaPregnancyCare', role: 'Spa Director' },
+        { name: 'Mrs. Kensington', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KensingtonPregnancy', role: 'Expectant Mother' }
       ],
       lines: [
-        { participant: 'Sophia', text: "Good afternoon, Chloe. Thank you for considering The Grand Salon for Sarah's bridal party of eight on October 14th.", translation: "Chào cô Chloe. Cảm ơn cô đã tin tưởng lựa chọn The Grand Salon cho tiệc làm đẹp cô dâu gồm 8 người của bạn Sarah vào ngày 14 tháng 10 tới ạ." },
-        { participant: 'Chloe', text: "Good afternoon, Sophia. We need four gel manicures, four spa pedicures, and customized champagne service within a three-hour window.", translation: "Chào cô Sophia. Nhóm chúng tôi cần 4 dịch vụ làm móng gel, 4 dịch vụ móng chân spa, kèm phục vụ rượu vang sủi theo yêu cầu trong khung giờ gói gọn 3 tiếng ạ." },
-        { participant: 'Sophia', text: "We have dedicated four senior technicians and two spa suites exclusively for your party from 10:00 AM to 1:00 PM. To secure this reserved block, a 30% non-refundable deposit is required by this Friday, with the balance settled on event day.", translation: "Bên em đã bố trí riêng 4 chuyên viên cao cấp và 2 phòng suite spa dành riêng cho đoàn của mình từ 10 giờ sáng đến 1 giờ chiều. Để giữ khung giờ đặc quyền này, bên em nhận khoản đặt cọc 30% trước thứ Sáu này, phần còn lại sẽ thanh toán vào ngày diễn ra sự kiện ạ." },
-        { participant: 'Chloe', text: "That contract structure works perfectly for our wedding budget. Please send the digital invoice and we will finalize the deposit today.", translation: "Hợp đồng và điều khoản như vậy rất phù hợp với ngân sách đám cưới của chúng tôi. Cô gửi hóa đơn điện tử để tôi thanh toán cọc ngay hôm nay nhé." }
+        { participant: 'Elena', text: "Good morning, Mrs. Kensington. We have prepared our premium ventilated garden suite for your appointment, ensuring an entirely fume-free environment during your third trimester.", translation: "Kính chào bà Kensington. Bên em đã chuẩn bị riêng phòng suite hướng vườn thông thoáng cho buổi làm đẹp hôm nay, đảm bảo không gian hoàn toàn không mùi hóa chất trong giai đoạn tam cá nguyệt thứ ba của bà ạ." },
+        { participant: 'Mrs. Kensington', text: "Thank you, Elena. My lower back has been aching constantly, and my ankles are noticeably swollen today.", translation: "Cảm ơn cô Elena. Lưng dưới của tôi dạo này ê ẩm suốt, còn hai mắt cá chân hôm nay sưng phù thấy rõ." },
+        { participant: 'Elena', text: "We have outfitted your chair with contoured memory-foam lumbar cushions and a warm footrest elevator. Furthermore, our pedicurist is certified in prenatal care and will bypass all reflexology trigger points around the Achilles tendon.", translation: "Dạ bên em đã lót sẵn gối tựa thắt lưng cao su non êm ái và bục nâng đỡ chân thư giãn ạ. Ngoài ra, chuyên viên bên em đã có chứng chỉ chăm sóc mẹ bầu, sẽ tránh hoàn toàn các huyệt đạo nhạy cảm xung quanh gân gót chân ạ." },
+        { participant: 'Mrs. Kensington', text: "That level of medical awareness and specialized comfort is why I refuse to go anywhere else.", translation: "Sự thấu hiểu y khoa và chăm sóc tận tâm đến mức này chính là lý do tôi không bao giờ chọn nơi nào khác." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Excited Chat with Bridesmaids about Colors and Mimosa Toast',
+      title: 'Caring for an Elderly Client with Trembling Hands & Delicate Skin',
       participants: [
-        { name: 'Kylie', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KylieParty', role: 'Nail Artist' },
-        { name: 'Jessica', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=JessicaBridesmaid', role: 'Bridesmaid' }
+        { name: 'Chloe', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ChloeElderCare', role: 'Nail Technician' },
+        { name: 'Mrs. Gable', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=GableElderly', role: 'Elderly Client' }
       ],
       lines: [
-        { participant: 'Kylie', text: "Congratulations to the whole bridal squad! Are you all coordinating nail colors with the sage green bridesmaid dresses today?", translation: "Chúc mừng cả hội chị em cô dâu nha! Hôm nay mọi người có định chọn màu móng đồng bộ với váy phù dâu xanh xô thơm không nè?" },
-        { participant: 'Jessica', text: "Yes! The bride wants us all wearing glazed donut chrome over sheer nude, while she gets full white French tips with diamonds.", translation: "Đúng rồi đó! Cô dâu muốn tụi mình sơn màu nude phủ tráng gương glazed donut, còn nàng ấy sẽ làm đầu móng French trắng đính đá pha lê lấp lánh." },
-        { participant: 'Kylie', text: "That is going to look breathtaking in the wedding album photos! Let me pour you another chilled mimosa while we shape your nails.", translation: "Lên hình album cưới đảm bảo đẹp xuất sắc luôn á! Để mình rót thêm cho bạn ly cocktail mimosa mát lạnh trong lúc giũa móng nhé." },
-        { participant: 'Jessica', text: "Cheers to that! This is the most relaxing wedding prep ever.", translation: "Cạn ly thôi nào! Chuẩn bị đám cưới mà thư thái như thế này thì thích mê." }
+        { participant: 'Chloe', text: "Take your time walking over, Mrs. Gable! Let me hold your arm and help you step up onto the pedicure platform slowly.", translation: "Bà Gable cứ thong thả bước ạ! Để con đỡ tay dìu bà bước lên bục ngâm chân từ từ nhé." },
+        { participant: 'Mrs. Gable', text: "Thank you, sweetie. My arthritis acts up so badly when it rains, and my hands shake a little bit.", translation: "Cảm ơn cháu gái ngoan nhé. Mỗi khi trời mưa là khớp của bà lại nhức buốt ghê lắm, tay bà cũng hơi run run một tí." },
+        { participant: 'Chloe', text: "Please don't worry about any trembling at all! I will rest your hand gently on a warm towel and use a soft sponge buffer so nothing ever pulls on your delicate skin. How does the water temperature feel on your feet?", translation: "Bà đừng bận tâm chuyện tay run nha bà ơi! Con sẽ đặt tay bà êm ái trên khăn ấm và chỉ dùng phao xốp mềm nhẹ nhất để không làm trầy da mỏng của bà đâu ạ. Nước ngâm chân ấm vừa ý bà chưa ạ?" },
+        { participant: 'Mrs. Gable', text: "The warm water feels like a warm hug on my tired knees. You have the gentlest touch, Chloe.", translation: "Nước ấm ngâm chân dễ chịu như có người ôm lấy đôi đầu gối mỏi nhừ của bà vậy. Cháu làm lúc nào cũng nhẹ nhàng và khéo léo nhất." }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Group Timing Text Confirmation',
+      title: 'Fast Cushion & Low-Fume Setup for Mom-to-Be',
       participants: [
-        { name: 'Linh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LinhHost', role: 'Tech' },
-        { name: 'Steph', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=StephGroup', role: 'Organizer' }
+        { name: 'Mia', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MiaPregText', role: 'Tech' },
+        { name: 'Jess', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=JessPregText', role: 'Pregnant Client' }
       ],
       lines: [
-        { participant: 'Steph', text: "Linh! All 6 of us just got in the Uber, arriving at 11 sharp!", translation: "Linh ơi! Cả 6 đứa vừa lên xe Uber rồi, đúng 11 giờ tới nơi nha!" },
-        { participant: 'Linh', text: "Chairs 1 through 6 are prepped and mimosas are chilled! See you in 15!", translation: "Ghế 1 đến 6 chuẩn bị xong hết rồi, đồ uống đã ướp lạnh sẵn! 15 phút nữa gặp nha!" },
-        { participant: 'Steph', text: "Can't wait!", translation: "Hóng quá đi!" },
-        { participant: 'Linh', text: "Safe ride over!", translation: "Đi xe an toàn nha!" }
+        { participant: 'Mia', text: "Extra lumbar pillow and water by chair 4 for you, Jess!", translation: "Gối tựa lưng êm ái với ly nước sẵn sàng ở ghế 4 cho mẹ bầu Jess nha!" },
+        { participant: 'Jess', text: "Lifesaver! Baby's pressing right on my spine today.", translation: "Cứu tinh đời tớ! Em bé hôm nay đạp thúc vào cột sống ê ẩm ghê luôn." },
+        { participant: 'Mia', text: "Desk fan on low fresh air, zero acetone smell!", translation: "Bật quạt thổi khí tươi mát rượi, cam kết không dính một tí mùi acetone!" },
+        { participant: 'Jess', text: "Best tech ever, sitting down now!", translation: "Thợ làm móng có tâm nhất hệ mặt trời, tớ ngồi xuống liền đây!" }
       ]
     }
   ],
@@ -202,46 +202,47 @@ export const BEAUTY_DIALOGUES_PART2: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'Tiered Loyalty Program Enrollment & Point Redemption Explanation',
+      title: 'Managing Peak Walk-in Inquiries against Prioritized Bookings',
       participants: [
-        { name: 'Cassandra', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=CassandraLoyalty', role: 'Guest Relations Officer' },
-        { name: 'Eleanor', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=EleanorClient', role: 'Frequent Client' }
+        { name: 'Giselle', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=GiselleConciergeWalkin', role: 'Salon Manager' },
+        { name: 'Mr. Sterling', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SterlingWalkinGuest', role: 'Walk-in Client' }
       ],
       lines: [
-        { participant: 'Cassandra', text: "Good afternoon, Eleanor. With today's service, you have accumulated over 500 reward points, qualifying you for our Platinum Sanctuary tier.", translation: "Chào chị Eleanor. Với dịch vụ hôm nay, chị đã tích lũy được hơn 500 điểm thưởng, đủ tiêu chuẩn nâng hạng lên thành viên Bạch Kim của spa bên em ạ." },
-        { participant: 'Eleanor', text: "Oh, wonderful! What privileges come with the Platinum tier?", translation: "Ôi tuyệt quá! Hạng Bạch Kim này có những đặc quyền gì vậy cô?" },
-        { participant: 'Cassandra', text: "Platinum members receive priority booking on holiday weekends, a complimentary paraffin hand treatment on every visit, and ten percent cash back in store credit on all retail skincare purchases.", translation: "Thành viên Bạch Kim được ưu tiên xếp lịch vào các dịp lễ tết cuối tuần, tặng kèm liệu trình ủ ấm sáp paraffin cho tay trong mỗi lần ghé thăm, và được hoàn 10% điểm thưởng khi mua các sản phẩm dưỡng da bán lẻ ạ." },
-        { participant: 'Eleanor', text: "Those are very generous benefits. Please apply fifty points toward today's ticket.", translation: "Quyền lợi thực sự rất chu đáo. Hãy trừ 50 điểm tích lũy vào hóa đơn hôm nay giúp tôi nhé." }
+        { participant: 'Mr. Sterling', text: "Good afternoon. I do not have a prior booking, but I require an immediate executive manicure before my 3:00 PM boardroom presentation.", translation: "Xin chào cô. Tôi chưa đặt lịch trước, nhưng tôi cần làm dịch vụ chăm sóc móng nam gấp trước buổi thuyết trình hội đồng quản trị lúc 3 giờ chiều." },
+        { participant: 'Giselle', text: "Good afternoon, sir. We welcome walk-in guests; however, all our stations are currently occupied with reserved clients who have prioritized scheduling.", translation: "Kính chào quý khách. Salon bên em rất hân hạnh đón tiếp khách vãng lai; tuy nhiên hiện tại tất cả các bàn đều đang phục vụ khách đã đặt hẹn trước theo đúng khung giờ ưu tiên ạ." },
+        { participant: 'Mr. Sterling', text: "Can you not squeeze me in? I am willing to pay an expedite surcharge.", translation: "Cô không thể linh động chen ngang cho tôi được sao? Tôi sẵn sàng trả thêm phụ phí dịch vụ gấp." },
+        { participant: 'Giselle', text: "To protect service excellence, we never compromise a scheduled guest's timeline. However, our master technician has a thirty-minute window opening at precisely 2:15 PM. May I reserve that slot for you while you enjoy an espresso in our private lounge?", translation: "Dạ để giữ trọn vẹn chất lượng dịch vụ, bên em tuyệt đối không cắt bớt thời gian của khách đã đặt trước ạ. Tuy nhiên, đúng 2 giờ 15 phút chuyên viên bên em sẽ trống một khoảng 30 phút. Em xin phép giữ ngay suất đó cho anh trong khi mời anh dùng cà phê espresso tại phòng chờ được không ạ?" },
+        { participant: 'Mr. Sterling', text: "That is fair and professional. I will take the 2:15 PM slot.", translation: "Cách làm việc rất công bằng và chuyên nghiệp. Tôi sẽ lấy khung giờ 2 giờ 15 phút đó." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Signing up a Client on the Loyalty Tablet at the Register',
+      title: 'Fitting a Walk-in Client into a Squeezed Cancellation Slot',
       participants: [
-        { name: 'An', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AnRegister', role: 'Cashier' },
-        { name: 'Brittany', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=BrittanyLoyal', role: 'Client' }
+        { name: 'Lan', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LanFrontDeskWalkin', role: 'Receptionist' },
+        { name: 'Amanda', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AmandaWalkinLady', role: 'Walk-in Client' }
       ],
       lines: [
-        { participant: 'An', text: "Brittany, are you signed up with our VIP phone number rewards yet? You get five dollars off for every five visits!", translation: "Brittany ơi, bạn đã đăng ký số điện thoại tích điểm VIP bên mình chưa nè? Cứ mỗi 5 lần ghé là được giảm ngay 5 đô đó nha!" },
-        { participant: 'Brittany', text: "I don't think so! Does it send a bunch of spam text messages?", translation: "Hình như chưa thì phải! Có bị gửi tin nhắn rác quảng cáo nhiều không bạn?" },
-        { participant: 'An', text: "Not at all, zero spam! Just a friendly birthday discount text once a year and a receipt text when you finish.", translation: "Tuyệt đối không có tin nhắn rác đâu bạn ơi! Mỗi năm chỉ gửi đúng một tin chúc mừng sinh nhật kèm voucher giảm giá, với tin nhắn hóa đơn sau khi làm xong thôi." },
-        { participant: 'Brittany', text: "That sounds great, let me type my phone number on the screen now.", translation: "Nghe thích quá, để mình nhập số điện thoại lên màn hình liền nhé." }
+        { participant: 'Amanda', text: "Hi! I know it's a busy Saturday, but is there any chance you have room for a walk-in gel manicure right now?", translation: "Chào bạn! Mình biết thứ Bảy tiệm rất đông, nhưng không biết bên bạn có thể nhận khách vãng lai làm bộ móng gel ngay bây giờ không nhỉ?" },
+        { participant: 'Lan', text: "Hi Amanda! Saturdays are fully booked by appointment, so usually walk-ins have a 45-minute wait. But guess what? A client just called to reschedule her 1:15 appointment!", translation: "Chào bạn Amanda! Thứ Bảy bên mình thường kín lịch đặt trước nên khách ghé đột xuất phải chờ tầm 45 phút. Nhưng may quá chừng, vừa có một chị khách gọi điện xin dời lịch hẹn 1 giờ 15 sang ngày mai nè!" },
+        { participant: 'Amanda', text: "Oh, that is amazing luck! Can I take her spot?", translation: "Ôi may mắn quá trời luôn! Cho mình trám vào chỗ đó được không bạn?" },
+        { participant: 'Lan', text: "Absolutely! Chair number 2 with Chloe is sanitizing right now. Pick your color swatch and have a seat in two minutes!", translation: "Được luôn bạn ơi! Ghế số 2 của chị Chloe đang tiệt trùng dụng cụ. Bạn chọn màu sơn rồi hai phút nữa vào ghế luôn nha!" }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Quick Birthday Month Perk Reminder',
+      title: 'Fast Walk-in Time Check at Register',
       participants: [
-        { name: 'Mia', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MiaPerk', role: 'Tech' },
-        { name: 'Hailey', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=HaileyBDay', role: 'Client' }
+        { name: 'Vee', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=VeeFrontDeskQuick', role: 'Tech' },
+        { name: 'Chloe', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ChloeQuickWalkin', role: 'Walk-in Client' }
       ],
       lines: [
-        { participant: 'Mia', text: "Hailey, isn't your birthday next week? You've got a free gel upgrade in our system!", translation: "Hailey ơi, tuần sau sinh nhật bạn đúng không? Trong hệ thống có ưu đãi nâng cấp sơn gel miễn phí cho bạn nè!" },
-        { participant: 'Hailey', text: "Omg yes! October 19th! Can I use it on this set?", translation: "Trời ơi đúng rồi! Ngày 19 tháng 10! Dùng luôn cho bộ móng này được không bạn?" },
-        { participant: 'Mia', text: "Already applied it! Happy early birthday!", translation: "Tớ áp mã luôn rồi nha! Chúc mừng sinh nhật sớm nhé!" },
-        { participant: 'Hailey', text: "You're the sweetest, thank you!", translation: "Đáng yêu quá chừng, cảm ơn bạn nhiều nha!" }
+        { participant: 'Chloe', text: "Any quick walk-in slot for pedi right now?", translation: "Bên mình còn ghế trống làm móng chân vãng lai liền không bạn?" },
+        { participant: 'Vee', text: "Next opening's at 2:30! Can you wait fifteen mins?", translation: "Ca tiếp theo trống lúc 2 rưỡi nha! Bạn đợi tầm 15 phút được không?" },
+        { participant: 'Chloe', text: "Grabbing a milk tea next door, hold chair for me!", translation: "Để mình chạy qua tiệm bên cạnh mua ly trà sữa, giữ ghế giúp mình nhé!" },
+        { participant: 'Vee', text: "Got your name down, see you at 2:30!", translation: "Ghi tên bạn rồi nha, 2 rưỡi gặp lại!" }
       ]
     }
   ],
@@ -250,46 +251,46 @@ export const BEAUTY_DIALOGUES_PART2: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'Corporate Gift Certificate Issuance & Holiday Redemption Terms',
+      title: 'Lookbook Photography Permission & Cordial Yelp Testimonial Request',
       participants: [
-        { name: 'Giselle', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=GiselleGift', role: 'Salon Director' },
-        { name: 'Mr. Sterling', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SterlingCorp', role: 'Corporate Executive' }
+        { name: 'Julian', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=JulianPhotoManager', role: 'Creative Director' },
+        { name: 'Madeline', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MadelineClientPhoto', role: 'Client' }
       ],
       lines: [
-        { participant: 'Mr. Sterling', text: "Good morning. I would like to purchase ten gift certificates of two hundred dollars each as year-end executive bonuses for my team.", translation: "Chào cô. Tôi muốn mua 10 phiếu quà tặng, mỗi phiếu trị giá 200 đô la làm phần thưởng cuối năm cho đội ngũ quản lý của tôi." },
-        { participant: 'Giselle', text: "Good morning, Mr. Sterling. That is a wonderful gesture of appreciation. We will package each certificate in our signature gold-embossed sleeve with a seasonal botanical ribbon.", translation: "Kính chào ông Sterling. Món quà tri ân thật ý nghĩa ạ. Bên em sẽ chuẩn bị từng phiếu trong phong bì dập nhũ vàng sang trọng kèm ruy băng hoa lá tinh tế ạ." },
-        { participant: 'Mr. Sterling', text: "Excellent. Are there any holiday blackout dates or expiration constraints on these certificates?", translation: "Rất tốt. Liệu các phiếu quà tặng này có bị giới hạn ngày sử dụng dịp lễ hay thời hạn hết hạn không?" },
-        { participant: 'Giselle', text: "Under state consumer law, our monetary gift certificates never expire. They are fully redeemable for both luxury treatments and retail skincare at any time.", translation: "Theo luật bảo vệ người tiêu dùng, phiếu quà tặng mệnh giá tiền bên em không bao giờ hết hạn ạ. Người nhận có thể dùng cho mọi dịch vụ spa lẫn mua mỹ phẩm bất cứ lúc nào." }
+        { participant: 'Julian', text: "Madeline, your completed chrome ombre set with French encapsulation turned out breathtaking. With your permission, our salon would love to photograph your hands under studio lighting for our bridal lookbook.", translation: "Thưa chị Madeline, bộ móng chuyển màu chrome ombre viền French ẩn của chị hoàn thiện đẹp xuất sắc ạ. Nếu được sự cho phép của chị, bên em rất mong được chụp hình đôi bàn tay chị dưới ánh đèn studio để lưu vào bộ sưu tập mẫu cô dâu của salon ạ." },
+        { participant: 'Madeline', text: "I would be honored! The hand-painted lace detail is truly a work of art.", translation: "Tôi rất sẵn lòng! Chi tiết hoa ren vẽ tay này thực sự là một tác phẩm nghệ thuật tuyệt vời." },
+        { participant: 'Julian', text: "Please hold this silk camellia blossom lightly in your palm. Perfect! Furthermore, if you enjoyed your pampering experience, sharing a few words and tagging our master artist Bao on Yelp or Google means the world to our independent team.", translation: "Chị vui lòng khẽ ôm bông hoa trà lụa này trong lòng bàn tay nhé. Xuất sắc luôn ạ! Ngoài ra, nếu chị hài lòng với trải nghiệm hôm nay, một vài dòng cảm nhận kèm nhắc tên Master Bao trên Yelp hoặc Google sẽ là nguồn động viên to lớn cho cả đội ngũ bên em ạ." },
+        { participant: 'Madeline', text: "I will gladly post a glowing five-star review with photos as soon as I get home.", translation: "Về đến nhà tôi sẽ đăng bài đánh giá 5 sao kèm hình ảnh thật đẹp ngay." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Buying a Mother\'s Day Pampering Gift Card',
+      title: 'Aesthetic Ring-Light Photo Pose & Gentle 5-Star Yelp Prompt',
       participants: [
-        { name: 'Lan', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LanFront', role: 'Receptionist' },
-        { name: 'Daniel', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DanielMomGift', role: 'Client' }
+        { name: 'Bao', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=BaoPhotoArtist', role: 'Nail Artist' },
+        { name: 'Brianna', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=BriannaGlamour', role: 'Client' }
       ],
       lines: [
-        { participant: 'Daniel', text: "Hi Lan! Mother's Day is coming up and I want to treat my mom to a full pampering day. What package do you recommend?", translation: "Chào Lan! Sắp tới Ngày của Mẹ rồi, mình muốn tặng mẹ một ngày thư giãn trọn vẹn. Bạn gợi ý gói nào hợp nhất nhỉ?" },
-        { participant: 'Lan', text: "Our Deluxe Rose Spa package is the absolute favorite for moms! It includes a warm milk foot soak, exfoliating sugar scrub, paraffin wax, and a gentle neck and shoulder massage.", translation: "Gói Deluxe Rose Spa hoa hồng bên mình là chân ái của các mẹ luôn đó! Gồm ngâm chân sữa ấm, tẩy tế bào chết đường nâu, ủ sáp paraffin mềm da và mát-xa cổ vai gáy nhẹ nhàng." },
-        { participant: 'Daniel', text: "That sounds heavenly, she works so hard and really needs to unwind. Can you put eighty-five dollars on a gift card?", translation: "Nghe êm ái quá, mẹ mình làm việc vất vả nên rất cần được xả stress. Bạn nạp 85 đô vào thẻ quà tặng giúp mình nhé?" },
-        { participant: 'Lan', text: "Done! Here is a lovely calligraphy card you can write a sweet message in for her.", translation: "Xong rồi đây ạ! Mình gửi bạn kèm một tấm thiệp viết tay xinh xắn để bạn ghi lời chúc gửi mẹ nhé." }
+        { participant: 'Bao', text: "Brianna, this chrome cat-eye finish is insane! You have to let me take a video under the ring light for our Instagram page!", translation: "Brianna ơi, ánh mắt mèo tráng gương này nhìn đỉnh chóp luôn á! Cho mình xin phép quay một đoạn video dưới đèn vòng ring light để đăng lên Instagram tiệm nha!" },
+        { participant: 'Brianna', text: "Yesss, please! Hand me a cute prop, my hands look so snatched!", translation: "Dạ được chứ anh ơi! Đưa em cầm đạo cụ gì xinh xinh đi, tay em lên hình nhìn mê ly luôn!" },
+        { participant: 'Bao', text: "Hold this designer perfume bottle with your fingers relaxed. Wow, look at that velvet shimmer! If you tag @BlossomNails on your story and drop a 5-star review on Yelp mentioning my name, you get $5 off your next set!", translation: "Em cầm nhẹ chai nước hoa hàng hiệu này, thả lỏng ngón tay ra nhé. Wow, nhìn ánh nhũ nhung lấp lánh chưa kìa! Nếu em tag @BlossomNails lên story và để lại đánh giá 5 sao trên Yelp kèm tên anh, lần sau em được giảm ngay 5 đô luôn nha!" },
+        { participant: 'Brianna', text: "Writing the Yelp review right this second! You totally deserve five stars!", translation: "Em mở Yelp ra chấm 5 sao viết review ngay và luôn đây! Tay nghề anh xứng đáng điểm 10 luôn á!" }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Quick E-Gift Card Buy via App',
+      title: 'Quick Ring-Light Snap & Story Tag Ping',
       participants: [
-        { name: 'Vee', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=VeeFront', role: 'Tech' },
-        { name: 'Chloe', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ChloeQuickGift', role: 'Client' }
+        { name: 'Tina', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TinaSnap', role: 'Tech' },
+        { name: 'Sam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SamAesthetic', role: 'Client' }
       ],
       lines: [
-        { participant: 'Chloe', text: "Vee, can I buy an e-gift card for my sister on your website?", translation: "Vee ơi, tớ mua thẻ quà tặng điện tử cho em gái trên web tiệm được không?" },
-        { participant: 'Vee', text: "Totally! It emails the voucher code instantly with your custom message.", translation: "Thoải mái luôn! Hệ thống sẽ gửi email mã voucher liền kèm lời chúc của bạn luôn." },
-        { participant: 'Chloe', text: "Buying a $50 card right now from my phone, thanks!", translation: "Đang mua thẻ 50 đô trên điện thoại luôn đây, cảm ơn nha!" },
-        { participant: 'Vee', text: "She's gonna love it!", translation: "Em bạn chắc chắn sẽ mê tít cho xem!" }
+        { participant: 'Tina', text: "Cross thumbs under the ring light, Sam! Snapping a quick shot!", translation: "Bắt chéo hai ngón cái dưới đèn tròn nè Sam ơi! Bấm nhanh một tấm ảnh nha!" },
+        { participant: 'Sam', text: "Lighting is chefs kiss! Tag me on TikTok!", translation: "Ánh sáng đỉnh chóp luôn! Đăng TikTok nhớ tag tớ vào nha!" },
+        { participant: 'Tina', text: "Drop a 5-star Google review if you love the set!", translation: "Chấm 5 sao trên Google ủng hộ tiệm nếu mê bộ móng này nha bạn!" },
+        { participant: 'Sam', text: "Already on it, 5 stars all day!", translation: "Đang viết luôn nè, 5 sao chất lượng!" }
       ]
     }
   ],
@@ -298,46 +299,47 @@ export const BEAUTY_DIALOGUES_PART2: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'Clinical Post-Care Instructions Following Acid Peel Treatment',
+      title: 'Reserving an Executive Nail Art Consultation over the Phone',
       participants: [
-        { name: 'Dr. Celine', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=CelineEsthetician', role: 'Dermal Specialist' },
-        { name: 'Marcus', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MarcusPostCare', role: 'Client' }
+        { name: 'Adeline', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AdelinePhoneConcierge', role: 'Salon Receptionist' },
+        { name: 'Ms. Thornton', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ThorntonClientCall', role: 'Client Calling In' }
       ],
       lines: [
-        { participant: 'Dr. Celine', text: "Marcus, your lactic acid peel went smoothly. Now, adherence to post-treatment home protocol is crucial for optimal barrier repair.", translation: "Anh Marcus, liệu trình peel da bằng acid lactic của anh đã hoàn thành rất tốt. Giờ đây việc tuân thủ các bước chăm sóc tại nhà là yếu tố quyết định để hàng rào bảo vệ da phục hồi tối ưu ạ." },
-        { participant: 'Marcus', text: "Understood. What are the essential guidelines for the next forty-eight hours?", translation: "Tôi hiểu rồi. Những nguyên tắc cốt lõi trong vòng 48 giờ tới là gì thưa chuyên viên?" },
-        { participant: 'Dr. Celine', text: "Avoid direct sun exposure, saunas, and strenuous workouts that induce heavy sweating. Apply our broad-spectrum SPF 50 every four hours, and strictly refrain from picking any minor flaking.", translation: "Anh tránh tiếp xúc trực tiếp với ánh nắng, không xông hơi và không tập thể thao nặng gây đổ nhiều mồ hôi. Thoa kem chống nắng phổ rộng SPF 50 mỗi 4 tiếng một lần, và tuyệt đối không dùng tay cạy bóc các mảng da bong nhẹ ạ." },
-        { participant: 'Marcus', text: "I have the aftercare kit and will follow every guideline precisely. Thank you, Dr. Celine.", translation: "Tôi đã có sẵn bộ sản phẩm phục hồi và sẽ làm đúng từng bước hướng dẫn. Cảm ơn cô Celine." }
+        { participant: 'Adeline', text: "Good morning, Opaline Sanctuary. Adeline speaking, how may I assist your beauty booking today?", translation: "Kính chào quý khách, Opaline Sanctuary xin nghe. Em là Adeline, em có thể hỗ trợ quý khách đặt lịch làm đẹp như thế nào ạ?" },
+        { participant: 'Ms. Thornton', text: "Good morning. I would like to schedule an appointment with your senior master, Danny, for this coming Thursday afternoon around 3:30 PM.", translation: "Chào cô. Tôi muốn đặt một lịch hẹn với Master Danny vào chiều thứ Năm tuần này tầm 3 giờ 30 chiều." },
+        { participant: 'Adeline', text: "Master Danny has an opening at 3:45 PM on Thursday. What specific services will we be preparing for you?", translation: "Dạ thứ Năm Master Danny có lịch trống lúc 3 giờ 45 chiều ạ. Quý khách dự định làm những dịch vụ cụ thể nào để bên em chuẩn bị chu đáo ạ?" },
+        { participant: 'Ms. Thornton', text: "I require an acrylic removal followed by a structured hard-gel overlay with customized French micro-art. I understand this requires approximately two hours.", translation: "Tôi cần tháo lớp móng bột cũ, sau đó đắp gel cứng định hình và vẽ viền French micro nghệ thuật. Tôi hiểu liệu trình này sẽ kéo dài khoảng hai tiếng đúng không cô." },
+        { participant: 'Adeline', text: "Precisely two hours. We will block out 3:45 to 5:45 PM exclusively for you. May I take your credit card number to finalize the standard twenty-dollar reservation deposit?", translation: "Dạ chính xác là hai tiếng ạ. Bên em sẽ giữ trọn khung giờ từ 3:45 đến 5:45 chiều dành riêng cho chị. Em xin phép nhận số thẻ thanh toán để xác nhận khoản đặt cọc 20 đô theo quy định của tiệm được không ạ?" }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Practical Tips to Keep Gel-X Extensions Pristine for 4 Weeks',
+      title: 'Calling to Book a Friday Slot & Checking Nail Art Add-ons',
       participants: [
-        { name: 'Nga', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=NgaCareNail', role: 'Nail Technician' },
-        { name: 'Taylor', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TaylorClientCare', role: 'Client' }
+        { name: 'Vy', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=VyPhoneTech', role: 'Technician' },
+        { name: 'Hannah', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=HannahCaller', role: 'Client Calling' }
       ],
       lines: [
-        { participant: 'Nga', text: "Taylor, your long almond Gel-X set is finished and looking fabulous! Remember: nails are jewels, not tools!", translation: "Taylor ơi, bộ móng Gel-X dáng hạnh nhân dài của bạn đã xong và nhìn xinh xỉu luôn! Nhớ lời dặn vàng nhé: móng tay là trang sức, không phải đồ nghề cạy mở đồ đâu nha!" },
-        { participant: 'Taylor', text: "Haha, I know! I always try to pry soda cans open with my thumbnails.", translation: "Haha, tớ biết rồi! Toàn có thói quen tiện tay lấy ngón cái bật nắp lon nước ngọt thôi à." },
-        { participant: 'Nga', text: "Use a butter knife or coin instead! Also, wear rubber gloves when washing dishes with bleach or hot water so the chemicals don't weaken the adhesive bond.", translation: "Dùng cán thìa hoặc đồng xu để mở nha! Ngoài ra khi rửa chén bát với nước nóng hoặc chất tẩy rửa thì nhớ đeo găng tay cao su để hóa chất không làm yếu lớp keo liên kết nha bạn." },
-        { participant: 'Taylor', text: "Good call on the gloves! I want this set to last all the way through my vacation.", translation: "Nhắc vụ găng tay đúng lúc ghê! Mình muốn giữ bộ móng này thật bền suốt chuyến du lịch sắp tới." }
+        { participant: 'Hannah', text: "Hi there! I'm hoping to book a gel pedicure and a full set of acrylics for this Friday after work, maybe around 5:30 PM?", translation: "Chào bạn! Mình muốn đặt lịch làm móng chân gel với đắp một bộ móng bột mới vào chiều thứ Sáu sau giờ làm, tầm 5 giờ rưỡi chiều có được không bạn?" },
+        { participant: 'Vy', text: "Hi Hannah! Let me check the book. 5:30 PM is booked solid, but I have 4:45 PM or 6:15 PM open with Kelly. Would either of those work with your commute?", translation: "Chào bạn Hannah! Để mình xem sổ hẹn nhé. 5 rưỡi thì kín khách mất rồi, nhưng mình còn trống ca lúc 4 giờ 45 hoặc 6 giờ 15 với bạn Kelly nè. Giờ đó có tiện đường bạn đi làm về không?" },
+        { participant: 'Hannah', text: "6:15 PM is actually even better, no need to rush! Also, I want to add chrome powder and two accent gems. Does Kelly do nail art?", translation: "6 giờ 15 thực ra còn tiện hơn nữa, khỏi sợ kẹt xe vội vàng! Với cả mình muốn chà thêm bột tráng gương chrome và đính hai hạt đá điểm xuyết. Bạn Kelly vẽ móng nghệ thuật tốt không bạn?" },
+        { participant: 'Vy', text: "Kelly is a chrome wizard, you're in great hands! I've booked you for 6:15 PM this Friday for gel pedi and full set with art.", translation: "Kelly là phù thủy tráng gương luôn đó, bạn cứ yên tâm trao gửi bàn tay nha! Mình đã chốt lịch cho bạn lúc 6h15 thứ Sáu này làm móng chân gel và bộ móng bột đính đá nhé." }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Quick Glove & Dish Rule Text',
+      title: 'Fast Booking Text to Nail Tech',
       participants: [
-        { name: 'Kelly', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KellyTechCare', role: 'Tech' },
-        { name: 'Sam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SamGloves', role: 'Client' }
+        { name: 'Linh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LinhBookingDM', role: 'Tech' },
+        { name: 'Chloe', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ChloeBookingDM', role: 'Client' }
       ],
       lines: [
-        { participant: 'Kelly', text: "Friendly reminder Sam: rubber gloves for dishes tonight!", translation: "Nhắc nhẹ Sam nè: tối nay rửa bát nhớ đeo bao tay cao su nghen!" },
-        { participant: 'Sam', text: "Already got pink gloves ready by the sink! Not ruining this set!", translation: "Đã thủ sẵn đôi găng tay hồng ngay bồn rửa rồi! Quyết không để hỏng bộ móng này!" },
-        { participant: 'Kelly', text: "Proud of you! See you in 3 weeks!", translation: "Tự hào ghê! Hẹn gặp lại sau 3 tuần nha!" },
-        { participant: 'Sam', text: "Bye Kelly!", translation: "Tạm biệt Kelly nhé!" }
+        { participant: 'Chloe', text: "Hey Linh! Any slots open Friday after 4 for a gel fill?", translation: "Linh ơi! Chiều thứ Sáu sau 4h có trống ca nào làm dặm gel không?" },
+        { participant: 'Linh', text: "Got 4:30 PM with your name on it! French or solid color?", translation: "Còn đúng ca 4h30 dành riêng cho bạn nè! Làm French hay sơn màu trơn?" },
+        { participant: 'Chloe', text: "Solid burgundy! Book me in, sending $15 Venmo deposit now.", translation: "Màu đỏ rượu vang trơn nha! Chốt lịch giùm tớ, tớ chuyển cọc 15 đô qua Venmo liền." },
+        { participant: 'Linh', text: "Received and locked in! See you Friday at 4:30!", translation: "Nhận cọc rồi nha, hẹn bạn 4h30 thứ Sáu!" }
       ]
     }
   ],
@@ -346,46 +348,46 @@ export const BEAUTY_DIALOGUES_PART2: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'Formal Shift Schedule Reallocation & Weekend Coverage Discussion',
+      title: 'Specifying Hypoallergenic Formulations & Understated Aesthetics',
       participants: [
-        { name: 'Diane', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DianeSalonManager', role: 'General Manager' },
-        { name: 'Khoa', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KhoaTechShift', role: 'Senior Technician' }
+        { name: 'Julianne', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=JulianneClientWants', role: 'Executive Client' },
+        { name: 'Chloe', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ChloeMasterWants', role: 'Master Nail Stylist' }
       ],
       lines: [
-        { participant: 'Khoa', text: "Good morning, Diane. I would like to formally request an adjustment to my schedule for next weekend, October 21st and 22nd.", translation: "Chào chị Diane. Em xin phép gửi đề xuất điều chỉnh lịch làm việc cuối tuần tới, ngày 21 và 22 tháng 10 ạ." },
-        { participant: 'Diane', text: "Good morning, Khoa. As you know, Saturdays are our peak appointment volume with thirty bookings already scheduled. Do you have a coverage plan in place?", translation: "Chào Khoa. Như em biết, thứ Bảy là ngày cao điểm nhất của tiệm với hơn 30 lịch hẹn đã kín chỗ. Em đã có phương án người hỗ trợ đổi ca chưa?" },
-        { participant: 'Khoa', text: "Yes. I spoke with Jenny, and she has agreed to cover my full Saturday shift. In return, I will take her shifts on Monday and Tuesday during our regular restocking days.", translation: "Dạ có ạ. Em đã trao đổi với chị Jenny và chị ấy đồng ý làm thay toàn bộ ca thứ Bảy giúp em. Đổi lại, em sẽ làm bù cho chị ấy vào thứ Hai và thứ Ba trong ca kiểm kê hàng tuần ạ." },
-        { participant: 'Diane', text: "That ensures our station coverage remains uninterrupted. I will update the master scheduling software accordingly.", translation: "Phương án sắp xếp rất hợp lý, đảm bảo đủ nhân sự phục vụ khách. Chị sẽ cập nhật lên phần mềm phân ca chung của salon nhé." }
+        { participant: 'Julianne', text: "Chloe, before we proceed, I want to clarify my personal sensitivities: I have a proven dermatological allergy to HEMA monomers, and I strongly dislike pungent chemical odors.", translation: "Chloe này, trước khi tiến hành, tôi muốn nêu rõ cơ địa nhạy cảm của mình: tôi đã được bác sĩ da liễu xác nhận dị ứng với hoạt chất HEMA trong sơn gel, và tôi rất khó chịu với mùi hóa chất nồng nặc." },
+        { participant: 'Chloe', text: "Thank you for advising me, Julianne. We have dedicated HEMA-free, 10-Free hypoallergenic gel formulations specifically for sensitive clients, and our extraction filters eliminate all airborne vapors.", translation: "Dạ rất cảm ơn chị Julianne đã dặn trước ạ. Tiệm em có sẵn dòng sản phẩm gel hữu cơ không chứa HEMA, đạt chuẩn lành tính 10-Free dành riêng cho khách có cơ địa mẫn cảm, và máy hút mùi sẽ khử sạch toàn bộ hơi dung môi ạ." },
+        { participant: 'Julianne', text: "Wonderful. Furthermore, regarding aesthetic preference, I work in corporate finance, so I require a short, understated squoval silhouette in a translucent neutral pink. No exaggerated length or excessive embellishment.", translation: "Tuyệt vời. Ngoài ra về sở thích thẩm mỹ, tôi làm việc trong ngành tài chính doanh nghiệp nên chỉ cần phom móng vuông bầu ngắn tự nhiên, màu hồng thạch bán trong suốt trang nhã. Tuyệt đối không làm móng quá dài hay đính đá cầu kỳ nhé." },
+        { participant: 'Chloe', text: "Understood completely. Understated elegance with maximum dermatological safety will be our guiding principle for your set.", translation: "Dạ em hiểu trọn vẹn ý chị rồi ạ. Vẻ đẹp thanh lịch tinh tế đi đôi với sự an toàn tuyệt đối cho làn da sẽ là tiêu chuẩn số một cho bộ móng của chị." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Friendly Coworker Swap for a Family Gathering',
+      title: 'Explaining Sensitive Skin & Requesting Short Practical Almond Shape',
       participants: [
-        { name: 'Jenny', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=JennySwap', role: 'Technician' },
-        { name: 'Bao', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=BaoSwap', role: 'Technician' }
+        { name: 'Nga', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=NgaTechPreferences', role: 'Nail Technician' },
+        { name: 'Kendra', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KendraClientPreferences', role: 'Client' }
       ],
       lines: [
-        { participant: 'Bao', text: "Hey Jenny! Are you free next Friday evening? My cousin is having her engagement party and I'm desperate to make it.", translation: "Jenny ơi! Chiều tối thứ Sáu tuần sau bạn có rảnh không? Em họ mình tổ chức tiệc đính hôn mà mình tha thiết muốn đi dự quá nè." },
-        { participant: 'Jenny', text: "Oh, congratulations to your cousin! I'm actually free from 3:00 PM onward. Could you take my Sunday morning shift in exchange?", translation: "Ôi chúc mừng em họ bạn nha! Thực ra từ 3 giờ chiều trở đi mình rảnh nè. Đổi lại bạn làm giúp mình ca sáng Chủ nhật được không?" },
-        { participant: 'Bao', text: "Sunday morning works completely fine for me! I'll tell the manager right away so she can sign off on our switch.", translation: "Sáng Chủ nhật mình làm hoàn toàn tiện luôn! Để mình báo quản lý liền để chị ấy duyệt đổi ca cho tụi mình nhé." },
-        { participant: 'Jenny', text: "Awesome! Have fun at the engagement party, Bao!", translation: "Tuyệt quá! Đi tiệc đính hôn vui vẻ nha Bao ơi!" }
+        { participant: 'Kendra', text: "Hey Nga! Before you start filing, I just want to mention that I'm a dental hygienist, so I wear tight latex gloves all day. I need my nails kept super short so they don't tear my gloves!", translation: "Nga ơi! Trước khi bạn giũa móng, mình xin dặn trước là mình làm nha tá nên cả ngày phải đeo găng tay cao su y tế bó sát. Bạn làm móng thật ngắn giúp mình để không bị rách găng nhé!" },
+        { participant: 'Nga', text: "Good to know, Kendra! How about a soft, rounded almond that aligns perfectly with your fingertip cushion?", translation: "Hay quá bạn dặn kịp lúc nè Kendra! Vậy mình bo tròn dáng hạnh nhân mềm mại vừa khít bằng đầu ngón tay bạn nhé?" },
+        { participant: 'Kendra', text: "That sounds ideal! Also, my skin flares up if acetone touches my cuticles too long. Can you use foil wraps instead of dipping my whole fingers in a bowl?", translation: "Nghe hợp lý quá chừng! Ngoài ra da mình rất dễ bị kích ứng mẩn đỏ nếu ngâm acetone lâu. Bạn ủ móng bằng giấy bạc giùm mình thay vì ngâm cả bàn tay vào tô nước tháo được không?" },
+        { participant: 'Nga', text: "100%! Foil wraps with cotton pads keep the acetone strictly on the nail plate without soaking your surrounding skin. I'll take extra good care of you!", translation: "100% nhất trí luôn! Quấn giấy bạc kẹp bông gòn sẽ giữ dung dịch đúng trên bề mặt móng mà không làm ngấm vào vùng da xung quanh. Bạn cứ yên tâm để mình chăm sóc chu đáo nhé!" }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Quick Shift Cover Text',
+      title: 'Fast Allergy & Short Nail Preference Ping',
       participants: [
-        { name: 'Linh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LinhShiftText', role: 'Tech' },
-        { name: 'Chloe', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ChloeShiftText', role: 'Tech' }
+        { name: 'Mai', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MaiAllergyText', role: 'Tech' },
+        { name: 'Taylor', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TaylorShortNails', role: 'Client' }
       ],
       lines: [
-        { participant: 'Chloe', text: "Linh! Can you take my 2pm client tomorrow? Got a dentist emergency.", translation: "Linh ơi! Chiều mai 2h nhận khách giúp tớ được không? Tớ bị đau răng đột xuất phải đi khám." },
-        { participant: 'Linh', text: "No problem, got you covered! Gel or full set?", translation: "Không sao, để tớ lo! Khách làm gel hay đắp bột trọn bộ?" },
-        { participant: 'Chloe', text: "Simple gel mani. You're a life saver!", translation: "Móng gel đơn giản thôi à. Cứu tinh của đời tớ ơi!" },
-        { participant: 'Linh', text: "Feel better soon, leave it to me!", translation: "Mau khỏe răng nha, cứ yên tâm để tớ!" }
+        { participant: 'Taylor', text: "Mai! Need super short natural square today, typing all week!", translation: "Mai ơi! Hôm nay làm móng vuông tự nhiên ngắn cũn giùm tớ nha, tuần này gõ máy tính tối mặt!" },
+        { participant: 'Mai', text: "Short and sporty, got it! Still doing the low-tox nude?", translation: "Ngắn gọn thể thao, hiểu bài liền! Vẫn dùng sơn nude hữu cơ lành tính chứ?" },
+        { participant: 'Taylor', text: "Yes please, my sensitive cuticles love that gentle formula.", translation: "Chuẩn luôn, da khóe nhạy cảm của tớ chỉ ưng mỗi loại êm dịu đó thôi." },
+        { participant: 'Mai', text: "Bottle prepped and ready for you!", translation: "Chai sơn đã sẵn sàng trên bàn cho bạn rồi nha!" }
       ]
     }
   ],
@@ -394,46 +396,47 @@ export const BEAUTY_DIALOGUES_PART2: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'Quarterly Inventory Audit & Bulk Supplier Procurement',
+      title: 'Diplomatic Real-Time Symmetry Adjustment during Enhancement Sculpting',
       participants: [
-        { name: 'Brandon', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=BrandonProcure', role: 'Procurement Director' },
-        { name: 'Nga', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=NgaInventoryLead', role: 'Lead Technician' }
+        { name: 'Charlotte', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=CharlotteVIPAdjust', role: 'VIP Client' },
+        { name: 'Julian', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=JulianMasterAdjust', role: 'Master Nail Artist' }
       ],
       lines: [
-        { participant: 'Brandon', text: "Nga, let's review the stock audit report before I place our quarterly wholesale order with OPI and Kiara Sky.", translation: "Nga ơi, tụi mình cùng rà soát lại báo cáo kiểm kê kho trước khi anh đặt đơn hàng bán buôn quý này với hãng OPI và Kiara Sky nhé." },
-        { participant: 'Nga', text: "Yes, Brandon. We have ample 100/180 grit disposable files, but our reserve of acetone, alcohol wipes, and #000 detail nail art brushes is critically low.", translation: "Dạ vâng anh Brandon. Giũa dùng một lần độ nhám 100/180 thì còn dồi dào, nhưng lượng cồn lau, nước ngâm tháo acetone và cọ tỉa nét số #000 đang ở mức báo động thấp ạ." },
-        { participant: 'Brandon', text: "I will order twenty gallons of pure acetone and four bulk cases of fine brushes. How are our top-selling nude gel polishes holding up?", translation: "Anh sẽ đặt 20 gallon acetone nguyên chất và 4 thùng cọ tỉa nét. Còn các màu sơn gel nude bán chạy nhất thì số lượng trong kho thế nào em?" },
-        { participant: 'Nga', text: "Shades 'Bubble Bath' and 'Funny Bunny' are nearly depleted due to the wedding season rush. We need at least fifteen bottles of each.", translation: "Hai mã màu 'Bubble Bath' và 'Funny Bunny' gần như cạn kiệt do khách làm tiệc cưới quá đông ạ. Mình cần bổ sung ít nhất 15 chai cho mỗi màu ạ." }
+        { participant: 'Charlotte', text: "Pardon me, Julian, before you place my left hand under the UV lamp: observing the side profile, the structural apex on the ring finger appears slightly higher than the middle finger.", translation: "Xin lỗi anh Julian một chút, trước khi đưa tay trái vào đèn hơ UV: tôi ngắm góc nghiêng thì thấy điểm uốn chịu lực (apex) ở ngón đeo nhẫn có vẻ hơi gồ cao hơn so với ngón giữa." },
+        { participant: 'Julian', text: "Thank you for alerting me immediately, Mrs. Charlotte. Let me examine the lateral arch at eye level. Yes, you have a very keen eye; there is a fractional surplus of builder gel near the stress zone.", translation: "Rất cảm ơn bà Charlotte đã nhắc em ngay lúc này ạ. Để em nâng ngang tầm mắt kiểm tra vòm cong bên sườn móng. Dạ đúng rồi, mắt bà nhìn chuẩn xác quá ạ; ở vùng chịu lực đang hơi dư một lượng gel rất nhỏ." },
+        { participant: 'Charlotte', text: "Could we feather that down smoothly so the contour matches the rest of the hand?", translation: "Anh có thể dùng cọ vuốt mỏng nhẹ bớt phần đó để đường cong đồng đều với các ngón khác được không?" },
+        { participant: 'Julian', text: "Certainly. I will use a dry detailing brush to redistribute the resin before curing. Please inspect it now—is that curve completely balanced to your satisfaction?", translation: "Dạ chắc chắn rồi ạ. Em dùng cọ tỉa khô để vuốt đều lượng gel trước khi cho vào hơ đèn. Xin mời bà xem lại ạ—đường cong như vậy đã đạt độ cân đối hoàn hảo theo ý bà chưa ạ?" }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Restocking the Station Cart before the Afternoon Rush',
+      title: 'Politely Speaking Up to Straighten a Crooked Tip while Tech is Filing',
       participants: [
-        { name: 'Vy', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=VyCart', role: 'Technician' },
-        { name: 'Amy', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AmyRestock', role: 'Technician' }
+        { name: 'Jessica', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=JessicaTweaks', role: 'Client' },
+        { name: 'Vy', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=VyTechTweaks', role: 'Technician' }
       ],
       lines: [
-        { participant: 'Vy', text: "Amy, I'm heading back to the storage supply room to grab more lint-free wipes. Do you need anything for your station?", translation: "Amy ơi, mình chuẩn bị ra phòng kho lấy thêm bông lau không xơ nè. Bàn bạn có thiếu đồ gì cần mình lấy hộ không?" },
-        { participant: 'Amy', text: "Oh, you're the best! Could you grab me two bottles of non-wipe top coat and a pack of orange wood sticks?", translation: "Ôi bạn tuyệt vời quá! Bạn lấy giùm mình hai chai sơn bóng không cần lau cồn với một bịch que gỗ đẩy khóe nhé?" },
-        { participant: 'Vy', text: "Sure thing! Are we running low on cuticle oil dropper bottles at the front desk too?", translation: "Được chứ! Dưới quầy tiếp tân chai nhỏ giọt dầu dưỡng viền móng có sắp hết luôn không bạn nhỉ?" },
-        { participant: 'Amy', text: "I checked earlier, there are only three lavender bottles left on the retail shelf. Definitely grab a box of those too!", translation: "Hồi nãy mình xem thấy trên kệ bán lẻ chỉ còn đúng 3 chai hương oải hương thôi. Tiện tay bạn xách thêm một hộp ra luôn nha!" }
+        { participant: 'Jessica', text: "Hey Vy, do you mind if I pause you for just a second? Looking down my pointer finger, the right corner seems to lean slightly tilted to the right.", translation: "Vy ơi, mình xin phép ngắt lời bạn một giây được không nè? Nhìn dọc theo ngón trỏ, mình thấy góc bên phải hơi bị xéo nghiêng về phía bên phải một tí xíu." },
+        { participant: 'Vy', text: "Oh, please speak up anytime, Jessica! Flip your hand over towards you so we can view it from your natural vantage point. Which side needs taking in?", translation: "Ôi bạn cứ tự nhiên góp ý bất cứ lúc nào nha Jessica! Bạn lật bàn tay hướng về phía bạn để tụi mình cùng nhìn theo góc mắt hàng ngày của bạn nè. Cạnh bên nào cần dũa bớt bạn ơi?" },
+        { participant: 'Jessica', text: "Just two light swipes on the outside edge right here, so it points straight down my knuckle.", translation: "Chỉ cần dũa nhẹ hai đường ở mép ngoài chỗ này thôi nè, để móng thẳng tắp theo khớp đốt ngón tay là đẹp." },
+        { participant: 'Vy', text: "There you go—two light passes! How does that alignment look now?", translation: "Xong liền đây bạn—hai đường dũa êm ru! Nhìn lại xem đã thẳng tắp chưa bạn ơi?" },
+        { participant: 'Jessica', text: "Much better! Thank you for being so receptive and sweet about it.", translation: "Thẳng đẹp hơn hẳn rồi! Cảm ơn bạn vì đã rất vui vẻ và nhiệt tình lắng nghe khách nhé." }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Fast Top Coat Check',
+      title: 'Fast Mid-Filing Tweak & Shape Check',
       participants: [
-        { name: 'Tim', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TimSupplies', role: 'Tech' },
-        { name: 'Linh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LinhTopCoat', role: 'Tech' }
+        { name: 'Danielle', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DanielleTweak', role: 'Client' },
+        { name: 'Kylie', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KylieTechTweak', role: 'Tech' }
       ],
       lines: [
-        { participant: 'Tim', text: "Linh, where's the box of matte top coats?", translation: "Linh ơi, thùng sơn bóng mờ để ở góc nào vậy?" },
-        { participant: 'Linh', text: "Bottom shelf right behind the autoclave machine!", translation: "Ngăn kệ dưới cùng ngay sau cái máy hấp tiệt trùng nha!" },
-        { participant: 'Tim', text: "Got it, thanks!", translation: "Tìm thấy rồi, cảm ơn nhé!" },
-        { participant: 'Linh', text: "Grab two while you're there!", translation: "Tiện tay cầm ra hai chai luôn nha!" }
+        { participant: 'Danielle', text: "Wait Kylie, can you round that left corner a tiny bit more?", translation: "Khoan đã Kylie ơi, bo tròn góc bên trái thêm tí xíu nữa được không?" },
+        { participant: 'Kylie', text: "One file swipe right here—how's that?", translation: "Một đường dũa lướt qua chỗ này nè—thấy ưng chưa bạn?" },
+        { participant: 'Danielle', text: "Yes! Perfectly even with the other thumb.", translation: "Chuẩn luôn! Đều tăm tắp với ngón cái bên kia rồi." },
+        { participant: 'Kylie', text: "Love when you speak up! Top coat time.", translation: "Thích nhất là khách cứ góp ý thẳng thắn thế này! Lên nước bóng thôi." }
       ]
     }
   ],
@@ -442,47 +445,48 @@ export const BEAUTY_DIALOGUES_PART2: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'State Board Sanitation Audit & Autoclave Log Verification',
+      title: 'Assertive Warranty Dispute Resolution for Premature Lifting & Peeling',
       participants: [
-        { name: 'Inspector Vance', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=InspectorVance', role: 'State Board Inspector' },
-        { name: 'Mai', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MaiSalonOwner', role: 'Salon Owner' }
+        { name: 'Mrs. Kensington', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KensingtonComplaint', role: 'Executive Client' },
+        { name: 'Tram', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TramManagerWarranty', role: 'Salon General Manager' }
       ],
       lines: [
-        { participant: 'Inspector Vance', text: "Good afternoon. I am Inspector Vance from the State Board of Cosmetology conducting a routine unannounced sanitary inspection.", translation: "Xin chào. Tôi là Thanh tra Vance từ Hội đồng Thẩm mỹ Bang đến thực hiện đợt kiểm tra vệ sinh an toàn định kỳ không báo trước." },
-        { participant: 'Mai', text: "Good afternoon, Inspector Vance. You are very welcome to inspect our facility. All licenses and safety postings are framed in the entrance foyer.", translation: "Kính chào Thanh tra Vance. Xin mời ông kiểm tra toàn bộ cơ sở của chúng tôi ạ. Toàn bộ chứng chỉ hành nghề và bảng thông báo an toàn đều được lồng khung niêm yết tại sảnh chính ạ." },
-        { participant: 'Inspector Vance', text: "Thank you. Let us inspect your wet disinfectant Barbicide solutions, your single-use disposable implement protocol, and the monthly autoclave spore test records.", translation: "Cảm ơn cô. Chúng tôi sẽ kiểm tra dung dịch ngâm khử trùng Barbicide, quy trình xử lý dụng cụ dùng một lần và sổ theo dõi kiểm tra bào tử máy hấp tiệt trùng hàng tháng." },
-        { participant: 'Mai', text: "Here is our dated autoclave spore test binder, certified by an independent laboratory. Our Barbicide jars are refreshed every morning, and all metal implements are sealed in sterile pouches.", translation: "Dạ đây là sổ lưu kết quả kiểm định máy hấp tiệt trùng có chứng nhận của phòng xét nghiệm độc lập. Các bình ngâm Barbicide đều được thay mới mỗi sáng, và toàn bộ dụng cụ kim loại đều được đóng gói trong túi ép vô trùng ạ." },
-        { participant: 'Inspector Vance', text: "Your documentation and operational hygiene standards are exemplary, Mai. Full marks across all compliance categories.", translation: "Hồ sơ và tiêu chuẩn vệ sinh thực tế của salon cô đạt mức mẫu mực. Đạt điểm tối đa trong tất cả các hạng mục kiểm định." }
+        { participant: 'Mrs. Kensington', text: "Good morning. I had a full acrylic and gel overlay completed here seventy-two hours ago, and three fingers have developed noticeable lifting along the proximal fold. This is well within your stated 7-day guarantee.", translation: "Chào cô. Tôi vừa làm trọn bộ móng bột phủ gel tại đây 72 giờ trước, mà hiện tại ba ngón đã bị bong mép rõ rệt dọc theo chân móng. Tình trạng này hoàn toàn nằm trong chính sách bảo hành 7 ngày bằng văn bản của salon." },
+        { participant: 'Tram', text: "Good morning, Mrs. Kensington. Please accept our apologies. Premature lifting on day three indicates an inadequate dehydrator prep, which falls squarely under our quality warranty.", translation: "Dạ kính chào bà Kensington. Em xin thành thật cáo lỗi cùng bà ạ. Móng bị bong mép vào ngày thứ ba chứng tỏ khâu khử dầu làm sạch bề mặt móng chưa đạt chuẩn, và trường hợp này hoàn toàn thuộc phạm vi bảo hành chất lượng của bên em ạ." },
+        { participant: 'Mrs. Kensington', text: "I expect either a complete complimentary reapplication by a senior master or a full credit refund to my card.", translation: "Tôi yêu cầu một là chuyên viên cao cấp phải làm lại mới hoàn toàn miễn phí cho tôi, hai là hoàn lại toàn bộ số tiền vào thẻ của tôi." },
+        { participant: 'Tram', text: "We will seat you immediately with our head artistic director, Michelle, to completely redo the affected nails at zero charge, and we have credited a thirty-dollar voucher to your account for the inconvenience.", translation: "Dạ ngay bây giờ em xin mời bà vào ghế để Giám đốc nghệ thuật Michelle trực tiếp làm lại mới hoàn toàn miễn phí các ngón bị bong, đồng thời bên em đã cộng thêm một voucher 30 đô vào tài khoản của bà để bù đắp sự phiền hà này ạ." },
+        { participant: 'Mrs. Kensington', text: "That is an upright and highly professional resolution. Thank you, Tram.", translation: "Cách xử lý rất có trách nhiệm và vô cùng chuyên nghiệp. Cảm ơn cô Tram." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Explaining Sterile Tool Pouches to an Anxious Client',
+      title: 'Politely Requesting a Quick Fix for Chipped Gel under Salon Redo Policy',
       participants: [
-        { name: 'Khang', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KhangSterile', role: 'Technician' },
-        { name: 'Laura', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LauraClientClean', role: 'Client' }
+        { name: 'Amanda', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AmandaRedo', role: 'Client' },
+        { name: 'Phuong', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=PhuongTechRedo', role: 'Nail Technician' }
       ],
       lines: [
-        { participant: 'Laura', text: "Khang, before you start on my cuticles, do you mind me asking how these metal clippers are cleaned? I caught an infection years ago at a cheap mall shop.", translation: "Khang ơi, trước khi nhặt da khóe móng, cho mình hỏi kềm kéo kim loại này được vệ sinh thế nào vậy? Cách đây vài năm mình từng bị nhiễm trùng ở một tiệm ngoài chợ nên giờ sợ lắm." },
-        { participant: 'Khang', text: "I'm so glad you asked, Laura! Your health is everything to us. Look at this pouch right here: see how this indicator mark turned from pink to brown? That means it went through high-pressure medical autoclave sterilization at 270 degrees.", translation: "Mình rất mừng vì bạn đã chủ động hỏi nha Laura! Sức khỏe của khách là số một đối với tiệm. Bạn nhìn chiếc túi này xem: vạch chỉ thị màu hồng đã chuyển hẳn sang màu nâu rồi đúng không nè? Điều đó chứng tỏ bộ kềm này đã được tiệt trùng trong lò hấp y tế áp suất cao ở 270 độ C đó." },
-        { participant: 'Laura', text: "And you're opening the sealed pouch right in front of me! That is so reassuring.", translation: "Và bạn còn xé niêm phong túi vô trùng ngay trước mặt mình nữa! Thật sự an tâm vô cùng." },
-        { participant: 'Khang', text: "Always fresh, every single client, zero exceptions! We also use brand-new nail files and buffers that we throw away or let you take home.", translation: "Luôn luôn vô trùng mới cho từng khách hàng, không bao giờ có ngoại lệ! Cây giũa và phao mài này cũng là đồ mới toanh, làm xong bạn có thể mang về hoặc tụi mình bỏ thùng rác luôn." }
+        { participant: 'Amanda', text: "Hi Phuong! I had my nails done here on Wednesday, but yesterday while I was typing at work, the gel on my index finger chipped right off the corner. Your card says free fixes within five days, right?", translation: "Chào Phuong! Mình vừa làm móng ở đây hôm thứ Tư, mà hôm qua lúc đang gõ máy tính ở cơ quan thì lớp gel ở ngón trỏ bị mẻ mất một góc rồi. Trên danh thiếp của tiệm có ghi sửa miễn phí trong vòng 5 ngày đúng không bạn?" },
+        { participant: 'Phuong', text: "Hi Amanda! Yes, absolutely! Within five days, any chip or lift is 100% covered and completely free. Did the natural nail break underneath?", translation: "Chào bạn Amanda! Dạ chuẩn luôn bạn ơi! Trong vòng 5 ngày mọi vết mẻ hay bong tróc đều được bảo hành 100% miễn phí hoàn toàn nha. Móng thật ở dưới có bị gãy dập gì không bạn?" },
+        { participant: 'Amanda', text: "No, the nail plate is intact, just the polish peeled away.", translation: "May quá không, móng thật vẫn nguyên vẹn, chỉ có lớp sơn gel bị tróc góc thôi." },
+        { participant: 'Phuong', text: "Great! Hop in my chair right now. I'll buff it, reapply base and color, and cure it double so it stays locked. It will take less than ten minutes!", translation: "Tuyệt vời! Bạn qua ghế mình ngồi liền nhé. Mình sẽ mài êm, sơn lại lớp lót với màu rồi hơ đèn kỹ gấp đôi để bám thật chắc. Chỉ mất chưa đầy 10 phút là xong ngay!" },
+        { participant: 'Amanda', text: "Thank you so much, Phuong! I love that you guys stand by your work without any hassle.", translation: "Cảm ơn bạn Phuong nhiều nha! Mình rất thích việc tiệm luôn có trách nhiệm với dịch vụ mà không hề gây khó dễ gì cho khách." }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Quick Pouch Unseal at the Desk',
+      title: 'Quick Chipped Nail DM & Same-Day Redo',
       participants: [
-        { name: 'Cindy', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=CindyPouch', role: 'Tech' },
-        { name: 'Gwen', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=GwenClean', role: 'Client' }
+        { name: 'Claire', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ClaireDMRedo', role: 'Client' },
+        { name: 'Tina', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TinaTechFixRedo', role: 'Tech' }
       ],
       lines: [
-        { participant: 'Cindy', text: "Hear that rip? Fresh sterile nippers unsealed just for you!", translation: "Nghe tiếng xé túi không nào? Kềm tiệt trùng mới toanh dành riêng cho bạn nè!" },
-        { participant: 'Gwen', text: "Love that sound, always makes me feel safe here.", translation: "Thích nghe âm thanh đó ghê, lúc nào làm ở đây cũng thấy an tâm." },
-        { participant: 'Cindy', text: "Your hands deserve the cleanest care!", translation: "Bàn tay ngọc ngà phải được chăm sóc sạch nhất chứ lị!" },
-        { participant: 'Gwen', text: "Amen to that!", translation: "Chuẩn không cần chỉnh!" }
+        { participant: 'Claire', text: "Tina! Thumbnail chipped on day 2 opening a drawer! Free redo slot today?", translation: "Tina ơi! Móng ngón cái mới ngày thứ 2 mở ngăn kéo đã bị mẻ rồi! Hôm nay có ca nào ghé qua sửa miễn phí không bạn?" },
+        { participant: 'Tina', text: "Omg so sorry! Free fix on the house, slide in at 4:15 between clients!", translation: "Trời ơi xin lỗi bạn nha! Bảo hành miễn phí hoàn toàn, 4h15 tranh thủ ghé qua tớ dặm lại liền!" },
+        { participant: 'Claire', text: "Lifesaver, see you at 4:15!", translation: "Cứu tinh ơi, 4h15 tớ có mặt nhé!" },
+        { participant: 'Tina', text: "Got the polish bottle ready!", translation: "Chuẩn bị sẵn chai sơn chờ bạn rồi nè!" }
       ]
     }
   ],

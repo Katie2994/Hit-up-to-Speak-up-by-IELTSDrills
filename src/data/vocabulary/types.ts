@@ -43,7 +43,7 @@ export type Topic = {
     lines: { participant: string; text: string; translation?: string }[];
   }[];
   howToSpeak?: {
-    type: 'chunking' | 'intonation' | 'stress' | 'connected_speech';
+    type: 'chunking' | 'intonation' | 'stress' | 'connected_speech' | 'ipa_vowels' | 'ipa_consonants' | 'ending_sounds' | 'minimal_pairs';
     title: string;
     description: string;
     theory?: string; // Additional detailed explanation
@@ -54,6 +54,16 @@ export type Topic = {
       chunks?: { text: string; pause: boolean }[];
       // For intonation/stress: the sentence divided into words with pitch markers
       words?: { text: string; pitch?: 'rising' | 'falling' | 'flat'; stress?: boolean; linkToNext?: boolean }[];
+      // For IPA sounds, ending sounds & minimal pairs
+      sound?: string;
+      ipa?: string;
+      mouthShape?: string;
+      rule?: string;
+      tip?: string;
+      examples?: { word: string; ipa: string; translation: string }[];
+      pairA?: { word: string; ipa: string; translation: string };
+      pairB?: { word: string; ipa: string; translation: string };
+      note?: string;
     }[];
   }[];
 };

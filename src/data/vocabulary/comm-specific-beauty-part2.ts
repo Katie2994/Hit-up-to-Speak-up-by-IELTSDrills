@@ -418,5 +418,114 @@ export const specificBeautyPart2: Topic[] = [
         ]
       }
     ]
+  },
+  {
+    id: 'beauty-22',
+    title: 'Aftercare, Maintenance & Touch-up Bookings',
+    vietnameseTitle: 'Hướng dẫn Chăm sóc Sau Dịch vụ & Đặt Hẹn Dặm Móng/Mi',
+    category: 'Communication',
+    subCategory: ['For Beauty Professionals'],
+    icon: '🧴',
+    color: '#F06292',
+    description: 'Tư vấn quy trình chăm sóc tại nhà (cuticle oil, tránh ngâm nước nóng, không tự cạy bóc), bảo vệ độ bền của mi nối và móng gel, hướng dẫn lịch hẹn dặm định kỳ (refill/touch-up) và chốt lịch tái khám trước khi khách rời tiệm.',
+    words: [
+      { id: 'b22-1', word: 'Aftercare', ipa: '/ˈɑːftəkeə(r)/', definition: 'Quy trình và chỉ dẫn chăm sóc tại nhà sau dịch vụ làm đẹp', translation: 'Chăm sóc sau liệu trình', example: 'Following proper aftercare keeps your lashes looking pristine.', blankSentence: 'We provide an easy checklist for your daily home ____.', emoji: '📋' },
+      { id: 'b22-2', word: 'Cuticle oil', ipa: '/ˈkjuːtɪkl ɔɪl/', definition: 'Dầu dưỡng ẩm viền móng chống khô nứt và bong tróc', translation: 'Dầu dưỡng viền móng', example: 'Apply a drop of cuticle oil every evening before sleep.', blankSentence: 'Massage this fragrant ____ into your nails daily.', emoji: '💧' },
+      { id: 'b22-3', word: 'Refill / Touch-up', ipa: '/ˈriːfɪl / ˈtʌtʃ ʌp/', definition: 'Buổi hẹn dặm lại phần móng mọc dài ra hoặc mi rụng thưa', translation: 'Lịch dặm móng/mi', example: 'We recommend coming back for a refill every three weeks.', blankSentence: 'Book your lash ____ before the weekend rush.', emoji: '💅' },
+      { id: 'b22-4', word: 'Avoid soaking', ipa: '/əˈvɔɪd ˈsəʊkɪŋ/', definition: 'Tránh ngâm lâu trong nước nóng hoặc hóa chất tẩy rửa', translation: 'Tránh ngâm nước', example: 'Avoid soaking your hands in hot water for the first twenty-four hours.', blankSentence: 'Please ____ in hot tubs to protect the gel bond.', emoji: '🚫' },
+      { id: 'b22-5', word: 'Rubber gloves', ipa: '/ˈrʌbə ɡlʌvz/', definition: 'Găng tay cao su bảo hộ khi rửa chén, giặt giũ', translation: 'Găng tay cao su', example: 'Always wear rubber gloves when doing house cleaning.', blankSentence: 'Protect your fresh manicure by wearing ____ for dishes.', emoji: '🧤' },
+      { id: 'b22-6', word: 'Peel off', ipa: '/piːl ɒf/', definition: 'Tự ý cạy bóc lớp sơn gel làm xước hỏng móng thật', translation: 'Cạy bóc móng', example: 'Never peel off gel polish because it damages the natural nail bed.', blankSentence: 'Do not ____ chipped edges; come in for a quick fix.', emoji: '⚠️' },
+      { id: 'b22-7', word: 'Spoolie brush', ipa: '/ˈspuːli brʌʃ/', definition: 'Cây cọ chuốt mi chuyên dụng chải tơi hàng mi nối', translation: 'Cọ chải mi spoolie', example: 'Use this complimentary spoolie brush to comb your lashes gently.', blankSentence: 'Keep this mini ____ in your purse for daily styling.', emoji: '🪄' },
+      { id: 'b22-8', word: 'Sunscreen protection', ipa: '/ˈsʌnskriːn prəˈtekʃn/', definition: 'Thoa kem chống nắng bảo vệ da sau peel hoặc chăm sóc da mặt', translation: 'Chống nắng bảo vệ', example: 'Apply SPF 50 sunscreen protection after your facial treatment.', blankSentence: 'Daily ____ is essential to prevent hyperpigmentation.', emoji: '☀️' }
+    ],
+    structures: [
+      {
+        id: 'str122-1',
+        phrase: 'To ensure your set lasts as long as possible, please apply cuticle oil daily.',
+        meaning: 'Hướng dẫn khách thoa dầu dưỡng viền móng hàng ngày để móng mềm dẻo, bền lâu.',
+        vietnamese: 'Để bộ móng giữ được lâu nhất có thể, chị nhớ thoa dầu dưỡng viền móng mỗi ngày nhé.',
+        business: { phrase: 'To preserve the durability and shine of your manicure, we strongly recommend applying cuticle oil twice daily.', example: 'To ensure your set lasts, please apply cuticle oil daily.', translation: 'Để duy trì độ bóng và độ bền tối đa của bộ móng, em khuyên chị nên thoa dầu dưỡng viền móng 2 lần mỗi ngày ạ.' },
+        casualStyle: { phrase: 'Remember to rub some cuticle oil around your nails every night so they stay healthy and flexible!', example: 'Apply cuticle oil daily to keep your cuticles soft and hydrated.', translation: 'Nhớ xoa chút dầu dưỡng viền móng mỗi tối để móng luôn dẻo dai và không bị khô xước nha chị!' },
+        superCasual: { phrase: 'Oil those cuticles daily, girl! It makes the gel last way longer.', example: 'Drop cuticle oil every night, no cap!', translation: 'Nhớ nhỏ dầu dưỡng viền móng mỗi tối nha, móng bền xỉu luôn á!' }
+      },
+      {
+        id: 'str122-2',
+        phrase: 'Please avoid hot baths, saunas, and steam for the first 24 to 48 hours.',
+        meaning: 'Cảnh báo khách tránh nhiệt độ cao và hơi nước nóng trong 24-48 giờ đầu.',
+        vietnamese: 'Chị vui lòng tránh tắm nước quá nóng, xông hơi trong vòng 24 đến 48 giờ đầu nhé.',
+        business: { phrase: 'Kindly refrain from prolonged exposure to hot water, saunas, or excessive steam during the initial 48 hours.', example: 'Please avoid hot baths and saunas for the first 48 hours.', translation: 'Quý khách vui lòng tránh tiếp xúc lâu với nước nóng, phòng xông hơi trong 48 giờ đầu tiên ạ.' },
+        casualStyle: { phrase: 'Try not to take super steamy showers or soak in hot tubs for the next couple days so the adhesive cures fully.', example: 'Avoid steamy hot showers for 24 hours, okay?', translation: 'Ráng tránh tắm nước nóng quá hay ngâm bồn trong vài ngày tới để keo kịp khô hoàn toàn nha chị.' },
+        superCasual: { phrase: 'No hot steam or saunas for two days, keep \'em dry!', example: 'No hot showers today, keep them dry!', translation: 'Hai ngày đầu đừng xông hơi hay tắm nước nóng nghen, giữ khô ráo nhen!' }
+      },
+      {
+        id: 'str122-3',
+        phrase: 'If you notice a chip, please do not peel it off yourself—come in for a free touch-up.',
+        meaning: 'Khuyên khách không tự bóc móng mẻ mà ghé tiệm để thợ chỉnh sửa an toàn.',
+        vietnamese: 'Nếu móng có bị mẻ góc, chị đừng tự cạy bóc nhé—hãy ghé lại tiệm để em sửa dặm miễn phí cho chị.',
+        business: { phrase: 'Should any premature chipping occur, please refrain from peeling it. Contact our reception for a complimentary repair.', example: 'If any nail chips, do not peel it. We offer complimentary repairs.', translation: 'Nếu chẳng may có góc móng bị mẻ sớm, chị chớ tự bóc nhé. Hãy liên hệ tiệm để được sửa miễn phí ạ.' },
+        casualStyle: { phrase: 'If anything snags or chips, promise me you won\'t peel it off! Just swing by and I\'ll fix it up in five minutes.', example: 'Don\'t peel it off if it chips! Stop by and I’ll touch it up.', translation: 'Lỡ có vấp mẻ ngón nào thì hứa với em đừng cạy nha! Cứ tạt qua tiệm 5 phút em dặm lại mướt rượt liền.' },
+        superCasual: { phrase: 'Don\'t rip \'em off! Run to me, I\'ll touch it up for free.', example: 'Never peel chipped nails, come see me!', translation: 'Đừng tự lột nha má ơi! Chạy qua đây tui dặm lại cái một miễn phí nè.' }
+      },
+      {
+        id: 'str122-4',
+        phrase: 'We recommend scheduling your refill in about 2 to 3 weeks. Shall I secure your spot today?',
+        meaning: 'Chủ động tư vấn thời gian dặm móng/mi và chốt lịch tái khám tại quầy thu ngân.',
+        vietnamese: 'Em khuyên mình nên đặt lịch dặm lại sau khoảng 2 đến 3 tuần. Để em giữ chỗ trước cho chị luôn nhé?',
+        business: { phrase: 'For optimal nail health and structure balance, a refill is ideal within three weeks. May I schedule your reservation now?', example: 'A refill is recommended in two to three weeks. Shall I book it now?', translation: 'Để bảo đảm sức khỏe móng và cân bằng phom dáng, dặm lại sau 3 tuần là lý tưởng nhất. Em xin phép đặt lịch trước cho chị nhé?' },
+        casualStyle: { phrase: 'Your natural nails will grow out in about three weeks. Want me to lock in your next appointment right now so you don\'t have to wait?', example: 'Let’s book your refill for three weeks from today!', translation: 'Móng thật của chị mọc dài ra sau tầm 3 tuần á. Em chốt lịch lần tới cho chị luôn nha để khỏi phải chờ?' },
+        superCasual: { phrase: 'Book your refill now before my weekend calendar fills up!', example: 'Lock in your refill appointment before spots are gone!', translation: 'Chốt lịch dặm móng lần tới liền đi chị ơi kẻo cuối tuần kín mít lịch á!' }
+      }
+    ],
+    dialogues: [
+      {
+        type: 'pair',
+        title: 'Professional Salon Aftercare Briefing & Rebooking',
+        school: 'business',
+        participants: [
+          { name: 'Michelle', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MichellePro', role: 'Master Technician' },
+          { name: 'Victoria', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=VictoriaClient', role: 'Executive Client' }
+        ],
+        lines: [
+          { participant: 'Michelle', text: 'Victoria, your luxury ombre Gel-X set is all finished and looking stunning! Before you leave, allow me to share a few essential aftercare instructions.', translation: 'Chị Victoria ơi, bộ móng ombre Gel-X cao cấp của chị đã hoàn thiện và trông vô cùng lộng lẫy! Trước khi chị ra về, xin phép để em chia sẻ vài lưu ý chăm sóc quan trọng ạ.' },
+          { participant: 'Victoria', text: 'Thank you, Michelle, it looks absolutely breathtaking! What should I keep in mind to keep it in prime condition?', translation: 'Cảm ơn Michelle nhé, bộ móng đẹp nghẹt thở luôn á! Chị cần chú ý những gì để giữ móng ở trạng thái hoàn hảo nhất em nhỉ?' },
+          { participant: 'Michelle', text: 'First, please avoid submerging your hands in hot water or steam saunas for the next 24 hours. Second, apply this moisturizing cuticle oil every evening. And always wear rubber gloves when cleaning with detergents.', translation: 'Dạ thứ nhất, chị vui lòng tránh ngâm tay vào nước nóng hoặc đi xông hơi trong vòng 24 giờ tới nhé. Thứ hai, chị nhớ thoa dầu dưỡng viền móng ẩm mượt này mỗi tối. Và luôn đeo găng tay cao su khi tiếp xúc hóa chất tẩy rửa ạ.' },
+          { participant: 'Victoria', text: 'That sounds very manageable. When should I return for maintenance or a refill?', translation: 'Nghe rất dễ thực hiện. Khoảng khi nào thì chị nên quay lại để bảo dưỡng hoặc dặm lại móng vậy em?' },
+          { participant: 'Michelle', text: 'In about two and a half to three weeks, as your natural nail beds grow. I can reserve your preferred Friday afternoon slot right now at reception.', translation: 'Dạ khoảng 2 tuần rưỡi đến 3 tuần chị nhé, khi móng thật bắt đầu mọc dài ra. Em có thể giữ sẵn khung giờ chiều thứ Sáu quen thuộc cho chị ngay tại quầy lễ tân ạ.' },
+          { participant: 'Victoria', text: 'That would be fantastic. Book me for Friday the 15th at 3 p.m., please!', translation: 'Tuyệt vời quá em. Đặt giúp chị vào chiều thứ Sáu ngày 15 lúc 3 giờ nhé!' }
+        ]
+      },
+      {
+        type: 'pair',
+        title: 'Friendly Lash & Nail Home Maintenance Advice',
+        school: 'casual',
+        participants: [
+          { name: 'Chloe', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ChloeTech', role: 'Lash & Nail Stylist' },
+          { name: 'Ashley', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AshleyGuest', role: 'Client' }
+        ],
+        lines: [
+          { participant: 'Chloe', text: 'All done, Ashley! Check out your fluffy volume lashes in the mirror! Aren\'t they gorgeous?', translation: 'Xong xuôi hết rồi Ashley ơi! Ngắm hàng mi volume bồng bềnh trong gương nè! Xinh xỉu luôn đúng không?' },
+          { participant: 'Ashley', text: 'Oh my goodness, I am obsessed! They look so full and lightweight! How do I wash my face without ruining them?', translation: 'Trời ơi mê chữ ê kéo dài luôn á! Nhìn dày dặn mà nhẹ tênh à! Rửa mặt thế nào để không làm rụng mi vậy em?' },
+          { participant: 'Chloe', text: 'Keep them dry for the first 24 hours while the glue cures completely. Here is a free spoolie brush—comb them gently every morning, and only use oil-free makeup remover!', translation: 'Chị ráng giữ mi khô ráo trong 24 giờ đầu để keo khô hẳn nha. Tặng chị cây cọ chải spoolie này nè—sáng dậy chị chuốt nhẹ nhàng, và nhớ chỉ dùng nước tẩy trang không chứa dầu thôi nha!' },
+          { participant: 'Ashley', text: 'Got it, no oil-based cleansers. What about when some lashes shed over time?', translation: 'Chị nhớ rồi, không dùng đồ tẩy trang gốc dầu. Còn nếu theo thời gian mi rụng bớt thì sao em?' },
+          { participant: 'Chloe', text: 'Totally normal! As your natural lashes cycle, you will want a touch-up in 2 to 3 weeks. Let’s book your refill now before my weekend schedule gets packed!', translation: 'Chuyện bình thường luôn chị! Theo chu kỳ mi tự nhiên rụng thay mới, sau 2 đến 3 tuần chị ghé dặm lại nha. Để em xí lịch dặm trước cho chị luôn nha kẻo cuối tuần kín mít chỗ!' },
+          { participant: 'Ashley', text: 'Yes, please! Lock me in for two weeks from Saturday!', translation: 'Oke em ơi, chốt lịch cho chị vào thứ Bảy 2 tuần nữa nhé!' }
+        ]
+      },
+      {
+        type: 'pair',
+        title: 'Quick Register Rebooking & Gift Spoolie',
+        school: 'superCasual',
+        participants: [
+          { name: 'Cashier', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SalonSecret', role: 'Cashier' },
+          { name: 'Client', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ClientFast', role: 'Client' }
+        ],
+        lines: [
+          { participant: 'Cashier', text: 'Here’s your receipt and a cute glitter spoolie brush! Don’t pick at your fresh set, okay?', translation: 'Hóa đơn của chị đây kèm một cây cọ chuốt kim tuyến siêu cưng nha! Nhớ đừng tự cạy móng cạy mi nghen!' },
+          { participant: 'Client', text: 'Thanks babe! If a nail chips, what should I do?', translation: 'Cảm ơn cưng! Lỡ có mẻ ngón nào thì làm sao?' },
+          { participant: 'Cashier', text: 'Never peel it! Just text our Instagram or hotline, free touch-up within three days. Want me to book your refill now?', translation: 'Tuyệt đối đừng lột nha má! Nhắn tin Instagram hay hotline của tiệm, dặm lại miễn phí trong 3 ngày liền. Chốt lịch dặm lần tới luôn hông nè?' },
+          { participant: 'Client', text: 'Lock in two weeks from today at 5 p.m.! See ya!', translation: 'Chốt 2 tuần nữa lúc 5h chiều nhen! Bye cưng!' }
+        ]
+      }
+    ]
   }
 ];

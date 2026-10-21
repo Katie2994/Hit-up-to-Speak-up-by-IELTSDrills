@@ -20,6 +20,7 @@ import { phrasalTopics } from './vocabulary/vocab-phrasal';
 import { idTopics } from './vocabulary/vocab-id';
 import { fwTopics } from './vocabulary/vocab-fw';
 import { lwTopics } from './vocabulary/vocab-lw';
+import { hotelTopics } from './vocabulary/comm-hotel-hospitality';
 
 // Map original categories to the new type-safe categories
 const mapOldTopics = (topics: any[], category: string): Topic[] => {
@@ -39,7 +40,7 @@ export const VOCAB_TOPICS: Topic[] = [
   ...specificProfessionals,
   ...specificBeauty,
   ...specificFood,
-  ...specificTopics,
+  ...hotelTopics,
   ...slangTopics,
   ...mapOldTopics(lifeTopics, 'Life'),
   ...mapOldTopics(clTopics, 'Collocations'),

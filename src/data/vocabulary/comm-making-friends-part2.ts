@@ -183,36 +183,36 @@ export const makingFriendsPart2: Topic[] = [
   },
   {
     id: 'mf-15',
-    title: 'Handling Discriminatory Behavior & Verbal Harassment',
-    vietnameseTitle: 'Xử lý Kỳ thị & Quấy rối Ngôn từ',
+    title: 'Responding to Cultural Stereotypes & Biases',
+    vietnameseTitle: 'Ứng phó Định kiến & Lời lẽ Khiếm nhã',
     category: 'Communication',
     subCategory: ['Making Friends Abroad'],
-    icon: '🙅',
+    icon: '🛡️',
     color: '#E53E3E',
-    description: 'Cách ứng phó lạnh lùng dứt khoát trước những từ ngữ kỳ thị chủng tộc, body-shaming dơ dáy.',
+    description: 'Cách đối thoại văn minh, bình tĩnh và dứt khoát nhằm bảo vệ ranh giới cá nhân trước những định kiến văn hóa, giọng điệu hoặc bình luận khiếm nhã khi giao lưu quốc tế.',
     words: [
-      { id: 'mf15-1', word: 'Harassment', ipa: '/ˈhærəsmənt/', definition: 'Hành vi quấy rối, xúc phạm đe dọa liên tục.', translation: 'Hành vi quấy rối, công kích', example: 'Report any verbal harassment to the server administrators instantly.', blankSentence: 'We have zero tolerance for online ____.', emoji: '❌' },
-      { id: 'mf15-2', word: 'Offensive', ipa: '/əˈfensɪv/', definition: 'Thô lỗ gây hấn xúc phạm nghiêm trọng đến danh dự.', translation: 'Xúc phạm thô lỗ, gây hấn', example: 'His comments about my accent were extremely offensive.', blankSentence: 'That remark was highly ____ and uncalled for.', emoji: '🤬' },
-      { id: 'mf15-3', word: 'Report', ipa: '/rɪˈpɔːt/', definition: 'Báo cáo lên ban điều trị/công an để trừng phạt kẻ xấu.', translation: 'Báo cáo sai phạm, tố cáo', example: 'Don\'t engage with bullies; simply block and report them.', blankSentence: 'If you see racism, make sure to ____ the account.', emoji: '📝' }
+      { id: 'mf15-1', word: 'Stereotype', ipa: '/ˈsteriətaɪp/', definition: 'Định kiến rập khuôn về một nhóm người hoặc quốc gia.', translation: 'Định kiến rập khuôn', example: 'We should judge people individually rather than relying on a stereotype.', blankSentence: 'Don\'t let a cultural ____ cloud your judgement.', emoji: '🏷️' },
+      { id: 'mf15-2', word: 'Inappropriate', ipa: '/ˌɪnəˈprəʊpriət/', definition: 'Không phù hợp, khiếm nhã và thiếu tôn trọng đối phương.', translation: 'Không phù hợp, khiếm nhã', example: 'Making fun of someone\'s accent is completely inappropriate.', blankSentence: 'That joke was utterly ____ and unacceptable.', emoji: '⚠️' },
+      { id: 'mf15-3', word: 'Boundary', ipa: '/ˈbaʊndri/', definition: 'Ranh giới chuẩn mực cá nhân cần được tôn trọng.', translation: 'Ranh giới cá nhân', example: 'It is important to set clear boundaries when someone crosses the line.', blankSentence: 'Please respect my personal ____ in this chat.', emoji: '🛑' }
     ],
     structures: [
       {
-        phrase: "That comment was completely inappropriate and offensive.",
-        meaning: "Câu phản kháng lạnh lùng và dứt khoát chỉ rõ ranh giới.",
-        vietnamese: "Bình luận vừa rồi hoàn toàn không phù hợp và mang tính xúc phạm thô lỗ.",
-        casual: "Not cool. That comment is crossing the line."
+        phrase: "That assumption is quite outdated and inaccurate.",
+        meaning: "Câu phản hồi lịch thiệp nhưng thẳng thắn làm rõ sự sai lệch trong định kiến.",
+        vietnamese: "Định kiến đó khá lỗi thời và hoàn toàn không chính xác.",
+        casual: "That's just an outdated cliché, not how reality actually is."
       },
       {
-        phrase: "I'm ending this conversation now.",
-        meaning: "Câu tuyên bố chấm dứt giao lưu lập tức với kẻ bêu rếu.",
-        vietnamese: "Mình sẽ dừng cuộc trò chuyện ở đây ngay lập tức.",
-        casual: "I'm out. Done talking to you."
+        phrase: "Let's keep our conversation respectful, or I will step away.",
+        meaning: "Thiết lập ranh giới dứt khoát yêu cầu sự tôn trọng trước khi tiếp tục.",
+        vietnamese: "Chúng ta hãy giữ cuộc trò chuyện tôn trọng lẫn nhau, nếu không mình sẽ rời đi.",
+        casual: "If you keep being disrespectful, I'm heading out."
       }
     ],
     dialogues: [
       {
         type: 'pair',
-        title: 'Confronting an offensive accent comment',
+        title: 'Responding to an Insensitive Accent Joke',
         participants: [
           { name: 'Duy', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Duy' },
           { name: 'Bully', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Bully' }

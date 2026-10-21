@@ -152,46 +152,46 @@ export const BEAUTY_DIALOGUES_PART1: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'Clinical Hygiene Assurance & Heat-Spike Protocol',
+      title: 'Formal Nail Architecture & Apex Consultation',
       participants: [
-        { name: 'Nurse Rachel', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=RachelNurse', role: 'Medical Aesthetician' },
-        { name: 'David', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DavidLaser', role: 'Laser Skin Client' }
+        { name: 'Chloe', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ChloeMasterForm', role: 'Master Stylist' },
+        { name: 'Victoria', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=VictoriaClientForm', role: 'Executive Client' }
       ],
       lines: [
-        { participant: 'Rachel', text: "Before we begin the laser resurfacing, please note all handpieces have undergone hospital-grade autoclave sterilization. The indicator pouch was unsealed in your presence.", translation: "Trước khi thực hiện liệu trình laser, xin thông báo toàn bộ đầu máy đã được tiệt trùng bằng nồi hấp chuẩn y tế. Túi chỉ thị vô trùng vừa được mở ngay trước mặt anh ạ." },
-        { participant: 'David', text: "Thank you for confirming. I had a severe burning sensation at another clinic previously, so I'm somewhat anxious.", translation: "Cảm ơn cô đã xác nhận. Trước đây tôi từng bị bỏng rát ở một phòng khám khác nên hôm nay hơi lo lắng." },
-        { participant: 'Rachel', text: "I completely understand. We utilize continuous contact cooling. If you experience any heat threshold exceeding 4 out of 10, raise your hand and I will immediately suspend the pulse.", translation: "Em hoàn toàn thấu hiểu. Bên em sử dụng hệ thống làm mát tiếp xúc liên tục. Nếu anh cảm thấy mức nhiệt vượt quá 4/10, chỉ cần giơ tay là em sẽ tạm dừng ngay lập tức ạ." },
-        { participant: 'David', text: "That gives me great peace of mind. I am ready when you are.", translation: "Nghe vậy tôi an tâm hơn rất nhiều. Tôi sẵn sàng rồi." }
+        { participant: 'Chloe', text: "Victoria, before we apply the hard gel overlay, let us confirm your desired shape and structural apex. Were you envisioning a classic tapered almond or a refined medium coffin?", translation: "Thưa chị Victoria, trước khi đắp lớp gel cứng gia cố, em xin xác nhận lại phom dáng móng và điểm uốn chịu lực (apex) theo đúng ý chị ạ. Chị đang hướng tới dáng hạnh nhân thon cổ điển hay dáng coffin (thang) vừa vặn thanh lịch ạ?" },
+        { participant: 'Victoria', text: "I prefer a tapered almond, but keep the free edge no more than three millimeters past the fingertip so I can type efficiently.", translation: "Tôi thích dáng hạnh nhân thon gọn, nhưng giữ phần đầu móng vươn ra không quá 3 milimet khỏi đầu ngón tay để tôi gõ bàn phím thuận tiện nhé." },
+        { participant: 'Chloe', text: "Understood. I have shaped your left index finger as a master reference. Please inspect the taper angle and side-wall symmetry under the desk lamp.", translation: "Dạ em hiểu rồi ạ. Em vừa giũa xong ngón trỏ tay trái làm phom chuẩn mẫu. Xin mời chị kiểm tra góc vuốt thon và độ cân xứng hai bên khóe dưới đèn bàn ạ." },
+        { participant: 'Victoria', text: "The curve and balance are flawless. Please replicate this exact form across all remaining fingers.", translation: "Đường cong và sự cân đối rất hoàn hảo. Cô cứ làm theo đúng phom chuẩn này cho các ngón còn lại nhé." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Gentle Cuticle Work & UV Lamp Comfort Check',
+      title: 'Confirming Desired Form with Pinterest Photo Proof',
       participants: [
-        { name: 'Linh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LinhGentle', role: 'Nail Tech' },
-        { name: 'Emily', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=EmilyNail', role: 'Client' }
+        { name: 'Vy', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=VyTechForm', role: 'Nail Technician' },
+        { name: 'Rachel', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=RachelClientForm', role: 'Client' }
       ],
       lines: [
-        { participant: 'Linh', text: "Emily, I'm going to trim your cuticles now. Please let me know if anything feels sharp or tender, okay?", translation: "Emily ơi, bây giờ mình sẽ nhặt da khóe móng nhé. Nếu chỗ nào hơi cấn hay ê buốt thì bạn nhớ bảo mình ngay nha?" },
-        { participant: 'Emily', text: "Will do. My cuticles are quite thin around the ring fingers.", translation: "Nhất trí. Da khóe ở ngón đeo nhẫn của mình khá mỏng đấy." },
-        { participant: 'Linh', text: "Got it, I'll be extra gentle there. Also, when curing the builder gel in the LED lamp, if you feel a heat spike, pull your hand out for five seconds and slide it back in slowly.", translation: "Mình hiểu rồi, mình sẽ làm thật nhẹ tay ở chỗ đó. Ngoài ra lúc hơ gel trong đèn LED, nếu bạn thấy nóng ran thì cứ rút tay ra ngoài 5 giây rồi từ từ cho vào lại nhé." },
-        { participant: 'Emily', text: "Oh, that's such a helpful trick! Thanks for looking out for me.", translation: "Mẹo hay quá! Cảm ơn bạn đã dặn trước nhé." }
+        { participant: 'Vy', text: "Rachel, I see the Pinterest photo on your phone shows a sharp coffin shape, but your natural nails are currently rounded. Are we using extensions today to achieve that sharp edge?", translation: "Rachel ơi, mình thấy tấm hình trên Pinterest trong điện thoại bạn là phom thang coffin góc cạnh, mà móng thật của bạn hiện đang tròn. Hôm nay tụi mình nối móng tip để tạo cạnh sắc chuẩn như hình nha?" },
+        { participant: 'Rachel', text: "Yes, exactly! Medium-length coffin extensions, but please don't make them too wide or bulky.", translation: "Chuẩn luôn bạn ơi! Nối móng dáng thang độ dài vừa phải, nhưng đừng làm to bè hay dày cộm quá nhé." },
+        { participant: 'Vy', text: "I'll taper the sidewalls slenderly. Take a look at this first finger: does this width and length feel comfortable when you pretend to text on your phone?", translation: "Mình sẽ vuốt thon gọn hai bên hông móng lại. Bạn xem ngón đầu tiên này nhé: độ rộng với chiều dài này bạn thử bấm điện thoại xem có thoải mái không nè?" },
+        { participant: 'Rachel', text: "That is spot-on! Super sleek and not clunky at all. Let's do all ten like this!", translation: "Chuẩn chỉnh luôn á! Nhìn thanh mảnh cực kỳ chứ không bị thô tí nào. Triển khai cả mười ngón y như vầy nha!" }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Quick Lamp Heat Reaction & Adjustment',
+      title: 'Quick Thumb Length & Shape Check',
       participants: [
-        { name: 'Nga', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=NgaQuick', role: 'Tech' },
-        { name: 'Beth', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=BethReg', role: 'Client' }
+        { name: 'Jen', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=JenNailForm', role: 'Tech' },
+        { name: 'Mia', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MiaShortForm', role: 'Client' }
       ],
       lines: [
-        { participant: 'Beth', text: "Ouch, lamp's a bit hot!", translation: "Ái, đèn hơi nóng nha!" },
-        { participant: 'Nga', text: "Pull it out quick! Tap the desk twice, then put it back in on low-heat mode.", translation: "Rút tay ra ngay nè! Chạm nhẹ xuống bàn hai cái rồi đưa vào lại, mình bật chế độ nhiệt thấp rồi đó." },
-        { participant: 'Beth', text: "Much better now, thanks!", translation: "Đỡ hơn hẳn rồi, cảm ơn nha!" },
-        { participant: 'Nga', text: "Any pain, shout right away!", translation: "Thấy buốt chỗ nào là ới liền nghen!" }
+        { participant: 'Jen', text: "Compare both thumbs, length look even to you?", translation: "Ướm thử hai ngón cái xem độ dài đều chưa nào?" },
+        { participant: 'Mia', text: "Right one's a millimeter longer, file it down a tiny bit?", translation: "Bên phải dài hơn tầm một li, dũa bớt tí xíu nha?" },
+        { participant: 'Jen', text: "Two quick swipes—check it now!", translation: "Hai đường dũa xong ngay—so lại xem nào!" },
+        { participant: 'Mia', text: "Perfect match! Coffin corners look crisp.", translation: "Khít khìn khịt luôn! Góc phom thang nhìn nét căng rồi." }
       ]
     }
   ],
@@ -200,46 +200,46 @@ export const BEAUTY_DIALOGUES_PART1: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'Bespoke Bridal Aesthetic Consultation & Mood Board Review',
+      title: 'Clinical Sensation Advisory & E-File Thermal Management',
       participants: [
-        { name: 'Julian', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=JulianStylist', role: 'Creative Director' },
-        { name: 'Madeline', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MadelineBride', role: 'Bride-to-be' }
+        { name: 'Nurse Rachel', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=RachelNurseSensations', role: 'Medical Aesthetician' },
+        { name: 'David', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DavidLaserSensations', role: 'Clinical Client' }
       ],
       lines: [
-        { participant: 'Julian', text: "Madeline, having reviewed your wedding dress swatches and bouquet palette, I propose a sheer blush chrome with delicate micro-pearl accents.", translation: "Chào Madeline. Sau khi xem mẫu vải váy cưới và bảng màu hoa cầm tay của bạn, tôi đề xuất tông màu hồng nude tráng gương kết hợp đính vi ngọc trai tinh tế." },
-        { participant: 'Madeline', text: "That sounds very romantic. Will the micro-pearls catch on my lace veil during the ceremony?", translation: "Nghe lãng mạn quá. Liệu những hạt ngọc trai nhỏ này có bị vướng vào khăn voan ren trong lúc làm lễ không?" },
-        { participant: 'Julian', text: "We encapsulate every embellishment under two layers of crystal-clear structural resin. The surface will be entirely smooth to the touch.", translation: "Bên em sẽ bọc phẳng từng viên đính dưới hai lớp resin trong suốt cao cấp. Bề mặt móng sẽ hoàn toàn láng mịn khi chạm vào ạ." },
-        { participant: 'Madeline', text: "That is exquisite craftsmanship. Please proceed with the mock bridal set.", translation: "Thật là tay nghề đỉnh cao. Chúng ta tiến hành làm bộ mẫu thử luôn nhé." }
+        { participant: 'Rachel', text: "David, as I begin removing the old acrylic enhancement using the ceramic e-file, you will feel a mild high-speed vibration across the nail plate, but zero burning heat.", translation: "Anh David, khi em bắt đầu dùng máy mài đầu gốm để tháo lớp bột cũ, anh sẽ cảm nhận được độ rung nhẹ tốc độ cao trên bề mặt móng, nhưng hoàn toàn không bị nóng rát ạ." },
+        { participant: 'David', text: "Thank you for explaining beforehand. At another salon, the friction heat was quite intense and made me flinch.", translation: "Cảm ơn cô đã giải thích trước. Ở tiệm khác, nhiệt ma sát nóng buốt làm tôi từng giật nảy mình." },
+        { participant: 'Rachel', text: "That occurs when a technician holds the bit in one spot. I maintain continuous sweeping strokes and low revolutions per minute. If you detect even a hint of warmth, notify me immediately.", translation: "Tình trạng đó xảy ra khi kỹ thuật viên giữ đầu mài đứng yên một chỗ ạ. Em luôn di chuyển cọ lướt liên tục và cài số vòng quay thấp. Nếu anh thấy hơi ấm lên dù chỉ một chút, xin báo ngay cho em nhé." },
+        { participant: 'David', text: "It feels completely smooth and cool. I appreciate the clear explanation.", translation: "Tôi thấy rất êm và mát tay. Rất cảm ơn cô đã hướng dẫn rõ ràng." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Praising a Client\'s Style & Recommending Trendy Accents',
+      title: 'Explaining UV Lamp Heat Spikes & Drill Sensations',
       participants: [
-        { name: 'Bao', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=BaoArtist', role: 'Nail Artist' },
-        { name: 'Jessica', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=JessicaStyle', role: 'Client' }
+        { name: 'Linh', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=LinhTechSensations', role: 'Nail Tech' },
+        { name: 'Emily', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=EmilyClientSensations', role: 'Client' }
       ],
       lines: [
-        { participant: 'Bao', text: "Jessica, I love that silver rings and chunky watch combo you're wearing today! It has such a cool, modern aesthetic.", translation: "Jessica ơi, mình thích bộ nhẫn bạc với đồng hồ to bản bạn đeo hôm nay ghê! Trông rất cá tính và hiện đại luôn." },
-        { participant: 'Jessica', text: "Thank you! I'm trying to match my nails with silver jewelry for an upcoming concert.", translation: "Cảm ơn bạn nhé! Mình đang muốn làm móng sao cho ăn rơ với phụ kiện bạc để đi xem concert sắp tới nè." },
-        { participant: 'Bao', text: "In that case, how about adding 3D metallic chrome droplets on your thumb and middle finger? It will tie your whole outfit together effortlessly.", translation: "Nếu vậy bạn nghĩ sao nếu tụi mình vẽ thêm giọt nước tráng gương kim loại 3D ở ngón cái và ngón giữa? Nhìn sẽ cực kỳ ăn nhập với tổng thể trang phục luôn." },
-        { participant: 'Jessica', text: "Yes! That is exactly the futuristic vibe I was looking for. Let's do it!", translation: "Chuẩn luôn! Đúng phong cách hiện đại mà mình tìm kiếm bấy lâu nay. Làm ngay thôi!" }
+        { participant: 'Linh', text: "Emily, I'm applying a layer of builder gel to strengthen your nails. When you slide your hand into the LED lamp, you might feel a quick heat spike around the ten-second mark as the molecules shrink and cure.", translation: "Emily ơi, bây giờ mình chải một lớp gel đắp để móng bạn cứng cáp hơn nhé. Khi bạn đưa tay vào đèn LED, tầm giây thứ 10 bạn có thể thấy hơi nóng ran nhẹ vì các phân tử gel co lại khi đông cứng đó." },
+        { participant: 'Emily', text: "Oh, that heat spike always scares me! What should I do if it burns?", translation: "Ôi cái cảm giác nóng rát đó làm mình sợ lắm luôn! Nếu thấy buốt quá thì làm sao bạn nhỉ?" },
+        { participant: 'Linh', text: "Don't suffer through it! The second you feel warmth, pull your hand out for three seconds, tap your fingers on the desk, then slide back in. It resets completely.", translation: "Đừng ráng chịu đựng nha! Ngay khi thấy ấm nóng là bạn rút tay ra ngoài 3 giây, chạm nhẹ ngón xuống bàn rồi từ từ cho vào lại. Sẽ dịu hẳn ngay lập tức đó." },
+        { participant: 'Emily', text: "That trick works like magic! It didn't burn at all when I did that.", translation: "Mẹo đó thần kỳ ghê á! Mình làm theo là không còn thấy buốt rát chút nào luôn." }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Quick Outfit & Nail Art Vibe Check',
+      title: 'Fast Heat Reaction & E-File Tickle Ping',
       participants: [
-        { name: 'Tina', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TinaNails', role: 'Tech' },
-        { name: 'Sam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SamOutfit', role: 'Client' }
+        { name: 'Nga', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=NgaQuickSensations', role: 'Tech' },
+        { name: 'Beth', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=BethRegSensations', role: 'Client' }
       ],
       lines: [
-        { participant: 'Tina', text: "That jacket is fire, Sam! Silver aura nails would match it insane.", translation: "Cái áo khoác chất quá Sam ơi! Phối bộ móng aura bạc là đỉnh chóp luôn." },
-        { participant: 'Sam', text: "You read my mind! French tips or full aura?", translation: "Hiểu ý ghê! Làm đầu móng French hay phủ aura toàn bộ?" },
-        { participant: 'Tina', text: "Full aura on almond shape, trust me.", translation: "Phủ full aura trên phom móng hạnh nhân, bao chuẩn." },
-        { participant: 'Sam', text: "Say less, let's paint!", translation: "Khỏi bàn cãi, triển luôn!" }
+        { participant: 'Beth', text: "Ouch, lamp's getting spicy on that ring finger!", translation: "Ái chà, đèn bắt đầu nóng râm ran ngón đeo nhẫn rồi nha!" },
+        { participant: 'Nga', text: "Pull it out quick! Tap desk twice, put it back on low-heat mode.", translation: "Rút tay ra liền nè! Chạm bàn hai cái rồi đưa vào lại, mình bấm chế độ nhiệt êm rồi đó." },
+        { participant: 'Beth', text: "Phew, cool as a cucumber now, thanks!", translation: "Phù, êm ru mát rượi rồi, cảm ơn nha!" },
+        { participant: 'Nga', text: "Any warmth, shout right away!", translation: "Thấy ấm chỗ nào là ới liền nghen!" }
       ]
     }
   ],
@@ -248,46 +248,47 @@ export const BEAUTY_DIALOGUES_PART1: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'Formal Color Swatch Verification & Design Confirmation',
+      title: 'Gentle Protocol for Hypersensitive Nail Folds & Antiseptic Care',
       participants: [
-        { name: 'Camilla', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=CamillaManager', role: 'Salon Supervisor' },
-        { name: 'Charlotte', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=CharlotteVIP', role: 'VIP Client' }
+        { name: 'Camilla', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=CamillaManagerPain', role: 'Salon Supervisor' },
+        { name: 'Charlotte', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=CharlotteVIPPain', role: 'VIP Client' }
       ],
       lines: [
-        { participant: 'Camilla', text: "Mrs. Charlotte, before our artist cures the full set, I would like to verify the shade code #418 against your initial swatch selection under balanced daylight.", translation: "Thưa bà Charlotte, trước khi chuyên viên sấy hoàn thiện cả bộ móng, em xin phép kiểm tra đối chiếu mã màu #418 với mẫu bà đã chọn dưới ánh sáng chuẩn ban ngày ạ." },
-        { participant: 'Charlotte', text: "Thank you for double-checking. The first coat appeared slightly more mauve than I anticipated.", translation: "Cảm ơn cô đã kiểm tra lại. Lớp sơn đầu tiên trông có vẻ hơi tím hơn so với tôi hình dung." },
-        { participant: 'Camilla', text: "Understood. We will apply a semi-translucent beige veil to adjust the tone precisely to the warm nude sample you approved.", translation: "Dạ em hiểu rồi ạ. Bên em sẽ dặm thêm một lớp màu be mờ bán trong suốt để điều chỉnh tông màu về đúng mẫu nude ấm mà bà đã ưng ý ạ." },
-        { participant: 'Charlotte', text: "That is wonderfully accommodating. Thank you for your diligence.", translation: "Cách xử lý rất khéo léo và chu đáo. Cảm ơn cô nhiều." }
+        { participant: 'Camilla', text: "Mrs. Charlotte, I observed you wince slightly during the eponychium exfoliation. Please accept my sincere apologies. Did the diamond bit cause any discomfort or stinging?", translation: "Thưa bà Charlotte, em nhận thấy bà hơi khẽ giật mình trong lúc chuyên viên làm sạch tế bào chết viền móng. Em xin chân thành cáo lỗi cùng bà ạ. Đầu mài kim cương có làm bà bị châm chích hay đau rát không ạ?" },
+        { participant: 'Charlotte', text: "The skin on my left index finger is quite thin, so the friction felt a bit sharp.", translation: "Vùng da ở ngón trỏ tay trái của tôi khá mỏng nên lúc ma sát thấy hơi nhói một chút." },
+        { participant: 'Camilla', text: "I will immediately apply our soothing witch-hazel and tea-tree antiseptic compress to calm the epidermal tissue, and our artist will complete the remaining cuticle care manually with a cushioned micro-file.", translation: "Dạ em sẽ thoa ngay dung dịch chiết xuất cây phỉ và tràm trà làm dịu mô da, và chuyên viên bên em sẽ thao tác các bước còn lại hoàn toàn thủ công bằng dũa bọt êm ái ạ." },
+        { participant: 'Charlotte', text: "The compress is remarkably soothing. Thank you for handling that with such thoughtful attentiveness.", translation: "Gạc thuốc làm dịu rất nhanh. Cảm ơn cô đã xử lý vô cùng ân cần và chu đáo." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Confirming French Tip Width & Nail Length',
+      title: 'Soothing an Accidental Cuticle Nick with Apology and Care',
       participants: [
-        { name: 'Vy', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=VyTech', role: 'Technician' },
-        { name: 'Rachel', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=RachelClient', role: 'Client' }
+        { name: 'Mai', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MaiTechPain', role: 'Nail Technician' },
+        { name: 'Valerie', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ValerieClientPain', role: 'Client' }
       ],
       lines: [
-        { participant: 'Vy', text: "Rachel, I painted one sample French line on your index finger. Do you like this thin micro-French width, or would you prefer a thicker smile line?", translation: "Rachel ơi, mình vừa vẽ thử một đường viền French lên ngón trỏ nè. Bạn thích độ mảnh micro-French này hay muốn vẽ dày hơn một xíu?" },
-        { participant: 'Rachel', text: "I love how elegant the thin line looks! Can we round the corners just a tiny bit more?", translation: "Mình thích viền mảnh thanh lịch này nè! Bạn bo tròn khóe hai bên một chút xíu nữa được không?" },
-        { participant: 'Vy', text: "Of course! How about the overall length? Does it feel comfortable when you pretend to type on your phone?", translation: "Được chứ! Còn độ dài tổng thể thì sao bạn? Bạn thử bấm điện thoại xem có cảm thấy vướng víu không nha?" },
-        { participant: 'Rachel', text: "The length is spot on. Let's do all ten fingers like this!", translation: "Độ dài chuẩn không cần chỉnh rồi. Triển khai cả 10 ngón y như thế này nhé!" }
+        { participant: 'Valerie', text: "Ouch! That pinched a bit right by the corner.", translation: "Ái! Chỗ góc khóe vừa bị cấn đau một chút bạn ơi." },
+        { participant: 'Mai', text: "Oh, I am so sorry, Valerie! Let me stop right away and take a close look. Your sidewall is so delicate right there.", translation: "Ôi mình xin lỗi bạn nhiều nha Valerie! Để mình dừng lại kiểm tra liền. Vùng da khóe bên này của bạn mỏng manh quá chừng." },
+        { participant: 'Valerie', text: "It stung for a second, but I don't think it's bleeding.", translation: "Nó nhói lên một giây thôi chứ mình nghĩ không bị chảy máu đâu." },
+        { participant: 'Mai', text: "There's just a tiny spot of redness. Let me spray a gentle soothing antiseptic mist so it won't sting when we wash hands. I'll steer completely clear of that edge with the nippers.", translation: "Chỉ hơi ửng đỏ một chấm xíu thôi nè. Để mình xịt chút nước sát khuẩn dịu nhẹ để lát rửa tay không bị xót nha. Mình sẽ không đụng kềm vào rìa mép đó nữa đâu nhé." },
+        { participant: 'Valerie', text: "Thank you, Mai. It feels so much better now. I appreciate how attentive you are.", translation: "Cảm ơn Mai nha, dịu hẳn rồi nè. Mình rất thích sự cẩn thận và chu đáo của bạn." }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Quick Thumb Length Check',
+      title: 'Quick Ouch Moment & Gentle Reset',
       participants: [
-        { name: 'Jen', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=JenNail', role: 'Tech' },
-        { name: 'Mia', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MiaShort', role: 'Client' }
+        { name: 'Kylie', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KylieTechPain', role: 'Tech' },
+        { name: 'Danielle', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DanielleOilPain', role: 'Client' }
       ],
       lines: [
-        { participant: 'Jen', text: "Compare both thumbs, length look even?", translation: "Ướm thử hai ngón cái xem độ dài đều chưa nào?" },
-        { participant: 'Mia', text: "Right one's a millimeter longer, file it down a tiny bit?", translation: "Bên phải dài hơn tầm một li, dũa bớt tí xíu nha?" },
-        { participant: 'Jen', text: "Two quick swipes—check it now!", translation: "Hai đường dũa xong ngay—so lại xem nào!" },
-        { participant: 'Mia', text: "Perfect match! Top coat time.", translation: "Khít khìn khịt luôn! Lên nước bóng thôi." }
+        { participant: 'Danielle', text: "Ow! Tender spot on pinky corner!", translation: "Ái! Góc ngón út hơi bị thốn nha!" },
+        { participant: 'Kylie', text: "So sorry! Stopping right now. Dabbing soothing spray—stinging gone?", translation: "Xin lỗi cậu nha! Tớ dừng liền đây. Chấm chút xịt làm dịu nè—hết rát chưa?" },
+        { participant: 'Danielle', text: "All good, just a sensitive cuticle day.", translation: "Ổn rồi nè, hôm nay da khóe hơi nhạy cảm xíu thôi." },
+        { participant: 'Kylie', text: "I'll use the soft buffer only on pinky, promise!", translation: "Ngón út tớ chỉ dùng phao mềm thôi, hứa luôn!" }
       ]
     }
   ],
@@ -296,46 +297,46 @@ export const BEAUTY_DIALOGUES_PART1: Record<string, Dialogue[]> = {
     {
       type: 'pair',
       school: 'business',
-      title: 'Nail Plate Health Assessment & Restorative Program Recommendation',
+      title: 'Cross-Cultural Salon Linguistic Clarification & Visual Confirmation',
       participants: [
-        { name: 'Dr. Evelyn', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DrEvelyn', role: 'Clinical Podiatrist & Manicurist' },
-        { name: 'Arthur', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ArthurHealth', role: 'Client' }
+        { name: 'Dr. Evelyn', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DrEvelynLang', role: 'Salon Manager' },
+        { name: 'Arthur', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ArthurLang', role: 'Client with Regional Accent' }
       ],
       lines: [
-        { participant: 'Dr. Evelyn', text: "Good morning, Arthur. Upon inspecting your nail beds, I observe longitudinal ridging and slight thinning from previous improper mechanical drill removal.", translation: "Chào anh Arthur. Qua kiểm tra bề mặt móng, tôi nhận thấy có các đường rãnh dọc và móng hơi bị mỏng do trước đây dùng máy mài tháo móng không đúng kỹ thuật ạ." },
-        { participant: 'Arthur', text: "Yes, my nails feel quite brittle and bend easily whenever they get wet. What do you advise?", translation: "Đúng vậy, móng tay tôi dạo này rất giòn và dễ bị uốn cong mỗi khi dính nước. Bác sĩ có lời khuyên gì không?" },
-        { participant: 'Dr. Evelyn', text: "I strongly advise pausing acrylic overlays for four weeks. Instead, we should implement a keratin-infused IBX strengthening treatment alongside daily jojoba oil massage.", translation: "Tôi chân thành khuyên anh nên tạm ngưng đắp bột acrylic trong vòng 4 tuần. Thay vào đó, chúng ta nên thực hiện liệu trình phục hồi liên kết keratin IBX kết hợp mát-xa dầu jojoba hàng ngày." },
-        { participant: 'Arthur', text: "I appreciate your honest medical perspective over a quick sale. Let's begin the restorative program today.", translation: "Tôi rất trân trọng sự trung thực vì sức khỏe khách hàng thay vì chỉ chăm chăm bán dịch vụ. Chúng ta bắt đầu liệu trình phục hồi ngay hôm nay nhé." }
+        { participant: 'Arthur', text: "Aye, mate, fancy giving us a proper trim and buffing down the rough bits on me thumbs, innit? Don't want no flashy varnish, just a clean buff.", translation: "Chào cô nhé, nhờ cô tỉa tót cho tôi gọn gàng với mài phẳng mấy chỗ ráp ráp ở ngón cái được không? Tôi không ham ba cái nước sơn bóng bẩy đâu, chỉ cần đánh bóng sạch sẽ thôi nha." },
+        { participant: 'Dr. Evelyn', text: "Pardon me, Arthur. To ensure we understand your request with complete precision: you would like a natural executive grooming service—clean cuticle care, nail shaping, and a non-glossy natural buff finish without any colored lacquer?", translation: "Dạ xin lỗi anh Arthur. Để đảm bảo bên em hiểu đúng 100% mong muốn của anh: anh muốn làm gói chăm sóc móng tự nhiên dành cho nam—nhặt da sạch sẽ, giũa phom gọn gàng và đánh bóng mờ tự nhiên chứ không dùng sơn bóng hay màu mè đúng không ạ?" },
+        { participant: 'Arthur', text: "Spot on! That's bang on what I meant. Appreciate you double-checking with me.", translation: "Chuẩn bài luôn! Đúng y xì đúc ý tôi đấy. Cảm ơn cô đã hỏi lại cặn kẽ để khỏi hiểu lầm nhé." },
+        { participant: 'Dr. Evelyn', text: "It is our absolute pleasure. We pride ourselves on clear communication and tailored guest comfort.", translation: "Dạ được phục vụ anh là niềm vinh hạnh của tiệm. Bên em luôn chú trọng giao tiếp rõ ràng và trải nghiệm chu đáo nhất cho từng vị khách ạ." }
       ]
     },
     {
       type: 'pair',
       school: 'casual',
-      title: 'Advising on Dry Cuticles and Daily Moisturizing Habits',
+      title: 'Decoding Gen Z Nail Slang & Clarifying Fast Speech',
       participants: [
-        { name: 'Mai', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MaiTechCare', role: 'Nail Technician' },
-        { name: 'Valerie', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ValerieClient', role: 'Client' }
+        { name: 'Bao', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=BaoArtistSlang', role: 'Nail Artist' },
+        { name: 'Brianna', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=BriannaTeenSlang', role: 'Gen Z Client' }
       ],
       lines: [
-        { participant: 'Mai', text: "Valerie, your nail plate is naturally strong, but the skin around your sidewalls is a little dehydrated from the winter weather.", translation: "Valerie ơi, móng của bạn tự nhiên vốn rất khỏe, nhưng vùng da hai bên khóe móng đang hơi bị khô do thời tiết hanh hao mùa đông nè." },
-        { participant: 'Valerie', text: "Ugh, I get so many painful hangnails lately! I keep catching them on my wool sweaters.", translation: "Trời ơi, dạo này mình bị tước da xước măng rô đau điếng luôn! Cứ hay vướng vào áo len hoài à." },
-        { participant: 'Mai', text: "Don't pull or bite them! Keep a small cuticle oil pen in your purse and swipe it on before bed. It keeps the skin pliable and stops hangnails completely.", translation: "Bạn đừng giật hay cắn nhé! Cứ để một bút dưỡng viền móng nhỏ trong túi xách, trước khi ngủ quẹt một chút xíu. Da sẽ mềm dẻo và hết hẳn xước măng rô luôn." },
-        { participant: 'Valerie', text: "I'll definitely buy one of those pens on my way out. Thanks for the tip, Mai!", translation: "Lát thanh toán mình mua liền một cây bút dưỡng đó. Cảm ơn Mai đã chỉ mẹo hay nhé!" }
+        { participant: 'Brianna', text: "Hey! So I need you to totally snatch my claws today! Like, make them giving pure baddie energy, super aesthetic, total slay, no cap!", translation: "Chào anh! Hôm nay anh làm cho bộ vuốt của em nhìn thật là 'snatched' bén ngót nha! Kiểu phải toát lên năng lượng 'baddie' quyến rũ, cực nghệ và 'slay' hết nước chấm luôn á, thề không điêu đâu!" },
+        { participant: 'Bao', text: "Haha, I love the energy, Brianna! Let me make sure I decode that right: you want long tapered square extensions with razor-sharp corners and a sleek aura chrome effect, right?", translation: "Haha, thích năng lượng tràn trề của em ghê Brianna! Để anh dịch chuẩn ý em nhé: em muốn nối móng vuông dài vuốt thon, góc cạnh bén ngót và phủ lớp tráng gương aura huyền ảo đúng không nè?" },
+        { participant: 'Brianna', text: "Omg yes! You totally speak my language! Here's the TikTok video I saved to show the chrome shift.", translation: "Trời ơi chuẩn đét luôn! Anh nói đúng ngôn ngữ của em ghê! Em cho anh xem video TikTok em lưu về hiệu ứng đổi màu chrome nè." },
+        { participant: 'Bao', text: "Awesome! We have the exact pearlescent powder from that video. Your set is going to slay for sure!", translation: "Tuyệt vời luôn! Tiệm anh có đúng loại bột nhũ ngọc trai trong video đó đó. Bộ này lên tay là bao đẹp đỉnh chóp nhé!" }
       ]
     },
     {
       type: 'pair',
       school: 'superCasual',
-      title: 'Quick Oil Habit Reminder',
+      title: 'Fast Slang & Photo Check Ping',
       participants: [
-        { name: 'Kylie', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=KylieTech', role: 'Tech' },
-        { name: 'Danielle', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DanielleOil', role: 'Client' }
+        { name: 'Tina', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TinaNailsSlang', role: 'Tech' },
+        { name: 'Sam', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SamOutfitSlang', role: 'Client' }
       ],
       lines: [
-        { participant: 'Kylie', text: "Promise me you're not peeling your gel off this time, Danielle!", translation: "Hứa với tớ lần này không tự lột cạy sơn gel nữa nha Danielle!" },
-        { participant: 'Danielle', text: "Guilty! It's so tempting when it starts lifting.", translation: "Biết lỗi rồi! Cứ mỗi lần móng hơi bong mép là tay lại ngứa ngáy muốn bóc." },
-        { participant: 'Kylie', text: "Come in for a five-dollar fix instead! Peeling strips your natural nail layers.", translation: "Ghé qua tớ sửa 5 đô thôi nè! Bóc ra là tróc hết màng móng thật tội nghiệp lắm." },
-        { participant: 'Danielle', text: "Deal. Pinky swear!", translation: "Chốt kèo. Móc ngoéo luôn!" }
+        { participant: 'Sam', text: "Need my nails super snatched and pointy, Tina!", translation: "Muốn bộ móng hôm nay phải bén ngót và nhọn hoắt nha Tina ơi!" },
+        { participant: 'Tina', text: "Stiletto or sharp almond? Flash me your photo real quick!", translation: "Phom gót nhọn stiletto hay hạnh nhân bén? Bật tấm ảnh cho tớ nghía nhanh 1 giây!" },
+        { participant: 'Sam', text: "This Pinterest pic right here!", translation: "Tấm Pinterest này nè bạn ơi!" },
+        { participant: 'Tina', text: "Gotcha, snatching them sharp now!", translation: "Hiểu bài rồi, mài bén ngót ngay và luôn!" }
       ]
     }
   ],
