@@ -1363,6 +1363,16 @@ export function TopicDetail({ topic: rawTopic, onBack, onBackToPortal, onSelectM
                                   </span>
                                 </div>
                               </div>
+                              {(accent.accentName.includes('Australian') || accent.accentName.includes('Úc')) && (
+                                <button
+                                  onClick={() => playTTS(accent.sampleSentence || "G'day mate, how are you going?", 'en-AU', true)}
+                                  className="px-3.5 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500 text-amber-300 hover:text-black font-black text-xs border border-amber-500/40 flex items-center gap-2 shadow-lg transition-all active:scale-95 self-start sm:self-auto"
+                                  title="Nghe phát âm mẫu giọng Anh Úc"
+                                >
+                                  <Volume2 size={16} />
+                                  <span>🔊 Nghe Thử Giọng Úc (TTS en-AU)</span>
+                                </button>
+                              )}
                             </div>
 
                             <p className="text-xs sm:text-sm text-gray-300 bg-black/40 p-3.5 rounded-xl border border-white/5 leading-relaxed">
@@ -1384,7 +1394,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onBackToPortal, onSelectM
                               </div>
                             </div>
 
-                            {/* Comparison words with US/UK audio buttons */}
+                            {/* Comparison words with US/UK/AU audio buttons */}
                             {accent.comparisons && accent.comparisons.length > 0 && (
                               <div className="space-y-2.5">
                                 <p className="text-[11px] font-black uppercase tracking-wider text-gray-400">
@@ -1396,9 +1406,9 @@ export function TopicDetail({ topic: rawTopic, onBack, onBackToPortal, onSelectM
                                       key={cIdx}
                                       className="bg-black/50 border border-[#333] hover:border-[#E76F51]/50 p-3.5 rounded-2xl space-y-2 transition-all"
                                     >
-                                      <div className="flex items-center justify-between">
+                                      <div className="flex items-center justify-between flex-wrap gap-2">
                                         <span className="font-black text-base text-white">{comp.wordOrPhrase}</span>
-                                        <div className="flex items-center gap-1.5">
+                                        <div className="flex items-center gap-1.5 flex-wrap">
                                           <button
                                             onClick={() => playTTS(comp.wordOrPhrase, 'en-US')}
                                             className="px-2 py-1 rounded-lg bg-blue-500/20 hover:bg-blue-500 text-blue-300 hover:text-white text-[10px] font-black transition-all flex items-center gap-1"
@@ -1415,6 +1425,16 @@ export function TopicDetail({ topic: rawTopic, onBack, onBackToPortal, onSelectM
                                             <span>🇬🇧 UK</span>
                                             <Volume2 size={11} />
                                           </button>
+                                          {(accent.accentName.includes('Australian') || accent.accentName.includes('Úc') || comp.auIpa) && (
+                                            <button
+                                              onClick={() => playTTS(comp.wordOrPhrase, 'en-AU', true)}
+                                              className="px-2 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500 text-amber-300 hover:text-black text-[10px] font-black transition-all flex items-center gap-1 border border-amber-500/40"
+                                              title="Nghe giọng Anh Úc (TTS en-AU)"
+                                            >
+                                              <span>🇦🇺 AU</span>
+                                              <Volume2 size={11} />
+                                            </button>
+                                          )}
                                         </div>
                                       </div>
 
@@ -1430,9 +1450,19 @@ export function TopicDetail({ topic: rawTopic, onBack, onBackToPortal, onSelectM
                                       </div>
 
                                       {comp.auIpa && (
-                                        <div className="bg-amber-950/20 border border-amber-500/30 p-2 rounded-lg text-xs">
-                                          <span className="text-[10px] font-black uppercase text-amber-400 block">🇦🇺 AU Đặc Trưng:</span>
-                                          <span className="font-mono text-[11px] text-amber-200">{comp.auIpa}</span>
+                                        <div className="bg-amber-950/20 border border-amber-500/30 p-2.5 rounded-xl text-xs flex items-center justify-between gap-2">
+                                          <div>
+                                            <span className="text-[10px] font-black uppercase text-amber-400 block">🇦🇺 AU Đặc Trưng:</span>
+                                            <span className="font-mono text-[11px] text-amber-200">{comp.auIpa}</span>
+                                          </div>
+                                          <button
+                                            onClick={() => playTTS(comp.wordOrPhrase, 'en-AU', true)}
+                                            className="px-2.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-black transition-all flex items-center gap-1.5 shrink-0 shadow active:scale-95"
+                                            title="Phát âm giọng Anh Úc (TTS en-AU)"
+                                          >
+                                            <Volume2 size={12} />
+                                            <span>Nghe Giọng Úc</span>
+                                          </button>
                                         </div>
                                       )}
 
@@ -1448,9 +1478,16 @@ export function TopicDetail({ topic: rawTopic, onBack, onBackToPortal, onSelectM
                             {/* Sample practice sentence */}
                             <div className="bg-[#121212] border border-[#2d2d2d] p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                               <div className="space-y-1">
-                                <span className="text-[10px] font-black uppercase tracking-widest text-[#E76F51] flex items-center gap-1">
-                                  <span>🎯</span> Câu Mẫu Luyện Giọng {accent.accentName}:
-                                </span>
+                                <div className="flex items-center gap-2 flex-wrap">
+                                  <span className="text-[10px] font-black uppercase tracking-widest text-[#E76F51] flex items-center gap-1">
+                                    <span>🎯</span> Câu Mẫu Luyện Giọng {accent.accentName}:
+                                  </span>
+                                  {(accent.accentName.includes('Australian') || accent.accentName.includes('Úc')) && (
+                                    <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                                      🇦🇺 TTS Engine: en-AU
+                                    </span>
+                                  )}
+                                </div>
                                 <p className="text-sm sm:text-base font-black text-white">
                                   "{accent.sampleSentence}"
                                 </p>
@@ -1458,12 +1495,34 @@ export function TopicDetail({ topic: rawTopic, onBack, onBackToPortal, onSelectM
                                   {accent.sampleTranslation}
                                 </p>
                               </div>
-                              <button
-                                onClick={() => playTTS(accent.sampleSentence, aIdx === 1 ? 'en-GB' : 'en-US')}
-                                className="px-4 py-2.5 rounded-xl bg-[#E76F51] hover:bg-[#d45e41] text-white font-black text-xs uppercase tracking-wider flex items-center gap-1.5 self-start sm:self-center shrink-0 shadow-md active:scale-95 transition-all"
-                              >
-                                <Volume2 size={14} /> Nghe Câu
-                              </button>
+
+                              <div className="flex items-center gap-2 shrink-0 self-start sm:self-center">
+                                {(accent.accentName.includes('Australian') || accent.accentName.includes('Úc')) ? (
+                                  <>
+                                    <button
+                                      onClick={() => playTTS(accent.sampleSentence, 'en-AU', true)}
+                                      className="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-black text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-md active:scale-95 transition-all"
+                                      title="Phát âm giọng Anh Úc bằng TTS"
+                                    >
+                                      <Volume2 size={14} /> 🇦🇺 Nghe Giọng Úc (AU TTS)
+                                    </button>
+                                    <button
+                                      onClick={() => playTTS(accent.sampleSentence, 'en-US')}
+                                      className="px-3 py-2.5 rounded-xl bg-blue-500/20 hover:bg-blue-500 text-blue-300 hover:text-white font-bold text-xs flex items-center gap-1 border border-blue-500/30 transition-all active:scale-95"
+                                      title="So sánh với giọng Mỹ"
+                                    >
+                                      <span>🇺🇸 US</span>
+                                    </button>
+                                  </>
+                                ) : (
+                                  <button
+                                    onClick={() => playTTS(accent.sampleSentence, aIdx === 1 ? 'en-GB' : 'en-US')}
+                                    className="px-4 py-2.5 rounded-xl bg-[#E76F51] hover:bg-[#d45e41] text-white font-black text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-md active:scale-95 transition-all"
+                                  >
+                                    <Volume2 size={14} /> Nghe Câu
+                                  </button>
+                                )}
+                              </div>
                             </div>
 
                             {accent.culturalNote && (
@@ -2412,12 +2471,35 @@ export function TopicDetail({ topic: rawTopic, onBack, onBackToPortal, onSelectM
                       </div>
                     </div>
 
-                    <button 
-                      onClick={() => playTTS(w.word)}
-                      className="p-3 bg-[#222] text-[#ffe36d] rounded-xl hover:bg-[#ffe36d] hover:text-black transition-all border border-transparent hover:border-black shrink-0 active:scale-90"
-                    >
-                      <Volume2 size={16} />
-                    </button>
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      {w.ipa?.includes('AU:') || topic.id === 'slang-au' ? (
+                        <>
+                          <button 
+                            onClick={() => playTTS(w.word, 'en-US')}
+                            title="Nghe giọng Mỹ (US)"
+                            className="px-2.5 py-2 bg-[#222] text-blue-300 rounded-xl hover:bg-blue-600 hover:text-white transition-all text-xs font-bold flex items-center gap-1 active:scale-90"
+                          >
+                            <span>🇺🇸</span>
+                            <Volume2 size={13} />
+                          </button>
+                          <button 
+                            onClick={() => playTTS(w.word, 'en-AU', true)}
+                            title="Nghe giọng Anh Úc (AU TTS)"
+                            className="px-2.5 py-2 bg-amber-500/20 text-amber-300 rounded-xl hover:bg-amber-500 hover:text-black transition-all text-xs font-bold flex items-center gap-1 active:scale-90 border border-amber-500/30"
+                          >
+                            <span>🇦🇺</span>
+                            <Volume2 size={13} />
+                          </button>
+                        </>
+                      ) : (
+                        <button 
+                          onClick={() => playTTS(w.word)}
+                          className="p-3 bg-[#222] text-[#ffe36d] rounded-xl hover:bg-[#ffe36d] hover:text-black transition-all border border-transparent hover:border-black shrink-0 active:scale-90"
+                        >
+                          <Volume2 size={16} />
+                        </button>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>
