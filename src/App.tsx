@@ -17,6 +17,8 @@ export default function App() {
   const [activeTopic, setActiveTopic] = useState<Topic | null>(null);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [activeCommTab, setActiveCommTab] = useState('How to Speak');
+  const [commViewMode, setCommViewMode] = useState<'bento' | 'topics'>('bento');
+  const [pronunciationMode, setPronunciationMode] = useState<'ipa' | 'topics'>('topics');
   const [activeTopicTab, setActiveTopicTab] = useState<'dialogue' | 'structures' | 'skillsLab'>('dialogue');
   
   const { progress, updateStars, updateStreak, updateSetting, updateTowerHighscore, updateBlastHighscore, updateSnakeHighscore, updateFloodHighscore } = useUserProgress();
@@ -27,6 +29,20 @@ export default function App() {
 
   const handleSelectTopic = (topic: Topic) => {
     setActiveTopic(topic);
+    if (topic.category === 'Communication') {
+      setActiveCategory('Communication');
+      setCommViewMode('topics');
+      const isHts = topic.id.startsWith('hts-') || (Array.isArray(topic.subCategory) ? topic.subCategory.includes('How to Speak') : topic.subCategory === 'How to Speak');
+      if (isHts) {
+        setActiveCommTab('How to Speak');
+        setPronunciationMode('topics');
+      } else {
+        const sub = Array.isArray(topic.subCategory) ? topic.subCategory[0] : (topic.subCategory || 'Phổ biến');
+        setActiveCommTab(sub);
+      }
+    } else {
+      setActiveCategory(topic.category);
+    }
     setView('topic');
   };
 
@@ -34,7 +50,36 @@ export default function App() {
     setView(mode as ViewState);
   };
 
-  const handleBackToHome = () => {
+  // Return to the specific topic list
+  const handleBackToTopicList = () => {
+    if (activeTopic) {
+      if (activeTopic.category === 'Communication') {
+        setActiveCategory('Communication');
+        setCommViewMode('topics');
+        const isHts = activeTopic.id.startsWith('hts-') || (Array.isArray(activeTopic.subCategory) ? activeTopic.subCategory.includes('How to Speak') : activeTopic.subCategory === 'How to Speak');
+        if (isHts) {
+          setActiveCommTab('How to Speak');
+          setPronunciationMode('topics');
+        } else {
+          const sub = Array.isArray(activeTopic.subCategory) ? activeTopic.subCategory[0] : (activeTopic.subCategory || 'Phổ biến');
+          setActiveCommTab(sub);
+        }
+      } else {
+        setActiveCategory(activeTopic.category);
+      }
+    }
+    setActiveTopic(null);
+    setView('home');
+  };
+
+  // Return to Bento Grid or Essential Vocab Portal
+  const handleBackToPortal = () => {
+    if (activeTopic?.category === 'Communication') {
+      setActiveCategory('Communication');
+      setCommViewMode('bento');
+    } else {
+      setActiveCategory('EssentialVocabPortal');
+    }
     setActiveTopic(null);
     setView('home');
   };
@@ -53,6 +98,10 @@ export default function App() {
             setActiveCategory={setActiveCategory}
             activeCommTab={activeCommTab}
             setActiveCommTab={setActiveCommTab}
+            commViewMode={commViewMode}
+            setCommViewMode={setCommViewMode}
+            pronunciationMode={pronunciationMode}
+            setPronunciationMode={setPronunciationMode}
             progress={progress}
             updateSetting={updateSetting}
           />
@@ -61,7 +110,8 @@ export default function App() {
         {view === 'topic' && activeTopic && (
           <TopicDetail 
             topic={activeTopic} 
-            onBack={handleBackToHome}
+            onBack={handleBackToTopicList}
+            onBackToPortal={handleBackToPortal}
             onSelectMode={handleSelectMode}
             activeCommTab={activeTopicTab}
             setActiveCommTab={setActiveTopicTab}

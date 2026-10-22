@@ -15,6 +15,10 @@ interface HomeProps {
   setActiveCategory: (cat: string | null) => void;
   activeCommTab: string;
   setActiveCommTab: (tab: string) => void;
+  commViewMode: 'bento' | 'topics';
+  setCommViewMode: (mode: 'bento' | 'topics') => void;
+  pronunciationMode: 'ipa' | 'topics';
+  setPronunciationMode: (mode: 'ipa' | 'topics') => void;
   progress: {
     stars: number;
     streak: number;
@@ -107,14 +111,24 @@ const SCATTERED_WORDS = [
   "Hit", "up", "to", "speak", "up!", "confidence", "fluency", "A.I."
 ];
 
-export function Home({ onSelectTopic, activeCategory, setActiveCategory, activeCommTab, setActiveCommTab, progress, updateSetting }: HomeProps) {
+export function Home({ 
+  onSelectTopic, 
+  activeCategory, 
+  setActiveCategory, 
+  activeCommTab, 
+  setActiveCommTab, 
+  commViewMode,
+  setCommViewMode,
+  pronunciationMode,
+  setPronunciationMode,
+  progress, 
+  updateSetting 
+}: HomeProps) {
   const [showSettings, setShowSettings] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   const [cardFlipIndex, setCardFlipIndex] = useState(0);
   const [isCardFlipped, setIsCardFlipped] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [commViewMode, setCommViewMode] = useState<'bento' | 'topics'>('bento');
-  const [pronunciationMode, setPronunciationMode] = useState<'ipa' | 'topics'>('ipa');
 
   const COMM_TABS = [
     { id: 'How to Speak', label: 'Kỹ năng Phát âm' },
@@ -236,7 +250,7 @@ export function Home({ onSelectTopic, activeCategory, setActiveCategory, activeC
         
         let shouldReview = false;
         
-        if (reviewBuffer.length === 2) {
+        if (reviewBuffer.length === 2 && activeCommTab !== 'How to Speak') {
             shouldReview = true;
         }
         
@@ -924,11 +938,11 @@ export function Home({ onSelectTopic, activeCategory, setActiveCategory, activeC
                         </h3>
 
                         <p className="text-gray-300 text-xs sm:text-sm font-medium leading-relaxed max-w-2xl">
-                          Bảng phiên âm quốc tế IPA tương tác 44 âm 2D, quy tắc vàng đuôi -s/-es & -ed kèm ngoại lệ tính từ, các cặp âm dễ nhầm lẫn của người Việt, cùng các chuyên đề ngắt nghỉ (Chunking), ngữ điệu (Intonation), trọng âm (Stress) và nối âm (Connected Speech).
+                          Bảng phiên âm quốc tế IPA tương tác, quy tắc vàng đuôi -s/-es & -ed, các cặp âm dễ nhầm, ngắt nghỉ (Chunking), ngữ điệu (Intonation), trọng âm (Stress), nối âm (Connected Speech), 7 mẹo phát âm, âm câm (Silent Letters), nuốt âm (Elision) và các loại Accent US/UK/AU & hiệu chỉnh giọng Việt.
                         </p>
 
                         <div className="flex flex-wrap gap-2 pt-1">
-                          {['🎯 Bảng IPA Tương Tác', '⚡ Quy Tắc Đuôi -s/-ed', '🎯 Cặp Âm Dễ Nhầm', '✂️ Chunking', '🎢 Intonation', '🔨 Stress', '🔗 Nối Âm'].map(tag => (
+                          {['🎯 Bảng IPA', '⚡ Quy Tắc Đuôi -s/-ed', '🎯 Cặp Âm Dễ Nhầm', '✂️ Chunking', '🎢 Intonation', '🔨 Stress & Strong/Weak', '🔗 Nối Âm', '🛠️ 7 Mẹo Phát Âm', '🤫 Âm Câm', '💨 Nuốt Âm', '🌏 Accent US/UK/AU/VN'].map(tag => (
                             <span key={tag} className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 bg-[#222]/90 border border-[#333] text-gray-300 rounded-lg">
                               {tag}
                             </span>

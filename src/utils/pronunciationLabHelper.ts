@@ -858,6 +858,11 @@ export function getLinkingDrills(topic: Topic, rawTopic: Topic): LinkingDrillIte
  * Phonetic Sound Discrimination Drills (Chọn từ theo quy tắc âm cuối & Cặp âm tối thiểu)
  */
 export function getPhoneticDiscriminationDrills(topic: Topic): PhoneticDrillItem[] {
+  const isWordBank = topic.category !== 'Communication' || ['Slang', 'Life', 'PhrasalVerbs', 'Idioms', 'Collocations'].includes(topic.category as string);
+  if (isWordBank) {
+    return [];
+  }
+
   if (topic.id === 'hts-ending-sounds') {
     return [
       {
@@ -1088,17 +1093,7 @@ export function getPhoneticDiscriminationDrills(topic: Topic): PhoneticDrillItem
     ];
   }
 
-  // Fallback: draw from topic.words
-  return (topic.words || []).map((w, idx) => ({
-    id: `disc-gen-${idx}`,
-    question: `Luyện nghe phát âm từ vựng: "${w.word}" (${w.translation || ''}):`,
-    hint: `Phiên âm IPA chuẩn: ${w.ipa}`,
-    audioTarget: w.word,
-    options: [
-      { text: w.word, ipa: w.ipa, isCorrect: true },
-      { text: `Not ${w.word}`, ipa: '', isCorrect: false }
-    ],
-    explanation: `${w.definition || ''} (IPA: ${w.ipa})`
-  }));
+  // No discrimination drills for other topics
+  return [];
 }
 

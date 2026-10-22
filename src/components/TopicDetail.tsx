@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { 
   ArrowLeft, PlayCircle, BrainCircuit, Type, Puzzle, Blocks, 
   Users, User, Volume2, Sparkles, Languages, Check, RefreshCw, 
-  HelpCircle, Shuffle, ChevronRight, GraduationCap, Play, Pause, XCircle
+  HelpCircle, Shuffle, ChevronRight, GraduationCap, Play, Pause, XCircle, LayoutGrid
 } from 'lucide-react';
 import { Topic, Structure, Word } from '../data/vocab';
 import { motion, AnimatePresence } from 'motion/react';
@@ -15,12 +15,13 @@ import { IpaInteractiveChart } from './IpaInteractiveChart';
 interface TopicDetailProps {
   topic: Topic;
   onBack: () => void;
+  onBackToPortal?: () => void;
   onSelectMode: (mode: string) => void;
   activeCommTab: 'dialogue' | 'structures' | 'skillsLab';
   setActiveCommTab: (tab: 'dialogue' | 'structures' | 'skillsLab') => void;
 }
 
-export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommTab, setActiveCommTab }: TopicDetailProps) {
+export function TopicDetail({ topic: rawTopic, onBack, onBackToPortal, onSelectMode, activeCommTab, setActiveCommTab }: TopicDetailProps) {
   // Always augment the rawTopic to inject the 3 schools models and guarantee 5 structures & 3 dialogues
   const topic = useMemo(() => augmentTopic(rawTopic), [rawTopic]);
 
@@ -39,6 +40,31 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
   const howToSpeakData = useMemo(() => {
     return rawTopic.howToSpeak?.[0] || null;
   }, [rawTopic]);
+
+  // Name of the parent lesson list for the Back button
+  const backListLabel = useMemo(() => {
+    if (isHowToSpeak) {
+      return 'Chuyên Đề Ngữ Âm';
+    }
+    if (rawTopic.category === 'Communication') {
+      const sub = Array.isArray(rawTopic.subCategory) ? rawTopic.subCategory[0] : rawTopic.subCategory;
+      if (sub === 'Phổ biến') return 'Phần Lớn Học Viên';
+      if (sub === 'For Students') return 'Học Sinh - SV';
+      if (sub === 'For Professionals') return 'Người Đi Làm';
+      if (sub === 'For Beauty Professionals') return 'Ngành Làm Đẹp';
+      if (sub === 'Food - Restaurant Services') return 'Nhà Hàng';
+      if (sub === 'Hotel & Hospitality') return 'Khách Sạn';
+      if (sub === 'Making Friends Abroad') return 'Kết Bạn Quốc Tế';
+      if (sub === 'Parent-Child') return 'Bố Mẹ & Con Cái';
+      return sub || 'Danh Sách Bài';
+    }
+    if (rawTopic.category === 'Slang') return 'Từ Lóng';
+    if (rawTopic.category === 'Life') return 'Đời Sống';
+    if (rawTopic.category === 'PhrasalVerbs') return 'Động Từ Ghép';
+    if (rawTopic.category === 'Idioms') return 'Thành Ngữ';
+    if (rawTopic.category === 'Collocations') return 'Collocations';
+    return 'Danh Sách Bài';
+  }, [isHowToSpeak, rawTopic]);
 
   // Audio recording & playback states for dialogue lines
   const [playingLineId, setPlayingLineId] = useState<string | null>(null);
@@ -60,6 +86,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
   useEffect(() => {
     if (isWordBank) {
       setActiveCommTab('skillsLab');
+      setActiveLabDrill('translation');
     }
   }, [isWordBank, setActiveCommTab, rawTopic]);
 
@@ -250,8 +277,9 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
   const [discFeedback, setDiscFeedback] = useState<string | null>(null);
 
   const discriminationDrills = useMemo(() => {
+    if (isWordBank) return [];
     return getPhoneticDiscriminationDrills(rawTopic);
-  }, [rawTopic]);
+  }, [rawTopic, isWordBank]);
 
   const handleSelectDiscrimination = (optIdx: number) => {
     if (discSelectedOpt !== null) return;
@@ -429,35 +457,53 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#ffe36d]/5 rounded-full filter blur-3xl pointer-events-none" />
 
       {/* Header Panel */}
-      <div className="p-5 pb-5 text-white bg-[#111] border-b border-[#222] relative z-10 shrink-0 w-full flex flex-col gap-3">
-        <div className="max-w-4xl mx-auto w-full flex items-center justify-between">
-          <div className="flex gap-4 items-center">
+      <div className="p-3 sm:p-5 pb-3 sm:pb-4 text-white bg-[#111] border-b border-[#222] relative z-10 shrink-0 w-full flex flex-col gap-3">
+        <div className="max-w-4xl mx-auto w-full flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="flex gap-3 sm:gap-4 items-center min-w-0">
+            {/* Primary Back Button to topic list */}
             <button 
               onClick={onBack} 
-              className="p-2 -ml-2 bg-[#1A1A1A] hover:bg-[#222] border border-[#333] rounded-xl transition-all text-gray-400 hover:text-white inline-flex active:scale-95"
+              className="flex items-center gap-2 px-3 py-2 bg-[#1A1A1A] hover:bg-[#252525] border border-[#333] hover:border-[#ffe36d]/60 text-gray-300 hover:text-white rounded-xl text-xs font-black uppercase tracking-wider transition-all active:scale-95 shadow-md shrink-0 group"
+              title={`Quay lại danh sách bài: ${backListLabel}`}
             >
-              <ArrowLeft size={20} />
+              <ArrowLeft size={16} className="text-[#ffe36d] group-hover:-translate-x-0.5 transition-transform" />
+              <span className="hidden sm:inline">Quay Lại:</span>
+              <span className="text-[#ffe36d] max-w-[130px] sm:max-w-[200px] truncate">{backListLabel}</span>
             </button>
-            <div className="w-12 h-12 shrink-0 rounded-2xl border border-[#333] bg-[#1A1A1A] flex items-center justify-center text-2xl shadow-sm">
+
+            <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-2xl border border-[#333] bg-[#1A1A1A] flex items-center justify-center text-xl sm:text-2xl shadow-sm">
               {topic.icon}
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-black uppercase tracking-widest text-[#ffe36d] opacity-85">
+                <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-[#ffe36d] opacity-85 truncate">
                   {topic.category}
                 </span>
                 {topic.subCategory && (
-                  <span className="text-[10px] bg-[#222] text-gray-400 px-2 py-0.5 rounded border border-[#333]">
+                  <span className="text-[9px] sm:text-[10px] bg-[#222] text-gray-400 px-2 py-0.5 rounded border border-[#333] truncate max-w-[140px]">
                     {Array.isArray(topic.subCategory) ? topic.subCategory[0] : topic.subCategory}
                   </span>
                 )}
               </div>
-              <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tighter text-white mt-0.5">{topic.title}</h1>
+              <h1 className="text-base sm:text-xl md:text-2xl font-black uppercase tracking-tighter text-white mt-0.5 truncate">{topic.title}</h1>
             </div>
           </div>
           
-          <div className="hidden sm:flex items-center gap-2 bg-black/40 border border-[#222] px-3 py-1.5 rounded-full text-xs font-bold text-gray-300">
-            <GraduationCap size={14} className="text-[#ffe36d]" /> Giáo trình thực hành
+          <div className="flex items-center gap-2 shrink-0 self-end sm:self-center">
+            {onBackToPortal && (
+              <button
+                onClick={onBackToPortal}
+                className="flex items-center gap-1.5 px-3 py-2 bg-[#161616] hover:bg-[#222] border border-[#333] hover:border-gray-500 rounded-xl text-xs font-bold uppercase tracking-wider text-gray-400 hover:text-white transition-all active:scale-95 shadow-sm"
+                title={isWordBank ? "Quay lại Kho Từ Vựng" : "Quay lại Toàn Bộ Bài Học"}
+              >
+                <LayoutGrid size={13} className="text-[#ffe36d]" />
+                <span className="hidden md:inline">{isWordBank ? "Kho Từ Vựng" : "Toàn Bộ Bài Học"}</span>
+              </button>
+            )}
+
+            <div className="hidden lg:flex items-center gap-2 bg-black/40 border border-[#222] px-3 py-1.5 rounded-full text-xs font-bold text-gray-300">
+              <GraduationCap size={14} className="text-[#ffe36d]" /> Giáo trình thực hành
+            </div>
           </div>
         </div>
       </div>
@@ -760,14 +806,686 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                     </div>
                  </div>
 
-                  {/* 10 Interactive Sentence Items */}
-                  <div className="space-y-4">
-                     <h3 className="text-lg font-black uppercase tracking-widest text-gray-400 px-1 flex items-center gap-2">
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#ffe36d]"></span>
-                        {howToSpeakData.items.length} Bài học thực hành ngữ âm
-                     </h3>
+                  {/* EMBARRASSING PRONUNCIATION TRAPS: NUỐT ÂM CUỐI & THIẾU NỐI ÂM */}
+                  {howToSpeakData.embarrassingTraps && howToSpeakData.embarrassingTraps.length > 0 && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="bg-gradient-to-br from-[#251012] via-[#1a0f11] to-[#111] border-2 border-rose-500/35 hover:border-rose-500/60 rounded-[32px] p-6 sm:p-8 shadow-2xl relative overflow-hidden text-left"
+                    >
+                      <div className="absolute top-0 right-0 w-80 h-80 bg-rose-500/10 rounded-full filter blur-3xl pointer-events-none" />
+                      
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-rose-500/20">
+                        <div>
+                          <div className="flex items-center gap-2 mb-1.5">
+                            <span className="animate-bounce text-xl">⚠️</span>
+                            <span className="text-[11px] font-black uppercase tracking-widest text-rose-400 bg-rose-500/20 px-3 py-1 rounded-full border border-rose-500/30">
+                              Cảnh Báo Nguy Hiểm & Dở Khóc Dở Cười
+                            </span>
+                          </div>
+                          <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                            Tai Hại Khi Nuốt Âm Cuối & Thiếu Nối Âm
+                          </h3>
+                          <p className="text-xs sm:text-sm font-medium text-rose-200/80 mt-1">
+                            Người Việt hay nuốt mất phụ âm cuối, dẫn đến thiếu nối âm và biến ý nghĩa câu nói thành những tình huống kỳ quặc!
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-2 bg-black/40 px-3 py-2 rounded-2xl border border-rose-500/20 self-start sm:self-center shrink-0">
+                          <span className="text-2xl animate-pulse">😱</span>
+                          <span className="text-xs font-bold text-gray-300">Bấm nghe so sánh</span>
+                        </div>
+                      </div>
 
-                     <div className="grid grid-cols-1 gap-4">
+                      <div className="grid grid-cols-1 gap-4">
+                        {howToSpeakData.embarrassingTraps.map((trap: any, tIdx: number) => (
+                          <div 
+                            key={tIdx}
+                            className="bg-black/60 border border-rose-500/25 hover:border-rose-500/60 p-5 rounded-[24px] space-y-3 transition-all group relative overflow-hidden"
+                          >
+                            <div className="flex items-center justify-between flex-wrap gap-2">
+                              <span className="text-xs font-black uppercase tracking-wider text-[#ffe36d] bg-[#ffe36d]/10 px-3 py-1 rounded-full border border-[#ffe36d]/20">
+                                Bẫy {tIdx + 1}: "{trap.targetPhrase}" ➜ "{trap.mistakeSound}"
+                              </span>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+                              {/* Left: Trap / Mistake */}
+                              <div className="bg-rose-950/40 border border-rose-500/30 p-4 rounded-2xl space-y-2">
+                                <div className="flex items-center justify-between">
+                                  <span className="text-[10px] font-black uppercase tracking-wider text-rose-400 flex items-center gap-1">
+                                    <span>❌</span> Khi nuốt âm cuối / thiếu nối âm:
+                                  </span>
+                                  <button
+                                    onClick={() => playTTS(trap.trapSentence)}
+                                    className="p-1.5 rounded-lg bg-rose-500/20 hover:bg-rose-500 text-rose-300 hover:text-white transition-all active:scale-95 flex items-center gap-1 text-[10px] font-black uppercase"
+                                    title="Nghe câu tai hại"
+                                  >
+                                    <Volume2 size={13} /> Nghe
+                                  </button>
+                                </div>
+                                <p className="text-sm sm:text-base font-black text-rose-200">
+                                  "{trap.trapSentence}"
+                                </p>
+                                <p className="text-xs font-bold text-rose-300/90 italic">
+                                  😱 {trap.trapMeaning}
+                                </p>
+                              </div>
+
+                              {/* Right: Correct / Linked */}
+                              <div className="bg-emerald-950/40 border border-emerald-500/30 p-4 rounded-2xl space-y-2">
+                                <div className="flex items-center justify-between">
+                                  <span className="text-[10px] font-black uppercase tracking-wider text-emerald-400 flex items-center gap-1">
+                                    <span>✅</span> Phát âm chuẩn & nối âm mượt mà:
+                                  </span>
+                                  <button
+                                    onClick={() => playTTS(trap.correctSentence)}
+                                    className="p-1.5 rounded-lg bg-emerald-500/20 hover:bg-emerald-500 text-emerald-300 hover:text-white transition-all active:scale-95 flex items-center gap-1 text-[10px] font-black uppercase"
+                                    title="Nghe câu chuẩn xác"
+                                  >
+                                    <Volume2 size={13} /> Nghe
+                                  </button>
+                                </div>
+                                <p className="text-sm sm:text-base font-black text-emerald-200">
+                                  "{trap.correctSentence}"
+                                </p>
+                                <p className="text-xs font-bold text-emerald-300/90">
+                                  ✨ {trap.correctMeaning}
+                                </p>
+                              </div>
+                            </div>
+
+                            <p className="text-xs text-gray-300 font-semibold bg-white/5 p-3 rounded-xl border border-white/10">
+                              💡 <span className="font-bold text-[#ffe36d]">Bản chất:</span> {trap.explanation}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* STRONG SOUND VS WEAK SOUND COMPONENT */}
+                  {howToSpeakData.strongWeakPairs && howToSpeakData.strongWeakPairs.length > 0 && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="bg-gradient-to-br from-[#1c1912] via-[#171410] to-[#111] border-2 border-amber-500/30 hover:border-amber-500/50 rounded-[32px] p-6 sm:p-8 shadow-2xl relative overflow-hidden text-left"
+                    >
+                      <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full filter blur-3xl pointer-events-none" />
+                      
+                      <div className="mb-6 pb-4 border-b border-amber-500/20">
+                        <div className="flex items-center gap-2 mb-1.5">
+                          <span className="text-xl">⚖️</span>
+                          <span className="text-[11px] font-black uppercase tracking-widest text-amber-400 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-500/30">
+                            Bí Kíp Tiết Tấu Trọng Âm
+                          </span>
+                        </div>
+                        <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                          Phân Biệt Strong Sound vs Weak Sound (Khi Nào Đọc Nhanh / Chậm)
+                        </h3>
+                        <p className="text-xs sm:text-sm font-medium text-amber-200/80 mt-1 leading-relaxed">
+                          Đừng đọc từng từ đều đều từng nhịp như tiếng Việt! Hiểu rõ khi nào đọc lướt nhanh (Weak sound - /ə/) và khi nào đọc nhấn mạnh to rõ (Strong sound).
+                        </p>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {howToSpeakData.strongWeakPairs.map((pair: any, pIdx: number) => (
+                          <div 
+                            key={pIdx}
+                            className="bg-black/60 border border-amber-500/20 hover:border-amber-500/50 p-5 rounded-[24px] space-y-3 transition-all"
+                          >
+                            <div className="flex items-center justify-between border-b border-white/10 pb-2">
+                              <div>
+                                <h4 className="text-lg font-black text-white flex items-center gap-2">
+                                  <span className="text-[#ffe36d]">{pair.word}</span>
+                                </h4>
+                                <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">{pair.role}</span>
+                              </div>
+                              <span className="text-[10px] font-black uppercase bg-white/10 px-2.5 py-1 rounded-full text-amber-300">
+                                Mục {pIdx + 1}
+                              </span>
+                            </div>
+
+                            {/* Weak sound box */}
+                            <div className="p-3 bg-[#181818] rounded-xl border border-white/5 space-y-1.5">
+                              <div className="flex items-center justify-between">
+                                <span className="text-[10px] font-black uppercase tracking-wider text-cyan-400">
+                                  🍃 Weak Sound (Lướt nhẹ): {pair.weakForm}
+                                </span>
+                                <button
+                                  onClick={() => playTTS(pair.weakExample)}
+                                  className="p-1 px-2 rounded-lg bg-cyan-500/20 hover:bg-cyan-500 text-cyan-300 hover:text-black text-[10px] font-black transition-all flex items-center gap-1"
+                                >
+                                  <Volume2 size={11} /> Nghe
+                                </button>
+                              </div>
+                              <p className="text-xs font-bold text-white">Ví dụ: <span className="text-cyan-200 font-mono">"{pair.weakExample}"</span> <span className="text-gray-400 text-[11px] font-mono">({pair.weakExampleIpa})</span></p>
+                              <p className="text-[11px] text-gray-400 italic">{pair.weakNote}</p>
+                            </div>
+
+                            {/* Strong sound box */}
+                            <div className="p-3 bg-[#1e1a14] rounded-xl border border-amber-500/30 space-y-1.5">
+                              <div className="flex items-center justify-between">
+                                <span className="text-[10px] font-black uppercase tracking-wider text-[#ffe36d]">
+                                  🔥 Strong Sound (Nhấn mạnh): {pair.strongForm}
+                                </span>
+                                <button
+                                  onClick={() => playTTS(pair.strongExample)}
+                                  className="p-1 px-2 rounded-lg bg-[#ffe36d] hover:bg-[#ffe36d]/80 text-black text-[10px] font-black transition-all flex items-center gap-1"
+                                >
+                                  <Volume2 size={11} /> Nghe
+                                </button>
+                              </div>
+                              <p className="text-xs font-bold text-white">Ví dụ: <span className="text-amber-200 font-mono">"{pair.strongExample}"</span> <span className="text-gray-400 text-[11px] font-mono">({pair.strongExampleIpa})</span></p>
+                              <p className="text-[11px] text-amber-200/90 italic">{pair.strongNote}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* 7 PRONUNCIATION TIPS VIEW */}
+                  {howToSpeakData.tips && howToSpeakData.tips.length > 0 && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="space-y-5"
+                    >
+                      <h3 className="text-lg font-black uppercase tracking-widest text-gray-400 px-1 flex items-center gap-2">
+                        <span className="w-2.5 h-2.5 rounded-full bg-[#E76F51]"></span>
+                        7 Mẹo Thực Tế Giúp Cải Thiện Phát Âm
+                      </h3>
+
+                      <div className="grid grid-cols-1 gap-4">
+                        {howToSpeakData.tips.map((tip: any, tIdx: number) => (
+                          <div 
+                            key={tIdx}
+                            className="bg-[#1A1A1A] border-2 border-[#2d2d2d] hover:border-[#E76F51]/60 p-6 rounded-[28px] shadow-lg transition-all space-y-4 text-left relative overflow-hidden group"
+                          >
+                            <div className="flex items-start justify-between gap-3">
+                              <div className="flex items-center gap-3">
+                                <div className="w-12 h-12 bg-gradient-to-br from-[#E76F51] to-[#c85a3e] rounded-2xl flex items-center justify-center text-xl shadow-md shrink-0 text-white font-black">
+                                  {tip.number}
+                                </div>
+                                <div>
+                                  <span className="text-[10px] font-black uppercase tracking-widest text-[#E76F51] bg-[#E76F51]/10 px-2.5 py-0.5 rounded-full border border-[#E76F51]/20">
+                                    {tip.tag}
+                                  </span>
+                                  <h4 className="text-lg sm:text-xl font-black text-white mt-1 group-hover:text-[#ffe36d] transition-colors">
+                                    {tip.title}
+                                  </h4>
+                                </div>
+                              </div>
+                              <span className="text-2xl shrink-0">{tip.icon}</span>
+                            </div>
+
+                            <p className="text-sm font-medium text-gray-300 leading-relaxed bg-black/30 p-4 rounded-2xl border border-white/5">
+                              {tip.explanation}
+                            </p>
+
+                            {/* Dual word examples */}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                              <div className="bg-[#222] p-3.5 rounded-2xl border border-[#333] space-y-1">
+                                <div className="flex items-center justify-between">
+                                  <span className="font-black text-base text-white">{tip.exampleWord1}</span>
+                                  <button
+                                    onClick={() => playTTS(tip.exampleWord1)}
+                                    className="p-1.5 rounded-lg bg-[#333] hover:bg-[#ffe36d] hover:text-black text-gray-300 transition-all"
+                                  >
+                                    <Volume2 size={13} />
+                                  </button>
+                                </div>
+                                <p className="text-xs font-mono text-[#ffe36d]">{tip.ipa1}</p>
+                                <p className="text-[11px] text-gray-400 font-bold">{tip.meaning1}</p>
+                              </div>
+
+                              <div className="bg-[#222] p-3.5 rounded-2xl border border-[#333] space-y-1">
+                                <div className="flex items-center justify-between">
+                                  <span className="font-black text-base text-white">{tip.exampleWord2}</span>
+                                  <button
+                                    onClick={() => playTTS(tip.exampleWord2)}
+                                    className="p-1.5 rounded-lg bg-[#333] hover:bg-[#ffe36d] hover:text-black text-gray-300 transition-all"
+                                  >
+                                    <Volume2 size={13} />
+                                  </button>
+                                </div>
+                                <p className="text-xs font-mono text-[#ffe36d]">{tip.ipa2}</p>
+                                <p className="text-[11px] text-gray-400 font-bold">{tip.meaning2}</p>
+                              </div>
+                            </div>
+
+                            {/* Practice sentence */}
+                            <div className="p-4 bg-[#161616] rounded-2xl border border-[#2a2a2a] flex items-center justify-between gap-3">
+                              <div className="space-y-0.5">
+                                <p className="text-xs uppercase font-black tracking-wider text-gray-400">Câu thực hành:</p>
+                                <p className="text-sm font-black text-white">"{tip.practiceSentence}"</p>
+                                <p className="text-xs font-bold text-[#ffe36d]">{tip.practiceTranslation}</p>
+                              </div>
+                              <button
+                                onClick={() => playTTS(tip.practiceSentence)}
+                                className="p-2.5 rounded-xl bg-white hover:bg-[#ffe36d] text-black font-black transition-all active:scale-95 shrink-0"
+                                title="Nghe câu thực hành"
+                              >
+                                <Volume2 size={16} />
+                              </button>
+                            </div>
+
+                            {/* Action tip */}
+                            <div className="p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl text-xs font-bold text-amber-300 flex items-center gap-2">
+                              <span>🛠️</span>
+                              <span><b>Thực hành ngay:</b> {tip.actionTip}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* SILENT LETTERS VIEW */}
+                  {howToSpeakData.silentLetterGroups && howToSpeakData.silentLetterGroups.length > 0 && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="space-y-6"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3">
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-xl">🤫</span>
+                            <span className="text-xs font-black uppercase tracking-widest text-[#F4A261] bg-[#F4A261]/10 px-3 py-1 rounded-full border border-[#F4A261]/20">
+                              Bí Quyết Phát Âm Sạch & Tinh Tế
+                            </span>
+                          </div>
+                          <h3 className="text-xl sm:text-2xl font-black text-white mt-1">
+                            9 Nhóm Âm Câm Cốt Lõi (Silent Letters)
+                          </h3>
+                        </div>
+                        <p className="text-xs text-gray-400 max-w-sm">
+                          Không đọc thừa âm! Hơn 60% từ tiếng Anh chứa các chữ cái câm.
+                        </p>
+                      </div>
+
+                      <div className="grid grid-cols-1 gap-6">
+                        {howToSpeakData.silentLetterGroups.map((group: any, gIdx: number) => (
+                          <div 
+                            key={gIdx}
+                            className="bg-[#181818] border-2 border-[#2b2b2b] hover:border-[#F4A261]/50 rounded-[28px] p-6 shadow-xl space-y-4 text-left relative overflow-hidden group transition-all"
+                          >
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+                              <div className="flex items-center gap-3">
+                                <div className="w-12 h-12 rounded-2xl bg-[#F4A261]/15 border border-[#F4A261]/30 flex items-center justify-center text-xl font-black text-[#F4A261] shrink-0">
+                                  #{gIdx + 1}
+                                </div>
+                                <div>
+                                  <h4 className="text-lg sm:text-xl font-black text-white flex items-center gap-2">
+                                    <span>{group.letter}</span>
+                                  </h4>
+                                  <span className="text-xs font-bold text-[#F4A261]">
+                                    {group.rule}
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+
+                            <p className="text-xs sm:text-sm text-gray-300 bg-black/40 p-3.5 rounded-xl border border-white/5 leading-relaxed">
+                              💡 <b>Quy luật phát âm:</b> {group.explanation}
+                            </p>
+
+                            {/* Word cards */}
+                            <div>
+                              <p className="text-[11px] font-black uppercase tracking-wider text-gray-400 mb-2">
+                                Từ vựng điển hình (Bấm để nghe âm thanh):
+                              </p>
+                              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
+                                {group.words.map((w: any, wIdx: number) => (
+                                  <div
+                                    key={wIdx}
+                                    onClick={() => playTTS(w.word)}
+                                    className="bg-black/50 hover:bg-[#222] border border-[#333] hover:border-[#F4A261] p-3 rounded-2xl transition-all cursor-pointer group/w flex items-start justify-between gap-2"
+                                  >
+                                    <div className="space-y-0.5">
+                                      <div className="flex items-center gap-1.5">
+                                        <span className="text-base font-black text-white group-hover/w:text-[#F4A261] transition-colors">
+                                          {w.word}
+                                        </span>
+                                        <span className="text-[10px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30">
+                                          {w.silentChar} câm
+                                        </span>
+                                      </div>
+                                      <p className="text-xs font-mono font-bold text-[#ffe36d]">{w.ipa}</p>
+                                      <p className="text-xs text-gray-400">{w.translation}</p>
+                                      {w.note && (
+                                        <p className="text-[11px] text-amber-300/80 italic mt-0.5">{w.note}</p>
+                                      )}
+                                    </div>
+                                    <button 
+                                      onClick={(e) => { e.stopPropagation(); playTTS(w.word); }}
+                                      className="p-1.5 rounded-lg bg-white/5 group-hover/w:bg-[#F4A261] group-hover/w:text-black text-gray-400 transition-all shrink-0 mt-1"
+                                    >
+                                      <Volume2 size={13} />
+                                    </button>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+
+                            {/* Practice sentence */}
+                            <div className="bg-[#121212] border border-[#2d2d2d] p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                              <div className="space-y-1">
+                                <span className="text-[10px] font-black uppercase tracking-widest text-[#F4A261] flex items-center gap-1">
+                                  <span>🎯</span> Câu Luyện Chuẩn Không Thừa Âm:
+                                </span>
+                                <p className="text-sm sm:text-base font-black text-white">
+                                  "{group.practiceSentence}"
+                                </p>
+                                <p className="text-xs text-gray-400 italic">
+                                  {group.practiceTranslation}
+                                </p>
+                              </div>
+                              <button
+                                onClick={() => playTTS(group.practiceSentence)}
+                                className="px-4 py-2.5 rounded-xl bg-[#F4A261] hover:bg-[#e09152] text-black font-black text-xs uppercase tracking-wider flex items-center gap-1.5 self-start sm:self-center shrink-0 shadow-md active:scale-95 transition-all"
+                              >
+                                <Volume2 size={14} /> Nghe Câu
+                              </button>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* ELISION VIEW */}
+                  {howToSpeakData.elisionGroups && howToSpeakData.elisionGroups.length > 0 && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="space-y-6"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3">
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-xl">💨</span>
+                            <span className="text-xs font-black uppercase tracking-widest text-[#2A9D8F] bg-[#2A9D8F]/10 px-3 py-1 rounded-full border border-[#2A9D8F]/20">
+                              Nói Nhanh & Lướt Âm Mượt Mà
+                            </span>
+                          </div>
+                          <h3 className="text-xl sm:text-2xl font-black text-white mt-1">
+                            Nghệ Thuật Nuốt Âm (Elision & Sound Deletion)
+                          </h3>
+                        </div>
+                        <p className="text-xs text-gray-400 max-w-sm">
+                          Tiết kiệm năng lượng cơ miệng để nói trôi chảy và nghe hiểu phim ảnh dễ dàng.
+                        </p>
+                      </div>
+
+                      <div className="grid grid-cols-1 gap-6">
+                        {howToSpeakData.elisionGroups.map((group: any, gIdx: number) => (
+                          <div 
+                            key={gIdx}
+                            className="bg-[#181818] border-2 border-[#2b2b2b] hover:border-[#2A9D8F]/50 rounded-[28px] p-6 shadow-xl space-y-4 text-left relative overflow-hidden group transition-all"
+                          >
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+                              <div className="flex items-center gap-3">
+                                <div className="w-12 h-12 rounded-2xl bg-[#2A9D8F]/15 border border-[#2A9D8F]/30 flex items-center justify-center text-xl font-black text-[#2A9D8F] shrink-0">
+                                  #{gIdx + 1}
+                                </div>
+                                <div>
+                                  <h4 className="text-lg sm:text-xl font-black text-white">
+                                    {group.category}
+                                  </h4>
+                                  <span className="text-xs font-bold text-[#2A9D8F]">
+                                    {group.rule}
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+
+                            <p className="text-xs sm:text-sm text-gray-300 bg-black/40 p-3.5 rounded-xl border border-white/5 leading-relaxed">
+                              💡 <b>Cơ chế nuốt âm:</b> {group.explanation}
+                            </p>
+
+                            {/* Comparison table / pairs */}
+                            <div className="space-y-2.5">
+                              <p className="text-[11px] font-black uppercase tracking-wider text-gray-400">
+                                So sánh: Đọc Từng Chữ (Chậm) vs Nuốt Âm Bản Xứ (Nhanh):
+                              </p>
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                {group.examples.map((ex: any, eIdx: number) => (
+                                  <div 
+                                    key={eIdx}
+                                    className="bg-black/50 border border-[#333] hover:border-[#2A9D8F]/60 p-3.5 rounded-2xl space-y-2 transition-all"
+                                  >
+                                    <div className="grid grid-cols-2 gap-2 text-xs">
+                                      <div className="bg-[#202020] p-2.5 rounded-xl border border-white/5 space-y-1">
+                                        <div className="flex items-center justify-between">
+                                          <span className="text-[10px] font-black uppercase tracking-wider text-gray-400">Từng Chữ</span>
+                                          <button
+                                            onClick={() => playTTS(ex.original, 'en-US', true)}
+                                            className="p-1 rounded bg-white/10 hover:bg-white text-gray-300 hover:text-black transition-all"
+                                            title="Nghe từng chữ"
+                                          >
+                                            <Volume2 size={11} />
+                                          </button>
+                                        </div>
+                                        <p className="font-bold text-gray-200">{ex.original}</p>
+                                        <p className="font-mono text-[10px] text-gray-400">{ex.ipaOriginal}</p>
+                                      </div>
+
+                                      <div className="bg-[#142321] p-2.5 rounded-xl border border-[#2A9D8F]/30 space-y-1">
+                                        <div className="flex items-center justify-between">
+                                          <span className="text-[10px] font-black uppercase tracking-wider text-[#2A9D8F]">Nuốt Âm</span>
+                                          <button
+                                            onClick={() => playTTS(ex.elided, 'en-US', true)}
+                                            className="p-1 rounded bg-[#2A9D8F] text-black hover:bg-[#2A9D8F]/80 transition-all font-bold"
+                                            title="Nghe nuốt âm tự nhiên"
+                                          >
+                                            <Volume2 size={11} />
+                                          </button>
+                                        </div>
+                                        <p className="font-black text-[#2A9D8F]">{ex.elided}</p>
+                                        <p className="font-mono text-[10px] text-emerald-300">{ex.ipaElided}</p>
+                                      </div>
+                                    </div>
+                                    <p className="text-[11px] text-gray-400 italic">
+                                      ⚡ {ex.context}
+                                    </p>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+
+                            {/* Practice sentence */}
+                            <div className="bg-[#121212] border border-[#2d2d2d] p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                              <div className="space-y-1">
+                                <span className="text-[10px] font-black uppercase tracking-widest text-[#2A9D8F] flex items-center gap-1">
+                                  <span>🎯</span> Câu Thực Hành Nuốt Âm Tự Nhiên:
+                                </span>
+                                <p className="text-sm sm:text-base font-black text-white">
+                                  "{group.practiceSentence}"
+                                </p>
+                                <p className="text-xs text-gray-400 italic">
+                                  {group.practiceTranslation}
+                                </p>
+                              </div>
+                              <button
+                                onClick={() => playTTS(group.practiceSentence)}
+                                className="px-4 py-2.5 rounded-xl bg-[#2A9D8F] hover:bg-[#248277] text-black font-black text-xs uppercase tracking-wider flex items-center gap-1.5 self-start sm:self-center shrink-0 shadow-md active:scale-95 transition-all"
+                              >
+                                <Volume2 size={14} /> Nghe Câu
+                              </button>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* WORLD ACCENTS VIEW */}
+                  {howToSpeakData.accentGroups && howToSpeakData.accentGroups.length > 0 && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="space-y-6"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3">
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-xl">🌏</span>
+                            <span className="text-xs font-black uppercase tracking-widest text-[#E76F51] bg-[#E76F51]/10 px-3 py-1 rounded-full border border-[#E76F51]/20">
+                              Bản Đồ Ngữ Âm Toàn Cầu
+                            </span>
+                          </div>
+                          <h3 className="text-xl sm:text-2xl font-black text-white mt-1">
+                            Các Loại Accent Đặc Biệt: US, UK, AU & Giọng Việt
+                          </h3>
+                        </div>
+                        <p className="text-xs text-gray-400 max-w-sm">
+                          Nhận diện đặc trưng âm điệu của từng quốc gia để nghe hiểu đa vùng miền và hiệu chỉnh phát âm chuẩn xác.
+                        </p>
+                      </div>
+
+                      <div className="grid grid-cols-1 gap-6">
+                        {howToSpeakData.accentGroups.map((accent: any, aIdx: number) => (
+                          <div 
+                            key={aIdx}
+                            className="bg-[#181818] border-2 border-[#2b2b2b] hover:border-[#E76F51]/50 rounded-[28px] p-6 shadow-xl space-y-5 text-left relative overflow-hidden group transition-all"
+                          >
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+                              <div className="flex items-center gap-3">
+                                <span className="text-4xl">{accent.flag}</span>
+                                <div>
+                                  <h4 className="text-xl font-black text-white">
+                                    {accent.accentName}
+                                  </h4>
+                                  <span className="text-xs font-bold text-[#E76F51]">
+                                    📍 Vùng: {accent.region}
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+
+                            <p className="text-xs sm:text-sm text-gray-300 bg-black/40 p-3.5 rounded-xl border border-white/5 leading-relaxed">
+                              {accent.description}
+                            </p>
+
+                            {/* Key traits */}
+                            <div className="bg-[#141414] border border-[#262626] p-4 rounded-2xl space-y-2">
+                              <p className="text-[11px] font-black uppercase tracking-wider text-[#ffe36d] flex items-center gap-1.5">
+                                <span>⚡</span> Đặc Trưng Âm Thanh Cốt Lõi:
+                              </p>
+                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                {accent.keyTraits.map((trait: string, tIdx: number) => (
+                                  <div key={tIdx} className="bg-black/50 p-2.5 rounded-xl border border-white/5 text-xs text-gray-300 flex items-start gap-2">
+                                    <span className="text-[#E76F51] font-bold mt-0.5">•</span>
+                                    <span>{trait}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+
+                            {/* Comparison words with US/UK audio buttons */}
+                            {accent.comparisons && accent.comparisons.length > 0 && (
+                              <div className="space-y-2.5">
+                                <p className="text-[11px] font-black uppercase tracking-wider text-gray-400">
+                                  So Sánh Thực Tế & Luyện Tai (Bấm cờ để nghe từng giọng):
+                                </p>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                  {accent.comparisons.map((comp: any, cIdx: number) => (
+                                    <div 
+                                      key={cIdx}
+                                      className="bg-black/50 border border-[#333] hover:border-[#E76F51]/50 p-3.5 rounded-2xl space-y-2 transition-all"
+                                    >
+                                      <div className="flex items-center justify-between">
+                                        <span className="font-black text-base text-white">{comp.wordOrPhrase}</span>
+                                        <div className="flex items-center gap-1.5">
+                                          <button
+                                            onClick={() => playTTS(comp.wordOrPhrase, 'en-US')}
+                                            className="px-2 py-1 rounded-lg bg-blue-500/20 hover:bg-blue-500 text-blue-300 hover:text-white text-[10px] font-black transition-all flex items-center gap-1"
+                                            title="Nghe giọng Mỹ"
+                                          >
+                                            <span>🇺🇸 US</span>
+                                            <Volume2 size={11} />
+                                          </button>
+                                          <button
+                                            onClick={() => playTTS(comp.wordOrPhrase, 'en-GB')}
+                                            className="px-2 py-1 rounded-lg bg-red-500/20 hover:bg-red-500 text-red-300 hover:text-white text-[10px] font-black transition-all flex items-center gap-1"
+                                            title="Nghe giọng Anh"
+                                          >
+                                            <span>🇬🇧 UK</span>
+                                            <Volume2 size={11} />
+                                          </button>
+                                        </div>
+                                      </div>
+
+                                      <div className="grid grid-cols-2 gap-2 text-xs">
+                                        <div className="bg-[#1a1a1a] p-2 rounded-lg border border-white/5">
+                                          <span className="text-[10px] font-black uppercase text-blue-400 block">US IPA:</span>
+                                          <span className="font-mono text-[11px] text-gray-200">{comp.usIpa}</span>
+                                        </div>
+                                        <div className="bg-[#1a1a1a] p-2 rounded-lg border border-white/5">
+                                          <span className="text-[10px] font-black uppercase text-red-400 block">UK IPA:</span>
+                                          <span className="font-mono text-[11px] text-gray-200">{comp.ukIpa}</span>
+                                        </div>
+                                      </div>
+
+                                      {comp.auIpa && (
+                                        <div className="bg-amber-950/20 border border-amber-500/30 p-2 rounded-lg text-xs">
+                                          <span className="text-[10px] font-black uppercase text-amber-400 block">🇦🇺 AU Đặc Trưng:</span>
+                                          <span className="font-mono text-[11px] text-amber-200">{comp.auIpa}</span>
+                                        </div>
+                                      )}
+
+                                      <p className="text-[11px] text-gray-400 italic">
+                                        🔎 {comp.explanation}
+                                      </p>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+
+                            {/* Sample practice sentence */}
+                            <div className="bg-[#121212] border border-[#2d2d2d] p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                              <div className="space-y-1">
+                                <span className="text-[10px] font-black uppercase tracking-widest text-[#E76F51] flex items-center gap-1">
+                                  <span>🎯</span> Câu Mẫu Luyện Giọng {accent.accentName}:
+                                </span>
+                                <p className="text-sm sm:text-base font-black text-white">
+                                  "{accent.sampleSentence}"
+                                </p>
+                                <p className="text-xs text-gray-400 italic">
+                                  {accent.sampleTranslation}
+                                </p>
+                              </div>
+                              <button
+                                onClick={() => playTTS(accent.sampleSentence, aIdx === 1 ? 'en-GB' : 'en-US')}
+                                className="px-4 py-2.5 rounded-xl bg-[#E76F51] hover:bg-[#d45e41] text-white font-black text-xs uppercase tracking-wider flex items-center gap-1.5 self-start sm:self-center shrink-0 shadow-md active:scale-95 transition-all"
+                              >
+                                <Volume2 size={14} /> Nghe Câu
+                              </button>
+                            </div>
+
+                            {accent.culturalNote && (
+                              <div className="p-3 bg-white/5 border border-white/10 rounded-xl text-xs text-gray-300">
+                                💬 <b>Góc văn hóa ngôn ngữ:</b> {accent.culturalNote}
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* Standard Interactive Sentence Items */}
+                  {howToSpeakData.items && howToSpeakData.items.length > 0 && (
+                    <div className="space-y-4">
+                       <h3 className="text-lg font-black uppercase tracking-widest text-gray-400 px-1 flex items-center gap-2">
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#ffe36d]"></span>
+                          {howToSpeakData.items.length} Bài học thực hành ngữ âm
+                       </h3>
+
+                       <div className="grid grid-cols-1 gap-4">
                         {howToSpeakData.items.map((item: any, idx: number) => (
                           <div 
                             key={idx}
@@ -1014,7 +1732,8 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                           </div>
                        ))}
                     </div>
-                 </div>
+                  </div>
+                )}
                </motion.div>
             )}
 
@@ -1113,7 +1832,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                 {/* Lab Inner category selector */}
                 <div className="flex flex-wrap bg-[#151515] p-1.5 rounded-[20px] border border-[#2d2d2d] gap-1 shadow-inner">
                   {/* Phonics discrimination button for ending sounds / minimal pairs */}
-                  {discriminationDrills.length > 0 && (
+                  {!isWordBank && discriminationDrills.length > 0 && (
                     <button
                       onClick={() => setActiveLabDrill('discrimination')}
                       className={`flex-1 py-2 px-3 rounded-lg text-[10px] sm:text-xs font-black uppercase tracking-widest transition-all ${
@@ -1184,7 +1903,7 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                 </div>
 
                 {/* Sub Module 0: Sound Discrimination */}
-                {activeLabDrill === 'discrimination' && discriminationDrills.length > 0 && (
+                {!isWordBank && activeLabDrill === 'discrimination' && discriminationDrills.length > 0 && (
                   <div className="bg-[#1A1A1A] border-2 border-[#dc2323]/20 p-6 rounded-[32px] space-y-6">
                     <div className="flex justify-between items-center pb-3 border-b border-[#2d2d2d]">
                       <h3 className="text-base font-black text-white uppercase tracking-wider flex items-center gap-2">
@@ -1804,6 +2523,27 @@ export function TopicDetail({ topic: rawTopic, onBack, onSelectMode, activeCommT
                   <p className="text-gray-400 font-bold text-[9px] uppercase tracking-widest leading-none">Tetris ghép cặp vựng</p>
                 </div>
               </motion.button>
+            </div>
+
+            {/* Bottom Quick Return Bar */}
+            <div className="pt-6 border-t border-[#222] flex flex-wrap items-center justify-between gap-3">
+              <button
+                onClick={onBack}
+                className="flex items-center gap-2 px-4 sm:px-5 py-3 bg-[#1A1A1A] hover:bg-[#252525] border border-[#333] hover:border-[#ffe36d]/50 text-white rounded-2xl text-xs font-black uppercase tracking-wider transition-all active:scale-95 shadow-md group"
+              >
+                <ArrowLeft size={16} className="text-[#ffe36d] group-hover:-translate-x-0.5 transition-transform" />
+                <span>Quay Lại Danh Sách: <strong className="text-[#ffe36d]">{backListLabel}</strong></span>
+              </button>
+              
+              {onBackToPortal && (
+                <button
+                  onClick={onBackToPortal}
+                  className="flex items-center gap-2 px-4 py-3 bg-[#141414] hover:bg-[#202020] border border-[#2b2b2b] text-gray-400 hover:text-white rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
+                >
+                  <LayoutGrid size={15} />
+                  <span>{isWordBank ? "Kho Từ Vựng" : "Toàn Bộ Bài Học"}</span>
+                </button>
+              )}
             </div>
           </div>
 
